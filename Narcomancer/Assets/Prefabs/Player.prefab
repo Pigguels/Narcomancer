@@ -171,7 +171,19 @@ MonoBehaviour:
     m_ActionId: c0cc49a8-c6be-4fbc-8158-0316144fcbdf
     m_ActionName: Player/SecondaryFire[/Mouse/rightButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 789832318731247005}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnJumpDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: bd1bc228-2d28-4434-bea1-83cea0dff902
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
@@ -208,8 +220,12 @@ MonoBehaviour:
   m_MinXRot: -90
   m_Head: {fileID: 789832318303019595}
   m_WalkSpeed: 8
+  m_AirControl: 0.75
   m_Gravity: 9.81
   m_Drag: 1.5
+  m_JumpHeight: 2.5
+  m_AirJumpMultiplier: 1
+  m_MaxAirJumps: 1
 --- !u!143 &789832318731247002
 CharacterController:
   m_ObjectHideFlags: 0
@@ -288,7 +304,7 @@ Camera:
   field of view: 90
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 512
@@ -367,7 +383,7 @@ MonoBehaviour:
   clearDepth: 1
   volumeLayerMask:
     serializedVersion: 2
-    m_Bits: 513
+    m_Bits: 4294967295
   volumeAnchorOverride: {fileID: 0}
   antialiasing: 0
   SMAAQuality: 2
@@ -422,7 +438,7 @@ GameObject:
   - component: {fileID: 789832318895824781}
   m_Layer: 0
   m_Name: World Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -469,7 +485,7 @@ Camera:
   field of view: 90
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 311
@@ -556,7 +572,7 @@ MonoBehaviour:
   clearDepth: 1
   volumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 4294967295
   volumeAnchorOverride: {fileID: 0}
   antialiasing: 0
   SMAAQuality: 2
