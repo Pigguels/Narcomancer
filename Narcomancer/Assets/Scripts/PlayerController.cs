@@ -4,15 +4,18 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
     Vector2 m_MoveInput;
     Vector2 m_LookInput;
 
+    [SerializeField] public PlayerInput m_PlayerInput;
+
     #region Variables : Camera
 
-    [Space]
     [Header("Camera:")]
+    [Space]
 
     public float m_LookSensitivity = 4.5f;
     public float m_MaxXRot = 90;
@@ -27,30 +30,46 @@ public class PlayerController : MonoBehaviour
 
     #region Variables : Basic Movement
 
-    [Space]
     [Header("Basic Movement:")]
+    [Space]
 
-    public float m_WalkSpeed = 8f;
+    public float m_WalkMoveSpeed = 8f;
 
     public float m_AirControl = 0.75f;
 
     public float m_Gravity = 9.81f;
     public float m_Drag = 0.5f;
 
-    private bool m_IsGrounded;
-    private bool m_ObjectAbove;
+    private bool m_IsGrounded = false;
+    private bool m_ObjectAbove = false;
 
-    private Vector3 m_MoveDir;
-    private Vector3 m_Velocity;
+    private Vector3 m_MoveDir = Vector3.zero;
+    private Vector3 m_LastMoveDir = Vector3.zero;
+    private Vector3 m_Velocity = Vector3.zero;
 
     private MovementStates m_MoveState = MovementStates.walk;
 
     #endregion
 
+    #region Variables : Crouching
+
+    [Header("Crouching:")]
+    [Space]
+
+    public float m_CrouchMoveSpeed = 4f;
+
+    public float m_CrouchSpeed = 0.5f;
+
+    public float m_CrouchHeight = 1f;
+    private float m_StandingHeight;
+    private float m_TargetHeight;
+
+    #endregion
+
     #region Variables : Jumping
 
-    [Space]
     [Header("Jumping:")]
+    [Space]
 
     public float m_JumpHeight = 2.5f;
     public float m_AirJumpMultiplier = 1f;
@@ -61,30 +80,43 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    #region Variables : Sliding
+
+    public float m_AngleToStartSlide = 45f;
+
+    #endregion
+
     private CharacterController m_CharController;
 
-    void Start()
+    private void Awake()
     {
         m_CharController = GetComponent<CharacterController>();
 
+        m_StandingHeight = m_CharController.height;
+        m_TargetHeight = m_StandingHeight;
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-        float vel = Mathf.Sqrt(-m_JumpHeight / 1.5f * -m_Gravity);
-        float t = vel / m_Gravity;
-        a = vel * t + 0.5f * m_Gravity * t * t;
-        print(a);
     }
-
-    float a;
 
     void Update()
     {
+        print(CanStand());
 
         m_IsGrounded = IsGrounded();
         m_ObjectAbove = IsObjectAbove();
 
+        /* Get The last move direction the is not zero */
+        if (m_MoveDir != Vector3.zero)
+            m_LastMoveDir = m_MoveDir;
+
         m_MoveDir = (transform.forward * m_MoveInput.y + transform.right * m_MoveInput.x).normalized;
+
+        /* Adjust the target height to the according state */
+        if (m_MoveState == MovementStates.crouch || m_MoveState == MovementStates.slide)
+            m_TargetHeight = m_CrouchHeight;
+        else
+            m_TargetHeight = m_StandingHeight;
 
         /* Update the current movement states */
         switch (m_MoveState)
@@ -94,6 +126,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case MovementStates.crouch:
+                Crouch();
                 break;
 
             case MovementStates.jump:
@@ -101,6 +134,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case MovementStates.slide:
+                Slide();
                 break;
 
             case MovementStates.mantle:
@@ -114,6 +148,8 @@ public class PlayerController : MonoBehaviour
         }
 
         ApplyPhysics();
+
+        AdjustYScale(m_TargetHeight, m_CrouchSpeed);
     }
 
     private void LateUpdate()
@@ -124,7 +160,7 @@ public class PlayerController : MonoBehaviour
     /// <summary> 
     /// Handles the players transform and head rotation
     /// </summary>
-    void Look()
+    private void Look()
     {
         /* Apply the mouse movements to the heads rotation */
         m_Pitch -= m_LookInput.y * m_LookSensitivity * Time.fixedDeltaTime;
@@ -138,6 +174,7 @@ public class PlayerController : MonoBehaviour
         m_Head.localEulerAngles = new Vector3(m_Pitch, m_Head.localEulerAngles.y, m_Head.localEulerAngles.z);
     }
 
+    #region Physics
 
     /// <summary>
     /// Applies drag and gravity to the velocity
@@ -163,6 +200,28 @@ public class PlayerController : MonoBehaviour
         m_Velocity += force;
     }
 
+    #endregion
+
+    #region Adjustments
+
+    /// <summary>
+    /// lerp the characters y scale to the height and adjust the position to make it seamless
+    /// </summary>
+    private void AdjustYScale(float height, float speed)
+    {
+        m_CharController.enabled = false;
+
+        /* Change the character controllers height */
+        m_CharController.height = Mathf.Lerp(m_CharController.height, height, speed);
+
+        // offset position
+        float yOffset = Mathf.Lerp(m_CharController.height, height, speed) - m_CharController.height;
+        transform.position += new Vector3(0f, yOffset, 0f);
+
+        m_CharController.enabled = true;
+    }
+
+    #endregion
 
     #region Collision Checks
 
@@ -184,24 +243,56 @@ public class PlayerController : MonoBehaviour
         return Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~gameObject.layer);
     }
 
+    /// <summary>
+    /// Returns true if there is enough room above character controller to stand,calso returns true if already standing
+    /// </summary>
+    private bool CanStand()
+    {
+        if (m_TargetHeight == m_StandingHeight)
+            return true;
+
+        RaycastHit sphereHit;
+        return !Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) + m_StandingHeight - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~gameObject.layer);
+    }
+
     #endregion
 
     #region Movement States
 
     /// <summary> 
-    ///The players basic walk state
+    ///The players walk state
     /// </summary>
     private void Walk()
     {
+        /* If the players grounded move them in their desired direction */
         if (m_IsGrounded)
-            m_CharController.Move((m_MoveDir * m_WalkSpeed + m_Velocity) * Time.deltaTime);
-        else                       
-            m_CharController.Move((m_MoveDir * m_WalkSpeed * m_AirControl + m_Velocity) * Time.deltaTime);
+            m_CharController.Move((m_MoveDir * m_WalkMoveSpeed + m_Velocity) * Time.deltaTime);
+        else
+        {
+            /* If player tries to move move them in tht direction, if not continue in there last move direction */
+            if(m_MoveDir != Vector3.zero)
+                m_CharController.Move((m_MoveDir * m_WalkMoveSpeed * m_AirControl + m_Velocity) * Time.deltaTime);
+            else
+                m_CharController.Move((m_LastMoveDir * m_WalkMoveSpeed * m_AirControl + m_Velocity) * Time.deltaTime);
+        }
     }
 
+    /// <summary>
+    /// The players crouch state
+    /// </summary>
     private void Crouch()
     {
-
+        /* If the players grounded move them in their desired direction */
+        if (m_IsGrounded)
+            m_CharController.Move((m_MoveDir * m_CrouchMoveSpeed + m_Velocity) * Time.deltaTime);
+        else
+        {
+            /* If player tries to move move them in tht direction, if not continue in there last move direction */
+            if (m_MoveDir != Vector3.zero)
+                m_CharController.Move((m_MoveDir * m_CrouchMoveSpeed * m_AirControl + m_Velocity) * Time.deltaTime);
+            else
+                m_CharController.Move((m_LastMoveDir * m_CrouchMoveSpeed * m_AirControl + m_Velocity) * Time.deltaTime);
+        }
     }
 
     /// <summary>
@@ -209,11 +300,12 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void InitialiseJump()
     {
+        /* Reset the current air jumps to zero */
         m_AirJumpCount = 0;
 
         /* Apply an upward force to the velocity */
-        float vel = Mathf.Sqrt(-m_JumpHeight / 2f * -m_Gravity);
-        m_Velocity.y = vel * 2f;
+        float vel = Mathf.Sqrt(-m_JumpHeight / 2f * -m_Gravity) * 2f;
+        m_Velocity.y = vel;
 
         /* Get the initial jump direction */
         m_JumpDir = m_MoveDir;
@@ -227,13 +319,13 @@ public class PlayerController : MonoBehaviour
         if (m_MoveDir != Vector3.zero)
         {
             /* Move in the players desired direction */
-            m_CharController.Move(((m_MoveDir * m_WalkSpeed * m_AirControl) + m_Velocity) * Time.deltaTime);
+            m_CharController.Move(((m_MoveDir * m_WalkMoveSpeed * m_AirControl) + m_Velocity) * Time.deltaTime);
 
             /* Save the jump direction for the next go around */
             m_JumpDir = m_MoveDir;
         }
         else /* Move in the last desired direction */
-            m_CharController.Move(((m_JumpDir * m_WalkSpeed * m_AirControl) + m_Velocity) * Time.deltaTime);
+            m_CharController.Move(((m_JumpDir * m_WalkMoveSpeed * m_AirControl) + m_Velocity) * Time.deltaTime);
 
 
         /* Exiting the jump */
@@ -248,6 +340,11 @@ public class PlayerController : MonoBehaviour
 
             m_MoveState = MovementStates.walk;
         }
+    }
+
+    private void Slide()
+    {
+
     }
 
     private void Mantle()
@@ -269,28 +366,54 @@ public class PlayerController : MonoBehaviour
 
     #region Input handling
 
-    public void OnMove(InputAction.CallbackContext value)
-    {
-        m_MoveInput = value.ReadValue<Vector2>();
-    }
-    public void OnLook(InputAction.CallbackContext value)
-    {
-        m_LookInput = value.ReadValue<Vector2>();
-    }
-
-    public void OnCrouch()
+    private void HandleInput()
     {
 
     }
 
-    public void OnJump(InputAction.CallbackContext value)
+    public void OnMove(InputAction.CallbackContext context)
     {
+        m_MoveInput = context.ReadValue<Vector2>();
+    }
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        m_LookInput = context.ReadValue<Vector2>();
+    }
 
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            /* Check if can transition to slide */
+            if (m_IsGrounded && Vector3.Dot(m_MoveDir, transform.forward) > m_AngleToStartSlide * Mathf.Deg2Rad)
+            {
+
+            }
+
+            /* Go to the crouched state */
+            if (m_MoveState == MovementStates.walk)
+            {
+                m_TargetHeight = m_CrouchHeight;
+                m_MoveState = MovementStates.crouch;
+            }
+        }
+        else if (context.canceled)
+        {
+            if (m_MoveState == MovementStates.crouch && CanStand())
+            {
+                m_TargetHeight = m_StandingHeight;
+                m_MoveState = MovementStates.walk;
+            }
+        }
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
         /* On the frame it was pressed */
-        if (value.ReadValueAsButton())
+        if (context.started)
         {
             /* Move to the jumping state */
-            if (m_IsGrounded && (m_MoveState == MovementStates.walk || m_MoveState == MovementStates.slide))
+            if (m_IsGrounded && (m_MoveState == MovementStates.walk || m_MoveState == MovementStates.crouch || m_MoveState == MovementStates.slide))
             {
                 InitialiseJump();
                 m_MoveState = MovementStates.jump;
