@@ -59,11 +59,12 @@ public class PlayerController : MonoBehaviour
     [Header("Crouching:")]
     [Space]
 
+    [Range(0f, 1f)]
+    public float m_VerticalCrouchSpeed = 0.5f;
+    public float m_CrouchHeight = 1f;
+
     public float m_CrouchMoveSpeed = 4f;
 
-    public float m_CrouchSpeed = 0.5f;
-
-    public float m_CrouchHeight = 1f;
     private float m_StandingHeight;
     private float m_TargetHeight;
 
@@ -85,7 +86,19 @@ public class PlayerController : MonoBehaviour
 
     #region Variables : Sliding
 
+    [Header("Slide Variables:")]
+    [Space]
+
+    [Range(0f, 1f)]
+    public float m_VerticalSlideSpeed = 0.7f;
+    public float m_SlideHeight = 1f;
+
     public float m_AngleToStartSlide = 45f;
+    public float m_InitSlideSpeed = 45f;
+    public float m_SlideFriction = 4f;
+
+    private float m_SlideSpeed;
+    private Vector3 m_InitSlideDir;
 
     #endregion
 
@@ -122,12 +135,6 @@ public class PlayerController : MonoBehaviour
 
             case MovementStates.crouch:
                 Crouch();
-
-                if (!m_InputDown[(int)KeyInputs.crouch] && CanStand())
-                {
-                    m_TargetHeight = m_StandingHeight;
-                    m_MoveState = MovementStates.walk;
-                }
                 break;
 
             case MovementStates.jump:
@@ -150,7 +157,10 @@ public class PlayerController : MonoBehaviour
 
         ApplyPhysics();
 
-        AdjustYScale(m_TargetHeight, m_CrouchSpeed);
+        if (m_MoveState == MovementStates.slide)
+            AdjustYScale(m_TargetHeight, m_VerticalSlideSpeed);
+        else
+            AdjustYScale(m_TargetHeight, m_VerticalCrouchSpeed);
     }
 
     private void LateUpdate()
@@ -211,17 +221,17 @@ public class PlayerController : MonoBehaviour
     private void AdjustYScale(float height, float speed)
     {
         m_CharController.enabled = false;
-
+        float controllerHeightCache = m_CharController.height;
         /* Change the character controllers height */
-        m_CharController.height = Mathf.Lerp(m_CharController.height, height, speed);
+        m_CharController.height = Mathf.Lerp(controllerHeightCache, height, speed);
 
         /* Offset position */
-        float yOffset = (Mathf.Lerp(m_CharController.height, height, speed) - m_CharController.height) * 0.5f;
+        float yOffset = (Mathf.Lerp(controllerHeightCache, height, speed) - m_CharController.height) * 0.5f - controllerHeightCache * (1/controllerHeightCache);
         transform.position += new Vector3(0f, yOffset, 0f);
 
         /* Adjust eye level */
-        m_Head.localPosition = new Vector3(m_Head.localPosition.x, m_EyeLevel * m_CharController.height * 0.5f - (1f * (m_CharController.height * 0.5f)), m_Head.localPosition.z);
-
+        m_Head.localPosition = new Vector3(m_Head.localPosition.x, m_EyeLevel * m_CharController.height * 0.5f - (m_CharController.height * 0.5f), m_Head.localPosition.z);
+        
         m_CharController.enabled = true;
     }
 
@@ -286,6 +296,14 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Crouch()
     {
+        /* Exit the crouch state */
+        if (!m_InputDown[(int)KeyInputs.crouch] && CanStand())
+        {
+            m_TargetHeight = m_StandingHeight;
+            m_MoveState = MovementStates.walk;
+            return;
+        }
+
         /* If the players grounded move them in their desired direction */
         if (m_IsGrounded)
             m_CharController.Move((m_MoveDir * m_CrouchMoveSpeed + m_Velocity) * Time.deltaTime);
@@ -346,9 +364,45 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Initialises the players slide
+    /// </summary>
+    private void InitialiseSlide()
+    {
+        /* Set new target height */
+        m_TargetHeight = m_SlideHeight;
+
+        /* Get the initial slide direction */
+        m_InitSlideDir = m_MoveDir;
+
+        m_SlideSpeed = m_InitSlideSpeed;
+    }
+    /// <summary>
+    /// the players slide, returns back to the crouched state once completed
+    /// </summary>
     private void Slide()
     {
+        /* Slide movement */
+        if (m_SlideSpeed > m_CrouchMoveSpeed)
+        {
+            /* Create the slide movement vector */
+            Vector3 movement = (m_InitSlideDir + (m_MoveDir * 0.5f)).normalized;
 
+            /* Apply the slide movement */
+            if (m_IsGrounded)
+                m_CharController.Move(((movement * m_SlideSpeed) + m_Velocity) * Time.deltaTime);
+            else
+                m_CharController.Move(((movement * m_SlideSpeed * m_AirControl) + m_Velocity) * Time.deltaTime);
+
+            /* Slow the slide speed */
+            m_SlideSpeed = Mathf.Lerp(m_SlideSpeed, 0f, m_SlideFriction * Time.deltaTime);
+        }
+        else
+        {
+            /* Exit the slide */
+            m_TargetHeight = m_CrouchHeight;
+            m_MoveState = MovementStates.crouch;
+        }
     }
 
     private void Mantle()
@@ -386,7 +440,9 @@ public class PlayerController : MonoBehaviour
             /* Check if can transition to slide */
             if (m_IsGrounded && Vector3.Dot(m_MoveDir, transform.forward) > m_AngleToStartSlide * Mathf.Deg2Rad)
             {
-
+                print("jhkbdes");
+                InitialiseSlide();
+                m_MoveState = MovementStates.slide;
             }
 
             /* Go to the crouched state */
