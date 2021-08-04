@@ -9,8 +9,11 @@ public class PlayerController : MonoBehaviour
 {
     Vector2 m_MoveInput;
     Vector2 m_LookInput;
-
-    [SerializeField] public PlayerInput m_PlayerInput;
+    
+    public PlayerInput m_PlayerInput;
+    
+    enum KeyInputs { crouch, jump, dash, primaryFire, secondaryFire, };
+    bool[] m_InputDown = new bool[(int)KeyInputs.secondaryFire + 1];
 
     #region Variables : Camera
 
@@ -18,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [Space]
 
     public float m_LookSensitivity = 4.5f;
+    public float m_EyeLevel = 1.9f;
     public float m_MaxXRot = 90;
     public float m_MinXRot = -90;
     private float m_Pitch = 0;
@@ -25,8 +29,6 @@ public class PlayerController : MonoBehaviour
     public Transform m_Head;
 
     #endregion
-
-    enum MovementStates {walk, crouch, jump, slide, mantle, vault, dash};
 
     #region Variables : Basic Movement
 
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_LastMoveDir = Vector3.zero;
     private Vector3 m_Velocity = Vector3.zero;
 
+    enum MovementStates {walk, crouch, jump, slide, mantle, vault, dash};
     private MovementStates m_MoveState = MovementStates.walk;
 
     #endregion
@@ -101,8 +104,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        print(CanStand());
-
         m_IsGrounded = IsGrounded();
         m_ObjectAbove = IsObjectAbove();
 
@@ -111,12 +112,6 @@ public class PlayerController : MonoBehaviour
             m_LastMoveDir = m_MoveDir;
 
         m_MoveDir = (transform.forward * m_MoveInput.y + transform.right * m_MoveInput.x).normalized;
-
-        /* Adjust the target height to the according state */
-        if (m_MoveState == MovementStates.crouch || m_MoveState == MovementStates.slide)
-            m_TargetHeight = m_CrouchHeight;
-        else
-            m_TargetHeight = m_StandingHeight;
 
         /* Update the current movement states */
         switch (m_MoveState)
@@ -127,6 +122,12 @@ public class PlayerController : MonoBehaviour
 
             case MovementStates.crouch:
                 Crouch();
+
+                if (!m_InputDown[(int)KeyInputs.crouch] && CanStand())
+                {
+                    m_TargetHeight = m_StandingHeight;
+                    m_MoveState = MovementStates.walk;
+                }
                 break;
 
             case MovementStates.jump:
@@ -214,9 +215,12 @@ public class PlayerController : MonoBehaviour
         /* Change the character controllers height */
         m_CharController.height = Mathf.Lerp(m_CharController.height, height, speed);
 
-        // offset position
-        float yOffset = Mathf.Lerp(m_CharController.height, height, speed) - m_CharController.height;
+        /* Offset position */
+        float yOffset = (Mathf.Lerp(m_CharController.height, height, speed) - m_CharController.height) * 0.5f;
         transform.position += new Vector3(0f, yOffset, 0f);
+
+        /* Adjust eye level */
+        m_Head.localPosition = new Vector3(m_Head.localPosition.x, m_EyeLevel * m_CharController.height * 0.5f - (1f * (m_CharController.height * 0.5f)), m_Head.localPosition.z);
 
         m_CharController.enabled = true;
     }
@@ -366,11 +370,6 @@ public class PlayerController : MonoBehaviour
 
     #region Input handling
 
-    private void HandleInput()
-    {
-
-    }
-
     public void OnMove(InputAction.CallbackContext context)
     {
         m_MoveInput = context.ReadValue<Vector2>();
@@ -396,14 +395,12 @@ public class PlayerController : MonoBehaviour
                 m_TargetHeight = m_CrouchHeight;
                 m_MoveState = MovementStates.crouch;
             }
+
+            m_InputDown[(int)KeyInputs.crouch] = true;
         }
         else if (context.canceled)
         {
-            if (m_MoveState == MovementStates.crouch && CanStand())
-            {
-                m_TargetHeight = m_StandingHeight;
-                m_MoveState = MovementStates.walk;
-            }
+            m_InputDown[(int)KeyInputs.crouch] = false;
         }
     }
 
@@ -425,12 +422,49 @@ public class PlayerController : MonoBehaviour
                 ++m_AirJumpCount;
                 m_Velocity.y += Mathf.Sqrt(-m_JumpHeight / 1.5f * -m_Gravity) * m_AirJumpMultiplier;
             }
+
+            m_InputDown[(int)KeyInputs.jump] = true;
+        }
+        else if (context.canceled)
+        {
+            m_InputDown[(int)KeyInputs.jump] = false;
         }
     }
 
-    public void OnDash()
+    public void OnDash(InputAction.CallbackContext context)
     {
+        if (context.started)
+        {
+            m_InputDown[(int)KeyInputs.dash] = true;
+        }
+        else if (context.canceled)
+        {
+            m_InputDown[(int)KeyInputs.dash] = false;
+        }
+    }
 
+    public void OnPrimaryFire(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            m_InputDown[(int)KeyInputs.primaryFire] = true;
+        }
+        else if (context.canceled)
+        {
+            m_InputDown[(int)KeyInputs.primaryFire] = false;
+        }
+    }
+
+    public void OnSecondaryFire(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            m_InputDown[(int)KeyInputs.secondaryFire] = true;
+        }
+        else if (context.canceled)
+        {
+            m_InputDown[(int)KeyInputs.secondaryFire] = false;
+        }
     }
 
     #endregion
