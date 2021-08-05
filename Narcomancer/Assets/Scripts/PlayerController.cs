@@ -93,12 +93,35 @@ public class PlayerController : MonoBehaviour
     public float m_VerticalSlideSpeed = 0.7f;
     public float m_SlideHeight = 1f;
 
-    public float m_AngleToStartSlide = 45f;
+    [Range(0f, 180f)]
+    public float m_MaxAngleToStartSlide = 45f;
     public float m_InitSlideSpeed = 45f;
     public float m_SlideFriction = 4f;
 
     private float m_SlideSpeed;
     private Vector3 m_InitSlideDir;
+
+    #endregion
+
+    #region Variables : Mantle
+
+    [Header("Mantle:")]
+    [Space]
+
+    public float mantleTime = 1f;
+    [Min(1.01f)]
+    public float mantleClimbCurveMultiplier = 1.2f;
+    public float horizontalDistanceToMantle = 0.1f;
+    public float verticalDistanceToMantle = 1.5f;
+    [Range(0f, 180f)]
+    public float maxMantleWallAngle = 45f;
+
+    private float timeSinceMantleStart = 0f;
+    private float mantleTimeMultiplier;
+
+    private Vector3 mantleStartPosition;
+    private Vector3 mantleEndPosition;
+    private Vector3 mantleControlPosition;
 
     #endregion
 
@@ -126,6 +149,13 @@ public class PlayerController : MonoBehaviour
 
         m_MoveDir = (transform.forward * m_MoveInput.y + transform.right * m_MoveInput.x).normalized;
 
+        print(CanMantle());
+        if (m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanMantle())
+        {
+            InitialiseMantle();
+            m_MoveState = MovementStates.mantle;
+        }
+
         /* Update the current movement states */
         switch (m_MoveState)
         {
@@ -146,6 +176,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case MovementStates.mantle:
+                Mantle();
                 break;
 
             case MovementStates.vault:
@@ -269,6 +300,88 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit sphereHit;
         return !Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) + m_StandingHeight - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~gameObject.layer);
+    }
+
+    private bool CanMantle()
+    {
+        //Vector3 checkDirection = m_MoveDir != Vector3.zero ? m_MoveDir : transform.forward;
+        ///*        
+        //         ___
+        //        /***\
+        //        |***|________\  |
+        //        |***|        /  |
+        //        |***|           |
+        //        /***\________\  |
+        //        |***|        /  v
+        //        \___/   ________X____
+        //        |   |-->x
+        //        |   |   |
+        //        |   |   |
+        //        \___/   |
+        // */
+        //
+        ///* Check if there is a wall in the check direction */
+        //RaycastHit wallHit;
+        //if (Physics.Raycast(transform.position + new Vector3(0f, 0f, 0f), checkDirection, out wallHit, m_CharController.radius + m_CharController.skinWidth + horizontalDistanceToMantle, ~gameObject.layer))
+        //{
+        //    /* Make sure the angle of the wall is not to high */
+        //    if (Vector3.Dot(wallHit.normal, transform.forward) >= maxMantleWallAngle * Mathf.Deg2Rad)
+        //    {
+        //        /* Make sure there is actually a ledge, and not a wall */
+        //        RaycastHit ledgeHit;
+        //        if (!Physics.Raycast(transform.position + new Vector3(0f, verticalDistanceToMantle, 0f), checkDirection, out ledgeHit, m_CharController.radius + m_CharController.skinWidth + horizontalDistanceToMantle, ~gameObject.layer))
+        //        {
+        //            /* Make sure there is a surface to land on */
+        //            RaycastHit groundHit;
+        //            if (!Physics.Raycast(transform.position + new Vector3(0f, verticalDistanceToMantle, 0f), Vector3.down, out groundHit, verticalDistanceToMantle, ~gameObject.layer))
+        //            {
+        //                /* Make sure the surface if fairly level */
+        //                if (Vector3.Dot(groundHit.normal, transform.up) >= 0.95f)
+        //                {
+        //                    RaycastHit playerCollisionHit;
+        //                    if (!Physics.CapsuleCast(transform.position + new Vector3(0f, verticalDistanceToMantle - groundHit.distance - m_CharController.radius + m_CharController.skinWidth, 0f),
+        //                        transform.position + new Vector3(0f, (verticalDistanceToMantle - groundHit.distance) + m_CharController.height + m_CharController.skinWidth, 0f), m_CharController.radius, -wallHit.normal, horizontalDistanceToMantle, ~gameObject.layer))
+        //                    {
+        //                        return true;
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+
+        Vector3 checkDirection = m_MoveDir != Vector3.zero ? m_MoveDir : transform.forward;
+
+        Debug.DrawLine(transform.position, transform.position + checkDirection * (m_CharController.radius + m_CharController.skinWidth + horizontalDistanceToMantle), Color.green);
+        Debug.DrawLine(transform.position + (checkDirection * (horizontalDistanceToMantle + (m_CharController.radius * 2f))) + (Vector3.up * verticalDistanceToMantle), transform.position + (checkDirection * (horizontalDistanceToMantle + (m_CharController.radius * 2f))), Color.magenta);
+
+
+        // check if there's a wall in the direction the players moving
+        RaycastHit wallHit;
+        if (Physics.Raycast(transform.position, checkDirection, out wallHit, m_CharController.radius + m_CharController.skinWidth + horizontalDistanceToMantle, ~gameObject.layer))
+        {
+            // check if the angle of the wall is within the max mantle angle
+            if (Vector3.Dot(wallHit.normal, checkDirection) < -maxMantleWallAngle * Mathf.Deg2Rad)
+            {
+                // check if there's a surface above that wall
+                RaycastHit groundHit;
+                if (Physics.Raycast(transform.position + (checkDirection * (horizontalDistanceToMantle + (m_CharController.radius * 2f))) + (Vector3.up * verticalDistanceToMantle), Vector3.down, out groundHit, verticalDistanceToMantle, ~gameObject.layer))
+                {
+                    // check if the ledges surface is close to level
+                    if (Vector3.Dot(groundHit.normal, Vector3.up) > 0.9f)
+                    {
+                        if (!Physics.CapsuleCast(transform.position + new Vector3(0f, verticalDistanceToMantle - groundHit.distance + m_CharController.radius + m_CharController.skinWidth, 0f),
+                            transform.position + new Vector3(0f, (verticalDistanceToMantle - groundHit.distance) + m_CharController.height + m_CharController.radius + m_CharController.skinWidth, 0f), m_CharController.radius, -wallHit.normal, horizontalDistanceToMantle, ~gameObject.layer) &&
+                            !Physics.CapsuleCast(transform.position + new Vector3(0f, (verticalDistanceToMantle - groundHit.distance) + m_CharController.height + m_CharController.radius + m_CharController.skinWidth, 0f),
+                            transform.position + new Vector3(0f, verticalDistanceToMantle - groundHit.distance + m_CharController.radius + m_CharController.skinWidth, 0f), m_CharController.radius, -wallHit.normal, horizontalDistanceToMantle, ~gameObject.layer))
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     #endregion
@@ -407,9 +520,55 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Initialises the players mantle
+    /// </summary>
+    private void InitialiseMantle()
+    {
+        // try get the mantles target position
+        Vector3 checkDirection = m_MoveDir != Vector3.zero ? m_MoveDir : transform.forward;
+        RaycastHit ledgeHit;
+        if (Physics.Raycast(transform.position + (checkDirection * (horizontalDistanceToMantle + (m_CharController.radius * 2f))) + (Vector3.up * verticalDistanceToMantle), Vector3.down, out ledgeHit, verticalDistanceToMantle, ~gameObject.layer))
+        {
+            // get the start and end positions of the mantle
+            mantleStartPosition = transform.position;
+            mantleEndPosition = ledgeHit.point + (Vector3.up * (m_CharController.height * 0.5f));
+
+            // get the control point for the mantles bezier curve animation
+            mantleControlPosition = new Vector3(mantleStartPosition.x, ledgeHit.point.y + (transform.localScale.y * (m_CharController.height * 0.5f)), mantleStartPosition.z);
+            Vector3 controlPointDirection = ((mantleControlPosition - mantleStartPosition).normalized + (mantleControlPosition - mantleEndPosition).normalized) * 0.5f;
+            mantleControlPosition += (controlPointDirection * mantleClimbCurveMultiplier);
+        }
+        else
+        {
+            // early out the mantle if for some reason there's no more ledge
+            m_MoveState = MovementStates.walk;
+            return;
+        }
+
+        // get the mantle time multiplier
+        mantleTimeMultiplier = 1 / mantleTime;
+
+        // reset the mantle timer
+        timeSinceMantleStart = 0f;
+    }
+    /// <summary>
+    /// the players mantle, returns back to the walk state once completed
+    /// </summary>
     private void Mantle()
     {
+        timeSinceMantleStart += Time.deltaTime;
 
+        if (timeSinceMantleStart * mantleTimeMultiplier < 1f)
+        { 
+            /* Lerp along a bezier curve towards the target point */
+            transform.position = QuadraticBezier(mantleStartPosition, mantleEndPosition, mantleControlPosition, timeSinceMantleStart * mantleTimeMultiplier);
+        }
+        else
+        {
+            /* Exit the mantle and return back to walking */
+            m_MoveState = MovementStates.walk;
+        }
     }
 
     private void Vault()
@@ -434,15 +593,38 @@ public class PlayerController : MonoBehaviour
     {
         m_LookInput = context.ReadValue<Vector2>();
     }
+    
+    public void OnPrimaryFire(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            m_InputDown[(int)KeyInputs.primaryFire] = true;
+        }
+        else if (context.canceled)
+        {
+            m_InputDown[(int)KeyInputs.primaryFire] = false;
+        }
+    }
+
+    public void OnSecondaryFire(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            m_InputDown[(int)KeyInputs.secondaryFire] = true;
+        }
+        else if (context.canceled)
+        {
+            m_InputDown[(int)KeyInputs.secondaryFire] = false;
+        }
+    }
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
         if (context.started)
         {
             /* Check if can transition to slide */
-            if (m_IsGrounded && Vector3.Dot(m_MoveDir, transform.forward) > m_AngleToStartSlide * Mathf.Deg2Rad)
+            if (m_IsGrounded && Vector3.Dot(m_MoveDir, transform.forward) > m_MaxAngleToStartSlide * Mathf.Deg2Rad)
             {
-                print("jhkbdes");
                 InitialiseSlide();
                 m_MoveState = MovementStates.slide;
             }
@@ -501,30 +683,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnPrimaryFire(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            m_InputDown[(int)KeyInputs.primaryFire] = true;
-        }
-        else if (context.canceled)
-        {
-            m_InputDown[(int)KeyInputs.primaryFire] = false;
-        }
-    }
-
-    public void OnSecondaryFire(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            m_InputDown[(int)KeyInputs.secondaryFire] = true;
-        }
-        else if (context.canceled)
-        {
-            m_InputDown[(int)KeyInputs.secondaryFire] = false;
-        }
-    }
-
     #endregion
 
     #region Device connections
@@ -541,6 +699,20 @@ public class PlayerController : MonoBehaviour
     {
 
     }
-    
+
     #endregion
+
+
+    Vector3 QuadraticBezier(Vector3 startPos, Vector3 endPos, Vector3 controlPos, float t)
+    {
+        return new Vector3(Mathf.Pow(1 - t, 2) * startPos.x +
+            (1 - t) * 2 * t * controlPos.x +
+            t * t * endPos.x,
+        Mathf.Pow(1 - t, 2) * startPos.y +
+            (1 - t) * 2 * t * controlPos.y +
+            t * t * endPos.y,
+        Mathf.Pow(1 - t, 2) * startPos.z +
+            (1 - t) * 2 * t * controlPos.z +
+            t * t * endPos.z);
+    }
 }
