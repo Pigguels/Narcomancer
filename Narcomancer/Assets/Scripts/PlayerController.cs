@@ -221,12 +221,14 @@ public class PlayerController : MonoBehaviour
     private void AdjustYScale(float height, float speed)
     {
         m_CharController.enabled = false;
+
         float controllerHeightCache = m_CharController.height;
+
         /* Change the character controllers height */
         m_CharController.height = Mathf.Lerp(controllerHeightCache, height, speed);
 
         /* Offset position */
-        float yOffset = (Mathf.Lerp(controllerHeightCache, height, speed) - m_CharController.height) * 0.5f - controllerHeightCache * (1/controllerHeightCache);
+        float yOffset = (Mathf.Lerp(controllerHeightCache, height, speed) - controllerHeightCache) * 0.5f;
         transform.position += new Vector3(0f, yOffset, 0f);
 
         /* Adjust eye level */
