@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
 public class AIBehaviour : MonoBehaviour
 {
 
     NavMeshAgent m_navAgent;
-    LineRenderer m_lineRend;
-    public float animationDuration = 4.0f; 
+    CharacterController m_charCont;
 
 
     private Vector3 m_destination;
@@ -17,7 +17,8 @@ public class AIBehaviour : MonoBehaviour
     private AIState m_currentState;
     private float m_stoppingDistance = 1.5f;
     private float m_rayDistance = 5.0f;
-    private GameObject m_target;
+    public GameObject m_target;
+    public float moveSpeed = 15;
 
 
     private float m_sightRange = 5.0f;
@@ -31,15 +32,40 @@ public class AIBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_charCont = GetComponent<CharacterController>();
         m_navAgent = GetComponent<NavMeshAgent>();
-        m_lineRend = GetComponent<LineRenderer>();
+       
+        m_navAgent.updatePosition = false;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        switch (m_currentState)
+        m_navAgent.SetDestination(m_target.transform.position);
+
+      
+        Vector3 direction = (m_navAgent.nextPosition - transform.position);
+        //transform.position = m_navAgent.nextPosition;
+        Debug.DrawLine(transform.position, m_navAgent.nextPosition,Color.red);
+        m_charCont.Move(direction * moveSpeed * Time.deltaTime);
+
+        if (Keyboard.current.tabKey.isPressed)
+        {
+
+        }
+
+        /*
+        idle / in position
+        chase / get in position
+        attacking
+
+        if idling
+            check if player is within a certain range 
+        
+        */
+
+        /*switch (m_currentState)
         {
             case AIState.Wander:
                 {
@@ -91,17 +117,17 @@ public class AIBehaviour : MonoBehaviour
                 }
             case AIState.Attack:
                 {
-                    LineAnimate(transform, m_target.transform);
+
 
                     m_currentState = AIState.Wander;
                     break;
                 }
-        }
+        }*/
     }
-
+    
     private bool NeedsDestination()
     {
-        if (m_destination == Vector3.zero)
+        if (m_destination == null)
             return true;
 
         var distance = Vector3.Distance(transform.position, m_destination);
@@ -130,26 +156,6 @@ public class AIBehaviour : MonoBehaviour
         return hitSomething;
     }
 
-    private IEnumerator LineAnimate(Transform enemyTransform, Transform playerTransform)
-    {
-        float startTime = Time.time;
-
-        Vector3 startPos = enemyTransform.position;
-        Vector3 endPos = playerTransform.position;
-
-        m_lineRend.SetPosition(0, startPos);
-        m_lineRend.SetPosition(1, endPos);
-
-        Vector3 pos = startPos;
-        while(pos != endPos)
-        {
-            float t = (Time.time - startTime) / animationDuration;
-            pos = Vector3.Lerp(startPos, endPos, t);
-            m_lineRend.SetPosition(1, pos);
-            yield return null;
-        }
-    
-    }
 
 
 }
