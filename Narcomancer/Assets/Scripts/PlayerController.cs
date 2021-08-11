@@ -168,9 +168,13 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController m_CharController;
 
+    private LayerMask m_LayerMask;
+
     private void Awake()
     {
         m_CharController = GetComponent<CharacterController>();
+
+        m_LayerMask = LayerMask.GetMask("Player");
 
         m_StandingHeight = m_CharController.height;
         m_TargetHeight = m_StandingHeight;
@@ -189,19 +193,19 @@ public class PlayerController : MonoBehaviour
             m_LastMoveDir = m_MoveDir;
 
         m_MoveDir = (transform.forward * m_MoveInput.y + transform.right * m_MoveInput.x).normalized;
-
-        print(CanMantle());
-        print(CanVault());
+        
+        print("Can Mantle: " + CanMantle());
+        print("Can Vault: " + CanVault());
 
         if (m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanVault())
         {
-            InitialiseVault();
             m_MoveState = MovementStates.vault;
+            InitialiseVault();
         }
         else if (m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanMantle())
         {
-            InitialiseMantle();
             m_MoveState = MovementStates.mantle;
+            InitialiseMantle();
         }
 
         /* Update the current movement states */
@@ -340,7 +344,7 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded()
     {
         RaycastHit sphereHit;
-        return Physics.SphereCast(transform.position, m_CharController.radius, Vector3.down, out sphereHit, (m_CharController.height * 0.5f) - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~gameObject.layer);
+        return Physics.SphereCast(transform.position, m_CharController.radius, Vector3.down, out sphereHit, (m_CharController.height * 0.5f) - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~m_LayerMask);
     }
 
     /// <summary>
@@ -349,7 +353,7 @@ public class PlayerController : MonoBehaviour
     private bool IsObjectAbove()
     {
         RaycastHit sphereHit;
-        return Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~gameObject.layer);
+        return Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~m_LayerMask);
     }
 
     /// <summary>
@@ -361,7 +365,7 @@ public class PlayerController : MonoBehaviour
             return true;
 
         RaycastHit sphereHit;
-        return !Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) + m_StandingHeight - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~gameObject.layer);
+        return !Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) + m_StandingHeight - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~m_LayerMask);
     }
 
     /// <summary>
@@ -369,16 +373,20 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private bool CanMantle()
     {
-        Vector3 checkDirection = m_MoveDir != Vector3.zero ? m_MoveDir : transform.forward;
+        /* Early out if the players not trying to move */
+        if (m_MoveDir == Vector3.zero)
+            return false;
+
+        Vector3 checkDirection = m_MoveDir;
 
         /* Early out if the walls angle is too high */
-        if (Vector3.Dot(checkDirection, transform.forward) < maxVaultWallAngle * Mathf.Deg2Rad)
+        if (Vector3.Dot(checkDirection, transform.forward) < maxMantleWallAngle / 180f)
             return false;
 
         /* Check if there is a wall in the check direction */
         RaycastHit wallHit;
         if (Physics.CapsuleCast(transform.position + new Vector3(0f,m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
-            m_CharController.radius, checkDirection, out wallHit, horizontalDistanceToMantle, ~gameObject.layer))
+            m_CharController.radius, checkDirection, out wallHit, horizontalDistanceToMantle, ~m_LayerMask))
         {
             /* Make sure the walls mantable */
             if (wallHit.transform.CompareTag("Mantlable"))
@@ -393,16 +401,20 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private bool CanVault()
     {
-        Vector3 checkDirection = m_MoveDir != Vector3.zero ? m_MoveDir : transform.forward;
+        /* Early out if the players not trying to move */
+        if (m_MoveDir == Vector3.zero)
+            return false;
+
+        Vector3 checkDirection = m_MoveDir;
 
         /* Early out if the walls angle is too high */
-        if (Vector3.Dot(checkDirection, transform.forward) < maxVaultWallAngle * Mathf.Deg2Rad)
+        if (Vector3.Dot(checkDirection, transform.forward) < maxVaultWallAngle / 180f)
             return false;
 
         /* Check if there is a wall in the check direction */
         RaycastHit wallHit;
         if (Physics.CapsuleCast(transform.position + new Vector3(0f, m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
-            m_CharController.radius, checkDirection, out wallHit, horizontalDistanceToMantle, ~gameObject.layer))
+            m_CharController.radius, checkDirection, out wallHit, horizontalDistanceToVault, ~m_LayerMask))
         {
             /* Make sure the walls vaultable */
             if (wallHit.transform.CompareTag("Vaultable"))
@@ -583,23 +595,36 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void InitialiseMantle()
     {
-        // try get the mantles target position
-        Vector3 checkDirection = m_MoveDir != Vector3.zero ? m_MoveDir : transform.forward;
-        RaycastHit ledgeHit;
-        if (Physics.Raycast(transform.position + (checkDirection * (horizontalDistanceToMantle + (m_CharController.radius * 2f))) + (Vector3.up * verticalDistanceToMantle), Vector3.down, out ledgeHit, verticalDistanceToMantle, ~gameObject.layer))
+        /* Get the distance of the wall */
+        RaycastHit wallHit;
+        if (Physics.CapsuleCast(transform.position + new Vector3(0f, m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
+            m_CharController.radius, m_MoveDir, out wallHit, horizontalDistanceToMantle, ~m_LayerMask))
         {
-            // get the start and end positions of the mantle
-            mantleStartPosition = transform.position;
-            mantleEndPosition = ledgeHit.point + (Vector3.up * (m_CharController.height * 0.5f));
+            /* Try get end position of the mantle */
+            RaycastHit ledgeHit;
+            if (Physics.Raycast(transform.position + (m_MoveDir * (wallHit.distance + (m_CharController.radius * 2f))) + (Vector3.up * verticalDistanceToMantle),
+                Vector3.down, out ledgeHit, verticalDistanceToMantle + (m_CharController.height * 0.5f), ~m_LayerMask))
+            {
+                /* Get the start and end positions of the mantle */
+                mantleStartPosition = transform.position;
+                mantleEndPosition = ledgeHit.point + new Vector3(0f, m_CharController.height * 0.5f + m_CharController.skinWidth, 0f);
 
-            // get the control point for the mantles bezier curve animation
-            mantleControlPosition = new Vector3(mantleStartPosition.x, ledgeHit.point.y + (transform.localScale.y * (m_CharController.height * 0.5f)), mantleStartPosition.z);
-            Vector3 controlPointDirection = ((mantleControlPosition - mantleStartPosition).normalized + (mantleControlPosition - mantleEndPosition).normalized) * 0.5f;
-            mantleControlPosition += (controlPointDirection * mantleClimbCurveMultiplier);
+                /* Get the control point for the mantles bezier curve animation */
+                mantleControlPosition = new Vector3(mantleStartPosition.x, ledgeHit.point.y + (m_CharController.height * 0.5f), mantleStartPosition.z);
+                Vector3 controlPointDirection = ((mantleControlPosition - mantleStartPosition).normalized + (mantleControlPosition - mantleEndPosition).normalized) * 0.5f;
+                mantleControlPosition += (controlPointDirection * mantleClimbCurveMultiplier);
+            }
+            else
+            /* Early out of the mantle if for some reason theres no ledge */
+            {
+                Debug.Log("Early outed mantle, no ledge found");
+                m_MoveState = MovementStates.walk;
+                return;
+            }
         }
-        else
+        else /* Early out of the mantle if for some reason theres no ledge */
         {
-            // early out the mantle if for some reason there's no more ledge
+            Debug.Log("Early outed mantle, no wall found");
             m_MoveState = MovementStates.walk;
             return;
         }
@@ -650,29 +675,41 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void InitialiseVault()
     {
-        // try get the vaults target position
-        Vector3 checkDirection = m_MoveDir != Vector3.zero ? m_MoveDir : transform.forward;
-        RaycastHit ledgeHit;
-        if (Physics.Raycast(transform.position + (checkDirection * (horizontalDistanceToVault + (m_CharController.radius * 2f))) + (Vector3.up * verticalDistanceToVault), Vector3.down, out ledgeHit, verticalDistanceToVault, ~gameObject.layer))
+        /* Get the distance of the wall */
+        RaycastHit wallHit;
+        if (Physics.CapsuleCast(transform.position + new Vector3(0f, m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
+            m_CharController.radius, m_MoveDir, out wallHit, horizontalDistanceToVault, ~m_LayerMask))
         {
-            // get the start and end positions of the vault
-            vaultStartPosition = transform.position;
-            vaultEndPosition = ledgeHit.point + (Vector3.up * (transform.localScale.y * (m_CharController.height * 0.5f)));
+            /* Get end position of the vault */
+            RaycastHit ledgeHit;
+            if (Physics.Raycast(transform.position + (m_MoveDir * (wallHit.distance + (m_CharController.radius * 2f))) + (Vector3.up * verticalDistanceToVault),
+                Vector3.down, out ledgeHit, verticalDistanceToVault + (m_CharController.height * 0.5f), ~m_LayerMask))
+            {
+                /* Get the start and end positions of the mantle */
+                vaultStartPosition = transform.position;
+                vaultEndPosition = ledgeHit.point + new Vector3(0f, m_CharController.height * 0.5f + m_CharController.skinWidth, 0f);
 
-            // get the control point for the vaults bezier curve animation
-            vaultControlPosition = new Vector3(vaultStartPosition.x, ledgeHit.point.y + (transform.localScale.y * (m_CharController.height * 0.5f)), vaultStartPosition.z);
-            Vector3 controlPointDirection = ((vaultControlPosition - vaultStartPosition).normalized + (vaultControlPosition - vaultEndPosition).normalized) * 0.5f;
-            vaultControlPosition += (controlPointDirection * vaultClimbCurveMultiplier);
+                /* Get the control point for the mantles bezier curve animation */
+                vaultControlPosition = new Vector3(vaultStartPosition.x, ledgeHit.point.y + (m_CharController.height * 0.5f), vaultStartPosition.z);
+                Vector3 controlPointDirection = ((vaultControlPosition - vaultStartPosition).normalized + (vaultControlPosition - vaultEndPosition).normalized) * 0.5f;
+                vaultControlPosition += (controlPointDirection * vaultClimbCurveMultiplier);
+            }
+            else 
+            /* Early out of the vault if for some reason theres no ledge */
+            {
+                m_MoveState = MovementStates.walk;
+                return;
+            }
         }
         else
+        /* Early out of the vault if for some reason theres no ledge */
         {
-            // early out the vault if for some reason there's no more ledge
             m_MoveState = MovementStates.walk;
             return;
         }
 
         // get the initial vault direction
-        initialVaultDirection = checkDirection;
+        initialVaultDirection = m_MoveDir;
 
         // get the vault time multiplier
         vaultTimeMultiplier = 1 / vaultTime;
