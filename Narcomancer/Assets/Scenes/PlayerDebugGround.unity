@@ -420,7 +420,7 @@ Transform:
   m_LocalScale: {x: 4, y: 9, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1167587963
 GameObject:
@@ -627,8 +627,8 @@ GameObject:
   - component: {fileID: 1458868263}
   - component: {fileID: 1458868262}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: Ledge
+  m_TagString: Vaultable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -703,11 +703,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458868261}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 4.5}
+  m_LocalScale: {x: 10, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1499072602
 GameObject:
@@ -722,8 +722,8 @@ GameObject:
   - component: {fileID: 1499072604}
   - component: {fileID: 1499072603}
   m_Layer: 0
-  m_Name: Cube (1)
-  m_TagString: Untagged
+  m_Name: Platform
+  m_TagString: Mantlable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -802,7 +802,7 @@ Transform:
   m_LocalScale: {x: 4, y: 9, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &789832318277154392
 PrefabInstance:
@@ -845,7 +845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 789832318731247004, guid: f7b9aa397a1c818489ed2c49a9aefa5f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 789832318731247004, guid: f7b9aa397a1c818489ed2c49a9aefa5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -858,18 +858,6 @@ PrefabInstance:
     - target: {fileID: 789832318731247004, guid: f7b9aa397a1c818489ed2c49a9aefa5f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 789832318731247005, guid: f7b9aa397a1c818489ed2c49a9aefa5f, type: 3}
-      propertyPath: horizontalDistanceToMantle
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 789832318731247005, guid: f7b9aa397a1c818489ed2c49a9aefa5f, type: 3}
-      propertyPath: mantleTime
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 789832318731247005, guid: f7b9aa397a1c818489ed2c49a9aefa5f, type: 3}
-      propertyPath: mantleClimbCurveMultiplier
-      value: 1.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b9aa397a1c818489ed2c49a9aefa5f, type: 3}

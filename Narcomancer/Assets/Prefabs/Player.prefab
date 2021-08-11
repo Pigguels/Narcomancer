@@ -82,6 +82,15 @@ MonoBehaviour:
   m_EyeLevel: 1.9
   m_MaxXRot: 90
   m_MinXRot: -90
+  m_CamRollSpeed: 0.1
+  m_CamRollMoveInputMultiplier: 1
+  m_CamRollLookInputMultiplier: 0
+  m_CamWalkAngle: 15
+  m_CamCrouchAngle: 0
+  m_CamJumpAngle: 20
+  m_CamSlideAngle: 25
+  m_CamMantleAngle: 10
+  m_CamVaultAngle: 25
   m_Head: {fileID: 789832318303019595}
   m_WalkMoveSpeed: 8
   m_AirControl: 0.75
@@ -95,9 +104,20 @@ MonoBehaviour:
   m_MaxAirJumps: 0
   m_VerticalSlideSpeed: 0.75
   m_SlideHeight: 1
-  m_AngleToStartSlide: 45
+  m_MaxAngleToStartSlide: 45
   m_InitSlideSpeed: 45
   m_SlideFriction: 4
+  mantleTime: 0.5
+  mantleClimbCurveMultiplier: 1.01
+  horizontalDistanceToMantle: 0.3
+  verticalDistanceToMantle: 1.5
+  maxMantleWallAngle: 45
+  vaultTime: 1
+  vaultForce: 250
+  vaultClimbCurveMultiplier: 1.5
+  horizontalDistanceToVault: 0.7
+  verticalDistanceToVault: 0.75
+  maxVaultWallAngle: 45
 --- !u!143 &789832318731247002
 CharacterController:
   m_ObjectHideFlags: 0

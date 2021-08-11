@@ -22,8 +22,24 @@ public class PlayerController : MonoBehaviour
 
     public float m_LookSensitivity = 4.5f;
     public float m_EyeLevel = 1.9f;
+
     public float m_MaxXRot = 90;
     public float m_MinXRot = -90;
+    [Space]
+    [Range(0f, 1f)]
+    public float m_CamRollSpeed = 0.3f;
+    public float m_CamRollMoveInputMultiplier = 1f; // got damn these are grossly long
+    public float m_CamRollLookInputMultiplier = 0.35f;
+    [Space]
+    public float m_CamWalkAngle = 15f;
+    public float m_CamCrouchAngle = 8f;
+    public float m_CamJumpAngle = 12f;
+    public float m_CamSlideAngle = 25f;
+    public float m_CamMantleAngle = 20f;
+    public float m_CamVaultAngle = 25f;
+
+    private float m_CamRollTargetAngle = 0f;
+
     private float m_Pitch = 0;
     private float m_Yaw = 0;
     public Transform m_Head;
@@ -125,6 +141,31 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    #region Variables : Vault
+
+    [Header("Vault:")]
+    [Space]
+
+    public float vaultTime = 1f;
+
+    public float vaultForce = 150f;
+    [Min(1.01f)]
+    public float vaultClimbCurveMultiplier = 1.5f;
+    public float horizontalDistanceToVault = 0.7f;
+    public float verticalDistanceToVault = 0.75f;
+    [Range(0f, 180f)]
+    public float maxVaultWallAngle = 45f;
+
+    private float timeSinceVaultStart = 0f;
+    private float vaultTimeMultiplier;
+
+    private Vector3 initialVaultDirection;
+    private Vector3 vaultStartPosition;
+    private Vector3 vaultEndPosition;
+    private Vector3 vaultControlPosition;
+
+    #endregion
+
     private CharacterController m_CharController;
 
     private void Awake()
@@ -150,7 +191,14 @@ public class PlayerController : MonoBehaviour
         m_MoveDir = (transform.forward * m_MoveInput.y + transform.right * m_MoveInput.x).normalized;
 
         print(CanMantle());
-        if (m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanMantle())
+        print(CanVault());
+
+        if (m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanVault())
+        {
+            InitialiseVault();
+            m_MoveState = MovementStates.vault;
+        }
+        else if (m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanMantle())
         {
             InitialiseMantle();
             m_MoveState = MovementStates.mantle;
@@ -160,10 +208,12 @@ public class PlayerController : MonoBehaviour
         switch (m_MoveState)
         {
             case MovementStates.walk:
+                m_CamRollTargetAngle = m_CamWalkAngle;
                 Walk();
                 break;
 
             case MovementStates.crouch:
+                m_CamRollTargetAngle = m_CamCrouchAngle;
                 Crouch();
                 break;
 
@@ -180,6 +230,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case MovementStates.vault:
+                Vault();
                 break;
 
             case MovementStates.dash:
@@ -192,6 +243,8 @@ public class PlayerController : MonoBehaviour
             AdjustYScale(m_TargetHeight, m_VerticalSlideSpeed);
         else
             AdjustYScale(m_TargetHeight, m_VerticalCrouchSpeed);
+
+        AdjustCameraRoll(m_CamRollTargetAngle);
     }
 
     private void LateUpdate()
@@ -247,7 +300,7 @@ public class PlayerController : MonoBehaviour
     #region Adjustments
 
     /// <summary>
-    /// lerp the characters y scale to the height and adjust the position to make it seamless
+    /// Lerp the character controllers y scale to the height and adjust the position to make it seamless
     /// </summary>
     private void AdjustYScale(float height, float speed)
     {
@@ -266,6 +319,15 @@ public class PlayerController : MonoBehaviour
         m_Head.localPosition = new Vector3(m_Head.localPosition.x, m_EyeLevel * m_CharController.height * 0.5f - (m_CharController.height * 0.5f), m_Head.localPosition.z);
         
         m_CharController.enabled = true;
+    }
+
+    /// <summary>
+    /// Lerp the heads z rotation to the target angle
+    /// </summary>
+    private void AdjustCameraRoll(float targetAngle)
+    {
+        /* Lerp only the z rotation of the head towards the target angle */
+        m_Head.localRotation = Quaternion.Lerp(m_Head.localRotation, Quaternion.Euler(new Vector3(m_Head.localEulerAngles.x, m_Head.localEulerAngles.y, targetAngle)), m_CamRollSpeed);
     }
 
     #endregion
@@ -302,83 +364,50 @@ public class PlayerController : MonoBehaviour
         return !Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) + m_StandingHeight - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~gameObject.layer);
     }
 
+    /// <summary>
+    /// Returns true if there is a mantable object in the desired direction of the player
+    /// </summary>
     private bool CanMantle()
     {
-        //Vector3 checkDirection = m_MoveDir != Vector3.zero ? m_MoveDir : transform.forward;
-        ///*        
-        //         ___
-        //        /***\
-        //        |***|________\  |
-        //        |***|        /  |
-        //        |***|           |
-        //        /***\________\  |
-        //        |***|        /  v
-        //        \___/   ________X____
-        //        |   |-->x
-        //        |   |   |
-        //        |   |   |
-        //        \___/   |
-        // */
-        //
-        ///* Check if there is a wall in the check direction */
-        //RaycastHit wallHit;
-        //if (Physics.Raycast(transform.position + new Vector3(0f, 0f, 0f), checkDirection, out wallHit, m_CharController.radius + m_CharController.skinWidth + horizontalDistanceToMantle, ~gameObject.layer))
-        //{
-        //    /* Make sure the angle of the wall is not to high */
-        //    if (Vector3.Dot(wallHit.normal, transform.forward) >= maxMantleWallAngle * Mathf.Deg2Rad)
-        //    {
-        //        /* Make sure there is actually a ledge, and not a wall */
-        //        RaycastHit ledgeHit;
-        //        if (!Physics.Raycast(transform.position + new Vector3(0f, verticalDistanceToMantle, 0f), checkDirection, out ledgeHit, m_CharController.radius + m_CharController.skinWidth + horizontalDistanceToMantle, ~gameObject.layer))
-        //        {
-        //            /* Make sure there is a surface to land on */
-        //            RaycastHit groundHit;
-        //            if (!Physics.Raycast(transform.position + new Vector3(0f, verticalDistanceToMantle, 0f), Vector3.down, out groundHit, verticalDistanceToMantle, ~gameObject.layer))
-        //            {
-        //                /* Make sure the surface if fairly level */
-        //                if (Vector3.Dot(groundHit.normal, transform.up) >= 0.95f)
-        //                {
-        //                    RaycastHit playerCollisionHit;
-        //                    if (!Physics.CapsuleCast(transform.position + new Vector3(0f, verticalDistanceToMantle - groundHit.distance - m_CharController.radius + m_CharController.skinWidth, 0f),
-        //                        transform.position + new Vector3(0f, (verticalDistanceToMantle - groundHit.distance) + m_CharController.height + m_CharController.skinWidth, 0f), m_CharController.radius, -wallHit.normal, horizontalDistanceToMantle, ~gameObject.layer))
-        //                    {
-        //                        return true;
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-
         Vector3 checkDirection = m_MoveDir != Vector3.zero ? m_MoveDir : transform.forward;
 
-        Debug.DrawLine(transform.position, transform.position + checkDirection * (m_CharController.radius + m_CharController.skinWidth + horizontalDistanceToMantle), Color.green);
-        Debug.DrawLine(transform.position + (checkDirection * (horizontalDistanceToMantle + (m_CharController.radius * 2f))) + (Vector3.up * verticalDistanceToMantle), transform.position + (checkDirection * (horizontalDistanceToMantle + (m_CharController.radius * 2f))), Color.magenta);
+        /* Early out if the walls angle is too high */
+        if (Vector3.Dot(checkDirection, transform.forward) < maxVaultWallAngle * Mathf.Deg2Rad)
+            return false;
 
-
-        // check if there's a wall in the direction the players moving
+        /* Check if there is a wall in the check direction */
         RaycastHit wallHit;
-        if (Physics.Raycast(transform.position, checkDirection, out wallHit, m_CharController.radius + m_CharController.skinWidth + horizontalDistanceToMantle, ~gameObject.layer))
+        if (Physics.CapsuleCast(transform.position + new Vector3(0f,m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
+            m_CharController.radius, checkDirection, out wallHit, horizontalDistanceToMantle, ~gameObject.layer))
         {
-            // check if the angle of the wall is within the max mantle angle
-            if (Vector3.Dot(wallHit.normal, checkDirection) < -maxMantleWallAngle * Mathf.Deg2Rad)
+            /* Make sure the walls mantable */
+            if (wallHit.transform.CompareTag("Mantlable"))
             {
-                // check if there's a surface above that wall
-                RaycastHit groundHit;
-                if (Physics.Raycast(transform.position + (checkDirection * (horizontalDistanceToMantle + (m_CharController.radius * 2f))) + (Vector3.up * verticalDistanceToMantle), Vector3.down, out groundHit, verticalDistanceToMantle, ~gameObject.layer))
-                {
-                    // check if the ledges surface is close to level
-                    if (Vector3.Dot(groundHit.normal, Vector3.up) > 0.9f)
-                    {
-                        if (!Physics.CapsuleCast(transform.position + new Vector3(0f, verticalDistanceToMantle - groundHit.distance + m_CharController.radius + m_CharController.skinWidth, 0f),
-                            transform.position + new Vector3(0f, (verticalDistanceToMantle - groundHit.distance) + m_CharController.height + m_CharController.radius + m_CharController.skinWidth, 0f), m_CharController.radius, -wallHit.normal, horizontalDistanceToMantle, ~gameObject.layer) &&
-                            !Physics.CapsuleCast(transform.position + new Vector3(0f, (verticalDistanceToMantle - groundHit.distance) + m_CharController.height + m_CharController.radius + m_CharController.skinWidth, 0f),
-                            transform.position + new Vector3(0f, verticalDistanceToMantle - groundHit.distance + m_CharController.radius + m_CharController.skinWidth, 0f), m_CharController.radius, -wallHit.normal, horizontalDistanceToMantle, ~gameObject.layer))
-                        {
-                            return true;
-                        }
-                    }
-                }
+                return true;
+            }
+        }
+        return false;
+    }
+    /// <summary>
+    /// Returns true if there a vaultable object in the desired direction
+    /// </summary>
+    private bool CanVault()
+    {
+        Vector3 checkDirection = m_MoveDir != Vector3.zero ? m_MoveDir : transform.forward;
+
+        /* Early out if the walls angle is too high */
+        if (Vector3.Dot(checkDirection, transform.forward) < maxVaultWallAngle * Mathf.Deg2Rad)
+            return false;
+
+        /* Check if there is a wall in the check direction */
+        RaycastHit wallHit;
+        if (Physics.CapsuleCast(transform.position + new Vector3(0f, m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
+            m_CharController.radius, checkDirection, out wallHit, horizontalDistanceToMantle, ~gameObject.layer))
+        {
+            /* Make sure the walls vaultable */
+            if (wallHit.transform.CompareTag("Vaultable"))
+            {
+                return true;
             }
         }
         return false;
@@ -404,6 +433,9 @@ public class PlayerController : MonoBehaviour
             else
                 m_CharController.Move((m_LastMoveDir * m_WalkMoveSpeed * m_AirControl + m_Velocity) * Time.deltaTime);
         }
+
+        /* Update the cameras target roll angle */
+        m_CamRollTargetAngle = (-m_CamWalkAngle * (m_MoveInput.x * m_CamRollMoveInputMultiplier)) + (-m_CamWalkAngle * (m_LookInput.x * m_CamRollLookInputMultiplier));
     }
 
     /// <summary>
@@ -430,6 +462,9 @@ public class PlayerController : MonoBehaviour
             else
                 m_CharController.Move((m_LastMoveDir * m_CrouchMoveSpeed * m_AirControl + m_Velocity) * Time.deltaTime);
         }
+
+        /* Update the cameras target roll angle */
+        m_CamRollTargetAngle = (-m_CamCrouchAngle * (m_MoveInput.x * m_CamRollMoveInputMultiplier)) + (-m_CamCrouchAngle * (m_LookInput.x * m_CamRollLookInputMultiplier));
     }
 
     /// <summary>
@@ -446,6 +481,9 @@ public class PlayerController : MonoBehaviour
 
         /* Get the initial jump direction */
         m_JumpDir = m_MoveDir;
+
+        /* Update the cameras target roll angle */
+        m_CamRollTargetAngle = m_CamJumpAngle;
     }
     /// <summary>
     /// The players jump, returns back to the walking state if the player has landed or hit their head on an object
@@ -477,6 +515,9 @@ public class PlayerController : MonoBehaviour
 
             m_MoveState = MovementStates.walk;
         }
+
+        /* Update the cameras target roll angle */
+        m_CamRollTargetAngle = (-m_CamJumpAngle * (m_MoveInput.x * m_CamRollMoveInputMultiplier)) + (-m_CamJumpAngle * (m_LookInput.x * m_CamRollLookInputMultiplier));
     }
 
     /// <summary>
@@ -490,7 +531,24 @@ public class PlayerController : MonoBehaviour
         /* Get the initial slide direction */
         m_InitSlideDir = m_MoveDir;
 
+        /* Reset the slides speed */
         m_SlideSpeed = m_InitSlideSpeed;
+
+        /* Update the cameras target roll angle */
+        if (m_MoveInput != Vector2.zero)
+        {
+            if (m_MoveInput.x > 0f)
+                m_CamRollTargetAngle = -m_CamSlideAngle;
+            else
+                m_CamRollTargetAngle = m_CamSlideAngle;
+        }
+        else
+        {
+            if (m_LookInput.x > 0f)
+                m_CamRollTargetAngle = -m_CamSlideAngle;
+            else
+                m_CamRollTargetAngle = m_CamSlideAngle;
+        }
     }
     /// <summary>
     /// the players slide, returns back to the crouched state once completed
@@ -551,9 +609,25 @@ public class PlayerController : MonoBehaviour
 
         // reset the mantle timer
         timeSinceMantleStart = 0f;
+
+        /* Update the cameras target roll angle */
+        if (m_MoveInput != Vector2.zero)
+        {
+            if (m_MoveInput.x > 0f)
+                m_CamRollTargetAngle = -m_CamMantleAngle;
+            else
+                m_CamRollTargetAngle = m_CamMantleAngle;
+        }
+        else
+        {
+            if (m_LookInput.x > 0f)
+                m_CamRollTargetAngle = -m_CamMantleAngle;
+            else
+                m_CamRollTargetAngle = m_CamMantleAngle;
+        }
     }
     /// <summary>
-    /// the players mantle, returns back to the walk state once completed
+    /// The players mantle, returns back to the walk state once completed
     /// </summary>
     private void Mantle()
     {
@@ -571,9 +645,76 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Initialises the players slide
+    /// </summary>
+    private void InitialiseVault()
+    {
+        // try get the vaults target position
+        Vector3 checkDirection = m_MoveDir != Vector3.zero ? m_MoveDir : transform.forward;
+        RaycastHit ledgeHit;
+        if (Physics.Raycast(transform.position + (checkDirection * (horizontalDistanceToVault + (m_CharController.radius * 2f))) + (Vector3.up * verticalDistanceToVault), Vector3.down, out ledgeHit, verticalDistanceToVault, ~gameObject.layer))
+        {
+            // get the start and end positions of the vault
+            vaultStartPosition = transform.position;
+            vaultEndPosition = ledgeHit.point + (Vector3.up * (transform.localScale.y * (m_CharController.height * 0.5f)));
+
+            // get the control point for the vaults bezier curve animation
+            vaultControlPosition = new Vector3(vaultStartPosition.x, ledgeHit.point.y + (transform.localScale.y * (m_CharController.height * 0.5f)), vaultStartPosition.z);
+            Vector3 controlPointDirection = ((vaultControlPosition - vaultStartPosition).normalized + (vaultControlPosition - vaultEndPosition).normalized) * 0.5f;
+            vaultControlPosition += (controlPointDirection * vaultClimbCurveMultiplier);
+        }
+        else
+        {
+            // early out the vault if for some reason there's no more ledge
+            m_MoveState = MovementStates.walk;
+            return;
+        }
+
+        // get the initial vault direction
+        initialVaultDirection = checkDirection;
+
+        // get the vault time multiplier
+        vaultTimeMultiplier = 1 / vaultTime;
+
+        // reset the vault timer
+        timeSinceVaultStart = 0f;
+
+        /* Update the cameras target roll angle */
+        if (m_MoveInput != Vector2.zero)
+        {
+            if (m_MoveInput.x > 0f)
+                m_CamRollTargetAngle = -m_CamVaultAngle;
+            else
+                m_CamRollTargetAngle = m_CamVaultAngle;
+        }
+        else
+        {
+            if (m_LookInput.x > 0f)
+                m_CamRollTargetAngle = -m_CamVaultAngle;
+            else
+                m_CamRollTargetAngle = m_CamVaultAngle;
+        }
+    }
+    /// <summary>
+    /// The players vault, returns back to the walk state once completed
+    /// </summary>
     private void Vault()
     {
+        timeSinceVaultStart += Time.deltaTime;
 
+        if (timeSinceVaultStart * vaultTimeMultiplier < 1f)
+        {
+            /* lerp along a bezier curve towards the target point */
+            transform.position = QuadraticBezier(vaultStartPosition, vaultEndPosition, vaultControlPosition, timeSinceVaultStart * vaultTimeMultiplier);
+        }
+        else
+        {
+            /*apply force, exit the vault and return back to walking*/
+            ApplyForce(initialVaultDirection * vaultForce);
+
+            m_MoveState = MovementStates.walk;
+        }
     }
 
     private void Dash()
@@ -701,7 +842,6 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
-
 
     Vector3 QuadraticBezier(Vector3 startPos, Vector3 endPos, Vector3 controlPos, float t)
     {
