@@ -193,9 +193,6 @@ public class PlayerController : MonoBehaviour
             m_LastMoveDir = m_MoveDir;
 
         m_MoveDir = (transform.forward * m_MoveInput.y + transform.right * m_MoveInput.x).normalized;
-        
-        print("Can Mantle: " + CanMantle());
-        print("Can Vault: " + CanVault());
 
         if (m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanVault())
         {
@@ -365,7 +362,7 @@ public class PlayerController : MonoBehaviour
             return true;
 
         RaycastHit sphereHit;
-        return !Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) + m_StandingHeight - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~m_LayerMask);
+        return !Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) + (m_StandingHeight - m_CrouchHeight) - m_CharController.radius + m_CharController.skinWidth, ~m_LayerMask);
     }
 
     /// <summary>
@@ -455,6 +452,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Crouch()
     {
+        print(CanStand());
+
         /* Exit the crouch state */
         if (!m_InputDown[(int)KeyInputs.crouch] && CanStand())
         {
