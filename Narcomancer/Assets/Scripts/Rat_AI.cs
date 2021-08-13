@@ -12,6 +12,7 @@ public class Rat_AI : MonoBehaviour
 
     //the enemy attack rate
     public float m_attackRate = 0.5f;
+    public float m_attackRange = 2;
 
    
     private float m_distance;
@@ -23,7 +24,7 @@ public class Rat_AI : MonoBehaviour
     void Start()
     {
         m_navAgent = GetComponent<NavMeshAgent>();
-
+        m_navAgent.stoppingDistance = m_attackRange;
         m_navAgent.updatePosition = true;
     }
 
@@ -35,13 +36,13 @@ public class Rat_AI : MonoBehaviour
         transform.LookAt(m_target.transform, Vector3.up);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
-        if (m_distance > 4)
+        if (m_distance > m_attackRange)
         {
             m_navAgent.updatePosition = true;
             m_navAgent.SetDestination(m_target.transform.position);
 
         }
-        if (m_distance <= 4)
+        if (m_distance <= m_attackRange)
         {
             m_navAgent.updatePosition = false;
             if (!hasAttacked)
