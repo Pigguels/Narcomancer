@@ -6,12 +6,17 @@ using UnityEngine.InputSystem;
 
 public class AIBehaviour : MonoBehaviour
 {
-
+    /// <summary>
+    /// This is the initial testing class for the AI States and will be working with the variables from here.
+    /// will be looking to clean up the scripts or create clean ones labeled for the specific AI characters
+    /// </summary>
     NavMeshAgent m_navAgent;
     CharacterController m_charCont;
 
-
+    public Transform spawnpoint;
+    public GameObject bulletPrefab;
     private Vector3 m_destination;
+    private float m_distance;
     private Quaternion m_desiredRotation;
     private Vector3 m_direction;
     private AIState m_currentState;
@@ -19,7 +24,7 @@ public class AIBehaviour : MonoBehaviour
     private float m_rayDistance = 5.0f;
     public GameObject m_target;
     public float moveSpeed = 15;
-
+    private bool hasFired;
 
     private float m_sightRange = 5.0f;
     private float m_attackRange = 5.0f;
@@ -35,25 +40,56 @@ public class AIBehaviour : MonoBehaviour
         m_charCont = GetComponent<CharacterController>();
         m_navAgent = GetComponent<NavMeshAgent>();
        
-        m_navAgent.updatePosition = false;
+        m_navAgent.updatePosition = true;
     }
 
+    private IEnumerator Attack()
+    {
+        hasFired = true;
+        GameObject bullet;
+        bullet = Instantiate(bulletPrefab, spawnpoint.position, Quaternion.identity);
+        bullet.gameObject.GetComponent<Rigidbody>(). AddForce(spawnpoint.forward * 1000f);
+        Destroy(bullet, 1.5f);
+        yield return new WaitForSeconds(.2f);
+        hasFired = false;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        m_navAgent.SetDestination(m_target.transform.position);
 
-      
-        Vector3 direction = (m_navAgent.nextPosition - transform.position);
-        //transform.position = m_navAgent.nextPosition;
-        Debug.DrawLine(transform.position, m_navAgent.nextPosition,Color.red);
-        m_charCont.Move(direction * moveSpeed * Time.deltaTime);
+        m_distance = Vector3.Distance(m_target.transform.position, transform.position);
+        transform.LookAt(m_target.transform, Vector3.up);
+       transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
-        if (Keyboard.current.tabKey.isPressed)
+        if (m_distance > 4)
         {
-
+            m_navAgent.updatePosition = true;
+            m_navAgent.SetDestination(m_target.transform.position);
+            
         }
+        if(m_distance <= 4)
+        {
+            m_navAgent.updatePosition = false;
+            if(!hasFired)
+            StartCoroutine(Attack());
+            
+        }
+
+        
+      
+
+
+
+       //Vector3 direction = (m_navAgent.nextPosition - transform.position);
+       ////transform.position = m_navAgent.nextPosition;
+       //Debug.DrawLine(transform.position, m_navAgent.nextPosition,Color.red);
+       //m_charCont.Move(direction * moveSpeed * Time.deltaTime);
+       //
+       //if (Keyboard.current.tabKey.isPressed)
+       //{
+       //
+       //}
 
         /*
         idle / in position
