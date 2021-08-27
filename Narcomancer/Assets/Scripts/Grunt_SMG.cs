@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Grunt_Pistol : MonoBehaviour
+
+public class Grunt_SMG : MonoBehaviour
 {
+
     NavMeshAgent m_navAgent;
 
     public GameObject playerTarget;
@@ -43,16 +45,14 @@ public class Grunt_Pistol : MonoBehaviour
             Quaternion lookOnLook = Quaternion.LookRotation(playerTarget.transform.position - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, 0.40f);
         }
-        m_navAgent.stoppingDistance = attackRange;
 
-       //playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
-       //playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
+
+        //playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
+        //playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
 
 
         playerInSightRange = Vector3.Distance(transform.position, playerTarget.transform.position) < sightRange;
         playerInAttackRange = Vector3.Distance(transform.position, playerTarget.transform.position) < attackRange;
-
-        OnDrawGizmos();
 
         if (playerInSightRange && !playerInAttackRange)
             ChasePlayer();
@@ -81,12 +81,10 @@ public class Grunt_Pistol : MonoBehaviour
     {
         alreadyAttacked = true;
         GameObject bullet;
-        bullet = Instantiate(bulletPrefab, spawnpoint.position, Quaternion.Euler(transform.forward));
+        bullet = Instantiate(bulletPrefab, spawnpoint.position, Quaternion.identity);
         bullet.gameObject.GetComponent<Rigidbody>().AddForce(spawnpoint.forward * 1000f);
         Destroy(bullet, 1.5f);
         yield return new WaitForSeconds(timeBetweenAttacks);
         alreadyAttacked = false;
     }
-
-   
 }
