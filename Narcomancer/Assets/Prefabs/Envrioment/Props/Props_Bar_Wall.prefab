@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &6452783177548724321
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4590147877922155607}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7.5955706, y: 4.70714, z: 1.4108292}
-  m_Center: {x: -0.00000011920929, y: 2.35357, z: 0.7054146}
 --- !u!1 &3712422765719465056
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,6 +31,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6452783177548724321
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590147877922155607}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.5955706, y: 4.70714, z: 1.4108292}
+  m_Center: {x: -0.00000011920929, y: 2.35357, z: 0.7054146}
 --- !u!1001 &3707046321217933574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6478c76ecf806e44f87a001d550d2c02, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2e261d2f1d06eed44ba48c54db4c8181, type: 2}
     - target: {fileID: 919132149155446097, guid: 6478c76ecf806e44f87a001d550d2c02, type: 3}
       propertyPath: m_Name
       value: Props_Bar_Wall_fbx_01
