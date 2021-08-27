@@ -5,25 +5,31 @@ using UnityEngine.AI;
 
 public class Grunt_Pistol : MonoBehaviour
 {
-   
-
     NavMeshAgent m_navAgent;
-    //CharacterController m_charCont;  //this character controller could be used for manual ai movement if needed
-    
-    //the enemy Firerate of guns
-    public float m_fireRate = 0.5f;
 
+    public GameObject playerTarget;
+    public float rangeCheck = 5;
+    public LayerMask playerLayer;
     public Transform spawnpoint;
     public GameObject bulletPrefab;
-    private float m_distance;
-    public GameObject m_target;
-    public float moveSpeed = 15;
-    private bool hasFired;
 
-    // Start is called before the first frame update
+
+
+    //States
+
+    public float sightRange, attackRange;
+    public bool playerInSightRange, playerInAttackRange;
+    bool trackingplayer = false;
+    //Attacking
+    public float timeBetweenAttacks;
+    bool alreadyAttacked;
+
+
+
     void Start()
     {
         m_navAgent = GetComponent<NavMeshAgent>();
+        m_navAgent.stoppingDistance = attackRange;
 
         m_navAgent.updatePosition = true;
     }
@@ -31,34 +37,48 @@ public class Grunt_Pistol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        m_distance = Vector3.Distance(m_target.transform.position, transform.position);
-        transform.LookAt(m_target.transform, Vector3.up);
-        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-
-        if (m_distance > 4)
+        if (trackingplayer)
         {
-            m_navAgent.updatePosition = true;
-            m_navAgent.SetDestination(m_target.transform.position);
-
+            m_navAgent.SetDestination(playerTarget.transform.position);
+            Quaternion lookOnLook = Quaternion.LookRotation(playerTarget.transform.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, 0.40f);
         }
-        if (m_distance <= 4)
-        {
-            m_navAgent.updatePosition = false;
-            if (!hasFired)
-                StartCoroutine(Attack());
 
-        }
+
+        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
+
+        if (playerInSightRange && !playerInAttackRange)
+            ChasePlayer();
+        if (playerInSightRange && playerInAttackRange)
+            AttackPlayer();
 
     }
-    private IEnumerator Attack()
+
+    public void AttackPlayer()
     {
-        hasFired = true;
+
+        if (!alreadyAttacked)
+        {
+            StartCoroutine(FireAtPlayer());
+        }
+    }
+    public void ChasePlayer()
+    {
+        m_navAgent.SetDestination(playerTarget.transform.position);
+        trackingplayer = true;
+
+    }
+
+
+    private IEnumerator FireAtPlayer()
+    {
+        alreadyAttacked = true;
         GameObject bullet;
         bullet = Instantiate(bulletPrefab, spawnpoint.position, Quaternion.identity);
         bullet.gameObject.GetComponent<Rigidbody>().AddForce(spawnpoint.forward * 1000f);
         Destroy(bullet, 1.5f);
-        yield return new WaitForSeconds(m_fireRate);
-        hasFired = false;
+        yield return new WaitForSeconds(timeBetweenAttacks);
+        alreadyAttacked = false;
     }
 }
