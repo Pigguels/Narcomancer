@@ -40,8 +40,11 @@ public class Grunt_Pistol : MonoBehaviour
         if (trackingplayer)
         {
             m_navAgent.SetDestination(playerTarget.transform.position);
-            Quaternion lookOnLook = Quaternion.LookRotation(playerTarget.transform.position - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, 0.40f);
+            Vector3 rot = Quaternion.LookRotation(playerTarget.transform.position - transform.position).eulerAngles;
+            rot.x = rot.z = 0;
+            transform.rotation = Quaternion.Euler(rot);
+            //Quaternion lookOnLook = Quaternion.LookRotation(playerTarget.transform.position - transform.position);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, 0.40f);
         }
         m_navAgent.stoppingDistance = attackRange;
 
