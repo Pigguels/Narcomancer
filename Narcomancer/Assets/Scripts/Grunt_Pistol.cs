@@ -8,7 +8,7 @@ public class Grunt_Pistol : MonoBehaviour
     NavMeshAgent m_navAgent;
 
     public GameObject playerTarget;
-    public float rangeCheck = 5;
+    //public float rangeCheck = 5;
     public LayerMask playerLayer;
     public Transform spawnpoint;
     public GameObject bulletPrefab;
@@ -30,7 +30,7 @@ public class Grunt_Pistol : MonoBehaviour
     {
         m_navAgent = GetComponent<NavMeshAgent>();
         m_navAgent.stoppingDistance = attackRange;
-
+        playerTarget = GameObject.FindGameObjectWithTag("Player");
         m_navAgent.updatePosition = true;
     }
 
@@ -40,13 +40,22 @@ public class Grunt_Pistol : MonoBehaviour
         if (trackingplayer)
         {
             m_navAgent.SetDestination(playerTarget.transform.position);
-            Quaternion lookOnLook = Quaternion.LookRotation(playerTarget.transform.position - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, 0.40f);
+            Vector3 rot = Quaternion.LookRotation(playerTarget.transform.position - transform.position).eulerAngles;
+            rot.x = rot.z = 0;
+            transform.rotation = Quaternion.Euler(rot);
+            //Quaternion lookOnLook = Quaternion.LookRotation(playerTarget.transform.position - transform.position);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, 0.40f);
         }
+        m_navAgent.stoppingDistance = attackRange;
+
+       //playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
+       //playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
 
 
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
+        playerInSightRange = Vector3.Distance(transform.position, playerTarget.transform.position) < sightRange;
+        playerInAttackRange = Vector3.Distance(transform.position, playerTarget.transform.position) < attackRange;
+
+        
 
         if (playerInSightRange && !playerInAttackRange)
             ChasePlayer();
@@ -75,10 +84,22 @@ public class Grunt_Pistol : MonoBehaviour
     {
         alreadyAttacked = true;
         GameObject bullet;
-        bullet = Instantiate(bulletPrefab, spawnpoint.position, Quaternion.identity);
+        bullet = Instantiate(bulletPrefab, spawnpoint.position, Quaternion.Euler(transform.forward));
         bullet.gameObject.GetComponent<Rigidbody>().AddForce(spawnpoint.forward * 1000f);
         Destroy(bullet, 1.5f);
         yield return new WaitForSeconds(timeBetweenAttacks);
         alreadyAttacked = false;
     }
+
+   
+    void OnDrawGizmos()
+    {
+        
+
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+    
 }
