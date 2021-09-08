@@ -194,12 +194,12 @@ public class PlayerController : MonoBehaviour
 
         m_MoveDir = (transform.forward * m_MoveInput.y + transform.right * m_MoveInput.x).normalized;
 
-        if (m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanVault())
+        if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump) && m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanVault())
         {
             m_MoveState = MovementStates.vault;
             InitialiseVault();
         }
-        else if (m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanMantle())
+        else if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump) && m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanMantle())
         {
             m_MoveState = MovementStates.mantle;
             InitialiseMantle();
@@ -475,8 +475,6 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Crouch()
     {
-        print(CanStand());
-
         /* Exit the crouch state */
         if (!m_InputDown[(int)KeyInputs.crouch] && CanStand())
         {
