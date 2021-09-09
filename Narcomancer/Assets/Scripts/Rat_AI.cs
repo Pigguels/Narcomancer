@@ -12,7 +12,6 @@ public class Rat_AI : MonoBehaviour
     public float m_attackRate = 0.5f;
     public float m_attackRange = 2;
 
-
     private float m_distance;
     public GameObject m_target;
     public float moveSpeed = 15;
@@ -24,13 +23,14 @@ public class Rat_AI : MonoBehaviour
         m_navAgent = GetComponent<NavMeshAgent>();
         m_navAgent.stoppingDistance = m_attackRange;
         m_navAgent.updatePosition = true;
+        m_target = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame 
     void Update()
     {
         
-        m_navAgent.Move(transform.forward * Time.deltaTime);
+        m_navAgent.Move(transform.right * Time.deltaTime);
         //m_navAgent.Move(transform.right * Time.deltaTime);
 
         m_distance = Vector3.Distance(m_target.transform.position, transform.position);
