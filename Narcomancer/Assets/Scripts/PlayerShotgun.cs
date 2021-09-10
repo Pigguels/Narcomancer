@@ -29,8 +29,6 @@ public class PlayerShotgun : MonoBehaviour
     [Space]
     [Header("References")]
     public Transform playerCamera;
-    //public GameObject testcube;
-    //public GameObject testcube2;
 
     private LayerMask playerLayer;
 
@@ -73,8 +71,6 @@ public class PlayerShotgun : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(playerCamera.position, newRayDir, out hit, pelletRange, ~playerLayer))
             {
-                //Instantiate(testcube, hit.point, Quaternion.identity);
-
                 // collect the hit object
                 hits.Add(hit);
             }
@@ -92,8 +88,6 @@ public class PlayerShotgun : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(playerCamera.position, newRayDir, out hit, pelletRange, ~playerLayer))
             {
-                //Instantiate(testcube2, hit.point, Quaternion.identity);
-
                 // collect the hit object
                 hits.Add(hit);
             }
@@ -102,11 +96,17 @@ public class PlayerShotgun : MonoBehaviour
         // apply the pellets damage to the hit objects
         for (int i = 0; i < hits.Count; i++)
         {
-            //if (hits[i].transform.CompareTag("Enemy"))
-            //    hits[i].transform.GetComponent<Enemy>().TakeDamage(pelletDamage);
-
-            if (hits[i].transform.CompareTag("DestructibleObject"))
-                hits[i].transform.GetComponent<DestructibleObject>().TakeDamage(pelletDamage);
+            if (hits[i].transform.CompareTag("Enemy"))
+            {
+                if (hits[i].transform.GetComponent<EnemyDamagePoint>())
+                    hits[i].transform.GetComponent<EnemyDamagePoint>().Damage(pelletDamage);
+            }
+            else if (hits[i].transform.CompareTag("Interactable"))
+            {
+                if (hits[i].transform.GetComponent<Health>())
+                    hits[i].transform.GetComponent<Health>().Damage(pelletDamage);
+                // NEED TO ADD GENERIC INTERACTABLE OBJECT EVENT CALLING HERE
+            }
         }
     }
 

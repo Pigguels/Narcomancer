@@ -53,9 +53,12 @@ public class PlayerPowerGlove : MonoBehaviour
         if (Physics.Raycast(m_PlayerCamera.position, m_PlayerCamera.forward, out hit, m_Range, ~m_PlayerLayerMask))
         {
 
-            if (hit.transform.CompareTag("DestructibleObject"))
+            if (hit.transform.CompareTag("Interactable"))
             {
                 m_HitObjects.Add(hit.transform.gameObject);
+                if (hit.transform.GetComponent<Health>())
+                    hit.transform.GetComponent<Health>().Damage(m_DamagePerSecond * Time.deltaTime);
+                // NEED TO ADD GENERIC INTERACTABLE OBJECT EVENT CALLING HERE
             }
             else if (hit.transform.CompareTag("Enemy"))
             {
@@ -86,9 +89,8 @@ public class PlayerPowerGlove : MonoBehaviour
                 // damage the hit enemies
                 foreach (GameObject enemyToDamage in m_HitObjects)
                 {
-                    //enemyToDamage.GetComponent<Enemy>().TakeDamage(pelletDamage);
-
-                    //enemyToDamage.GetComponent<DestructibleObject>().TakeDamage(m_DamagePerSecond * Time.deltaTime);
+                    if (enemyToDamage.GetComponent<EnemyDamagePoint>())
+                        enemyToDamage.GetComponent<EnemyDamagePoint>().Damage(m_DamagePerSecond * Time.deltaTime);
                 }
             }
             else
