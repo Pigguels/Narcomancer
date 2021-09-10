@@ -246,6 +246,8 @@ public class PlayerController : MonoBehaviour
             AdjustYScale(m_TargetHeight, m_VerticalCrouchSpeed);
 
         AdjustCameraRoll(m_CamRollTargetAngle);
+
+        SlopeAdjustment();
     }
 
     private void LateUpdate()
@@ -329,6 +331,27 @@ public class PlayerController : MonoBehaviour
     {
         /* Lerp only the z rotation of the head towards the target angle */
         m_Head.localRotation = Quaternion.Lerp(m_Head.localRotation, Quaternion.Euler(new Vector3(m_Head.localEulerAngles.x, m_Head.localEulerAngles.y, targetAngle)), m_CamRollSpeed);
+    }
+
+    /// <summary>
+    /// Applies extra force to the player to account for the slope bobbing
+    /// </summary>
+    private void SlopeAdjustment()
+    {
+        /* Early out if jumping or not moving */
+        if (m_MoveState == MovementStates.jump || m_MoveDir == Vector3.zero)
+            return;
+
+        /* Raycast to the ground */
+        RaycastHit slopeHit;
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, m_CharController.height * 0.5f + 0.5f, ~m_LayerMask))
+        {
+            /* Check if the ground is a slope */
+            if (Vector3.Dot(slopeHit.normal, Vector3.up) < 0.99f)
+            {
+                m_Velocity.y = -(m_Gravity * m_Gravity);
+            }
+        }
     }
 
     #endregion
