@@ -34,7 +34,7 @@ public class Rat_AI : MonoBehaviour
     void Update()
     {
         
-        m_navAgent.Move(transform.forward * Time.deltaTime);
+        m_navAgent.Move(transform.right * Time.deltaTime);
         //m_navAgent.Move(transform.right * Time.deltaTime);
 
         m_distance = Vector3.Distance(m_target.transform.position, transform.position);
