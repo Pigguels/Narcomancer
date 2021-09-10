@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 6804975145638974064}
   - component: {fileID: 4191572028936941225}
   - component: {fileID: 3753202188839446177}
+  - component: {fileID: 4361452571585675407}
   m_Layer: 0
   m_Name: Enemy_Grunt
   m_TagString: Untagged
@@ -109,6 +110,21 @@ MonoBehaviour:
   playerInSightRange: 0
   playerInAttackRange: 0
   timeBetweenAttacks: 0.5
+--- !u!114 &4361452571585675407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8561106431968018473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb973d16763e0a9419645dd40f3fd9a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Health: 100
+  m_MaxHealth: 100
+  m_IsDead: 0
 --- !u!1001 &3058152384053274295
 PrefabInstance:
   m_ObjectHideFlags: 0
