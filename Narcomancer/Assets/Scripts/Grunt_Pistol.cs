@@ -38,6 +38,8 @@ public class Grunt_Pistol : MonoBehaviour
         playerTarget = GameObject.FindGameObjectWithTag("Player");
         m_navAgent.updatePosition = true;
         m_navAgent.stoppingDistance = m_attackRange;
+        m_navAgent.destination = playerTarget.transform.position;
+
 
     }
 
@@ -71,7 +73,7 @@ public class Grunt_Pistol : MonoBehaviour
         {
             //play animation for death
             //destroy after animation
-            Destroy(this, .3f);
+            Destroy(gameObject, .3f);
         }
 
     }
