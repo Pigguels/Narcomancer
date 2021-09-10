@@ -426,7 +426,7 @@ public class PlayerController : MonoBehaviour
         Vector3 checkDirection = m_MoveDir;
 
         /* Early out if the walls angle is too high */
-        if (Vector3.Dot(checkDirection, transform.forward) < maxMantleWallAngle / 180f)
+        if (Mathf.Acos(Vector3.Dot(checkDirection, transform.forward)) * Mathf.Rad2Deg < maxMantleWallAngle)
             return false;
 
         /* Check if there is a wall in the check direction */
@@ -454,7 +454,7 @@ public class PlayerController : MonoBehaviour
         Vector3 checkDirection = m_MoveDir;
 
         /* Early out if the walls angle is too high */
-        if (Vector3.Dot(checkDirection, transform.forward) < maxVaultWallAngle / 180f)
+        if (Mathf.Acos(Vector3.Dot(checkDirection, transform.forward)) * Mathf.Rad2Deg < maxVaultWallAngle)
             return false;
 
         /* Check if there is a wall in the check direction */
@@ -874,7 +874,7 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             /* Check if can transition to slide */
-            if (m_IsGrounded && Vector3.Dot(m_MoveDir, transform.forward) > m_MaxAngleToStartSlide * Mathf.Deg2Rad)
+            if (m_IsGrounded && Mathf.Acos(Vector3.Dot(m_MoveDir, transform.forward)) * Mathf.Rad2Deg < m_MaxAngleToStartSlide)
             {
                 InitialiseSlide();
                 m_MoveState = MovementStates.slide;
@@ -930,7 +930,7 @@ public class PlayerController : MonoBehaviour
             if (m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump || m_MoveState == MovementStates.dash)
             {
                 /* Make sure the move directions angle isn't too high */
-                if (m_MoveDir != Vector3.zero && Vector3.Dot(m_MoveDir, transform.forward) < m_DashMaxAngle / 180f)
+                if (m_MoveDir != Vector3.zero && Mathf.Acos(Vector3.Dot(m_MoveDir, transform.forward)) * Mathf.Rad2Deg < m_DashMaxAngle)
                 {
                     /* Initialise the dash */
                     m_DashStartPos = transform.position;
