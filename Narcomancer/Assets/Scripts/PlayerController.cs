@@ -18,6 +18,19 @@ public class PlayerController : MonoBehaviour
 
     private Health m_Health;
 
+    #region Variables : Ammunition
+
+    [Header("Ammunition:")]
+    [Space]
+
+    public int m_CurrentShotgunAmmo = 100;
+    public int m_MaxShotgunAmmo = 100;
+    [Space]
+    public float m_CurrentNeonAmmo = 100f;
+    public float m_MaxNeonAmmo = 100f;
+
+    #endregion
+
     #region Variables : Camera
 
     [Header("Camera:")]
@@ -297,6 +310,32 @@ public class PlayerController : MonoBehaviour
         transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, m_Yaw, transform.localEulerAngles.z);
         m_Head.localEulerAngles = new Vector3(m_Pitch, m_Head.localEulerAngles.y, m_Head.localEulerAngles.z);
     }
+
+    #region Ammunition
+
+    /// <summary>
+    /// Adds shotgun ammo to the shotgun ammo
+    /// </summary>
+    public void AddShotgunAmmo(int ammoAmount)
+    {
+        m_CurrentShotgunAmmo += ammoAmount;
+
+        if (m_CurrentShotgunAmmo > m_MaxShotgunAmmo)
+            m_CurrentShotgunAmmo = m_MaxShotgunAmmo;
+    }
+
+    /// <summary>
+    /// Adds neon ammo to the neon ammo
+    /// </summary>
+    public void AddNeonAmmo(float ammoAmount)
+    {
+        m_CurrentNeonAmmo += ammoAmount;
+
+        if (m_CurrentNeonAmmo > m_MaxNeonAmmo)
+            m_CurrentNeonAmmo = m_MaxNeonAmmo;
+    }
+
+    #endregion
 
     #region Physics
 
