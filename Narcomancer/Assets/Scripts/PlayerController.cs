@@ -187,6 +187,11 @@ public class PlayerController : MonoBehaviour
     [Header("Dash:")]
     [Space]
 
+    public float m_CurrentDashCharge = 3f;
+    public int m_MaxDashCharges = 3;
+    public float m_DashChargeRefillSpeed = 1f;
+
+    [Space]
     [Range(0f, 180f)]
     public float m_DashMaxAngle = 91f;
     public float m_DashDistance = 10f;
@@ -242,6 +247,10 @@ public class PlayerController : MonoBehaviour
             m_MoveState = MovementStates.mantle;
             InitialiseMantle();
         }
+
+        /* Refill the dash charges */
+        if (m_CurrentDashCharge < m_MaxDashCharges)
+            m_CurrentDashCharge += Time.deltaTime;
 
         /* Update the current movement states */
         switch (m_MoveState)
@@ -970,7 +979,7 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             /* Try go into dash */
-            if (m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump || m_MoveState == MovementStates.dash)
+            if (m_CurrentDashCharge > 1f && (m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump || m_MoveState == MovementStates.dash))
             {
                 /* Make sure the move directions angle isn't too high */
                 if (m_MoveDir != Vector3.zero && Mathf.Acos(Vector3.Dot(m_MoveDir, transform.forward)) * Mathf.Rad2Deg < m_DashMaxAngle)
@@ -983,6 +992,7 @@ public class PlayerController : MonoBehaviour
                     m_DashTimeMultiplier = 1f / m_DashTime;
                     
                     m_Velocity = Vector3.zero;
+                    --m_CurrentDashCharge;
 
                     m_MoveState = MovementStates.dash;
                 }
