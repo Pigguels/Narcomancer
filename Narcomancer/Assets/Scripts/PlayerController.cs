@@ -942,6 +942,10 @@ public class PlayerController : MonoBehaviour
             /* Move to the jumping state */
             if (m_IsGrounded && (m_MoveState == MovementStates.walk || m_MoveState == MovementStates.crouch || m_MoveState == MovementStates.slide))
             {
+                /* If the player can stand then stand */
+                if (CanStand())
+                    m_TargetHeight = m_StandingHeight;
+
                 InitialiseJump();
                 m_MoveState = MovementStates.jump;
             }
