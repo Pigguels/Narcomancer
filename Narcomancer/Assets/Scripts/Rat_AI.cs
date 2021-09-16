@@ -12,25 +12,37 @@ public class Rat_AI : MonoBehaviour
     public float m_attackRate = 0.5f;
     public float m_attackRange = 2;
 
+    //get the health scripts
+    Health m_Health;
 
     private float m_distance;
     public GameObject m_target;
     public float moveSpeed = 15;
     private bool hasAttacked;
 
+    private void Awake()
+    {
+        m_Health = GetComponent<Health>();
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
         m_navAgent = GetComponent<NavMeshAgent>();
         m_navAgent.stoppingDistance = m_attackRange;
+        m_target = GameObject.FindGameObjectWithTag("Player");
         m_navAgent.updatePosition = true;
+        m_navAgent.stoppingDistance = m_attackRange; 
+        m_navAgent.destination = m_target.transform.position;
+
     }
 
     // Update is called once per frame 
     void Update()
     {
         
-        m_navAgent.Move(transform.forward * Time.deltaTime);
+        //m_navAgent.Move(transform.right * Time.deltaTime);
         //m_navAgent.Move(transform.right * Time.deltaTime);
 
         m_distance = Vector3.Distance(m_target.transform.position, transform.position);
@@ -50,6 +62,11 @@ public class Rat_AI : MonoBehaviour
                StartCoroutine(Attack());
 
        }
+
+        if (m_Health.m_IsDead)
+        {
+            Destroy(gameObject, .3f);
+        }
 
     }
     private IEnumerator Attack()
