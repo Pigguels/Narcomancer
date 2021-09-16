@@ -15,11 +15,12 @@ public class Grunt_SMG : MonoBehaviour
     public Transform spawnpoint;
     public GameObject bulletPrefab;
 
-
+    //get the health scripts
+    Health m_Health;
 
     //States
 
-    public float sightRange, attackRange;
+    public float sightRange, m_attackRange;
     public bool playerInSightRange, playerInAttackRange;
     bool trackingplayer = false;
     //Attacking
@@ -30,10 +31,11 @@ public class Grunt_SMG : MonoBehaviour
 
     void Start()
     {
-        m_navAgent = GetComponent<NavMeshAgent>();
-        m_navAgent.stoppingDistance = attackRange;
-
+         m_navAgent = GetComponent<NavMeshAgent>();
+        m_navAgent.stoppingDistance = m_attackRange;
+        playerTarget = GameObject.FindGameObjectWithTag("Player");
         m_navAgent.updatePosition = true;
+        m_navAgent.stoppingDistance = m_attackRange;
     }
 
     // Update is called once per frame
@@ -52,12 +54,18 @@ public class Grunt_SMG : MonoBehaviour
 
 
         playerInSightRange = Vector3.Distance(transform.position, playerTarget.transform.position) < sightRange;
-        playerInAttackRange = Vector3.Distance(transform.position, playerTarget.transform.position) < attackRange;
+        playerInAttackRange = Vector3.Distance(transform.position, playerTarget.transform.position) < m_attackRange;
 
         if (playerInSightRange && !playerInAttackRange)
             ChasePlayer();
         if (playerInSightRange && playerInAttackRange)
             AttackPlayer();
+
+
+        if (m_Health.m_IsDead)
+        {
+            Destroy(this, .3f);
+        }
 
     }
 

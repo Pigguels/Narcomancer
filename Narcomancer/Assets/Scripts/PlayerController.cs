@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(Health))]
 public class PlayerController : MonoBehaviour
 {
     Vector2 m_MoveInput;
@@ -14,6 +15,21 @@ public class PlayerController : MonoBehaviour
     
     enum KeyInputs { crouch, jump, dash, primaryFire, secondaryFire, };
     bool[] m_InputDown = new bool[(int)KeyInputs.secondaryFire + 1];
+
+    private Health m_Health;
+
+    #region Variables : Ammunition
+
+    [Header("Ammunition:")]
+    [Space]
+
+    public int m_CurrentShotgunAmmo = 100;
+    public int m_MaxShotgunAmmo = 100;
+    [Space]
+    public float m_CurrentNeonAmmo = 100f;
+    public float m_MaxNeonAmmo = 100f;
+
+    #endregion
 
     #region Variables : Camera
 
@@ -166,6 +182,27 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    #region Variables : Dash
+
+    [Header("Dash:")]
+    [Space]
+
+    [Range(0f, 180f)]
+    public float m_DashMaxAngle = 91f;
+    public float m_DashDistance = 10f;
+    public float m_DashTime = 0.3f;
+    public float m_DashEndForce = 2;
+
+    private Vector3 m_InitDashDir;
+    private Vector3 m_DashStartPos;
+    private Vector3 m_DashEndPos;
+    private float m_TimeSinceDashStart = 0f;
+    private float m_DashTimeMultiplier;
+
+    // not backward, stop gravity, continous speed, apply force on the end of the dash
+
+    #endregion
+
     private CharacterController m_CharController;
 
     private LayerMask m_LayerMask;
@@ -173,6 +210,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         m_CharController = GetComponent<CharacterController>();
+        m_Health = GetComponent<Health>();
 
         m_LayerMask = LayerMask.GetMask("Player");
 
@@ -194,12 +232,12 @@ public class PlayerController : MonoBehaviour
 
         m_MoveDir = (transform.forward * m_MoveInput.y + transform.right * m_MoveInput.x).normalized;
 
-        if (m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanVault())
+        if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump) && m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanVault())
         {
             m_MoveState = MovementStates.vault;
             InitialiseVault();
         }
-        else if (m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanMantle())
+        else if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump) && m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanMantle())
         {
             m_MoveState = MovementStates.mantle;
             InitialiseMantle();
@@ -235,6 +273,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case MovementStates.dash:
+                Dash();
                 break;
         }
 
@@ -271,6 +310,32 @@ public class PlayerController : MonoBehaviour
         transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, m_Yaw, transform.localEulerAngles.z);
         m_Head.localEulerAngles = new Vector3(m_Pitch, m_Head.localEulerAngles.y, m_Head.localEulerAngles.z);
     }
+
+    #region Ammunition
+
+    /// <summary>
+    /// Adds shotgun ammo to the shotgun ammo
+    /// </summary>
+    public void AddShotgunAmmo(int ammoAmount)
+    {
+        m_CurrentShotgunAmmo += ammoAmount;
+
+        if (m_CurrentShotgunAmmo > m_MaxShotgunAmmo)
+            m_CurrentShotgunAmmo = m_MaxShotgunAmmo;
+    }
+
+    /// <summary>
+    /// Adds neon ammo to the neon ammo
+    /// </summary>
+    public void AddNeonAmmo(float ammoAmount)
+    {
+        m_CurrentNeonAmmo += ammoAmount;
+
+        if (m_CurrentNeonAmmo > m_MaxNeonAmmo)
+            m_CurrentNeonAmmo = m_MaxNeonAmmo;
+    }
+
+    #endregion
 
     #region Physics
 
@@ -400,7 +465,7 @@ public class PlayerController : MonoBehaviour
         Vector3 checkDirection = m_MoveDir;
 
         /* Early out if the walls angle is too high */
-        if (Vector3.Dot(checkDirection, transform.forward) < maxMantleWallAngle / 180f)
+        if (Mathf.Acos(Vector3.Dot(checkDirection, transform.forward)) * Mathf.Rad2Deg < maxMantleWallAngle)
             return false;
 
         /* Check if there is a wall in the check direction */
@@ -428,7 +493,7 @@ public class PlayerController : MonoBehaviour
         Vector3 checkDirection = m_MoveDir;
 
         /* Early out if the walls angle is too high */
-        if (Vector3.Dot(checkDirection, transform.forward) < maxVaultWallAngle / 180f)
+        if (Mathf.Acos(Vector3.Dot(checkDirection, transform.forward)) * Mathf.Rad2Deg < maxVaultWallAngle)
             return false;
 
         /* Check if there is a wall in the check direction */
@@ -475,8 +540,6 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Crouch()
     {
-        print(CanStand());
-
         /* Exit the crouch state */
         if (!m_InputDown[(int)KeyInputs.crouch] && CanStand())
         {
@@ -776,9 +839,36 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// The players dash, returns back to the walk state once completed
+    /// </summary>
     private void Dash()
     {
+        m_TimeSinceDashStart += Time.deltaTime;
 
+        if (m_TimeSinceDashStart * m_DashTimeMultiplier < 1f)
+        {
+            /* Check if the dash is blocked */
+            RaycastHit wallHit;
+            if (Physics.CapsuleCast(transform.position + new Vector3(0f, m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
+                m_CharController.radius, m_MoveDir, out wallHit, m_DashDistance * (Time.deltaTime * m_DashTimeMultiplier) + m_CharController.radius, ~m_LayerMask))
+            {
+                /* End the dash */
+                m_MoveState = MovementStates.walk;
+                return;
+            }
+
+            /* Do the dash */
+            m_Velocity = Vector3.zero;
+            transform.position = Vector3.Lerp(m_DashStartPos, m_DashEndPos, m_TimeSinceDashStart * m_DashTimeMultiplier);
+        }
+        else
+        {
+            /* Apply a force in the direction of the dash */
+            ApplyForce(m_InitDashDir * m_DashEndForce);
+
+            m_MoveState = MovementStates.walk;
+        }
     }
 
     #endregion
@@ -823,7 +913,7 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             /* Check if can transition to slide */
-            if (m_IsGrounded && Vector3.Dot(m_MoveDir, transform.forward) > m_MaxAngleToStartSlide * Mathf.Deg2Rad)
+            if (m_IsGrounded && Mathf.Acos(Vector3.Dot(m_MoveDir, transform.forward)) * Mathf.Rad2Deg < m_MaxAngleToStartSlide)
             {
                 InitialiseSlide();
                 m_MoveState = MovementStates.slide;
@@ -875,6 +965,25 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
+            /* Try go into dash */
+            if (m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump || m_MoveState == MovementStates.dash)
+            {
+                /* Make sure the move directions angle isn't too high */
+                if (m_MoveDir != Vector3.zero && Mathf.Acos(Vector3.Dot(m_MoveDir, transform.forward)) * Mathf.Rad2Deg < m_DashMaxAngle)
+                {
+                    /* Initialise the dash */
+                    m_DashStartPos = transform.position;
+                    m_DashEndPos = transform.position + (m_MoveDir * m_DashDistance);
+                    m_InitDashDir = m_MoveDir;
+                    m_TimeSinceDashStart = 0f;
+                    m_DashTimeMultiplier = 1f / m_DashTime;
+                    
+                    m_Velocity = Vector3.zero;
+
+                    m_MoveState = MovementStates.dash;
+                }
+            }
+
             m_InputDown[(int)KeyInputs.dash] = true;
         }
         else if (context.canceled)

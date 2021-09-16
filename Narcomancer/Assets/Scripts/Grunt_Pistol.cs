@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(Health))]
 public class Grunt_Pistol : MonoBehaviour
 {
     NavMeshAgent m_navAgent;
@@ -13,25 +14,33 @@ public class Grunt_Pistol : MonoBehaviour
     public Transform spawnpoint;
     public GameObject bulletPrefab;
 
-
+    //get the health scripts
+    Health m_Health;
 
     //States
 
-    public float sightRange, attackRange;
+    public float m_sightRange, m_attackRange;
     public bool playerInSightRange, playerInAttackRange;
     bool trackingplayer = false;
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
 
-
+    private void Awake()
+    {
+        m_Health = GetComponent<Health>();
+    }
 
     void Start()
     {
         m_navAgent = GetComponent<NavMeshAgent>();
-        m_navAgent.stoppingDistance = attackRange;
+        m_navAgent.stoppingDistance = m_attackRange;
         playerTarget = GameObject.FindGameObjectWithTag("Player");
         m_navAgent.updatePosition = true;
+        m_navAgent.stoppingDistance = m_attackRange;
+        m_navAgent.destination = playerTarget.transform.position;
+
+
     }
 
     // Update is called once per frame
@@ -43,17 +52,14 @@ public class Grunt_Pistol : MonoBehaviour
             Vector3 rot = Quaternion.LookRotation(playerTarget.transform.position - transform.position).eulerAngles;
             rot.x = rot.z = 0;
             transform.rotation = Quaternion.Euler(rot);
+
+            //this is me testing other rotation methods
             //Quaternion lookOnLook = Quaternion.LookRotation(playerTarget.transform.position - transform.position);
             //transform.rotation = Quaternion.Slerp(transform.rotation, lookOnLook, 0.40f);
         }
-        m_navAgent.stoppingDistance = attackRange;
-
-       //playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerLayer);
-       //playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
-
-
-        playerInSightRange = Vector3.Distance(transform.position, playerTarget.transform.position) < sightRange;
-        playerInAttackRange = Vector3.Distance(transform.position, playerTarget.transform.position) < attackRange;
+        //every frame do distance checks to see if in range
+        playerInSightRange = Vector3.Distance(transform.position, playerTarget.transform.position) < m_sightRange;
+        playerInAttackRange = Vector3.Distance(transform.position, playerTarget.transform.position) < m_attackRange;
 
         
 
@@ -61,6 +67,14 @@ public class Grunt_Pistol : MonoBehaviour
             ChasePlayer();
         if (playerInSightRange && playerInAttackRange)
             AttackPlayer();
+
+        //test against if the character is dead
+        if(m_Health.m_IsDead)
+        {
+            //play animation for death
+            //destroy after animation
+            Destroy(gameObject, .3f);
+        }
 
     }
 
@@ -97,9 +111,9 @@ public class Grunt_Pistol : MonoBehaviour
         
 
         Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.DrawWireSphere(transform.position, m_sightRange);
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, m_attackRange);
     }
     
 }
