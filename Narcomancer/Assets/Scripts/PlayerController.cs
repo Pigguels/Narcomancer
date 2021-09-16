@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(PlayerInput))]
@@ -189,6 +190,7 @@ public class PlayerController : MonoBehaviour
 
     public float m_CurrentDashCharge = 3f;
     public int m_MaxDashCharges = 3;
+    [Tooltip("The amount of time to refill a full dash charge in seconds")]
     public float m_DashChargeRefillSpeed = 1f;
 
     [Space]
@@ -250,7 +252,7 @@ public class PlayerController : MonoBehaviour
 
         /* Refill the dash charges */
         if (m_CurrentDashCharge < m_MaxDashCharges)
-            m_CurrentDashCharge += Time.deltaTime;
+            m_CurrentDashCharge += Time.deltaTime * (1f / m_DashChargeRefillSpeed);
 
         /* Update the current movement states */
         switch (m_MoveState)
