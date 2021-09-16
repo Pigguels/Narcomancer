@@ -30,12 +30,16 @@ public class PlayerShotgun : MonoBehaviour
     [Header("References")]
     public Transform playerCamera;
 
+    private PlayerController m_PlayerController;
+
     private LayerMask playerLayer;
 
     #endregion
 
     void Start()
     {
+        m_PlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
         playerLayer = LayerMask.GetMask("Player");
     }
 
@@ -114,9 +118,10 @@ public class PlayerShotgun : MonoBehaviour
     {
         if (context.started)
         {
-            if (timeSinceLastShot >= timeBetweenShots)
+            if (timeSinceLastShot >= timeBetweenShots && m_PlayerController.m_CurrentShotgunAmmo > 0)
             {
                 Shoot();
+                --m_PlayerController.m_CurrentShotgunAmmo;
                 timeSinceLastShot = 0f;
             }
         }

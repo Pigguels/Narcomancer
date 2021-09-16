@@ -15,6 +15,8 @@ public class PlayerPowerGlove : MonoBehaviour
     public Transform m_PlayerCamera;
     public Transform m_HandPosition;
 
+    private PlayerController m_PlayerController;
+
     private LineRenderer m_LineRenderer;
 
     private List<GameObject> m_HitObjects;
@@ -25,6 +27,8 @@ public class PlayerPowerGlove : MonoBehaviour
 
     void Start()
     {
+        m_PlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
         m_LineRenderer = GetComponent<LineRenderer>();
 
         m_PlayerLayerMask = LayerMask.GetMask("Player");
@@ -34,8 +38,11 @@ public class PlayerPowerGlove : MonoBehaviour
 
     private void Update()
     {
-        if (m_SecondaryFireDown)
+        if (m_SecondaryFireDown && m_PlayerController.m_CurrentNeonAmmo > 0f)
+        {
             ShootLightning();
+            m_PlayerController.m_CurrentNeonAmmo -= Time.deltaTime;
+        }
         else
             m_LineRenderer.positionCount = 0;
     }
