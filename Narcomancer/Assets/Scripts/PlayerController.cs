@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(PlayerInput))]
@@ -203,6 +205,15 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    #region UI References
+
+    public TMP_Text m_HealthText;
+
+    public TMP_Text m_ShotgunAmmoText;
+    public TMP_Text m_NeonAmmoText;
+
+    #endregion
+
     private CharacterController m_CharController;
 
     private LayerMask m_LayerMask;
@@ -287,6 +298,8 @@ public class PlayerController : MonoBehaviour
         AdjustCameraRoll(m_CamRollTargetAngle);
 
         SlopeAdjustment();
+
+        UpdateUIElements();
     }
 
     private void LateUpdate()
@@ -417,6 +430,18 @@ public class PlayerController : MonoBehaviour
                 m_Velocity.y = -(m_Gravity * m_Gravity);
             }
         }
+    }
+
+    /// <summary>
+    /// Updates all the UI elements
+    /// eg: health text, shotgun ammo text and neon ammo text
+    /// </summary>
+    private void UpdateUIElements()
+    {
+        m_HealthText.text = (Mathf.Round(m_Health.m_CurrentHealth * 10) / 10).ToString();
+
+        m_ShotgunAmmoText.text = m_CurrentShotgunAmmo.ToString();
+        m_NeonAmmoText.text = (Mathf.Round(m_CurrentNeonAmmo * 10) / 10).ToString();
     }
 
     #endregion
