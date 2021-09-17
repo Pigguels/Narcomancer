@@ -207,10 +207,15 @@ public class PlayerController : MonoBehaviour
 
     #region UI References
 
+    [Header("UI Referances:")]
+    [Space]
+
     public TMP_Text m_HealthText;
+    public Slider m_HealthSlider;
 
     public TMP_Text m_ShotgunAmmoText;
     public TMP_Text m_NeonAmmoText;
+    public Slider m_NeonAmmoSlider;
 
     #endregion
 
@@ -439,9 +444,14 @@ public class PlayerController : MonoBehaviour
     private void UpdateUIElements()
     {
         m_HealthText.text = (Mathf.Round(m_Health.m_CurrentHealth * 10) / 10).ToString();
+        m_HealthSlider.value = m_Health.m_CurrentHealth;
+        m_HealthSlider.maxValue = m_Health.m_MaxHealth;
 
         m_ShotgunAmmoText.text = m_CurrentShotgunAmmo.ToString();
+
         m_NeonAmmoText.text = (Mathf.Round(m_CurrentNeonAmmo * 10) / 10).ToString();
+        m_NeonAmmoSlider.value = m_CurrentNeonAmmo;
+        m_NeonAmmoSlider.maxValue = m_MaxNeonAmmo;
     }
 
     #endregion
