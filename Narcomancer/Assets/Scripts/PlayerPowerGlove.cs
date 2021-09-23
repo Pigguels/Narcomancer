@@ -1,66 +1,117 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(LineRenderer))]
 public class PlayerPowerGlove : MonoBehaviour
 {
-    public int maxChainAmount = 4;
-    public float distanceToChain = 4f;
-    public float damagePerSecond = 60f;
-    public float range = 20;
+    public int m_MaxChainAmount = 4;
+    public float m_DistanceToChain = 4f;
+    public float m_DamagePerSecond = 60f;
+    public float m_Range = 20;
 
     [Space]
     [Header("References")]
-    public Transform playerCamera;
+    public Transform m_PlayerCamera;
+    public Transform m_HandPosition;
 
-    private List<GameObject> hitObjects;
+    private PlayerController m_PlayerController;
 
-    private LayerMask playerLayer;
+    private LineRenderer m_LineRenderer;
+
+    private List<GameObject> m_HitObjects;
+
+    private LayerMask m_PlayerLayerMask;
+
+    private bool m_SecondaryFireDown = false;
 
     void Start()
     {
-        playerLayer = LayerMask.GetMask("Player");
+        m_PlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
-        hitObjects = new List<GameObject>();
+        m_LineRenderer = GetComponent<LineRenderer>();
+
+        m_PlayerLayerMask = LayerMask.GetMask("Player");
+
+        m_HitObjects = new List<GameObject>();
+    }
+
+    private void Update()
+    {
+        if (m_SecondaryFireDown && m_PlayerController.m_CurrentNeonAmmo > 0f)
+        {
+            ShootLightning();
+            m_PlayerController.m_CurrentNeonAmmo -= Time.deltaTime;
+        }
+        else
+            m_LineRenderer.positionCount = 0;
     }
 
     void ShootLightning()
     {
+        /* Reset the hit object list */
+        m_HitObjects.Clear();
+
+        /* Reset the linerenderers positions */
+        m_LineRenderer.positionCount = m_MaxChainAmount + 1;
+        m_LineRenderer.SetPosition(0, m_HandPosition.position);
+
         RaycastHit hit;
-        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, range, ~playerLayer))
+        if (Physics.Raycast(m_PlayerCamera.position, m_PlayerCamera.forward, out hit, m_Range, ~m_PlayerLayerMask))
         {
-            if (hit.transform.CompareTag("Enemy"))
+
+            if (hit.transform.CompareTag("Interactable"))
             {
-                hitObjects.Add(hit.transform.gameObject);
+                m_HitObjects.Add(hit.transform.gameObject);
+                if (hit.transform.GetComponent<Health>())
+                    hit.transform.GetComponent<Health>().Damage(m_DamagePerSecond * Time.deltaTime);
+                // NEED TO ADD GENERIC INTERACTABLE OBJECT EVENT CALLING HERE
+            }
+            else if (hit.transform.CompareTag("Enemy"))
+            {
+                m_HitObjects.Add(hit.transform.gameObject);
 
                 // chain to nearby enemies
-                for (int i = 0; i < maxChainAmount + 1; ++i)
+                for (int i = 0; i < m_MaxChainAmount + 1; ++i)
                 {
-                    GameObject closestEnemy = GetClosestEnemyToEnemy(hitObjects[hitObjects.Count - 1]);
+                    GameObject closestEnemy = GetClosestEnemyToEnemy(m_HitObjects[m_HitObjects.Count - 1]);
 
                     // if there is no other enemy
                     if (!closestEnemy)
                         break;
 
-                    if (Vector3.SqrMagnitude(closestEnemy.transform.position - hitObjects[hitObjects.Count - 1].transform.position) <= (distanceToChain * distanceToChain))
-                        hitObjects.Add(closestEnemy);
+                    if (Vector3.SqrMagnitude(closestEnemy.transform.position - m_HitObjects[m_HitObjects.Count - 1].transform.position) <= (m_DistanceToChain * m_DistanceToChain))
+                        m_HitObjects.Add(closestEnemy);
+                }
+
+                /* Go through and add each hit objects position to the linerenderers vertex list */
+                for (int i = 1; i < m_MaxChainAmount + 1; ++i)
+                {
+                    if (i < m_HitObjects.Count)
+                        m_LineRenderer.SetPosition(i, m_HitObjects[i - 1].transform.position);
+                    else
+                        m_LineRenderer.SetPosition(i, m_LineRenderer.GetPosition(i - 1));
                 }
 
                 // damage the hit enemies
-                foreach (GameObject enemyToDamage in hitObjects)
+                foreach (GameObject enemyToDamage in m_HitObjects)
                 {
-                    //enemyToDamage.GetComponent<Enemy>().TakeDamage(pelletDamage);
-
-                    enemyToDamage.GetComponent<DestructibleObject>().TakeDamage(damagePerSecond * Time.deltaTime);
+                    if (enemyToDamage.GetComponent<EnemyDamagePoint>())
+                        enemyToDamage.GetComponent<EnemyDamagePoint>().Damage(m_DamagePerSecond * Time.deltaTime);
                 }
-
-                //// SPAWN DEBUG CUBES
-                //for (int i = 1; i < hitObjects.Count - 1; ++i)
-                //{
-                //    Instantiate(testcube, hitObjects[i - 1].transform.position + (hitObjects[i].transform.position - hitObjects[i - 1].transform.position), Quaternion.identity);
-                //}
             }
+            else
+            {
+                /* If the lighting didn't hit any object, add the hit point the the vertex list */
+                m_LineRenderer.SetPosition(1, hit.point);
+                m_LineRenderer.positionCount = 2;
+            }
+        }
+        else
+        {
+            /* If the lighting didn't hit any object, add the hit point the the vertex list */
+            m_LineRenderer.SetPosition(1, m_PlayerCamera.position + (m_PlayerCamera.forward * m_Range));
+            m_LineRenderer.positionCount = 2;
         }
     }
 
@@ -86,7 +137,7 @@ public class PlayerPowerGlove : MonoBehaviour
 
             // make sure the enemy hasn't been chained already - if so skip them
             bool enemyIsChained = false;
-            foreach (GameObject chainedEnemy in hitObjects)
+            foreach (GameObject chainedEnemy in m_HitObjects)
             {
                 if (enemyToCheck == chainedEnemy)
                     enemyIsChained = true;
@@ -109,9 +160,8 @@ public class PlayerPowerGlove : MonoBehaviour
     public void OnSecondaryFire(InputAction.CallbackContext context)
     {
         if (context.started)
-        {
-            hitObjects.Clear();
-            ShootLightning();
-        }
+            m_SecondaryFireDown = true;
+        else if (context.canceled)
+            m_SecondaryFireDown = false;
     }
 }
