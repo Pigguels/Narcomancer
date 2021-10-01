@@ -34,6 +34,13 @@ public class PlayerShotgun : MonoBehaviour
 
     private LayerMask playerLayer;
 
+
+
+    //Baz Junk
+    [Header("On Hit Effects")]
+    public GameObject bloodOnHit;
+    public GameObject debrisOnHit;
+
     #endregion
 
     void Start()
@@ -104,12 +111,19 @@ public class PlayerShotgun : MonoBehaviour
             {
                 if (hits[i].transform.GetComponent<EnemyDamagePoint>())
                     hits[i].transform.GetComponent<EnemyDamagePoint>().Damage(pelletDamage);
+
+                Instantiate(bloodOnHit, hits[i].point, gameObject.transform.rotation);
+
             }
             else if (hits[i].transform.CompareTag("Interactable"))
             {
                 if (hits[i].transform.GetComponent<Health>())
                     hits[i].transform.GetComponent<Health>().Damage(pelletDamage);
                 // NEED TO ADD GENERIC INTERACTABLE OBJECT EVENT CALLING HERE
+            }
+            else if (hits[i].transform.CompareTag("Untagged"))
+            {
+                Instantiate(debrisOnHit, hits[i].point, gameObject.transform.rotation);
             }
         }
     }
