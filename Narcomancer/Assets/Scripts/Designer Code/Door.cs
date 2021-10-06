@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
    public GameObject player;
+    public GameObject NarrativeController;
    DoorAnimation doorAnim;
    Animator playerAnim;
     // Start is called before the first frame update
@@ -21,9 +22,10 @@ public class Door : MonoBehaviour
 
     public void Run()
     {
-        //doorAnim;
-       playerAnim.SetTrigger("doorkick");
-       doorAnim.OpenDoors();
+        gameObject.SendMessage("OpenDoors");
+        playerAnim.SetTrigger("doorkick");
+        NarrativeController.GetComponent<NarrativeEventManager>().StoryIntroduction();
+        
         
     }
 }

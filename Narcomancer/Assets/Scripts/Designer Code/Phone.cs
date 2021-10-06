@@ -2,14 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorAnimation : MonoBehaviour
+public class Phone : MonoBehaviour
 {
-    Animator anim;
-
-  
-    
-
-      
+    public GameObject NarrativeController;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,14 +17,9 @@ public class DoorAnimation : MonoBehaviour
         
     }
 
-    public void OpenDoors()
+    public void Run()
     {
-        print("doors are open");
-        anim.SetTrigger("dooropen");
-    }
-
-    public void CloseDoors()
-    {
-        anim.SetTrigger("doorclose");
+        NarrativeController.GetComponent<NarrativeEventManager>().StoryPhoneCall();
+      
     }
 }
