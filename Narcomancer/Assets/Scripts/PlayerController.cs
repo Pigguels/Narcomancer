@@ -217,6 +217,10 @@ public class PlayerController : MonoBehaviour
     public TMP_Text m_NeonAmmoText;
     public Slider m_NeonAmmoSlider;
 
+    public Image m_NeonAmmoRing;
+
+
+
     #endregion
 
     private CharacterController m_CharController;
@@ -452,6 +456,7 @@ public class PlayerController : MonoBehaviour
         m_NeonAmmoText.text = (Mathf.Round(m_CurrentNeonAmmo * 10) / 10).ToString();
         m_NeonAmmoSlider.value = m_CurrentNeonAmmo;
         m_NeonAmmoSlider.maxValue = m_MaxNeonAmmo;
+        m_NeonAmmoRing.fillAmount = (m_CurrentNeonAmmo / 10) * 0.3f;
     }
 
     #endregion
