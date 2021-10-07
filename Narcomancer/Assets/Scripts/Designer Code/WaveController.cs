@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Phone : MonoBehaviour
+public class WaveController : MonoBehaviour
 {
-    public GameObject NarrativeController;
+    public GameObject wave1Parent;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +17,10 @@ public class Phone : MonoBehaviour
         
     }
 
-    public void Run()
+    void Wave1()
     {
-        NarrativeController.GetComponent<NarrativeEventManager>().StoryOnThePhone();
-      
+        //wave1Parent.GetComponent<AIsciptname>().<enableAI> ();
+
     }
+
 }

@@ -58,6 +58,10 @@ public class NarrativeEventManager : MonoBehaviour
     }
     public void StoryPhoneCall()
     {
+        
+    }
+    public void StoryOnThePhone()
+    {
         //fmod stop phone
         //fmod pick up phone
         //fmod arrive at office
