@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 444004044}
   - component: {fileID: 7283713628203700525}
   - component: {fileID: 596697659}
+  - component: {fileID: 607533122}
   m_Layer: 0
   m_Name: Power Glove
   m_TagString: Untagged
@@ -65,9 +66,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50acb77746a95574da91c6c3517cf0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxChainAmount: 4
+  m_MaxChainAmount: 10
   m_DistanceToChain: 4
-  m_DamagePerSecond: 60
+  m_DamagePerSecond: 50
   m_Range: 20
   m_PlayerCamera: {fileID: 789832318895824768}
   m_HandPosition: {fileID: 1162304814}
@@ -90,7 +91,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 879e25dccdae2234db4cc48ad9f2a9c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -162,11 +163,31 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 3
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &607533122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444004041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17998e8b044297143a02abfd72418ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textures:
+  - {fileID: 2800000, guid: e7de6cc108e410e45b79742d2a14ccab, type: 3}
+  - {fileID: 2800000, guid: 6ad208466ea3dae47804f32f1c1468e0, type: 3}
+  - {fileID: 2800000, guid: 0c29e2a038647144a8e3c8a396339ccc, type: 3}
+  - {fileID: 2800000, guid: 7705d837df8fd3f4a9e7f5a1a7de8fea, type: 3}
+  - {fileID: 2800000, guid: 44859dc4f7be72047a50198982593513, type: 3}
+  - {fileID: 2800000, guid: da6147d6337bd0b449eb68632001607e, type: 3}
+  fps: 24
 --- !u!1 &1162304813
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,8 +282,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pelletRange: 20
-  pelletDamage: 25
-  timeBetweenShots: 0.35
+  pelletDamage: 20
+  timeBetweenShots: 0.5
   innerSpreadPelletAmount: 6
   outerSpreadPelletAmount: 10
   innerSpreadWidthAngle: 12
@@ -272,7 +293,7 @@ MonoBehaviour:
   drawPelletSpreads: 0
   playerCamera: {fileID: 789832318895824768}
   bloodOnHit: {fileID: 8189877444548868323, guid: 5612071eb4ff51c439b103066878d362, type: 3}
-  debrisOnHit: {fileID: 6721007185294521974, guid: 8ddb0e38d95e2d248b4bd52c98fd196b, type: 3}
+  debrisOnHit: {fileID: 2368685995065119701, guid: 8ddb0e38d95e2d248b4bd52c98fd196b, type: 3}
   ammoImage: {fileID: 3250326016270149620}
 --- !u!1 &648840628385203944
 GameObject:
@@ -409,25 +430,25 @@ MonoBehaviour:
   m_PlayerInput: {fileID: 5577643863094696304}
   m_CurrentShotgunAmmo: 100
   m_MaxShotgunAmmo: 100
-  m_CurrentNeonAmmo: 100
-  m_MaxNeonAmmo: 100
+  m_CurrentNeonAmmo: 10
+  m_MaxNeonAmmo: 10
   m_LookSensitivity: 3.5
-  m_EyeLevel: 1.9
+  m_EyeLevel: 1.6
   m_MaxXRot: 90
   m_MinXRot: -90
-  m_CamRollSpeed: 0
+  m_CamRollSpeed: 0.1
   m_CamRollMoveInputMultiplier: 1
   m_CamRollLookInputMultiplier: 0
-  m_CamWalkAngle: 15
+  m_CamWalkAngle: 5
   m_CamCrouchAngle: 0
-  m_CamJumpAngle: 20
-  m_CamSlideAngle: 25
+  m_CamJumpAngle: 15
+  m_CamSlideAngle: 15
   m_CamMantleAngle: 10
-  m_CamVaultAngle: 25
+  m_CamVaultAngle: 15
   m_Head: {fileID: 789832318303019595}
-  m_WalkMoveSpeed: 8
+  m_WalkMoveSpeed: 12
   m_AirControl: 0.75
-  m_Gravity: 9.81
+  m_Gravity: 15
   m_Drag: 10
   m_VerticalCrouchSpeed: 0.2
   m_CrouchHeight: 1
@@ -440,13 +461,13 @@ MonoBehaviour:
   m_MaxAngleToStartSlide: 45
   m_InitSlideSpeed: 45
   m_SlideFriction: 4
-  mantleTime: 0.5
+  mantleTime: 0.25
   mantleClimbCurveMultiplier: 1.01
-  horizontalDistanceToMantle: 0.3
-  verticalDistanceToMantle: 1.5
+  horizontalDistanceToMantle: 1
+  verticalDistanceToMantle: 5
   maxMantleWallAngle: 45
   vaultTime: 0.25
-  vaultForce: 15
+  vaultForce: 5
   vaultClimbCurveMultiplier: 1.5
   horizontalDistanceToVault: 1
   verticalDistanceToVault: 0.75
