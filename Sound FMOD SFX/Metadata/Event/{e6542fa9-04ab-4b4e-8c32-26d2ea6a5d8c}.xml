@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{e6542fa9-04ab-4b4e-8c32-26d2ea6a5d8c}">
 		<property name="name">
-			<value>New Event</value>
+			<value>Grenade Launch</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -33,6 +33,9 @@
 		</relationship>
 		<relationship name="parameters">
 			<destination>{fc979c7a-f35b-49d5-9bc7-c5a4b17920c9}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{996ed179-6941-4dcc-9f5c-e1fd34b59e4f}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{a2af1f0c-1d69-4bc4-a6c7-e1321eb9882b}">
@@ -87,7 +90,11 @@
 			<destination>{a2af1f0c-1d69-4bc4-a6c7-e1321eb9882b}</destination>
 		</relationship>
 	</object>
-	<object class="MultiSound" id="{7780a3bb-4a5a-48d2-9403-9c4ea5a5a8d2}" />
+	<object class="MultiSound" id="{7780a3bb-4a5a-48d2-9403-9c4ea5a5a8d2}">
+		<relationship name="sounds">
+			<destination>{ddcb871c-92c8-4129-ac18-e53a483a9861}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{8a4186ba-9cd5-4dcd-9312-bd9b35e2171f}">
 		<relationship name="effects">
 			<destination>{685a00a3-401e-47f3-b910-e5a58b0ffd74}</destination>
@@ -115,6 +122,7 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d878f6ee-d067-4ffb-a825-dbef736e3e4c}" />
+	<object class="MultiSound" id="{ddcb871c-92c8-4129-ac18-e53a483a9861}" />
 	<object class="MixerBusFader" id="{685a00a3-401e-47f3-b910-e5a58b0ffd74}" />
 	<object class="MixerBusEffectChain" id="{a8499931-a070-4148-ba2e-7d2c45160fcb}">
 		<relationship name="effects">
