@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NarrativeEventManager : MonoBehaviour
 {
+    public FMODUnity.EventReference Introduction;
     public GameObject narcomancer;
     public GameObject henchman;
     public GameObject officeWindow;

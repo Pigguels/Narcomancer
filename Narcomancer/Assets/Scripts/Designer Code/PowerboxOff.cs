@@ -12,7 +12,7 @@ public class PowerboxOff : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        lightController.PowerOff();
+        //lightController.PowerOff();
         OfficeDoor.GetComponent<DoorAnimation>().OpenDoors();
         powerResetTimerActual = powerResetTimer;
     }
@@ -23,7 +23,7 @@ public class PowerboxOff : MonoBehaviour
         if (powerResetTimerActual <= 0f)
         {
             switchObject.SetActive(true);
-            lightController.PowerOn();
+            //lightController.PowerOn();
             OfficeDoor.GetComponent<DoorAnimation>().CloseDoors();
             gameObject.SetActive(false);
         }

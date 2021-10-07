@@ -8,7 +8,7 @@ public class Money : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UiController.GetComponent<BadEndingScreen>();
+      //  UiController.GetComponent<BadEndingScreen>();
     }
 
     // Update is called once per frame
@@ -19,6 +19,6 @@ public class Money : MonoBehaviour
 
     public void Run()
     {
-        UiController.BadEnding();
+      //  UiController.BadEnding();
     }
 }
