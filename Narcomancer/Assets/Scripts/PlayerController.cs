@@ -195,11 +195,16 @@ public class PlayerController : MonoBehaviour
     public float m_DashTime = 0.3f;
     public float m_DashEndForce = 2;
 
+    public float m_DashCooldown = 1.5f;
+    private float m_DashCooldownDetla;
+
     private Vector3 m_InitDashDir;
     private Vector3 m_DashStartPos;
     private Vector3 m_DashEndPos;
     private float m_TimeSinceDashStart = 0f;
     private float m_DashTimeMultiplier;
+
+    private int dashLimit = 3;
 
     // not backward, stop gravity, continous speed, apply force on the end of the dash
 
@@ -218,6 +223,7 @@ public class PlayerController : MonoBehaviour
     public Slider m_NeonAmmoSlider;
 
     public Image m_NeonAmmoRing;
+    public GameObject[] m_DashIcon;
 
 
 
@@ -243,6 +249,19 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        if (dashLimit != 3)
+        {
+            m_DashCooldownDetla += Time.deltaTime;
+            if (m_DashCooldownDetla > m_DashCooldown)
+            {
+                m_DashCooldownDetla = 0f;
+                dashLimit += 1;
+                DashUI();
+            }
+        }
+
+
         m_IsGrounded = IsGrounded();
         m_ObjectAbove = IsObjectAbove();
 
@@ -901,6 +920,8 @@ public class PlayerController : MonoBehaviour
             /* Do the dash */
             m_Velocity = Vector3.zero;
             transform.position = Vector3.Lerp(m_DashStartPos, m_DashEndPos, m_TimeSinceDashStart * m_DashTimeMultiplier);
+
+
         }
         else
         {
@@ -909,6 +930,35 @@ public class PlayerController : MonoBehaviour
 
             m_MoveState = MovementStates.walk;
         }
+    }
+
+    private void DashUI()
+    {
+        if (dashLimit == 3)
+        {
+            m_DashIcon[0].SetActive(true);
+            m_DashIcon[1].SetActive(true);
+            m_DashIcon[2].SetActive(true);
+        }
+        if (dashLimit == 2)
+        {
+            m_DashIcon[0].SetActive(true);
+            m_DashIcon[1].SetActive(true);
+            m_DashIcon[2].SetActive(false);
+        }
+        if (dashLimit == 1)
+        {
+            m_DashIcon[0].SetActive(true);
+            m_DashIcon[1].SetActive(false);
+            m_DashIcon[2].SetActive(false);
+        }
+        if (dashLimit == 0)
+        {
+            m_DashIcon[0].SetActive(false);
+            m_DashIcon[1].SetActive(false);
+            m_DashIcon[2].SetActive(false);
+        }
+
     }
 
     #endregion
@@ -1006,7 +1056,7 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             /* Try go into dash */
-            if (m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump || m_MoveState == MovementStates.dash)
+            if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump || m_MoveState == MovementStates.dash) && dashLimit != 0)
             {
                 /* Make sure the move directions angle isn't too high */
                 if (m_MoveDir != Vector3.zero && Mathf.Acos(Vector3.Dot(m_MoveDir, transform.forward)) * Mathf.Rad2Deg < m_DashMaxAngle)
@@ -1021,6 +1071,10 @@ public class PlayerController : MonoBehaviour
                     m_Velocity = Vector3.zero;
 
                     m_MoveState = MovementStates.dash;
+
+                    dashLimit -= 1;
+                    m_DashCooldownDetla = 0f;
+                    DashUI();
                 }
             }
 

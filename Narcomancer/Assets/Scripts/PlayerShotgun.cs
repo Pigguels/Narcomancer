@@ -41,6 +41,10 @@ public class PlayerShotgun : MonoBehaviour
     public GameObject bloodOnHit;
     public GameObject debrisOnHit;
 
+    [Header("UI Animations")]
+    public Animator ammoImage;
+    bool hasLoaded;
+
     #endregion
 
     void Start()
@@ -54,10 +58,18 @@ public class PlayerShotgun : MonoBehaviour
     {
         if (timeSinceLastShot < timeBetweenShots)
             timeSinceLastShot += Time.deltaTime;
+
+        if ((timeSinceLastShot > timeBetweenShots) && m_PlayerController.m_CurrentShotgunAmmo != 0 && !hasLoaded)
+        {
+            ammoImage.SetTrigger("UIAmmoLoad");
+            hasLoaded = true;
+        }
     }
 
     void Shoot()
     {
+        ammoImage.SetTrigger("UIAmmoShot");
+        hasLoaded = false;
         // a list of hit objects to apply damage to at the end
         List<RaycastHit> hits = new List<RaycastHit>();
 
