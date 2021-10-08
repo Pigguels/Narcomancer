@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NarrativeEventManager : MonoBehaviour
-{
-    public FMODUnity.EventReference Introduction;
+{   
+    [Header ("Controller Objects")]
+    public GameObject waveController;
+
+    [Header("Dialogue and Animation Objects")]
     public GameObject narcomancer;
+    public GameObject speakerParent;
+    public GameObject phone;
     public GameObject henchman;
     public GameObject officeWindow;
-    public GameObject waveController;
+
+    [Header("Trigger Objects")]
     public GameObject introductionTrigger;
     public GameObject officeArrivalTrigger;
     public GameObject officeEscapeTrigger;
@@ -18,7 +24,7 @@ public class NarrativeEventManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -29,7 +35,7 @@ public class NarrativeEventManager : MonoBehaviour
 
     public void StoryIntroduction()
     {
-        //fmod play sounds introduction
+       // FMODUnity.RuntimeManager.PlayOneShot(narcoIntro);
         //Wavecontroller.wave1
         introductionTrigger.SetActive(false);
     }
