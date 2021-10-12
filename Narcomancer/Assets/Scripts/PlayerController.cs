@@ -217,6 +217,7 @@ public class PlayerController : MonoBehaviour
 
     public TMP_Text m_HealthText;
     public Slider m_HealthSlider;
+    public Image m_HealthBar;
 
     public TMP_Text m_ShotgunAmmoText;
     public TMP_Text m_NeonAmmoText;
@@ -469,13 +470,14 @@ public class PlayerController : MonoBehaviour
         m_HealthText.text = (Mathf.Round(m_Health.m_CurrentHealth * 10) / 10).ToString();
         m_HealthSlider.value = m_Health.m_CurrentHealth;
         m_HealthSlider.maxValue = m_Health.m_MaxHealth;
+        m_HealthBar.fillAmount = (m_Health.m_CurrentHealth / 10);
 
         m_ShotgunAmmoText.text = m_CurrentShotgunAmmo.ToString();
 
         m_NeonAmmoText.text = (Mathf.Round(m_CurrentNeonAmmo * 10) / 10).ToString();
         m_NeonAmmoSlider.value = m_CurrentNeonAmmo;
         m_NeonAmmoSlider.maxValue = m_MaxNeonAmmo;
-        m_NeonAmmoRing.fillAmount = (m_CurrentNeonAmmo / 10) * 0.3f;
+        m_NeonAmmoRing.fillAmount = (m_CurrentNeonAmmo / 10) * 0.25f;
     }
 
     #endregion
