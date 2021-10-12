@@ -27,6 +27,8 @@ public class NarrativeTriggerBox : MonoBehaviour
             {
                 case TriggerBoxName.Intro:
                     NarrativeEventController.GetComponent<NarrativeEventManager>().StoryIntroduction();
+                    print("triggered");
+                    gameObject.SetActive(false);
                     break;
                 case TriggerBoxName.Office:
                     NarrativeEventController.GetComponent<NarrativeEventManager>().StoryPhoneCall();
@@ -39,8 +41,8 @@ public class NarrativeTriggerBox : MonoBehaviour
                     break;
 
             }
-
-            gameObject.SetActive(false);
+            print("triggered");
+           // gameObject.SetActive(false);
         }
     }
 }
