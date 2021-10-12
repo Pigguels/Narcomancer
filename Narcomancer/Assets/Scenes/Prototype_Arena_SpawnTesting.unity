@@ -8983,7 +8983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1779677155153498950, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1779677155153498950, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
       propertyPath: m_Size.y
@@ -65576,15 +65576,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyWaves:
-  - waveName: Spawn me Some Rats
+  - waveName: Rats
     enemy: {fileID: 6804975145638974064, guid: db5fd8a5510cabc4b9ea2e6cb3bb272b, type: 3}
     count: 3
-    rate: 3
+    rate: 1
+  - waveName: backup
+    enemy: {fileID: 6804975145638974064, guid: d99be11680370334196057f88e6595c5, type: 3}
+    count: 3
+    rate: 1
+  enemies:
+  - {fileID: 6804975145638974064, guid: db5fd8a5510cabc4b9ea2e6cb3bb272b, type: 3}
+  - {fileID: 6804975145638974064, guid: d99be11680370334196057f88e6595c5, type: 3}
   _spawnPoints:
   - name: Rat Spawn
     spawnLocation: {fileID: 1371826957}
-  m_timeBetweenWaves: 5
-  searchCountdown: 0
+  - name: Bakc Up Spawn
+    spawnLocation: {fileID: 1328037841}
+  m_timeBetweenWaves: 2
+  searchCountdown: 1
 --- !u!4 &2015083804
 Transform:
   m_ObjectHideFlags: 0

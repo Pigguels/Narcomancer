@@ -24,6 +24,8 @@ public class WaveSpawner : MonoBehaviour
     }
 
     public Wave[] enemyWaves;
+    public Transform[] enemies;
+
     [Space(15)]//this is just spacing out the inspector to give better clarity
     public SpawnPoints[] _spawnPoints;
 
@@ -32,7 +34,7 @@ public class WaveSpawner : MonoBehaviour
     public float m_timeBetweenWaves = 5.0f;
     private float m_timeSinceSpawn;
     private int waveNumber = 0;
-    public float searchCountdown;
+    public float searchCountdown = 1f;
     private SpawnerState state = SpawnerState.counting;
 
     private void Start()
@@ -42,6 +44,10 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+       // GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
+       // Debug.Log(gameObjects.Length);
+
+
         if (state == SpawnerState.waiting)
         {
             //check if enemy is dead
@@ -49,7 +55,6 @@ public class WaveSpawner : MonoBehaviour
             {
                 //if enemies are dead, start next wave
                 WaveComplete();
-                Debug.Log("WaveComplete");
             }
             else
             {
@@ -82,12 +87,11 @@ public class WaveSpawner : MonoBehaviour
         if(waveNumber + 1 > enemyWaves.Length - 1)
         {
             //completed all waves
+            Debug.Log("all waves completed");
         }
 
         waveNumber++; 
     }
-
-
 
 
     void SpawnEnemy(Transform enemyToSpawn)
@@ -133,8 +137,9 @@ public class WaveSpawner : MonoBehaviour
             searchCountdown = 1f;
 
             //search through all game objects, looking for the enemy tag
-            if (GameObject.FindGameObjectsWithTag("Enemy") == null)
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
             {
+                
                 //if nothing was found return false.
                 return false;
 
