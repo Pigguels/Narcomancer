@@ -28,5 +28,11 @@ public class DialogueSpeaker : MonoBehaviour
         print("parent");
     }
 
+    public void Wave2Audio()
+    {
+        speaker1.GetComponent<IndividualSpeaker>().PlayWave2();
+        speaker2.GetComponent<IndividualSpeaker>().PlayWave2();
+        speaker3.GetComponent<IndividualSpeaker>().PlayWave2();
+    }
 
 }
