@@ -13,6 +13,7 @@ public class Grunt_Pistol : MonoBehaviour
     public LayerMask playerLayer;
     public Transform spawnpoint;
     public GameObject bulletPrefab;
+    Animator anim;
 
     //get the health scripts
     Health m_Health;
@@ -29,6 +30,7 @@ public class Grunt_Pistol : MonoBehaviour
     private void Awake()
     {
         m_Health = GetComponent<Health>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Start()
@@ -52,6 +54,7 @@ public class Grunt_Pistol : MonoBehaviour
             Vector3 rot = Quaternion.LookRotation(playerTarget.transform.position - transform.position).eulerAngles;
             rot.x = rot.z = 0;
             transform.rotation = Quaternion.Euler(rot);
+            anim.SetBool("isWalking", true);
 
             //this is me testing other rotation methods
             //Quaternion lookOnLook = Quaternion.LookRotation(playerTarget.transform.position - transform.position);
@@ -73,9 +76,10 @@ public class Grunt_Pistol : MonoBehaviour
         {
             //play animation for death
             //destroy after animation
-            Destroy(gameObject, .3f);
+            anim.SetTrigger("Dead");
+            Destroy(gameObject, 2f);    
         }
-
+        //timer for death animation
     }
 
     public void AttackPlayer()
@@ -96,6 +100,7 @@ public class Grunt_Pistol : MonoBehaviour
 
     private IEnumerator FireAtPlayer()
     {
+        //anim.SetTrigger("");
         alreadyAttacked = true;
         GameObject bullet;
         bullet = Instantiate(bulletPrefab, spawnpoint.position, Quaternion.Euler(transform.forward));
