@@ -27,13 +27,13 @@ public class WaveController : MonoBehaviour
                 NarrativeController.GetComponent<NarrativeEventManager>().StoryWave2();
                 break;
             case WaveControllerNumber.Wave2:
-                NarrativeController.GetComponent<NarrativeEventManager>();//.wave or whatever/
+                NarrativeController.GetComponent<NarrativeEventManager>().StoryWave3();
                 break;
             case WaveControllerNumber.Wave3:
-                NarrativeController.GetComponent<NarrativeEventManager>();//.wave or whatever/
+                NarrativeController.GetComponent<NarrativeEventManager>().StoryWave4();
                 break;
             case WaveControllerNumber.Wave4:
-                NarrativeController.GetComponent<NarrativeEventManager>();//.wave or whatever/
+                //NarrativeController.GetComponent<NarrativeEventManager>().StoryVipRoom();
                 break;
 
 
