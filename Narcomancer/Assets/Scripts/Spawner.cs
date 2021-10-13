@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+
+    public List<GameObject> spawners; 
     public float m_timeToSpawn = 5.0f;
     public float m_timeSinceSpawn;
 
