@@ -25,6 +25,8 @@ public class PlayerPowerGlove : MonoBehaviour
 
     private bool m_SecondaryFireDown = false;
 
+    public Animator fpRig;
+
     void Start()
     {
         m_PlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -42,9 +44,16 @@ public class PlayerPowerGlove : MonoBehaviour
         {
             ShootLightning();
             m_PlayerController.m_CurrentNeonAmmo -= Time.deltaTime;
+            fpRig.SetBool("PlayerLightning", true);
+            Debug.Log("Lightning!");
         }
         else
+        {
             m_LineRenderer.positionCount = 0;
+            fpRig.SetBool("PlayerLightning", false);
+        }
+
+
     }
 
     void ShootLightning()

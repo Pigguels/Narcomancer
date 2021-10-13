@@ -45,6 +45,9 @@ public class PlayerShotgun : MonoBehaviour
     public Animator ammoImage;
     bool hasLoaded;
 
+    [Header("Mesh Animations")]
+    public Animator fpRig;
+
     #endregion
 
     void Start()
@@ -68,6 +71,7 @@ public class PlayerShotgun : MonoBehaviour
 
     void Shoot()
     {
+        fpRig.SetTrigger("ShotgunFire");
         ammoImage.SetTrigger("UIAmmoShot");
         hasLoaded = false;
         // a list of hit objects to apply damage to at the end
