@@ -34,6 +34,17 @@ public class PlayerShotgun : MonoBehaviour
 
     private LayerMask playerLayer;
 
+
+
+    //Baz Junk
+    [Header("On Hit Effects")]
+    public GameObject bloodOnHit;
+    public GameObject debrisOnHit;
+
+    [Header("UI Animations")]
+    public Animator ammoImage;
+    bool hasLoaded;
+
     #endregion
 
     void Start()
@@ -47,10 +58,18 @@ public class PlayerShotgun : MonoBehaviour
     {
         if (timeSinceLastShot < timeBetweenShots)
             timeSinceLastShot += Time.deltaTime;
+
+        if ((timeSinceLastShot > timeBetweenShots) && m_PlayerController.m_CurrentShotgunAmmo != 0 && !hasLoaded)
+        {
+            ammoImage.SetTrigger("UIAmmoLoad");
+            hasLoaded = true;
+        }
     }
 
     void Shoot()
     {
+        ammoImage.SetTrigger("UIAmmoShot");
+        hasLoaded = false;
         // a list of hit objects to apply damage to at the end
         List<RaycastHit> hits = new List<RaycastHit>();
 
@@ -104,12 +123,19 @@ public class PlayerShotgun : MonoBehaviour
             {
                 if (hits[i].transform.GetComponent<EnemyDamagePoint>())
                     hits[i].transform.GetComponent<EnemyDamagePoint>().Damage(pelletDamage);
+
+                Instantiate(bloodOnHit, hits[i].point, gameObject.transform.rotation);
+
             }
             else if (hits[i].transform.CompareTag("Interactable"))
             {
                 if (hits[i].transform.GetComponent<Health>())
                     hits[i].transform.GetComponent<Health>().Damage(pelletDamage);
                 // NEED TO ADD GENERIC INTERACTABLE OBJECT EVENT CALLING HERE
+            }
+            else if (hits[i].transform.CompareTag("Untagged"))
+            {
+                Instantiate(debrisOnHit, hits[i].point, gameObject.transform.rotation);
             }
         }
     }
