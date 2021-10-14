@@ -13,7 +13,8 @@ public class Grunt_Pistol : MonoBehaviour
     public LayerMask playerLayer;
     public Transform spawnpoint;
     public GameObject bulletPrefab;
-
+    public GameObject pickUpPrefab;
+    LootSpawner lootPickup;
     //get the health scripts
     Health m_Health;
 
@@ -29,6 +30,7 @@ public class Grunt_Pistol : MonoBehaviour
     private void Awake()
     {
         m_Health = GetComponent<Health>();
+        lootPickup = GetComponent<LootSpawner>();
     }
 
     void Start()
@@ -61,7 +63,10 @@ public class Grunt_Pistol : MonoBehaviour
         playerInSightRange = Vector3.Distance(transform.position, playerTarget.transform.position) < m_sightRange;
         playerInAttackRange = Vector3.Distance(transform.position, playerTarget.transform.position) < m_attackRange;
 
-        
+        if(m_navAgent.velocity.x > 0)
+        {
+            //play animation
+        }
 
         if (playerInSightRange && !playerInAttackRange)
             ChasePlayer();
@@ -73,7 +78,9 @@ public class Grunt_Pistol : MonoBehaviour
         {
             //play animation for death
             //destroy after animation
-            Destroy(gameObject, .3f);
+         
+            Destroy(gameObject, .1f);
+            
         }
 
     }
@@ -115,5 +122,10 @@ public class Grunt_Pistol : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, m_attackRange);
     }
-    
+
+
+    private void OnDestroy()
+    {
+        lootPickup.SpawnPickup();
+    }
 }

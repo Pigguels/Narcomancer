@@ -10,7 +10,7 @@ public class PlayerShotgun : MonoBehaviour
     public float pelletRange = 20f;
     public float pelletDamage = 25f;
     [Space]
-    public float timeBetweenShots = 0.35f;
+    public float timeBetweenShots = 10f;
     private float timeSinceLastShot = 0f;
     [Space]
     public int innerSpreadPelletAmount = 6;
@@ -124,7 +124,8 @@ public class PlayerShotgun : MonoBehaviour
                 if (hits[i].transform.GetComponent<EnemyDamagePoint>())
                     hits[i].transform.GetComponent<EnemyDamagePoint>().Damage(pelletDamage);
 
-                Instantiate(bloodOnHit, hits[i].point, gameObject.transform.rotation);
+                GameObject blood = Instantiate(bloodOnHit, hits[i].point, transform.rotation);
+                Destroy(blood, 2.5f);
 
             }
             else if (hits[i].transform.CompareTag("Interactable"))
@@ -135,7 +136,8 @@ public class PlayerShotgun : MonoBehaviour
             }
             else if (hits[i].transform.CompareTag("Untagged"))
             {
-                Instantiate(debrisOnHit, hits[i].point, gameObject.transform.rotation);
+                GameObject debris = Instantiate(debrisOnHit, hits[i].point, gameObject.transform.rotation);
+                Destroy(debris, 3f);
             }
         }
     }

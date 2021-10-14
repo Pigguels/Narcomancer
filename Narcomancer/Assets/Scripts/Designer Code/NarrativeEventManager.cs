@@ -38,7 +38,7 @@ public class NarrativeEventManager : MonoBehaviour
         // FMODUnity.RuntimeManager.PlayOneShot(narcoIntro);
         //Wavecontroller.wave1
         speakerParent.GetComponent<DialogueSpeaker>().ArrivalAudio();
-        //introductionTrigger.SetActive(false);
+        introductionTrigger.SetActive(false);
         print("managaer");
     }
     public void StoryWave2()

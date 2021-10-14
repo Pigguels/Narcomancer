@@ -21,6 +21,6 @@ public class IndividualSpeaker : MonoBehaviour
     {
        
         FMODUnity.RuntimeManager.PlayOneShot("event:/Arrival");
-        print("speakers");
+        //print("speakers");
     }
 }
