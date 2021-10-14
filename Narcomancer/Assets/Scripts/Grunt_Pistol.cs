@@ -13,6 +13,7 @@ public class Grunt_Pistol : MonoBehaviour
     public LayerMask playerLayer;
     public Transform spawnpoint;
     public GameObject bulletPrefab;
+    Animator anim;
 
     //get the health scripts
     Health m_Health;
@@ -29,6 +30,7 @@ public class Grunt_Pistol : MonoBehaviour
     private void Awake()
     {
         m_Health = GetComponent<Health>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Start()
@@ -52,6 +54,7 @@ public class Grunt_Pistol : MonoBehaviour
             Vector3 rot = Quaternion.LookRotation(playerTarget.transform.position - transform.position).eulerAngles;
             rot.x = rot.z = 0;
             transform.rotation = Quaternion.Euler(rot);
+            
 
             //this is me testing other rotation methods
             //Quaternion lookOnLook = Quaternion.LookRotation(playerTarget.transform.position - transform.position);
@@ -61,7 +64,13 @@ public class Grunt_Pistol : MonoBehaviour
         playerInSightRange = Vector3.Distance(transform.position, playerTarget.transform.position) < m_sightRange;
         playerInAttackRange = Vector3.Distance(transform.position, playerTarget.transform.position) < m_attackRange;
 
-        
+        if (m_navAgent.velocity.x > 0)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else
+            anim.SetBool("isWalking", false);
+      
 
         if (playerInSightRange && !playerInAttackRange)
             ChasePlayer();
@@ -73,9 +82,9 @@ public class Grunt_Pistol : MonoBehaviour
         {
             //play animation for death
             //destroy after animation
-            Destroy(gameObject, .3f);
+            anim.SetTrigger("Dead");
+            Destroy(gameObject, 2f);    
         }
-
     }
 
     public void AttackPlayer()
@@ -96,6 +105,7 @@ public class Grunt_Pistol : MonoBehaviour
 
     private IEnumerator FireAtPlayer()
     {
+        anim.SetTrigger("PistolFire");
         alreadyAttacked = true;
         GameObject bullet;
         bullet = Instantiate(bulletPrefab, spawnpoint.position, Quaternion.Euler(transform.forward));
@@ -115,5 +125,10 @@ public class Grunt_Pistol : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, m_attackRange);
     }
-    
+
+
+    private void OnDestroy()
+    {
+        //lootPickup.SpawnPickup();
+    }
 }

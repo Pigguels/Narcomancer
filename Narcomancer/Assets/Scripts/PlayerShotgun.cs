@@ -10,7 +10,7 @@ public class PlayerShotgun : MonoBehaviour
     public float pelletRange = 20f;
     public float pelletDamage = 25f;
     [Space]
-    public float timeBetweenShots = 0.35f;
+    public float timeBetweenShots = 10f;
     private float timeSinceLastShot = 0f;
     [Space]
     public int innerSpreadPelletAmount = 6;
@@ -34,6 +34,20 @@ public class PlayerShotgun : MonoBehaviour
 
     private LayerMask playerLayer;
 
+
+
+    //Baz Junk
+    [Header("On Hit Effects")]
+    public GameObject bloodOnHit;
+    public GameObject debrisOnHit;
+
+    [Header("UI Animations")]
+    public Animator ammoImage;
+    bool hasLoaded;
+
+    [Header("Mesh Animations")]
+    public Animator fpRig;
+
     #endregion
 
     void Start()
@@ -47,10 +61,20 @@ public class PlayerShotgun : MonoBehaviour
     {
         if (timeSinceLastShot < timeBetweenShots)
             timeSinceLastShot += Time.deltaTime;
+
+        if ((timeSinceLastShot > timeBetweenShots) && m_PlayerController.m_CurrentShotgunAmmo != 0 && !hasLoaded)
+        {
+            ammoImage.SetTrigger("UIAmmoLoad");
+            hasLoaded = true;
+        }
     }
 
     void Shoot()
     {
+        fpRig.SetTrigger("ShotgunFire");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Shotgun Blasts",transform.position);
+        ammoImage.SetTrigger("UIAmmoShot");
+        hasLoaded = false;
         // a list of hit objects to apply damage to at the end
         List<RaycastHit> hits = new List<RaycastHit>();
 
@@ -104,12 +128,21 @@ public class PlayerShotgun : MonoBehaviour
             {
                 if (hits[i].transform.GetComponent<EnemyDamagePoint>())
                     hits[i].transform.GetComponent<EnemyDamagePoint>().Damage(pelletDamage);
+
+                GameObject blood = Instantiate(bloodOnHit, hits[i].point, transform.rotation);
+                Destroy(blood, 2.5f);
+
             }
             else if (hits[i].transform.CompareTag("Interactable"))
             {
                 if (hits[i].transform.GetComponent<Health>())
                     hits[i].transform.GetComponent<Health>().Damage(pelletDamage);
                 // NEED TO ADD GENERIC INTERACTABLE OBJECT EVENT CALLING HERE
+            }
+            else if (hits[i].transform.CompareTag("Untagged"))
+            {
+                GameObject debris = Instantiate(debrisOnHit, hits[i].point, gameObject.transform.rotation);
+                Destroy(debris, 3f);
             }
         }
     }
