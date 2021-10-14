@@ -19,7 +19,7 @@ public class IndividualSpeaker : MonoBehaviour
 
     public void PlayArrival()
     {  
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Arrival", transform.position);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/2D Sounds/2D Arrival Dialogue", transform.position);
         print("speakers");
     }
 
