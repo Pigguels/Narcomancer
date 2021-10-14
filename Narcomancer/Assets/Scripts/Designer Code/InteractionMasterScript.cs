@@ -62,7 +62,6 @@ public class InteractionMasterScript : MonoBehaviour
                 print("answered the phone");
                 switchObject.SetActive(true);
                 gameObject.SetActive(false);
-
                 break;
 
 

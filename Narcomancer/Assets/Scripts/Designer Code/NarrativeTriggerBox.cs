@@ -7,10 +7,12 @@ public class NarrativeTriggerBox : MonoBehaviour
     public enum TriggerBoxName {Intro, Office, Bossfight, Monologue }
     public TriggerBoxName triggerName;
     public GameObject NarrativeEventController;
+    public bool istriggered;
  
     // Start is called before the first frame update
     void Start()
     {
+        istriggered = false;
     }
 
     // Update is called once per frame
@@ -21,13 +23,13 @@ public class NarrativeTriggerBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !istriggered)
         {
+            istriggered = true;
             switch (triggerName)
             {
                 case TriggerBoxName.Intro:
                     NarrativeEventController.GetComponent<NarrativeEventManager>().StoryIntroduction();
-                    print("triggered");
                     gameObject.SetActive(false);
                     break;
                 case TriggerBoxName.Office:
@@ -42,7 +44,7 @@ public class NarrativeTriggerBox : MonoBehaviour
 
             }
             print("triggered");
-           // gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

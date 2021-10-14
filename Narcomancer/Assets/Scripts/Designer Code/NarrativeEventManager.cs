@@ -5,7 +5,7 @@ using UnityEngine;
 public class NarrativeEventManager : MonoBehaviour
 {   
     [Header ("Controller Objects")]
-    public GameObject waveController;
+    public GameObject WaveMaster;
 
     [Header("Dialogue and Animation Objects")]
     public GameObject narcomancer;
@@ -15,10 +15,13 @@ public class NarrativeEventManager : MonoBehaviour
     public GameObject officeWindow;
 
     [Header("Trigger Objects")]
-    public GameObject introductionTrigger;
+    
     public GameObject officeArrivalTrigger;
     public GameObject officeEscapeTrigger;
     public GameObject monologueTrigger;
+
+    private float timer;
+    private bool timerenabled;
 
 
     // Start is called before the first frame update
@@ -35,26 +38,41 @@ public class NarrativeEventManager : MonoBehaviour
 
     public void StoryIntroduction()
     {
-        // FMODUnity.RuntimeManager.PlayOneShot(narcoIntro);
+        
         //Wavecontroller.wave1
         speakerParent.GetComponent<DialogueSpeaker>().ArrivalAudio();
-        //introductionTrigger.SetActive(false);
-        print("managaer");
+     
+        
     }
     public void StoryWave2()
     {
-        //fmod play wave start A
-        //Wavecontroller.wave2
+        speakerParent.GetComponent<DialogueSpeaker>().Wave2Audio();
+        timer = 12.7f;
+        timer -= Time.deltaTime;
+        if (timer <= 0f)
+        {
+            WaveMaster.GetComponent<WaveManager>().Wave2();
+        }
     }
     public void StoryWave3()
     {
-        //fmod play wave start B
-        //Wavecontroller.wave3
+        speakerParent.GetComponent<DialogueSpeaker>().Wave3Audio();
+        timer = 14f;
+        timer -= Time.deltaTime;
+        if (timer <= 0f)
+        {
+            WaveMaster.GetComponent<WaveManager>().Wave3();
+        }
     }
     public void StoryWave4()
     {
-        //fmod play wave start c
-        //Wavecontroller.wave4
+        speakerParent.GetComponent<DialogueSpeaker>().Wave4Audio();
+        timer = 15f;
+        timer -= Time.deltaTime;
+        if (timer <= 0f)
+        {
+            WaveMaster.GetComponent<WaveManager>().Wave4();
+        }
     }
 
     public void StoryVipRoom()

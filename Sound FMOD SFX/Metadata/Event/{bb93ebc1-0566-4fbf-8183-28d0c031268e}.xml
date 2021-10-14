@@ -5,7 +5,7 @@
 			<value>Magenta</value>
 		</property>
 		<property name="name">
-			<value>Wave Starts (2)</value>
+			<value>Wave 3 Start</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -96,6 +96,7 @@
 	<object class="MultiSound" id="{bc050ade-51bb-480a-a9da-7dbdd7b36374}">
 		<relationship name="sounds">
 			<destination>{6349d7a1-f00a-471e-9a04-2230c731cbef}</destination>
+			<destination>{0a48b893-7ce4-4fda-b8fb-72f9666f7fde}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{5d6a1b68-9d5b-4361-a3e0-f12f5329a962}">
@@ -131,6 +132,11 @@
 		</property>
 		<relationship name="audioFile">
 			<destination>{39f13c10-c7a3-4001-b2d0-5ef2c4bb3a5a}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{0a48b893-7ce4-4fda-b8fb-72f9666f7fde}">
+		<relationship name="audioFile">
+			<destination>{b0886c13-0a76-401f-8560-1059dbfc196f}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{6fdca6da-319d-48bd-a2c1-fe10fad66dbb}" />

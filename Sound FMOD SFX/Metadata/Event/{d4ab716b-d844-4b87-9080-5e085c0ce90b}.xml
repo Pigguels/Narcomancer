@@ -5,7 +5,7 @@
 			<value>Magenta</value>
 		</property>
 		<property name="name">
-			<value>Wave Starts (1)</value>
+			<value>Wave 2 Start</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -141,6 +141,13 @@
 	</object>
 	<object class="MixerBusPanner" id="{0687d530-f6f1-42b5-8158-2b4db1130c2b}" />
 	<object class="MixerBusFader" id="{a039851e-79bd-40de-addc-a72631c707d4}" />
-	<object class="SpatialiserEffect" id="{757334f3-370f-46cd-bee0-460818cc997a}" />
+	<object class="SpatialiserEffect" id="{757334f3-370f-46cd-bee0-460818cc997a}">
+		<property name="extentMode">
+			<value>1</value>
+		</property>
+		<property name="soundSize">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{a6037767-5cdb-488b-b3da-da62adfbcdbc}" />
 </objects>

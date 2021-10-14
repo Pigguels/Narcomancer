@@ -8,7 +8,7 @@ public class IndividualSpeaker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Arrival");
+        
     }
 
     // Update is called once per frame
@@ -18,9 +18,24 @@ public class IndividualSpeaker : MonoBehaviour
     }
 
     public void PlayArrival()
-    {
-       
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Arrival");
+    {  
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Arrival", transform.position);
         print("speakers");
     }
+
+    public void PlayWave2()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Wave 2 Start)", transform.position);
+    }
+    public void PlayWave3()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Wave 3 Start)", transform.position);
+    }
+    public void PlayWave4()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Wave 4 Start)", transform.position);
+    }
+
+
+
 }
