@@ -8715,7 +8715,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &267793754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8729,7 +8729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/3D Dialogue/Arrival
+  Event: event:/3D Dialogue/One Shots/Arrival
   PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
@@ -9167,7 +9167,7 @@ PrefabInstance:
     - target: {fileID: 4796876047909978920, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
       propertyPath: NarrativeEventController
       value: 
-      objectReference: {fileID: 5361725694123542493, guid: 9e833c840141ab5428e7667a27a8c904, type: 3}
+      objectReference: {fileID: 1576880843}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
 --- !u!1001 &278476043
@@ -12304,7 +12304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &379817572
 Transform:
   m_ObjectHideFlags: 0
@@ -31814,6 +31814,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4839429996018267256, guid: 64c0c1a3b9d2ef34697b79438bf76e58, type: 3}
   m_PrefabInstance: {fileID: 920331385}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &921088558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1779677155153498948, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
+  m_PrefabInstance: {fileID: 276200905}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &922773735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36387,7 +36392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1081939797
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36450,7 +36455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/3D Dialogue/Arrival
+  Event: event:/3D Dialogue/One Shots/Wave Starts 4
   PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
@@ -50793,7 +50798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1473817184
 Transform:
   m_ObjectHideFlags: 0
@@ -52857,7 +52862,7 @@ MonoBehaviour:
   phone: {fileID: 0}
   henchman: {fileID: 0}
   officeWindow: {fileID: 0}
-  officeArrivalTrigger: {fileID: 0}
+  officeArrivalTrigger: {fileID: 921088558}
   officeEscapeTrigger: {fileID: 0}
   monologueTrigger: {fileID: 0}
 --- !u!4 &1576880845
@@ -66353,7 +66358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &2030607037
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -66416,16 +66421,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/3D Dialogue/Arrival
+  Event: event:/3D Dialogue/One Shots/Wave Starts 2
   PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 1
   Preload: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 25
+  OverrideMaxDistance: 100
 --- !u!4 &2030607040
 Transform:
   m_ObjectHideFlags: 0
@@ -66853,7 +66858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &2044108383
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -66916,7 +66921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/3D Dialogue/Arrival
+  Event: event:/3D Dialogue/One Shots/Wave Starts 3
   PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
@@ -68251,7 +68256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2092061353
 Transform:
   m_ObjectHideFlags: 0

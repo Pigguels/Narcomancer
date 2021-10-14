@@ -28,7 +28,8 @@ public class DialogueSpeaker : MonoBehaviour
 
     public void ArrivalAudio()
     {
-        Arrival.SetActive(true); 
+        Arrival.SetActive(true);
+        print("why wont this turn on");
     }
 
     public void Wave2Audio()
