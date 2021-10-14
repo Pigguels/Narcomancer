@@ -54,7 +54,7 @@ public class Grunt_Pistol : MonoBehaviour
             Vector3 rot = Quaternion.LookRotation(playerTarget.transform.position - transform.position).eulerAngles;
             rot.x = rot.z = 0;
             transform.rotation = Quaternion.Euler(rot);
-            anim.SetBool("isWalking", true);
+            
 
             //this is me testing other rotation methods
             //Quaternion lookOnLook = Quaternion.LookRotation(playerTarget.transform.position - transform.position);
@@ -64,7 +64,13 @@ public class Grunt_Pistol : MonoBehaviour
         playerInSightRange = Vector3.Distance(transform.position, playerTarget.transform.position) < m_sightRange;
         playerInAttackRange = Vector3.Distance(transform.position, playerTarget.transform.position) < m_attackRange;
 
-        
+        if (m_navAgent.velocity.x > 0)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else
+            anim.SetBool("isWalking", false);
+      
 
         if (playerInSightRange && !playerInAttackRange)
             ChasePlayer();
@@ -79,7 +85,6 @@ public class Grunt_Pistol : MonoBehaviour
             anim.SetTrigger("Dead");
             Destroy(gameObject, 2f);    
         }
-        //timer for death animation
     }
 
     public void AttackPlayer()
@@ -100,7 +105,7 @@ public class Grunt_Pistol : MonoBehaviour
 
     private IEnumerator FireAtPlayer()
     {
-        //anim.SetTrigger("");
+        anim.SetTrigger("PistolFire");
         alreadyAttacked = true;
         GameObject bullet;
         bullet = Instantiate(bulletPrefab, spawnpoint.position, Quaternion.Euler(transform.forward));

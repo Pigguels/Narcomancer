@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9157311975654415009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Wave Starts (4)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Starts (4)
+  guid: 44868a0c23e6db45afc98f427a9a7a23
+  Banks:
+  - {fileID: -1431790838186257338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-9001155931286775752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Wave Starts (3)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Starts (3)
+  guid: b1f826f7c822884ab5ac0b238c011662
+  Banks:
+  - {fileID: -1431790838186257338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-8637501384009911991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +177,29 @@ MonoBehaviour:
   guid: a92f54e6ab044e4b8c3226d2ea6a5d8c
   Banks:
   - {fileID: 1115408046571549354}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7366100043010740393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Wave Starts (2)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Starts (2)
+  guid: c1eb93bb6605bf4f818328d0c031268e
+  Banks:
+  - {fileID: -1431790838186257338}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -345,6 +414,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2706616338968988202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue Phone Temp (1)
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue Phone Temp (1)
+  guid: 375454727226954a9dfb01a20ac6c658
+  Banks:
+  - {fileID: -1431790838186257338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2251801817665021799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +521,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 637697440242756326
+  lastModified: 637698052102232488
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -470,6 +562,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Wave Starts (4)
   guid: 44868a0c23e6db45afc98f427a9a7a23
+  Banks:
+  - {fileID: -1431790838186257338}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-349977986308148015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Dialogue Phone Temp (2)
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue Phone Temp (2)
+  guid: a0bb8fb9060c654f9e8459e24e579f17
   Banks:
   - {fileID: -1431790838186257338}
   IsStream: 0
@@ -546,7 +661,7 @@ MonoBehaviour:
   - {fileID: 1115408046571549354}
   StringsBanks:
   - {fileID: 8344358738887786034}
-  stringsBankWriteTime: 637697440243284917
+  stringsBankWriteTime: 637698052143630382
   cacheVersion: 6
 --- !u!114 &9255648960593309
 MonoBehaviour:
@@ -564,6 +679,29 @@ MonoBehaviour:
   guid: 7a8d8fdec1210949981689bfd4cb694f
   Banks:
   - {fileID: 1115408046571549354}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &233576574062902378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Wave Starts (1)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Starts (1)
+  guid: 6b71abd444d8874b90805e085c0ce90b
+  Banks:
+  - {fileID: -1431790838186257338}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -743,11 +881,11 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637697440243284917
+  lastModified: 637698052143630382
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1730
+    Value: 1866
   Exists: 1
 --- !u!114 &8453687371179394028
 MonoBehaviour:

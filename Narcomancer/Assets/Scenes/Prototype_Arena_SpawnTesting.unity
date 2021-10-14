@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.1798097, g: 0.1798097, b: 0.1798097, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -66178,12 +66178,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyWaves:
   - waveName: Rats
-    enemy: {fileID: 6804975145638974064, guid: db5fd8a5510cabc4b9ea2e6cb3bb272b, type: 3}
-    count: 3
+    enemy: {fileID: 6804975145638974064, guid: d99be11680370334196057f88e6595c5, type: 3}
+    count: 6
     rate: 1
   - waveName: backup
     enemy: {fileID: 6804975145638974064, guid: d99be11680370334196057f88e6595c5, type: 3}
-    count: 3
+    count: 6
     rate: 1
   enemies:
   - {fileID: 6804975145638974064, guid: db5fd8a5510cabc4b9ea2e6cb3bb272b, type: 3}
