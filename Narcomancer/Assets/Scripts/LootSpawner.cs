@@ -5,26 +5,17 @@ using UnityEngine;
 public class LootSpawner : MonoBehaviour
 {
 
-   public GameObject pickUpPrefab;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   public GameObject[] pickUpPrefabs;
+   
 
     public void SpawnPickup()
     {
-        GameObject tempSpawn = Instantiate(pickUpPrefab, new Vector3 (transform.position.x, 1.5f, transform.position.z) , pickUpPrefab.transform.rotation) as GameObject;
+        for (int i = 0; i < pickUpPrefabs.Length; i++)
+        {
 
-       /* tempSpawn.transform.position = transform.position;*/
+        GameObject tempSpawn = Instantiate(pickUpPrefabs[i], new Vector3 (transform.position.x + Random.Range(-1,1), 1.5f, transform.position.z + Random.Range(-1, 1)) , pickUpPrefabs[i].transform.rotation) as GameObject;
+        }
 
-
-       // tempSpawn.GetComponent<Rigidbody>().AddForce(Vector3.up * 10, ForceMode.Impulse);
+       
     }
 }

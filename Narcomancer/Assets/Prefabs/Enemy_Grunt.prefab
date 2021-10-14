@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 3753202188839446177}
   - component: {fileID: 4361452571585675407}
   - component: {fileID: -3759324926945226064}
+  - component: {fileID: 2470964693993314406}
   m_Layer: 0
   m_Name: Enemy_Grunt
   m_TagString: Untagged
@@ -217,7 +218,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcdb21d40b569545b7fd43a6f277a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpPrefab: {fileID: 2231247797329278210, guid: 1d053f8df8c4f6d4489000cc6a3e3ffc, type: 3}
+  pickUpPrefabs:
+  - {fileID: 3804729199842986477, guid: cf8fc3aa1cc4da84ea148208a1305aed, type: 3}
+  - {fileID: 1736483341638555228, guid: 74cdf87f8052bc24983fd67dd6f8a564, type: 3}
+  - {fileID: 615391549884912535, guid: ee1b105daf2277d409f65a77833d4485, type: 3}
+--- !u!135 &2470964693993314406
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8561106431968018473}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &182970875590697278
 PrefabInstance:
   m_ObjectHideFlags: 0
