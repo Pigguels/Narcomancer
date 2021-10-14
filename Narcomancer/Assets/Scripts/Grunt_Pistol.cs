@@ -125,5 +125,10 @@ public class Grunt_Pistol : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, m_attackRange);
     }
-    
+
+
+    private void OnDestroy()
+    {
+        lootPickup.SpawnPickup();
+    }
 }

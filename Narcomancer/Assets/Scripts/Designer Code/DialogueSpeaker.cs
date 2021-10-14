@@ -23,8 +23,8 @@ public class DialogueSpeaker : MonoBehaviour
     public void ArrivalAudio()
     {
         speaker1.GetComponent<IndividualSpeaker>().PlayArrival();
-        speaker2.GetComponent<IndividualSpeaker>().PlayArrival();
-        speaker3.GetComponent<IndividualSpeaker>().PlayArrival();
+       //speaker2.GetComponent<IndividualSpeaker>().PlayArrival();
+       //speaker3.GetComponent<IndividualSpeaker>().PlayArrival();
         print("parent");
     }
 
