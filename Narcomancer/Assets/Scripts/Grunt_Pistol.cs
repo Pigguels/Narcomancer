@@ -129,6 +129,6 @@ public class Grunt_Pistol : MonoBehaviour
 
     private void OnDestroy()
     {
-        lootPickup.SpawnPickup();
+        //lootPickup.SpawnPickup();
     }
 }

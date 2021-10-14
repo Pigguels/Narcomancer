@@ -46,7 +46,7 @@ public class NarrativeTriggerBox : MonoBehaviour
             print("triggered");
             gameObject.SetActive(false);
         }
-        isTriggered = true;
+        istriggered = true;
     }
 
     private void OnTriggerExit(Collider other)
