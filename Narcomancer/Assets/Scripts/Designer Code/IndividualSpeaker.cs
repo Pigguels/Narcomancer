@@ -25,15 +25,15 @@ public class IndividualSpeaker : MonoBehaviour
 
     public void PlayWave2()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Wave 2 Start)", transform.position);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Wave Starts (1)", transform.position);
     }
     public void PlayWave3()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Wave 3 Start)", transform.position);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Wave Starts (2)", transform.position);
     }
     public void PlayWave4()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Wave 4 Start)", transform.position);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Wave Starts (4)", transform.position);
     }
 
 
