@@ -72,6 +72,7 @@ public class PlayerShotgun : MonoBehaviour
     void Shoot()
     {
         fpRig.SetTrigger("ShotgunFire");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Shotgun Blasts");
         ammoImage.SetTrigger("UIAmmoShot");
         hasLoaded = false;
         // a list of hit objects to apply damage to at the end
