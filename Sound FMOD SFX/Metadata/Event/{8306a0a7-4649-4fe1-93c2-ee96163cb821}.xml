@@ -5,7 +5,7 @@
 			<value>2D Arrival Dialogue</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{858362a9-09cc-4406-9cab-c2e25914aad9}</destination>
@@ -118,6 +118,7 @@
 	<object class="MixerBusEffectChain" id="{1be5c4a2-8a68-4c1f-b053-0b071c8ebc80}">
 		<relationship name="effects">
 			<destination>{53567b8e-dd89-4cca-8af2-51e5d0ef78e8}</destination>
+			<destination>{ded85ef8-79d9-420f-b7b4-11725fc51e26}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{9b169695-448f-446f-9e77-1d5518676a05}" />
@@ -134,5 +135,13 @@
 	</object>
 	<object class="MixerBusPanner" id="{a5b9e3b9-33b6-42d1-bd89-59b22d9e85a3}" />
 	<object class="MixerBusFader" id="{53567b8e-dd89-4cca-8af2-51e5d0ef78e8}" />
+	<object class="SpatialiserEffect" id="{ded85ef8-79d9-420f-b7b4-11725fc51e26}">
+		<property name="distanceRolloffType">
+			<value>1</value>
+		</property>
+		<property name="maximumDistance">
+			<value>9800</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{23e39319-ee1d-41eb-8f85-a676053ed283}" />
 </objects>
