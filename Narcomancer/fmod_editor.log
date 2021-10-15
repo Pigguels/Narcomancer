@@ -7,11 +7,15 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 [LOG] AsyncManager::init                       : manager 000001ECF9F82BF8 isAsync 0 updatePeriod 0.02
 =======
 [LOG] AsyncManager::init                       : manager 000002140AFE6638 isAsync 0 updatePeriod 0.02
 >>>>>>> BazVFX
+=======
+[LOG] AsyncManager::init                       : manager 00000220174FDCD8 isAsync 0 updatePeriod 0.02
+>>>>>>> Stashed changes
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -20,12 +24,19 @@
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
+[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+>>>>>>> Stashed changes
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 200288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 20832
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+<<<<<<< Updated upstream
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000DE5077F0E8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
@@ -34,6 +45,16 @@
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFD6DB67E40
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFD6DB67F00
 [LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001ED00A2E9C8
+=======
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000583DA3EEE8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB9FA17D70
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB9FA17D40
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB9FA17E40
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB9FA17F00
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000220B90A03B8
+>>>>>>> Stashed changes
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Shotgun Blast Draft 1', format=5, channels=2, frequency=48000, lengthbytes=23008, lengthpcm=96000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.969910.
@@ -42,6 +63,7 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 200288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 20832
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+<<<<<<< Updated upstream
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000DE5077F0E8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
@@ -50,6 +72,16 @@
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFD6DB67E40
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFD6DB67F00
 [LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001ED00A2E9C8
+=======
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000583DA3EEE8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB9FA17D70
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB9FA17D40
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB9FA17E40
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB9FA17F00
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000220B90A03B8
+>>>>>>> Stashed changes
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Shotgun Blast Draft 1 variant 2', format=5, channels=2, frequency=48000, lengthbytes=22688, lengthpcm=96000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.971924.
@@ -58,6 +90,7 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 200288
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 20832
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+<<<<<<< Updated upstream
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000DE5077F0E8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
@@ -66,12 +99,23 @@
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFD6DB67E40
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFD6DB67F00
 [LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001ED00A2E9C8
+=======
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000583DA3EEE8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB9FA17D70
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB9FA17D40
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB9FA17E40
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB9FA17F00
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000220B90A03B8
+>>>>>>> Stashed changes
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Shotgun Blast Draft 1 variant', format=5, channels=2, frequency=48000, lengthbytes=22560, lengthpcm=96000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.970917.
 [LOG] SystemI::createSound                     : filename = ../Sound FMOD SFX/Build\Desktop/Dialogue.bank : mode 02010082
 [LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] Thread::initThread                       : Init FMOD nonblocking thread (0). Affinity: 0x8000000000000003, Priority: 0xFFFF7FFC, Stack Size: 114688, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
+<<<<<<< Updated upstream
 [LOG] SystemI::createSound                     : setdata soundi = 000001EC8B1B7078 : node = 000001ED0B215600
 [LOG] SystemI::createSound                     : add node to async list : head = 000001ED0B5E1A38.  list count = 0
 [LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001EC8B1B7078
@@ -96,6 +140,161 @@
 [LOG] SoundI::release                          :     Shotgun Blast Draft 1 variant 2 (000001ECB4C5B508)
 [LOG] SoundI::release                          :  (000001ECF9AA3E88)
 [LOG] SoundI::release                          :     Shotgun Blast Draft 1 variant (000001ECB4C65E08)
+=======
+[LOG] SystemI::createSound                     : setdata soundi = 00000220102FDC68 : node = 00000220B947A130
+[LOG] SystemI::createSound                     : add node to async list : head = 000002211C96AA68.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000220102FDC68
+[LOG] SystemI::createSoundInternal             :     Create name='../Sound FMOD SFX/Build\Desktop/Dialogue.bank', mode=0x02010082
+[LOG] SystemI::createSound                     :     filename = ../Sound FMOD SFX/Build\Desktop/Dialogue.bank : mode 02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2355808
+[LOG] SystemI::createSound                     :     setdata soundi = 00000220102FD098 : node = 00000220B9479AF0
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 22848
+[LOG] SystemI::createSound                     :     add node to async list : head = 000002211C96AA68.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000220B947A240
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     filename = ../Sound FMOD SFX/Build\Desktop/Dialogue.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 00000220166FAC78 : node = 00000220B9479EB0
+[LOG] SystemI::createSound                     :     add node to async list : head = 000002211C96AA68.  list count = 1
+[LOG] SystemI::createSound                     :     filename = ../Sound FMOD SFX/Build\Desktop/Dialogue.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 00000220166FA258 : node = 00000220B9479C30
+[LOG] SystemI::createSound                     :     add node to async list : head = 000002211C96AA68.  list count = 2
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Dialogue Wave Start 4', format=5, channels=2, frequency=48000, lengthbytes=181952, lengthpcm=720000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.769409.
+[LOG] SystemI::createSound                     :     filename = ../Sound FMOD SFX/Build\Desktop/Dialogue.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 00000220BD59D2A8 : node = 00000220B9479D70
+[LOG] SystemI::createSound                     :     add node to async list : head = 000002211C96AA68.  list count = 3
+[LOG] SystemI::createSound                     :     filename = ../Sound FMOD SFX/Build\Desktop/Dialogue.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 00000220BD59CBE8 : node = 000002211C98CBD0
+[LOG] SystemI::createSound                     :     add node to async list : head = 000002211C96AA68.  list count = 4
+[LOG] SystemI::createSoundInternal             :     Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2355808
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 22848
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000583DA3EEE8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->useropen           = 00007FFB9FA17D70
+[LOG] SystemI::createSoundInternal             :     exinfo->userclose          = 00007FFB9FA17D40
+[LOG] SystemI::createSoundInternal             :     exinfo->userread           = 00007FFB9FA17E40
+[LOG] SystemI::createSoundInternal             :     exinfo->userseek           = 00007FFB9FA17F00
+[LOG] SystemI::createSoundInternal             :     exinfo->fileuserdata       = 00000221193DE9D8
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            :     register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             :     Sample 0/1: name='Dialogue Wave Start 2', format=5, channels=2, frequency=48000, lengthbytes=77120, lengthpcm=288000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.608582.
+[LOG] Thread::initThread                       :     Init FMOD file thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFC, Stack Size: 49152, Semaphore: No, Sleep Time: 10, Looping: Yes.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000220102FDC68
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000220102FD098
+[LOG] SystemI::createSoundInternal             :     Create name='../Sound FMOD SFX/Build\Desktop/Dialogue.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2355808
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 22848
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000220B9479C00
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Dialogue Wave Start 4', format=5, channels=2, frequency=48000, lengthbytes=181952, lengthpcm=720000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.769409.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000220102FD098
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000220166FAC78
+[LOG] SystemI::createSoundInternal             :     Create name='../Sound FMOD SFX/Build\Desktop/Dialogue.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2355808
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 22848
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000220B9479FC0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Dialogue Wave Start 4', format=5, channels=2, frequency=48000, lengthbytes=181952, lengthpcm=720000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.769409.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000220166FAC78
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000220166FA258
+[LOG] SystemI::createSoundInternal             :     Create name='../Sound FMOD SFX/Build\Desktop/Dialogue.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2355808
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 22848
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000220B9479D40
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Dialogue Wave Start 1', format=5, channels=2, frequency=48000, lengthbytes=155456, lengthpcm=588000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.674713.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000220166FA258
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000220BD59D2A8
+[LOG] SystemI::createSoundInternal             :     Create name='../Sound FMOD SFX/Build\Desktop/Dialogue.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2355808
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 22848
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000220B9479E80
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Dialogue Wave Start 1', format=5, channels=2, frequency=48000, lengthbytes=155456, lengthpcm=588000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.674713.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000220BD59D2A8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000220BD59CBE8
+[LOG] SystemI::createSoundInternal             :     Create name='../Sound FMOD SFX/Build\Desktop/Dialogue.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2355808
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 22848
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002211C98CCE0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Dialogue Wave Start 1', format=5, channels=2, frequency=48000, lengthbytes=155456, lengthpcm=588000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.674713.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000220BD59CBE8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002211C32FE38
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002211C32FE38
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002211C32E4E8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002211C32E4E8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002211C32CD48
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002211C32CD48
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002211C32CEF8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002211C32CEF8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002211C32F778
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002211C32F778
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002211C32B908
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002211C32B908
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002211C32CD48
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002211C32CD48
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002211C32CEF8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002211C32CEF8
+[LOG] SoundI::release                          : Dialogue Wave Start 1 (00000220BD59D2A8)
+[LOG] SoundI::release                          :     Dialogue Wave Start 1 (0000021FF36F5B08)
+[LOG] SoundI::release                          :     Dialogue Wave Start 1 (000002211C32E4E8)
+[LOG] SoundI::release                          : Dialogue Wave Start 1 (00000220166FA258)
+[LOG] SoundI::release                          :     Dialogue Wave Start 1 (0000021FF36F5968)
+[LOG] SoundI::release                          :     Dialogue Wave Start 1 (000002211C32B908)
+[LOG] SoundI::release                          : Dialogue Wave Start 1 (00000220BD59CBE8)
+[LOG] SoundI::release                          :     Dialogue Wave Start 1 (0000021FF39E25F8)
+[LOG] SoundI::release                          :     Dialogue Wave Start 1 (000002211C32CEF8)
+[LOG] SoundI::release                          : Dialogue Wave Start 4 (00000220102FD098)
+[LOG] SoundI::release                          :     Dialogue Wave Start 4 (0000021FF36F6188)
+[LOG] SoundI::release                          :     Dialogue Wave Start 4 (000002211C32FE38)
+[LOG] SoundI::release                          : Dialogue Wave Start 4 (00000220102FDC68)
+[LOG] SoundI::release                          :     Dialogue Wave Start 4 (0000021FF36F5FE8)
+[LOG] SoundI::release                          :     Dialogue Wave Start 4 (000002211C32F778)
+[LOG] SoundI::release                          : Dialogue Wave Start 4 (00000220166FAC78)
+[LOG] SoundI::release                          :     Dialogue Wave Start 4 (0000021FF36F64C8)
+[LOG] SoundI::release                          :     Dialogue Wave Start 4 (000002211C32CD48)
+[LOG] SoundI::release                          :  (000002201481B518)
+[LOG] SoundI::release                          :     Shotgun Blast Draft 1 (0000022118E71248)
+[LOG] SoundI::release                          :  (000002201481B3A8)
+[LOG] SoundI::release                          :     Shotgun Blast Draft 1 variant 2 (0000022118E713E8)
+[LOG] SoundI::release                          :  (0000022119334978)
+[LOG] SoundI::release                          :     Shotgun Blast Draft 1 variant (0000022118E710A8)
+[LOG] SoundI::release                          :  (0000022119334F38)
+[LOG] SoundI::release                          :     Dialogue Wave Start 2 (00000221196DB728)
+>>>>>>> Stashed changes
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
@@ -106,5 +305,8 @@
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] SystemI::close                           : Closed.
+<<<<<<< Updated upstream
 =======
 >>>>>>> BazVFX
+=======
+>>>>>>> Stashed changes
