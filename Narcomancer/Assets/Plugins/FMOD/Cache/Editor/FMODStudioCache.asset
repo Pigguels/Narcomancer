@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: event:/Music/Fight #2 Final
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: event:/Music/Fight #2 Final
   guid: 5c9d65d5f4753949ace435091438a51d
   Banks:
@@ -185,6 +186,18 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 0
 --- !u!114 &-8561526000523640983
+=======
+  Path: ../Sound FMOD SFX/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 637699032777451360
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1866
+  Exists: 1
+--- !u!114 &-5624218319730949478
+>>>>>>> BazVFX
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -660,6 +673,7 @@ MonoBehaviour:
   guid: a0bb8fb9060c654f9e8459e24e579f17
   Banks:
   - {fileID: 5701161298553381450}
+<<<<<<< HEAD
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -691,6 +705,43 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 0
 --- !u!114 &-6182545543134323689
+=======
+  - {fileID: 1132168179333392546}
+  EditorEvents:
+  - {fileID: -7026754659706070590}
+  - {fileID: -5165471872649310195}
+  - {fileID: -7404392179612692856}
+  - {fileID: -584017314775405809}
+  - {fileID: 4092780257232077854}
+  - {fileID: -148181668428927969}
+  - {fileID: -1322041560338319504}
+  - {fileID: -7560388745485897025}
+  - {fileID: -4231644748242912471}
+  - {fileID: 4636976365787595874}
+  - {fileID: -460899589957170201}
+  - {fileID: 2276063520199232588}
+  - {fileID: -5624218319730949478}
+  - {fileID: 3844000020545185237}
+  - {fileID: 4867508185643491514}
+  - {fileID: -1388492352040496788}
+  - {fileID: 3797966067481579886}
+  - {fileID: 5175444165172027837}
+  - {fileID: -1647526930554216521}
+  - {fileID: 3030298760913461470}
+  - {fileID: -8398637862894488070}
+  - {fileID: 7478947062678982585}
+  - {fileID: 7118578627637663693}
+  - {fileID: 6820656080379640064}
+  - {fileID: 8189524310347892106}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 1132168179333392546}
+  StringsBanks:
+  - {fileID: -6182545543134323689}
+  stringsBankWriteTime: 637699032777451360
+  cacheVersion: 6
+--- !u!114 &1132168179333392546
+>>>>>>> BazVFX
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -702,10 +753,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: ../Sound FMOD SFX/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
   lastModified: 637698899140727544
+=======
+  Path: ../Sound FMOD SFX/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 637697414670003153
+>>>>>>> BazVFX
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -3347,7 +3405,30 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+<<<<<<< HEAD
 --- !u!114 &7230993387415113224
+=======
+--- !u!114 &5701161298553381450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Dialogue.bank
+  m_EditorClassIdentifier: 
+  Path: ../Sound FMOD SFX/Build/Desktop/Dialogue.bank
+  Name: Dialogue
+  StudioPath: bank:/Dialogue
+  lastModified: 637699032777531442
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &5908674822031584812
+>>>>>>> BazVFX
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
