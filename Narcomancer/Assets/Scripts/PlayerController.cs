@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     enum KeyInputs { crouch, jump, dash, primaryFire, secondaryFire, };
     bool[] m_InputDown = new bool[(int)KeyInputs.secondaryFire + 1];
 
-    private Health m_Health;
+    public Health m_Health;
 
     #region Variables : Ammunition
 
