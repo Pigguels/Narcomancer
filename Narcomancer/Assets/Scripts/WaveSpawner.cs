@@ -88,6 +88,7 @@ public class WaveSpawner : MonoBehaviour
         {
             //completed all waves
             Debug.Log("all waves completed");
+            gameObject.SendMessage("EndOfWave");
         }
 
         waveNumber++; 

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2231247797329278221}
   - component: {fileID: 2231247797329278222}
   - component: {fileID: 2231247797329278223}
-  - component: {fileID: 2231247797329278208}
-  - component: {fileID: 2231247797329278209}
+  - component: {fileID: 6574274983054727339}
+  - component: {fileID: 5085051643024242676}
   m_Layer: 0
   m_Name: ItemPickup
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2231247797329278210}
-  m_LocalRotation: {x: 0.078403555, y: -0.7005437, z: 0.26366988, w: 0.6584602}
+  m_LocalRotation: {x: 0.07840282, y: -0.70054376, z: 0.26366916, w: 0.65846044}
   m_LocalPosition: {x: -7.137, y: 1.235, z: -1.586}
   m_LocalScale: {x: 0.44686, y: 0.44686, z: 0.44686}
   m_Children: []
@@ -83,21 +83,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2231247797329278208
-CapsuleCollider:
+--- !u!135 &6574274983054727339
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2231247797329278210}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2231247797329278209
+  serializedVersion: 2
+  m_Radius: 5.475675
+  m_Center: {x: 1.4269862e-14, y: 2.4825624e-14, z: -0.0000010670841}
+--- !u!114 &5085051643024242676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01309fea6b3ed94ba1dc5f89d0b5f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSpeed: 5
-  bounceAmplitude: 10
-  rotationSpeed: 50
+  bounceSpeed: 4
+  bounceAmplitude: 0.1
+  rotationSpeed: 90
+  pickUpPrefab: {fileID: 0}

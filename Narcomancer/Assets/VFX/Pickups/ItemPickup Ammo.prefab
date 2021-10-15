@@ -4881,9 +4881,9 @@ GameObject:
   - component: {fileID: 5372632115466113830}
   - component: {fileID: 6003257285275638996}
   - component: {fileID: 8177494883891171055}
-  - component: {fileID: 7484858684536957058}
   - component: {fileID: 4494547458579785995}
   - component: {fileID: 1793810369}
+  - component: {fileID: -2090531613608213911}
   m_Layer: 0
   m_Name: ItemPickup Ammo
   m_TagString: Untagged
@@ -4955,20 +4955,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7484858684536957058
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3804729199842986477}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4494547458579785995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4984,6 +4970,9 @@ MonoBehaviour:
   bounceSpeed: 5
   bounceAmplitude: 0.1
   rotationSpeed: 90
+  pickUpPrefab: {fileID: 0}
+  pickupType: 1
+  pickupDistance: 5
 --- !u!96 &1793810369
 TrailRenderer:
   serializedVersion: 2
@@ -5091,3 +5080,16 @@ TrailRenderer:
   m_MinVertexDistance: 0
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!135 &-2090531613608213911
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3804729199842986477}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4
+  m_Center: {x: 0, y: 0, z: 0}
