@@ -20,6 +20,7 @@ public class AnimationEventSound : MonoBehaviour
 
     public void PlaySound()
     {
+        print("playsound");
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Shotgun SFX/Shotgun Blasts", transform.position);
         switch (sound)
         {
