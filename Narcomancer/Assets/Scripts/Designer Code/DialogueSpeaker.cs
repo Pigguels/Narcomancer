@@ -39,12 +39,12 @@ public class DialogueSpeaker : MonoBehaviour
 
     public void Wave3Audio()
     {
-        Wave3.SetActive(false);
+        Wave3.SetActive(true);
     }
 
     public void Wave4Audio()
     {
-        Wave4.SetActive(false);
+        Wave4.SetActive(true);
     }
 
 }
