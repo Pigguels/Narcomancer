@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9212789206988090488
+--- !u!114 &-8989485162971348622
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Wave Barks (6)
+  m_Name: event:/Dialogue Phone Temp (2)
   m_EditorClassIdentifier: 
-  Path: event:/Wave Barks (6)
-  guid: d7e2917b8f25db469c2481cf3267f5fa
+  Path: event:/Dialogue Phone Temp (2)
+  guid: a0bb8fb9060c654f9e8459e24e579f17
   Banks:
-  - {fileID: -2371826870074013288}
+  - {fileID: 5977745298636307683}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -23,7 +23,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-9068815495878447959
+=======
+--- !u!114 &-8238749211937980686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../Sound FMOD SFX/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 637697338426686216
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-8201884229944156504
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33,12 +56,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Music/Casual #1 Final
   m_EditorClassIdentifier: 
   Path: event:/Music/Casual #1 Final
   guid: c09f8ec70db13748873b0db45eb8f4a5
   Banks:
   - {fileID: 3052508317650015068}
+=======
+  m_Name: event:/Tile Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Tile Footsteps
+  guid: 3ff7b236482b9f48ab42b9b165b898cb
+  Banks:
+  - {fileID: -8238749211937980686}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -46,7 +78,11 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-9008843867154337158
+=======
+--- !u!114 &-7788025810122029766
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,12 +92,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/3D Dialogue/Wave Barks (4)
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Wave Barks (4)
   guid: 0e20e0f53a545a4a9e419f298a235cd9
+=======
+  m_Name: event:/Wave Barks (6)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Barks (6)
+  guid: d7e2917b8f25db469c2481cf3267f5fa
+>>>>>>> Stashed changes
   Banks:
-  - {fileID: 5701161298553381450}
+  - {fileID: 782151900478722754}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -69,7 +112,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-8956704496691207364
+=======
+--- !u!114 &-6700664986984992078
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,12 +126,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Footsteps/Tile Footsteps
   m_EditorClassIdentifier: 
   Path: event:/Footsteps/Tile Footsteps
   guid: 3ff7b236482b9f48ab42b9b165b898cb
   Banks:
   - {fileID: 1132168179333392546}
+=======
+  m_Name: event:/Glass Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Glass Footsteps
+  guid: 1e5b97ab918d6e44a1282867be82a774
+  Banks:
+  - {fileID: 1262003058832705691}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -92,7 +148,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-8854209259622261524
+=======
+--- !u!114 &-6473546408755362324
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,6 +162,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Music/Final Boss #1 Final
   m_EditorClassIdentifier: 
   Path: event:/Music/Final Boss #1 Final
@@ -129,8 +190,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (6)
   guid: d7e2917b8f25db469c2481cf3267f5fa
+=======
+  m_Name: event:/Wave Barks (3)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Barks (3)
+  guid: 8ce0a49ba915634888050f3e8227d301
+>>>>>>> Stashed changes
   Banks:
-  - {fileID: 5701161298553381450}
+  - {fileID: 782151900478722754}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -138,7 +205,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-8668591473682006310
+=======
+--- !u!114 &-6057915621398546187
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,12 +219,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/3D Dialogue/One Shots/Wave Barks (7)
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (7)
   guid: 01cf7b8f0600d74d9fba9501cc638b36
   Banks:
   - {fileID: 5701161298553381450}
+=======
+  m_Name: event:/Wave Barks (6)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Barks (6)
+  guid: d7e2917b8f25db469c2481cf3267f5fa
+  Banks:
+  - {fileID: 5977745298636307683}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -161,7 +241,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-8661534060824191786
+=======
+--- !u!114 &-5721051259685782038
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,14 +274,22 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+<<<<<<< Updated upstream
   lastModified: 637699032777451360
+=======
+  lastModified: 637698129173972590
+>>>>>>> Stashed changes
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 1866
   Exists: 1
+<<<<<<< Updated upstream
 --- !u!114 &-5624218319730949478
 >>>>>>> BazVFX
+=======
+--- !u!114 &-5454472345071187937
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,12 +299,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Music/Casual #2 Final
   m_EditorClassIdentifier: 
   Path: event:/Music/Casual #2 Final
   guid: 7140ec99b550fc4e82cb4c946e55cec8
   Banks:
   - {fileID: -2700498064491390860}
+=======
+  m_Name: event:/Grenade Launch
+  m_EditorClassIdentifier: 
+  Path: event:/Grenade Launch
+  guid: a92f54e6ab044e4b8c3226d2ea6a5d8c
+  Banks:
+  - {fileID: -8238749211937980686}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -220,7 +321,11 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-8398637862894488070
+=======
+--- !u!114 &-4345348256117325415
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,81 +335,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Mini Uzi
   m_EditorClassIdentifier: 
   Path: event:/Mini Uzi
   guid: 7a8d8fdec1210949981689bfd4cb694f
   Banks:
   - {fileID: 1132168179333392546}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-8331996930578754326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/3D Dialogue/Wave Barks (1)
+=======
+  m_Name: event:/UI Ascending and descending sfx
   m_EditorClassIdentifier: 
-  Path: event:/3D Dialogue/Wave Barks (1)
-  guid: 2853f4eecab7f548bcd0b1349e4f7fa9
+  Path: event:/UI Ascending and descending sfx
+  guid: f7282e35055f6d4ea4685c4942b43ba2
   Banks:
-  - {fileID: 5701161298553381450}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-8241500934336226926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/3D Dialogue/One Shots/Wave Barks (5)
-  m_EditorClassIdentifier: 
-  Path: event:/3D Dialogue/One Shots/Wave Barks (5)
-  guid: e821fdfb56132945a0a4aecf6ce47121
-  Banks:
-  - {fileID: 5701161298553381450}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-8183867523015232199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/Final Boss #2 Final
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Final Boss #2 Final
-  guid: 1ff026a3abd59f4c9bce3ac4c1f03d1a
-  Banks:
-  - {fileID: 3361663217685249899}
+  - {fileID: 1262003058832705691}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -312,7 +357,11 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
---- !u!114 &-8068255424205103604
+<<<<<<< Updated upstream
+--- !u!114 &-8331996930578754326
+=======
+--- !u!114 &-4092270255750147994
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -322,12 +371,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/3D Dialogue/One Shots/Wave Barks (1)
+<<<<<<< Updated upstream
+  m_Name: event:/3D Dialogue/Wave Barks (1)
   m_EditorClassIdentifier: 
-  Path: event:/3D Dialogue/One Shots/Wave Barks (1)
+  Path: event:/3D Dialogue/Wave Barks (1)
   guid: 2853f4eecab7f548bcd0b1349e4f7fa9
   Banks:
   - {fileID: 5701161298553381450}
+=======
+  m_Name: event:/Glass Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Glass Footsteps
+  guid: 1e5b97ab918d6e44a1282867be82a774
+  Banks:
+  - {fileID: -8238749211937980686}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -335,7 +393,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-7732399082562527276
+<<<<<<< Updated upstream
+--- !u!114 &-8241500934336226926
+=======
+--- !u!114 &-4045839230511221657
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -345,12 +407,127 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
+  m_Name: event:/3D Dialogue/One Shots/Wave Barks (5)
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Wave Barks (5)
+  guid: e821fdfb56132945a0a4aecf6ce47121
+  Banks:
+  - {fileID: 5701161298553381450}
+=======
+  m_Name: event:/VIP (1)
+  m_EditorClassIdentifier: 
+  Path: event:/VIP (1)
+  guid: 06a72ef4c9bb8043856f0e3135faafaa
+  Banks:
+  - {fileID: 5977745298636307683}
+>>>>>>> Stashed changes
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+<<<<<<< Updated upstream
+--- !u!114 &-8183867523015232199
+=======
+--- !u!114 &-3647587543826957456
+>>>>>>> Stashed changes
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
+  m_Name: event:/Music/Final Boss #2 Final
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Final Boss #2 Final
+  guid: 1ff026a3abd59f4c9bce3ac4c1f03d1a
+  Banks:
+  - {fileID: 3361663217685249899}
+=======
+  m_Name: event:/Wave Barks (7)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Barks (7)
+  guid: 01cf7b8f0600d74d9fba9501cc638b36
+  Banks:
+  - {fileID: 5977745298636307683}
+>>>>>>> Stashed changes
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+<<<<<<< Updated upstream
+--- !u!114 &-8068255424205103604
+=======
+--- !u!114 &-2523867221374711244
+>>>>>>> Stashed changes
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
+  m_Name: event:/3D Dialogue/One Shots/Wave Barks (1)
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Wave Barks (1)
+  guid: 2853f4eecab7f548bcd0b1349e4f7fa9
+=======
+  m_Name: event:/Wave Barks (5)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Barks (5)
+  guid: e821fdfb56132945a0a4aecf6ce47121
+>>>>>>> Stashed changes
+  Banks:
+  - {fileID: 782151900478722754}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+<<<<<<< Updated upstream
+--- !u!114 &-7732399082562527276
+=======
+--- !u!114 &-2268332091027702805
+>>>>>>> Stashed changes
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/3D Dialogue/Wave Starts All together/Wave Starts All Together
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Wave Starts All together/Wave Starts All Together
   guid: 5e0296190cc41146955aa2f6fe41bda0
   Banks:
   - {fileID: 5701161298553381450}
+=======
+  m_Name: event:/Metal Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Metal Footsteps
+  guid: f27a20059cbc8041ab39abc77d96e0e1
+  Banks:
+  - {fileID: -8238749211937980686}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -358,6 +535,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-7606521230329497889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +583,9 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 0
 --- !u!114 &-7429710057689632792
+=======
+--- !u!114 &-2187182924215873568
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -419,7 +600,11 @@ MonoBehaviour:
   Path: event:/3D Dialogue/One Shots/Wave Starts 2
   guid: 6b71abd444d8874b90805e085c0ce90b
   Banks:
+<<<<<<< Updated upstream
   - {fileID: 5701161298553381450}
+=======
+  - {fileID: 782151900478722754}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -427,7 +612,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 100
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-7404392179612692856
+=======
+--- !u!114 &-1996284499575471098
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -437,12 +626,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Wave Barks (4)
   m_EditorClassIdentifier: 
   Path: event:/Wave Barks (4)
   guid: 0e20e0f53a545a4a9e419f298a235cd9
   Banks:
   - {fileID: 5701161298553381450}
+=======
+  m_Name: event:/Mini Uzi
+  m_EditorClassIdentifier: 
+  Path: event:/Mini Uzi
+  guid: 7a8d8fdec1210949981689bfd4cb694f
+  Banks:
+  - {fileID: -8238749211937980686}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -450,7 +648,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-7283466751819041459
+=======
+--- !u!114 &-1179577328060571947
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -460,12 +662,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/3D Dialogue/One Shots/Wave Barks (3)
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (3)
   guid: 8ce0a49ba915634888050f3e8227d301
   Banks:
   - {fileID: 5701161298553381450}
+=======
+  m_Name: event:/Wave Barks (4)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Barks (4)
+  guid: 0e20e0f53a545a4a9e419f298a235cd9
+  Banks:
+  - {fileID: 5977745298636307683}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -473,7 +684,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-7273520578509962534
+=======
+--- !u!114 &-708970754952234630
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -483,20 +698,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Music/Fight #1 Final
   m_EditorClassIdentifier: 
   Path: event:/Music/Fight #1 Final
   guid: 747ef07ae1d8ee47aef9478594265c10
   Banks:
   - {fileID: 3361663217685249899}
+=======
+  m_Name: event:/Wave Barks (1)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Barks (1)
+  guid: 2853f4eecab7f548bcd0b1349e4f7fa9
+  Banks:
+  - {fileID: 5977745298636307683}
+>>>>>>> Stashed changes
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
+  MinDistance: 1
+  MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-7054266148606121062
+=======
+--- !u!114 &-534311505490765153
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -511,7 +739,7 @@ MonoBehaviour:
   Path: event:/3D Dialogue/Wave Barks (7)
   guid: 01cf7b8f0600d74d9fba9501cc638b36
   Banks:
-  - {fileID: 5701161298553381450}
+  - {fileID: 5977745298636307683}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -519,7 +747,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-7026754659706070590
+=======
+--- !u!114 &11400000
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -528,6 +760,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: event:/Wave Barks (7)
   m_EditorClassIdentifier: 
@@ -543,6 +776,49 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 0
 --- !u!114 &-7011159457564799557
+=======
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 4209857606562162603}
+  - {fileID: 782151900478722754}
+  - {fileID: 1262003058832705691}
+  EditorEvents:
+  - {fileID: 8521714207507442709}
+  - {fileID: 1874987270799608963}
+  - {fileID: 2756690391310950401}
+  - {fileID: 8804318159771060321}
+  - {fileID: 2083776645579395475}
+  - {fileID: 1681891205996686891}
+  - {fileID: 3710603315032372129}
+  - {fileID: 4128756674712556352}
+  - {fileID: -6473546408755362324}
+  - {fileID: 5598156756253791812}
+  - {fileID: -2187182924215873568}
+  - {fileID: 7819405811403911896}
+  - {fileID: -7788025810122029766}
+  - {fileID: -2523867221374711244}
+  - {fileID: 8833250021711010205}
+  - {fileID: 554600697532064792}
+  - {fileID: -6700664986984992078}
+  - {fileID: 6541346766482688275}
+  - {fileID: 7743379864682588980}
+  - {fileID: 7151063118910030384}
+  - {fileID: 2943918271686216563}
+  - {fileID: 5667363025074748573}
+  - {fileID: 8606591270292727384}
+  - {fileID: 166716993762874075}
+  - {fileID: -4345348256117325415}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 1262003058832705691}
+  StringsBanks:
+  - {fileID: 4209857606562162603}
+  stringsBankWriteTime: 637698129173972590
+  cacheVersion: 6
+--- !u!114 &143384195698234347
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -552,81 +828,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Music/Casual #2 Final
   m_EditorClassIdentifier: 
   Path: event:/Music/Casual #2 Final
   guid: 7140ec99b550fc4e82cb4c946e55cec8
   Banks:
   - {fileID: 6278364208340551704}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &-6922025906455475333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/Casual #1 Final
+=======
+  m_Name: event:/Wave Starts (2)
   m_EditorClassIdentifier: 
-  Path: event:/Music/Casual #1 Final
-  guid: c09f8ec70db13748873b0db45eb8f4a5
+  Path: event:/Wave Starts (2)
+  guid: c1eb93bb6605bf4f818328d0c031268e
   Banks:
-  - {fileID: 6278364208340551704}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &-6823894935618540206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/Final Boss #1 Final
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Final Boss #1 Final
-  guid: 76e2e34bdcb6e74ca16bcc8a538b681d
-  Banks:
-  - {fileID: 6278364208340551704}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &-6761672413432261775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/3D Dialogue/Dialogue Phone Temp (2)
-  m_EditorClassIdentifier: 
-  Path: event:/3D Dialogue/Dialogue Phone Temp (2)
-  guid: a0bb8fb9060c654f9e8459e24e579f17
-  Banks:
-  - {fileID: 5701161298553381450}
+  - {fileID: 5977745298636307683}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -634,7 +850,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-6627303148754235495
+<<<<<<< Updated upstream
+--- !u!114 &-6922025906455475333
+=======
+--- !u!114 &166716993762874075
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -644,12 +864,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/Fight #1 Final
+<<<<<<< Updated upstream
+  m_Name: event:/Music/Casual #1 Final
   m_EditorClassIdentifier: 
-  Path: event:/Music/Fight #1 Final
-  guid: 747ef07ae1d8ee47aef9478594265c10
+  Path: event:/Music/Casual #1 Final
+  guid: c09f8ec70db13748873b0db45eb8f4a5
   Banks:
   - {fileID: 6278364208340551704}
+=======
+  m_Name: event:/Metal Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Metal Footsteps
+  guid: f27a20059cbc8041ab39abc77d96e0e1
+  Banks:
+  - {fileID: 1262003058832705691}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -657,7 +886,11 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
---- !u!114 &-6457336845986590998
+<<<<<<< Updated upstream
+--- !u!114 &-6823894935618540206
+=======
+--- !u!114 &380737009986275719
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -666,6 +899,113 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
+  m_Name: event:/Music/Final Boss #1 Final
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Final Boss #1 Final
+  guid: 76e2e34bdcb6e74ca16bcc8a538b681d
+  Banks:
+  - {fileID: 6278364208340551704}
+=======
+  m_Name: event:/Dialogue Phone Temp (1)
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue Phone Temp (1)
+  guid: 375454727226954a9dfb01a20ac6c658
+  Banks:
+  - {fileID: 5977745298636307683}
+>>>>>>> Stashed changes
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+<<<<<<< Updated upstream
+--- !u!114 &-6761672413432261775
+=======
+--- !u!114 &535971173712114235
+>>>>>>> Stashed changes
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
+  m_Name: event:/3D Dialogue/Dialogue Phone Temp (2)
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Dialogue Phone Temp (2)
+  guid: a0bb8fb9060c654f9e8459e24e579f17
+=======
+  m_Name: event:/Shotgun Blasts
+  m_EditorClassIdentifier: 
+  Path: event:/Shotgun Blasts
+  guid: 76d60e8f6f23cc4eb24ee1792453f37e
+>>>>>>> Stashed changes
+  Banks:
+  - {fileID: -8238749211937980686}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+<<<<<<< Updated upstream
+--- !u!114 &-6627303148754235495
+=======
+--- !u!114 &554600697532064792
+>>>>>>> Stashed changes
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
+  m_Name: event:/Music/Fight #1 Final
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Fight #1 Final
+  guid: 747ef07ae1d8ee47aef9478594265c10
+  Banks:
+  - {fileID: 6278364208340551704}
+=======
+  m_Name: event:/Arrival
+  m_EditorClassIdentifier: 
+  Path: event:/Arrival
+  guid: fcc135962e825442bfc8ee90bc939ced
+  Banks:
+  - {fileID: 782151900478722754}
+>>>>>>> Stashed changes
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+<<<<<<< Updated upstream
+--- !u!114 &-6457336845986590998
+=======
+--- !u!114 &782151900478722754
+>>>>>>> Stashed changes
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: event:/3D Dialogue/One Shots/Dialogue Phone Temp (2)
   m_EditorClassIdentifier: 
@@ -682,6 +1022,19 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 0
 --- !u!114 &-6329013478525217807
+=======
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Dialogue.bank
+  m_EditorClassIdentifier: 
+  Path: ../Sound FMOD SFX/Build/Desktop/Dialogue.bank
+  Name: Dialogue
+  StudioPath: bank:/Dialogue
+  lastModified: 637698129174092696
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &1018871136890077826
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -691,6 +1044,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Arrival
   m_EditorClassIdentifier: 
   Path: event:/Arrival
@@ -742,6 +1096,22 @@ MonoBehaviour:
   cacheVersion: 6
 --- !u!114 &1132168179333392546
 >>>>>>> BazVFX
+=======
+  m_Name: event:/UI Confirmation SFX
+  m_EditorClassIdentifier: 
+  Path: event:/UI Confirmation SFX
+  guid: ef46494e8712bd46927cad1200e15a8a
+  Banks:
+  - {fileID: -8238749211937980686}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &1262003058832705691
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -762,14 +1132,22 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
+<<<<<<< Updated upstream
   lastModified: 637697414670003153
 >>>>>>> BazVFX
+=======
+  lastModified: 637697338426686216
+>>>>>>> Stashed changes
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 2558
   Exists: 1
+<<<<<<< Updated upstream
 --- !u!114 &-6086869502230117969
+=======
+--- !u!114 &1681891205996686891
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -779,12 +1157,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/3D Dialogue/Wave Barks (5)
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Wave Barks (5)
   guid: e821fdfb56132945a0a4aecf6ce47121
+=======
+  m_Name: event:/Wave Starts (4)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Starts (4)
+  guid: 44868a0c23e6db45afc98f427a9a7a23
+>>>>>>> Stashed changes
   Banks:
-  - {fileID: 5701161298553381450}
+  - {fileID: 782151900478722754}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -792,7 +1177,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-5783944892799823952
+=======
+--- !u!114 &1698478450265092379
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -802,58 +1191,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/3D Dialogue/One Shots/Wave Barks (1)
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (1)
   guid: 2853f4eecab7f548bcd0b1349e4f7fa9
   Banks:
   - {fileID: 5701161298553381450}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-5624218319730949478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Wave Barks (6)
+=======
+  m_Name: event:/UI Ascending and descending sfx
   m_EditorClassIdentifier: 
-  Path: event:/Wave Barks (6)
-  guid: d7e2917b8f25db469c2481cf3267f5fa
+  Path: event:/UI Ascending and descending sfx
+  guid: f7282e35055f6d4ea4685c4942b43ba2
   Banks:
-  - {fileID: 5701161298553381450}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-5586501491574760933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Music/Fight #1 Final
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Fight #1 Final
-  guid: 747ef07ae1d8ee47aef9478594265c10
-  Banks:
-  - {fileID: 3052508317650015068}
+  - {fileID: -8238749211937980686}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -861,6 +1213,79 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+<<<<<<< Updated upstream
+--- !u!114 &-5624218319730949478
+=======
+--- !u!114 &1874987270799608963
+>>>>>>> Stashed changes
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
+  m_Name: event:/Wave Barks (6)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Barks (6)
+  guid: d7e2917b8f25db469c2481cf3267f5fa
+  Banks:
+  - {fileID: 5701161298553381450}
+=======
+  m_Name: event:/VIP (1)
+  m_EditorClassIdentifier: 
+  Path: event:/VIP (1)
+  guid: 06a72ef4c9bb8043856f0e3135faafaa
+  Banks:
+  - {fileID: 782151900478722754}
+>>>>>>> Stashed changes
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+<<<<<<< Updated upstream
+--- !u!114 &-5586501491574760933
+=======
+--- !u!114 &2083776645579395475
+>>>>>>> Stashed changes
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
+  m_Name: event:/Music/Fight #1 Final
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Fight #1 Final
+  guid: 747ef07ae1d8ee47aef9478594265c10
+  Banks:
+  - {fileID: 3052508317650015068}
+=======
+  m_Name: event:/Dialogue Phone Temp (1)
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue Phone Temp (1)
+  guid: 375454727226954a9dfb01a20ac6c658
+  Banks:
+  - {fileID: 782151900478722754}
+>>>>>>> Stashed changes
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-5518779026636531060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -884,6 +1309,9 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 0
 --- !u!114 &-5299869054937783137
+=======
+--- !u!114 &2713726392033007301
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -893,12 +1321,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Music/Fight #1 Final
   m_EditorClassIdentifier: 
   Path: event:/Music/Fight #1 Final
   guid: 747ef07ae1d8ee47aef9478594265c10
   Banks:
   - {fileID: 3372671142811800913}
+=======
+  m_Name: event:/Wave Starts (3)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Starts (3)
+  guid: b1f826f7c822884ab5ac0b238c011662
+  Banks:
+  - {fileID: 5977745298636307683}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -906,7 +1343,11 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-5281863884706841154
+=======
+--- !u!114 &2756690391310950401
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -916,12 +1357,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/3D Dialogue/Wave Barks (2)
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Wave Barks (2)
   guid: e8559372c6e8254bad9db800a7ab1ff2
+=======
+  m_Name: event:/Wave Barks (4)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Barks (4)
+  guid: 0e20e0f53a545a4a9e419f298a235cd9
+>>>>>>> Stashed changes
   Banks:
-  - {fileID: 5701161298553381450}
+  - {fileID: 782151900478722754}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -929,7 +1377,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-5234358750401780875
+=======
+--- !u!114 &2943918271686216563
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -939,35 +1391,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/3D Dialogue/One Shots/Wave Barks (4)
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (4)
   guid: 0e20e0f53a545a4a9e419f298a235cd9
-  Banks:
-  - {fileID: 5701161298553381450}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-5165471872649310195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/VIP (1)
+=======
+  m_Name: event:/Mini Uzi
   m_EditorClassIdentifier: 
-  Path: event:/VIP (1)
-  guid: 06a72ef4c9bb8043856f0e3135faafaa
+  Path: event:/Mini Uzi
+  guid: 7a8d8fdec1210949981689bfd4cb694f
+>>>>>>> Stashed changes
   Banks:
-  - {fileID: 5701161298553381450}
+  - {fileID: 1262003058832705691}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -975,7 +1411,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-5007648517260476412
+<<<<<<< Updated upstream
+--- !u!114 &-5165471872649310195
+=======
+--- !u!114 &3366210514148099616
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -985,12 +1425,52 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Wave Barks (3)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Barks (3)
+  guid: 8ce0a49ba915634888050f3e8227d301
+  Banks:
+<<<<<<< Updated upstream
+  - {fileID: 5701161298553381450}
+=======
+  - {fileID: 5977745298636307683}
+>>>>>>> Stashed changes
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+<<<<<<< Updated upstream
+--- !u!114 &-5007648517260476412
+=======
+--- !u!114 &3710603315032372129
+>>>>>>> Stashed changes
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Music/Final Boss #2 Final
   m_EditorClassIdentifier: 
   Path: event:/Music/Final Boss #2 Final
   guid: 1ff026a3abd59f4c9bce3ac4c1f03d1a
   Banks:
   - {fileID: 3372671142811800913}
+=======
+  m_Name: event:/VIP (2)
+  m_EditorClassIdentifier: 
+  Path: event:/VIP (2)
+  guid: 5e8434212805ad4886db994565ad7bb6
+  Banks:
+  - {fileID: 782151900478722754}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -998,7 +1478,11 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-5006587314152850030
+=======
+--- !u!114 &4128756674712556352
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1008,20 +1492,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Music/Casual #2 Final
   m_EditorClassIdentifier: 
   Path: event:/Music/Casual #2 Final
   guid: 7140ec99b550fc4e82cb4c946e55cec8
   Banks:
   - {fileID: 3372671142811800913}
+=======
+  m_Name: event:/Wave Starts (1)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Starts (1)
+  guid: 6b71abd444d8874b90805e085c0ce90b
+  Banks:
+  - {fileID: 782151900478722754}
+>>>>>>> Stashed changes
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
+  MinDistance: 1
+  MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-4766185742896170369
+=======
+--- !u!114 &4209857606562162603
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1030,6 +1527,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: event:/3D Dialogue/Wave Starts (2)
   m_EditorClassIdentifier: 
@@ -1044,6 +1542,21 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 0
 --- !u!114 &-4753792174379556892
+=======
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../Sound FMOD SFX/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 637698129173972590
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1866
+  Exists: 1
+--- !u!114 &4389664505777489979
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1053,12 +1566,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Dialogue Phone Temp (1)
   m_EditorClassIdentifier: 
   Path: event:/Dialogue Phone Temp (1)
   guid: 375454727226954a9dfb01a20ac6c658
   Banks:
   - {fileID: -2371826870074013288}
+=======
+  m_Name: event:/Wave Barks (5)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Barks (5)
+  guid: e821fdfb56132945a0a4aecf6ce47121
+  Banks:
+  - {fileID: 5977745298636307683}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1066,7 +1588,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-4549857892808930810
+=======
+--- !u!114 &5598156756253791812
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1076,12 +1602,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Wave Barks (3)
   m_EditorClassIdentifier: 
   Path: event:/Wave Barks (3)
   guid: 8ce0a49ba915634888050f3e8227d301
   Banks:
   - {fileID: -2371826870074013288}
+=======
+  m_Name: event:/Dialogue Phone Temp (2)
+  m_EditorClassIdentifier: 
+  Path: event:/Dialogue Phone Temp (2)
+  guid: a0bb8fb9060c654f9e8459e24e579f17
+  Banks:
+  - {fileID: 782151900478722754}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1089,7 +1624,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-4471109855291449282
+=======
+--- !u!114 &5667363025074748573
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1099,12 +1638,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/3D Dialogue/One Shots/Dialogue Phone Temp (1)
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Dialogue Phone Temp (1)
   guid: 375454727226954a9dfb01a20ac6c658
   Banks:
   - {fileID: 5701161298553381450}
+=======
+  m_Name: event:/Grenade Launch
+  m_EditorClassIdentifier: 
+  Path: event:/Grenade Launch
+  guid: a92f54e6ab044e4b8c3226d2ea6a5d8c
+  Banks:
+  - {fileID: 1262003058832705691}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1112,7 +1660,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-4460489525091824388
+=======
+--- !u!114 &5977745298636307683
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1124,6 +1676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: event:/Wave Starts (4)
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   Path: event:/Wave Starts (4)
   guid: 44868a0c23e6db45afc98f427a9a7a23
   Banks:
@@ -1136,6 +1689,16 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 0
 --- !u!114 &-4415814748242577388
+=======
+  Path: ../Sound FMOD SFX/Build/Desktop/Dialogue.bank
+  Name: Dialogue
+  StudioPath: bank:/Dialogue
+  lastModified: 637698129174092696
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &6113572174343138093
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1145,12 +1708,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Music/Final Boss #1 Final
   m_EditorClassIdentifier: 
   Path: event:/Music/Final Boss #1 Final
   guid: 76e2e34bdcb6e74ca16bcc8a538b681d
   Banks:
   - {fileID: -2700498064491390860}
+=======
+  m_Name: event:/Wave Barks (2)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Barks (2)
+  guid: e8559372c6e8254bad9db800a7ab1ff2
+  Banks:
+  - {fileID: 5977745298636307683}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1158,7 +1730,11 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-4231644748242912471
+=======
+--- !u!114 &6287793433328383065
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1168,12 +1744,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/Wave Barks (3)
   m_EditorClassIdentifier: 
   Path: event:/Wave Barks (3)
   guid: 8ce0a49ba915634888050f3e8227d301
   Banks:
   - {fileID: 5701161298553381450}
+=======
+  m_Name: event:/VIP (2)
+  m_EditorClassIdentifier: 
+  Path: event:/VIP (2)
+  guid: 5e8434212805ad4886db994565ad7bb6
+  Banks:
+  - {fileID: 5977745298636307683}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1181,7 +1766,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-4213814494868439501
+=======
+--- !u!114 &6490342951801823335
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1191,12 +1780,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/3D Dialogue/One Shots/Dialogue Phone Temp (1)
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Dialogue Phone Temp (1)
   guid: 375454727226954a9dfb01a20ac6c658
   Banks:
   - {fileID: 5701161298553381450}
+=======
+  m_Name: event:/Wave Starts (1)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Starts (1)
+  guid: 6b71abd444d8874b90805e085c0ce90b
+  Banks:
+  - {fileID: 5977745298636307683}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1204,7 +1802,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-4024162825973536515
+=======
+--- !u!114 &6541346766482688275
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1214,12 +1816,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/3D Dialogue/One Shots/Wave Barks (7)
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (7)
   guid: 01cf7b8f0600d74d9fba9501cc638b36
   Banks:
   - {fileID: 5701161298553381450}
+=======
+  m_Name: event:/Tile Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Tile Footsteps
+  guid: 3ff7b236482b9f48ab42b9b165b898cb
+  Banks:
+  - {fileID: 1262003058832705691}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1227,7 +1838,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-3963044787023796635
+=======
+--- !u!114 &7151063118910030384
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1237,12 +1852,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/3D Dialogue/Wave 3 Start
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Wave 3 Start
   guid: c1eb93bb6605bf4f818328d0c031268e
   Banks:
   - {fileID: 5701161298553381450}
+=======
+  m_Name: event:/Shotgun Blasts
+  m_EditorClassIdentifier: 
+  Path: event:/Shotgun Blasts
+  guid: 76d60e8f6f23cc4eb24ee1792453f37e
+  Banks:
+  - {fileID: 1262003058832705691}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1250,7 +1874,11 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &-3385063652142667295
+=======
+--- !u!114 &7743379864682588980
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1260,12 +1888,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+<<<<<<< Updated upstream
   m_Name: event:/3D Dialogue/One Shots/Wave Barks (2)
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (2)
   guid: e8559372c6e8254bad9db800a7ab1ff2
   Banks:
   - {fileID: 5701161298553381450}
+=======
+  m_Name: event:/Concrete Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Concrete Footsteps
+  guid: 4a18213ee58d504c83c697d11e74ad69
+  Banks:
+  - {fileID: 1262003058832705691}
+>>>>>>> Stashed changes
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3474,7 +4111,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &7478947062678982585
+--- !u!114 &7819405811403911896
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3484,12 +4121,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Grenade Launch
+  m_Name: event:/Wave Starts (2)
   m_EditorClassIdentifier: 
-  Path: event:/Grenade Launch
-  guid: a92f54e6ab044e4b8c3226d2ea6a5d8c
+  Path: event:/Wave Starts (2)
+  guid: c1eb93bb6605bf4f818328d0c031268e
   Banks:
-  - {fileID: 1132168179333392546}
+  - {fileID: 782151900478722754}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3497,6 +4134,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &7678094962352317777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3567,6 +4205,9 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 0
 --- !u!114 &8189524310347892106
+=======
+--- !u!114 &8161466021643147039
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3576,12 +4217,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/UI Ascending and descending sfx
+  m_Name: event:/Concrete Footsteps
   m_EditorClassIdentifier: 
-  Path: event:/UI Ascending and descending sfx
-  guid: f7282e35055f6d4ea4685c4942b43ba2
+  Path: event:/Concrete Footsteps
+  guid: 4a18213ee58d504c83c697d11e74ad69
   Banks:
-  - {fileID: 1132168179333392546}
+  - {fileID: -8238749211937980686}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3589,6 +4230,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+<<<<<<< Updated upstream
 --- !u!114 &8234458339843593793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3613,6 +4255,9 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 0
 --- !u!114 &8247609029039983135
+=======
+--- !u!114 &8521714207507442709
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3622,12 +4267,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Tile Footsteps
+  m_Name: event:/Wave Barks (7)
   m_EditorClassIdentifier: 
-  Path: event:/Tile Footsteps
-  guid: 3ff7b236482b9f48ab42b9b165b898cb
+  Path: event:/Wave Barks (7)
+  guid: 01cf7b8f0600d74d9fba9501cc638b36
   Banks:
-  - {fileID: 3645070529995377745}
+  - {fileID: 782151900478722754}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3635,7 +4280,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &8659422440382871837
+--- !u!114 &8606591270292727384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3645,12 +4290,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Wave Barks (4)
+  m_Name: event:/UI Confirmation SFX
   m_EditorClassIdentifier: 
-  Path: event:/Wave Barks (4)
-  guid: 0e20e0f53a545a4a9e419f298a235cd9
+  Path: event:/UI Confirmation SFX
+  guid: ef46494e8712bd46927cad1200e15a8a
   Banks:
-  - {fileID: -2371826870074013288}
+  - {fileID: 1262003058832705691}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &8804318159771060321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Wave Barks (1)
+  m_EditorClassIdentifier: 
+  Path: event:/Wave Barks (1)
+  guid: 2853f4eecab7f548bcd0b1349e4f7fa9
+  Banks:
+  - {fileID: 782151900478722754}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3658,7 +4326,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &8663827009555331184
+--- !u!114 &8833250021711010205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3668,12 +4336,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Dialogue Phone Temp (2)
+  m_Name: event:/Wave Barks (2)
   m_EditorClassIdentifier: 
-  Path: event:/Dialogue Phone Temp (2)
-  guid: a0bb8fb9060c654f9e8459e24e579f17
+  Path: event:/Wave Barks (2)
+  guid: e8559372c6e8254bad9db800a7ab1ff2
   Banks:
-  - {fileID: -2371826870074013288}
+  - {fileID: 782151900478722754}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3681,7 +4349,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &9086150930981926569
+--- !u!114 &9095761083082979746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3691,12 +4359,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Mini Uzi
+  m_Name: event:/Wave Starts (4)
   m_EditorClassIdentifier: 
-  Path: event:/Mini Uzi
-  guid: 7a8d8fdec1210949981689bfd4cb694f
+  Path: event:/Wave Starts (4)
+  guid: 44868a0c23e6db45afc98f427a9a7a23
   Banks:
-  - {fileID: 3645070529995377745}
+  - {fileID: 5977745298636307683}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
