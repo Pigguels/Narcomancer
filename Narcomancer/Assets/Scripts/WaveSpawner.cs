@@ -5,29 +5,29 @@ using UnityEngine;
 public class WaveSpawner : MonoBehaviour
 {
     [System.Serializable]
-    public class Wave 
+    public class Wave
+    {
+        public Subwave[] subWaves;
+    }
+    
+   /* [Space(15)]//this is just spacing out the inspector to give better clarity*/
+
+    [System.Serializable]
+    public class Subwave
     {
         public string waveName;
         //this is as a transform, could also have it as a gameobject refrence. just drag the prefab you want to spawn onto this variable in the array.
         public Transform enemy;
+        public Transform spawnPoints;
         public int count;
         public float rate;
     }
-   
+
     //created this simple class to be able to name the spawn points so you dont have to remember which location is which and you can refrence the name when calling it.
     //could also just have it as an array of transforms, but have to make sure that you remember the correct index for each transform.
-    [System.Serializable]
-    public class SpawnPoints
-    {
-        public string name;
-        public Transform spawnLocation;
-    }
-
-    public Wave[] enemyWaves;
-    public Transform[] enemies;
-
-    [Space(15)]//this is just spacing out the inspector to give better clarity
-    public SpawnPoints[] _spawnPoints;
+    public Wave[] newWaves;
+    
+   
 
 
     [Space(15)]
@@ -44,10 +44,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-       // GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
-       // Debug.Log(gameObjects.Length);
-
-
+       
         if (state == SpawnerState.waiting)
         {
             //check if enemy is dead
@@ -68,7 +65,8 @@ public class WaveSpawner : MonoBehaviour
             //if its not currently spawning, spawn the next wave.
             if(state != SpawnerState.spawning)
             {
-                StartCoroutine(SpawnWave(enemyWaves[waveNumber]));
+                if (newWaves.Length > waveNumber)
+                     SpawnWave(newWaves[waveNumber]);
             }
         }
         else
@@ -84,7 +82,7 @@ public class WaveSpawner : MonoBehaviour
         m_timeSinceSpawn = m_timeBetweenWaves;
 
 
-        if(waveNumber + 1 > enemyWaves.Length - 1)
+        if(waveNumber + 1 > newWaves.Length - 1)
         {
             //completed all waves
             Debug.Log("all waves completed");
@@ -95,37 +93,30 @@ public class WaveSpawner : MonoBehaviour
     }
 
 
-    void SpawnEnemy(Transform enemyToSpawn)
-    {
-        Debug.Log("Spawning Enemy: " + enemyToSpawn.name);
-
-        /*figure out the method on how to choose which spawnpoint to spawn at 
-            would be something like,
-        
-            waveNumber index = spawnpoint index 
-
-            might look into having the spawn locations linked in with the wave class.
-         
-        what ive got now works but should be looked into changing eventually.
-         */
-        
-
-        Instantiate(enemyToSpawn, _spawnPoints[waveNumber].spawnLocation.position, transform.rotation);
-    }
+   
 
     //ienum to allow the calling for the coroutine to have the delay
-   IEnumerator SpawnWave(Wave _enemyWave)
+   public void SpawnWave(Wave _enemyWave)
    {
        state = SpawnerState.spawning;
-       for(int i = 0; i < _enemyWave.count; i++)
+       for(int i = 0; i < _enemyWave.subWaves.Length; i++)
        {
-            SpawnEnemy(_enemyWave.enemy);
-            yield return new WaitForSeconds(1f/_enemyWave.rate);
+
+            StartCoroutine(SpawnEnemy(_enemyWave.subWaves[i]));
        }
         state = SpawnerState.waiting; 
-       yield break;
+       
    }
+    IEnumerator SpawnEnemy(Subwave enemyToSpawn)
+    {
+        Debug.Log("Spawning Enemy: ");
 
+            for (int i = 0; i < enemyToSpawn.count; i++)
+        {
+            Instantiate(enemyToSpawn.enemy, enemyToSpawn.spawnPoints.position, transform.rotation);
+            yield return new WaitForSeconds(1f / enemyToSpawn.rate);
+        }
+    }
 
 
     public bool EnemyIsAlive()
