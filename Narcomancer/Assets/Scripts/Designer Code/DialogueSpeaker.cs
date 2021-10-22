@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class DialogueSpeaker : MonoBehaviour
 {
-    public GameObject speaker1;
-    public GameObject speaker2;
-    public GameObject speaker3;
+    public GameObject Arrival;
+    public GameObject Wave2;
+    public GameObject Wave3;
+    public GameObject Wave4;
+    public GameObject WaveBark;
+    public GameObject VipRoom1;
+    public GameObject VipHenchman;
+    public GameObject VipRoom2;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +28,23 @@ public class DialogueSpeaker : MonoBehaviour
 
     public void ArrivalAudio()
     {
-        speaker1.GetComponent<IndividualSpeaker>().PlayArrival();
-        speaker2.GetComponent<IndividualSpeaker>().PlayArrival();
-        speaker3.GetComponent<IndividualSpeaker>().PlayArrival();
-        print("parent");
+        Arrival.SetActive(true);
+        print("why wont this turn on");
     }
 
+    public void Wave2Audio()
+    {
+        Wave2.SetActive(true);
+    }
+
+    public void Wave3Audio()
+    {
+        Wave3.SetActive(true);
+    }
+
+    public void Wave4Audio()
+    {
+        Wave4.SetActive(true);
+    }
 
 }

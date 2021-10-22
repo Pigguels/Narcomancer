@@ -19,10 +19,14 @@ public class Rat_AI : MonoBehaviour
     public GameObject m_target;
     public float moveSpeed = 15;
     private bool hasAttacked;
+    Animator anim;
+    LootSpawner lootPickup;
 
     private void Awake()
     {
         m_Health = GetComponent<Health>();
+        anim = GetComponentInChildren<Animator>();
+        lootPickup = GetComponent<LootSpawner>();
     }
 
 
@@ -33,7 +37,7 @@ public class Rat_AI : MonoBehaviour
         m_navAgent.stoppingDistance = m_attackRange;
         m_target = GameObject.FindGameObjectWithTag("Player");
         m_navAgent.updatePosition = true;
-        m_navAgent.stoppingDistance = m_attackRange; 
+        m_navAgent.stoppingDistance = m_attackRange;
         m_navAgent.destination = m_target.transform.position;
 
     }
@@ -41,7 +45,13 @@ public class Rat_AI : MonoBehaviour
     // Update is called once per frame 
     void Update()
     {
-        
+
+        if (m_navAgent.velocity.x > 0)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else
+            anim.SetBool("isWalking", false);
         //m_navAgent.Move(transform.right * Time.deltaTime);
         //m_navAgent.Move(transform.right * Time.deltaTime);
 
@@ -49,30 +59,39 @@ public class Rat_AI : MonoBehaviour
         transform.LookAt(m_target.transform, Vector3.up);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
-       if (m_distance > m_attackRange)
-       {
-           m_navAgent.updatePosition = true;
-           m_navAgent.SetDestination(m_target.transform.position);
+        if (m_distance > m_attackRange)
+        {
+            m_navAgent.updatePosition = true;
+            m_navAgent.SetDestination(m_target.transform.position);
 
-       }
-       if (m_distance <= m_attackRange)
-       {
-           m_navAgent.updatePosition = false;
-           if (!hasAttacked)
-               StartCoroutine(Attack());
+        }
+        if (m_distance <= m_attackRange)
+        {
+            m_navAgent.updatePosition = false;
+            if (!hasAttacked)
+                StartCoroutine(Attack());
 
-       }
+        }
 
         if (m_Health.m_IsDead)
         {
-            Destroy(gameObject, .3f);
+            anim.SetTrigger("Dead");
+            Destroy(gameObject, 2f);
         }
 
+
+
+    }
+    private void OnDestroy()
+    {
+
+
+        lootPickup.SpawnPickup();
     }
     private IEnumerator Attack()
     {
         hasAttacked = true;
-
+        anim.SetTrigger("Attack");
         yield return new WaitForSeconds(m_attackRate);
         Debug.Log("Rat Attack");
         hasAttacked = false;
