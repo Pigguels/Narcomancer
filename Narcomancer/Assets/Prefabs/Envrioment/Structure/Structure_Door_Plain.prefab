@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1103286040657132836
+--- !u!1 &4052869216425189608
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5577888038668353793}
+  - component: {fileID: 6960751653461480461}
   m_Layer: 0
   m_Name: Structure_Door_Plain
   m_TagString: Untagged
@@ -16,27 +16,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5577888038668353793
+--- !u!4 &6960751653461480461
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1103286040657132836}
+  m_GameObject: {fileID: 4052869216425189608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5491318667674078952}
+  - {fileID: 4937926912839920231}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &5458270692620511491
+--- !u!1001 &4831714925528698252
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5577888038668353793}
+    m_TransformParent: {fileID: 6960751653461480461}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 298dddf31d3763f4589abc32d6b087ce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -82,14 +82,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 298dddf31d3763f4589abc32d6b087ce, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0d8ff4da7e3acbd4a950be1f04c1781d, type: 2}
     - target: {fileID: 919132149155446097, guid: 298dddf31d3763f4589abc32d6b087ce, type: 3}
       propertyPath: m_Name
       value: Structure_Door_Plain_fbx_v01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 298dddf31d3763f4589abc32d6b087ce, type: 3}
---- !u!4 &5491318667674078952 stripped
+--- !u!4 &4937926912839920231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 298dddf31d3763f4589abc32d6b087ce, type: 3}
-  m_PrefabInstance: {fileID: 5458270692620511491}
+  m_PrefabInstance: {fileID: 4831714925528698252}
   m_PrefabAsset: {fileID: 0}
