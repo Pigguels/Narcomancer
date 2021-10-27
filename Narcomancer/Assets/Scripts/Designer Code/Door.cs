@@ -24,6 +24,7 @@ public class Door : MonoBehaviour
     {
         gameObject.SendMessage("OpenDoors");
         playerAnim.SetTrigger("doorkick");
+
         NarrativeController.GetComponent<NarrativeEventManager>().StoryIntroduction();
         
         
