@@ -21,7 +21,8 @@ public class WaveController : MonoBehaviour
 
     void EndOfWave()
     {
-      switch (waveno)
+        NarrativeController.GetComponent<NarrativeEventManager>().combat = 0;
+        switch (waveno)
         {
             case WaveControllerNumber.Wave1:
                 NarrativeController.GetComponent<NarrativeEventManager>().StoryWave2();

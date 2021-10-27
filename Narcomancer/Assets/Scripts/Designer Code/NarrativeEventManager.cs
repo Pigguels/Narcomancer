@@ -27,11 +27,18 @@ public class NarrativeEventManager : MonoBehaviour
     public bool wave3;
     public bool wave4;
 
+    private FMOD.Studio.EventInstance music;
+    [FMODUnity.EventRef]
+    public string fmodEvent;
+
+    private float boss;
+    public float combat;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        music = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+        music.start();
     }
 
     // Update is called once per frame
@@ -49,18 +56,23 @@ public class NarrativeEventManager : MonoBehaviour
         if (!timerenabled && wave2 == true)
         {
             WaveMaster.GetComponent<WaveManager>().Wave2();
+            combat = 1;
             wave2 = false;
         }
         if (!timerenabled && wave3 == true)
         {
             WaveMaster.GetComponent<WaveManager>().Wave3();
+            combat = 1;
             wave3 = false;
         }
         if (!timerenabled && wave4 == true)
         {
             WaveMaster.GetComponent<WaveManager>().Wave4();
+            combat = 1;
             wave4 = false;
         }
+
+        music.setParameterByName("combat", combat);
 
     }
 
@@ -69,8 +81,7 @@ public class NarrativeEventManager : MonoBehaviour
         
         //Wavecontroller.wave1
         speakerParent.GetComponent<DialogueSpeaker>().ArrivalAudio();
-     
-        
+        combat = 1;   
     }
     public void StoryWave2()
     {
