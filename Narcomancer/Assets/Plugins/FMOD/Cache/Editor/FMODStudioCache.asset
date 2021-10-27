@@ -670,9 +670,29 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 637699101416516097
+  lastModified: 637709422289324372
   LoadResult: 0
   FileSizes: []
+  Exists: 1
+--- !u!114 &-5375511382879477270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Boss
+  m_EditorClassIdentifier: 
+  Name: Boss
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
   Exists: 1
 --- !u!114 &-5188006423035771918
 MonoBehaviour:
@@ -899,6 +919,26 @@ MonoBehaviour:
   lastModified: 637699101416516097
   LoadResult: 0
   FileSizes: []
+  Exists: 1
+--- !u!114 &-3334062283913264351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Combat
+  m_EditorClassIdentifier: 
+  Name: Combat
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
   Exists: 1
 --- !u!114 &-3278315739874984433
 MonoBehaviour:
@@ -1315,13 +1355,11 @@ MonoBehaviour:
   - {fileID: 8725822154463867596}
   - {fileID: 3879248658770794685}
   - {fileID: -6279781909578802938}
-  - {fileID: 8025139701700609558}
   - {fileID: -7392957119282964630}
   - {fileID: -3870674202852694688}
   - {fileID: 2304225896367078869}
   - {fileID: 601970326513421798}
   - {fileID: 3811040765311525681}
-  - {fileID: -5920514805138325002}
   - {fileID: 3865555922191164610}
   - {fileID: 2663896658491667849}
   - {fileID: 8038918371957064642}
@@ -1343,12 +1381,16 @@ MonoBehaviour:
   - {fileID: -2077241759440243831}
   - {fileID: -4599670477936492315}
   - {fileID: 2396939187065792425}
+  - {fileID: 4882142672203214403}
+  - {fileID: 8961000179011521820}
+  - {fileID: 6294439588799539496}
+  - {fileID: 2102598368839811729}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5764818220442204767}
   StringsBanks:
   - {fileID: 4907832216186540248}
-  stringsBankWriteTime: 637699101416496130
+  stringsBankWriteTime: 637709422289793131
   cacheVersion: 6
 --- !u!114 &89371266579425768
 MonoBehaviour:
@@ -1762,6 +1804,31 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &2102598368839811729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/MusicMixLoop
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MusicMixLoop
+  guid: a4f0d3c68e93d24192b731ecf03bb3f4
+  Banks:
+  - {fileID: 2441645635112233842}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -3334062283913264351}
+  - {fileID: -5375511382879477270}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 424000
 --- !u!114 &2245851958389703260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1869,7 +1936,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637699101416950144
+  lastModified: 637709422290221959
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -2122,6 +2189,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4882142672203214403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Destroy the drugs
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Destroy the drugs
+  guid: 26d6a324d5ae514790fff741615372c8
+  Banks:
+  - {fileID: -5395396280273084631}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4887458733580041492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2160,11 +2250,11 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637699101416496130
+  lastModified: 637709422289793131
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 2558
+    Value: 2730
   Exists: 1
 --- !u!114 &5071014936592859838
 MonoBehaviour:
@@ -2227,7 +2317,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637699101416496130
+  lastModified: 637709422289763187
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -2316,6 +2406,29 @@ MonoBehaviour:
   guid: d7e2917b8f25db469c2481cf3267f5fa
   Banks:
   - {fileID: -3425928285582789688}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6294439588799539496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Phone Call 2
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Phone Call 2
+  guid: bf655af0bd99314c8d694bb2e652e16f
+  Banks:
+  - {fileID: -5395396280273084631}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2615,6 +2728,29 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 900
+  Length: 0
+--- !u!114 &8961000179011521820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Phone Call
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Phone Call
+  guid: 474703a05d361e47b1c8641ab622d287
+  Banks:
+  - {fileID: -5395396280273084631}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
   Length: 0
 --- !u!114 &9086790516633312703
 MonoBehaviour:
