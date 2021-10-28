@@ -99,7 +99,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4528952656302938304
 Transform:
   m_ObjectHideFlags: 0
@@ -1152,20 +1152,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaveMaster: {fileID: 4528952657500581179}
+  doorController: {fileID: 0}
   narcomancer: {fileID: 0}
-  speakerParent: {fileID: 4528952656773805763}
-  phone: {fileID: 0}
   henchman: {fileID: 0}
   officeWindow: {fileID: 0}
+  glassCage: {fileID: 0}
+  speakerParent: {fileID: 4528952656773805763}
+  phonering: {fileID: 0}
+  phonedialogue1: {fileID: 0}
+  phonedialogue2: {fileID: 0}
   officeArrivalTrigger: {fileID: 2767669244315468566}
   officeEscapeTrigger: {fileID: 0}
   monologueTrigger: {fileID: 0}
+  officeGas: {fileID: 0}
   timer: 0
   wave2: 0
   wave3: 0
   wave4: 0
   fmodEvent: event:/Music/MusicMixLoop
-  combat: 0
+  combat: 1
 --- !u!1 &4528952657675982109
 GameObject:
   m_ObjectHideFlags: 0
