@@ -13,7 +13,7 @@ public class LootSpawner : MonoBehaviour
         for (int i = 0; i < pickUpPrefabs.Length; i++)
         {
 
-        GameObject tempSpawn = Instantiate(pickUpPrefabs[i], new Vector3 (transform.position.x + Random.Range(-1,1), 1.5f, transform.position.z + Random.Range(-1, 1)) , pickUpPrefabs[i].transform.rotation) as GameObject;
+        GameObject tempSpawn = Instantiate(pickUpPrefabs[i], new Vector3 (transform.position.x + Random.Range(-1,1), transform.position.y +1f, transform.position.z + Random.Range(-1, 1)) , pickUpPrefabs[i].transform.rotation);
         }
 
        

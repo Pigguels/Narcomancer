@@ -5,13 +5,13 @@
 			<value>Magenta</value>
 		</property>
 		<property name="name">
-			<value>Wave 4 Starts</value>
+			<value>Wave Starts 4</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{a480b397-afce-46fa-9858-2180d3302fb8}</destination>
+			<destination>{2de82afe-8e63-4362-a508-5d2977b15ca2}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{0771f13c-4586-4ca2-a12b-1d82f6bf37a3}</destination>
@@ -83,6 +83,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{3b1ba0e1-6b2d-4e57-b004-77e0f2382eff}">
+		<property name="volume">
+			<value>-3.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{814d97fc-f917-45ed-877d-ad1a9aa20c47}</destination>
 		</relationship>
@@ -95,7 +98,7 @@
 	</object>
 	<object class="MultiSound" id="{f6f15fd1-17b2-46a4-9542-eba1f9edea80}">
 		<relationship name="sounds">
-			<destination>{ccc09724-a543-4b50-9f51-bf9cedda68db}</destination>
+			<destination>{70c364dd-0c6a-435b-b46e-72040817132b}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{148fb6b4-f054-4f89-a2e5-c4de6edc5f20}">
@@ -125,12 +128,12 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{ecc09902-772c-4908-ad68-6beac8208a05}" />
-	<object class="SingleSound" id="{ccc09724-a543-4b50-9f51-bf9cedda68db}">
+	<object class="SingleSound" id="{70c364dd-0c6a-435b-b46e-72040817132b}">
 		<property name="color">
 			<value>Magenta</value>
 		</property>
 		<relationship name="audioFile">
-			<destination>{f8d7cdc4-802e-43a3-82bd-5bc806a9dc89}</destination>
+			<destination>{15d3b296-5335-4e1b-b862-bca25ba79577}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{511a5e91-3a78-4d32-b2a7-64f650405e5f}" />
