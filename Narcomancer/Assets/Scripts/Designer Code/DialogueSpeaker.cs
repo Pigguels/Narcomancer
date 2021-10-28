@@ -12,7 +12,7 @@ public class DialogueSpeaker : MonoBehaviour
     public GameObject VipRoom1;
     public GameObject VipHenchman;
     public GameObject VipRoom2;
-    public GameObject 
+   // public GameObject ;
     
 
     // Start is called before the first frame update
