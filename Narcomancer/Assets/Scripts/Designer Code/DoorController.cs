@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject StairwayDoorTR1;
-    private GameObject StairwayDoorTR2;
-    private GameObject StairwayDoorBR1;
-    private GameObject StairwayDoorBR2;
-    private GameObject StairwayDoorTL1;
-    private GameObject StairwayDoorTL2;
-    private GameObject StairwayDoorBL1;
-    private GameObject StairwayDoorBL2;
 
-    private GameObject NarcomancerDoor1;
-    private GameObject NarcomancerDoor2;
-    
+    public GameObject StairwayDoorTR1;
+    public GameObject StairwayDoorTR2;
+    public GameObject StairwayDoorBR1;
+    public GameObject StairwayDoorBR2;
+    public GameObject StairwayDoorTL1;
+    public GameObject StairwayDoorTL2;
+    public GameObject StairwayDoorBL1;
+    public GameObject StairwayDoorBL2;
+    [Header("Office Doors")]
+    public GameObject NarcomancerDoor1;
+    public GameObject NarcomancerDoor2;
+    [Header("Front Doors")]
+    public GameObject frontdoor1;
+    public GameObject frontdoor2;
+
+    public GameObject narrativecontroller;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,21 +35,30 @@ public class DoorController : MonoBehaviour
 
     public void OpenStairs()
     {
-        StairwayDoorBL1.SendMessage("OpenDoor");
-        StairwayDoorBL2.SendMessage("OpenDoor");
-        StairwayDoorTL1.SendMessage("OpenDoor");
-        StairwayDoorTL2.SendMessage("OpenDoor");
-        StairwayDoorBR1.SendMessage("OpenDoor");
-        StairwayDoorBR2.SendMessage("OpenDoor");
-        StairwayDoorTR1.SendMessage("OpenDoor");
-        StairwayDoorTR2.SendMessage("OpenDoor");
+        StairwayDoorBL1.SendMessage("OpenDoors");
+        StairwayDoorBL2.SendMessage("OpenDoors");
+        StairwayDoorTL1.SendMessage("OpenDoors");
+        StairwayDoorTL2.SendMessage("OpenDoors");
+        StairwayDoorBR1.SendMessage("OpenDoors");
+        StairwayDoorBR2.SendMessage("OpenDoors");
+        StairwayDoorTR1.SendMessage("OpenDoors");
+        StairwayDoorTR2.SendMessage("OpenDoors");
     }
 
     public void OpenOffice()
     {
-        NarcomancerDoor1.SendMessage("OpenDoor");
-        NarcomancerDoor2.SendMessage("OpenDoor");
+        NarcomancerDoor1.SendMessage("OpenDoors");
+        NarcomancerDoor2.SendMessage("OpenDoors");
         print("the office door opens");
     }
+
+    public void OpenFront()
+    {
+        frontdoor1.SendMessage("OpenDoors");
+        frontdoor2.SendMessage("OpenDoors");
+        narrativecontroller.GetComponent<NarrativeEventManager>().StoryIntroduction();
+    }
+
+
 
 }
