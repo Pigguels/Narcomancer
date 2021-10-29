@@ -5,13 +5,13 @@
 			<value>Magenta</value>
 		</property>
 		<property name="name">
-			<value>Wave 2 Start</value>
+			<value>Wave Starts 2</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{a480b397-afce-46fa-9858-2180d3302fb8}</destination>
+			<destination>{2de82afe-8e63-4362-a508-5d2977b15ca2}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{04a0b4a9-6250-4dfb-8eac-07c591ccafc2}</destination>
@@ -95,7 +95,7 @@
 	</object>
 	<object class="MultiSound" id="{cb3161d1-1c26-44ad-9965-4e98ee072474}">
 		<relationship name="sounds">
-			<destination>{67773315-d975-4d6d-a1d0-3c696b34001d}</destination>
+			<destination>{d15218af-b95c-4ee5-9000-deab8eaa595b}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{0f707a0a-6879-4e5c-ae72-68ecf2bbc0e4}">
@@ -125,12 +125,9 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{27fb1ba5-22ab-4015-8460-b6c57cfd9740}" />
-	<object class="SingleSound" id="{67773315-d975-4d6d-a1d0-3c696b34001d}">
-		<property name="color">
-			<value>Magenta</value>
-		</property>
+	<object class="SingleSound" id="{d15218af-b95c-4ee5-9000-deab8eaa595b}">
 		<relationship name="audioFile">
-			<destination>{91fac528-bd86-4758-afaf-891b7ad4c2be}</destination>
+			<destination>{75f6b1c7-7477-4ab8-91d1-c677d7e3a177}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{50835708-6ce9-4f0c-9802-71b465a7fa61}" />
@@ -142,11 +139,11 @@
 	<object class="MixerBusPanner" id="{0687d530-f6f1-42b5-8158-2b4db1130c2b}" />
 	<object class="MixerBusFader" id="{a039851e-79bd-40de-addc-a72631c707d4}" />
 	<object class="SpatialiserEffect" id="{757334f3-370f-46cd-bee0-460818cc997a}">
-		<property name="extentMode">
-			<value>1</value>
+		<property name="maximumDistance">
+			<value>100</value>
 		</property>
 		<property name="soundSize">
-			<value>100</value>
+			<value>9000</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{a6037767-5cdb-488b-b3da-da62adfbcdbc}" />

@@ -49,8 +49,8 @@ public class NarrativeTriggerBox : MonoBehaviour
         istriggered = true;
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        gameObject.SetActive(false);
-    }
+ //   private void OnTriggerExit(Collider other)
+   // {
+     //  if (other.tag == "Player" && istriggered){ gameObject.SetActive(false); }
+    //}
 }
