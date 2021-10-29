@@ -20,6 +20,7 @@ public class NarrativeEventManager : MonoBehaviour
     public GameObject phonedialogue1;
     public GameObject phonedialogue2;
 
+
     [Header("Trigger Objects")]
     public GameObject officeArrivalTrigger;
     public GameObject officeEscapeTrigger;
@@ -75,6 +76,7 @@ public class NarrativeEventManager : MonoBehaviour
         if (!timerenabled && wave2 == true)
         {
             WaveMaster.GetComponent<WaveManager>().Wave2();
+            doorController.GetComponent<DoorController>().OpenStairs();
             combat = 1;
             wave2 = false;
         }
@@ -110,8 +112,8 @@ public class NarrativeEventManager : MonoBehaviour
 
     public void StoryIntroduction()
     {
-        
-        //Wavecontroller.wave1
+        print("wave 1 dialogue");
+        WaveMaster.GetComponent<WaveManager>().Wave1();
         speakerParent.GetComponent<DialogueSpeaker>().ArrivalAudio();
         combat = 1;   
     }
@@ -153,7 +155,8 @@ public class NarrativeEventManager : MonoBehaviour
     public void StoryOnThePhone()
     {
         phonering.SetActive(false);
-        phonedialogue1.SetActive(true);
+        speakerParent.GetComponent<DialogueSpeaker>().PhoneDialogue();
+       // phonedialogue1.SetActive(true);
     }
     public void StoryDestroyTheDrugs()
     {

@@ -12,8 +12,12 @@ public class DialogueSpeaker : MonoBehaviour
     public GameObject VipRoom1;
     public GameObject VipHenchman;
     public GameObject VipRoom2;
-   // public GameObject ;
-    
+    public GameObject phonedialogue1;
+    public GameObject phonedialogue2;
+    public GameObject drugsdestroyed;
+
+    // public GameObject ;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,4 +52,13 @@ public class DialogueSpeaker : MonoBehaviour
         Wave4.SetActive(true);
     }
 
+    public void PhoneDialogue()
+    {
+        phonedialogue1.SetActive(true);
+    }
+
+    public void DestroyedDrugs()
+    {
+        drugsdestroyed.SetActive(true);
+    }
 }
