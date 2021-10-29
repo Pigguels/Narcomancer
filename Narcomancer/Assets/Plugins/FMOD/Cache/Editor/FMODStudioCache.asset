@@ -690,7 +690,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 637709474680839822
+  lastModified: 637710254308993097
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1430,7 +1430,7 @@ MonoBehaviour:
   - {fileID: 5764818220442204767}
   StringsBanks:
   - {fileID: 4907832216186540248}
-  stringsBankWriteTime: 637709474680820161
+  stringsBankWriteTime: 637710254308963026
   cacheVersion: 6
 --- !u!114 &89371266579425768
 MonoBehaviour:
@@ -1864,8 +1864,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -1106566310373226798}
-  - {fileID: -8074935732297432472}
+  - {fileID: 2971601110341604427}
+  - {fileID: 4182454069649128602}
   MinDistance: 0
   MaxDistance: 0
   Length: 424000
@@ -1976,7 +1976,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637709474681158989
+  lastModified: 637710254309323360
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -2003,6 +2003,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &2971601110341604427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Combat
+  m_EditorClassIdentifier: 
+  Name: Combat
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &3099791917828215761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2160,6 +2180,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4182454069649128602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Boss
+  m_EditorClassIdentifier: 
+  Name: Boss
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &4741741678558883869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2290,7 +2330,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637709474680820161
+  lastModified: 637710254308963026
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -2357,7 +2397,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637709474680829846
+  lastModified: 637710254308963026
   LoadResult: 0
   FileSizes: []
   Exists: 1
