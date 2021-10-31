@@ -8,6 +8,9 @@ public class WaveManager : MonoBehaviour
     public GameObject Wave2Controller;
     public GameObject Wave3Controller;
     public GameObject Wave4Controller;
+    public GameObject PostEnforcerController;
+    public GameObject AlarmRatsController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,4 +39,15 @@ public class WaveManager : MonoBehaviour
     {
         Wave4Controller.SetActive(true);
     }
+
+    public void PostEnforcer()
+    {
+        PostEnforcerController.SetActive(true);
+    }
+
+    public void AlarmRats()
+    {
+        AlarmRatsController.SetActive(true);
+    }
+
 }

@@ -17,8 +17,8 @@ public class NarrativeEventManager : MonoBehaviour
     [Header("Audio Objects")]
     public GameObject speakerParent;
     public GameObject phonering;
-    public GameObject phonedialogue1;
-    public GameObject phonedialogue2;
+    //public GameObject Phonedialogue;
+    //public GameObject PhoneScreaming;
 
 
     [Header("Trigger Objects")]
@@ -93,18 +93,6 @@ public class NarrativeEventManager : MonoBehaviour
             wave4 = false;
         }
 
-        if (!timerenabled && bluster == true)
-        {
-            NarcoArrival();
-            bluster = false;
-        }
-
-        if (!timerenabled && bossarrival == true)
-        {
-            OfficeEscape();
-            bossarrival = false;
-        }
-
         music.setParameterByName("combat", combat);
         music.setParameterByName("boss", boss);
 
@@ -141,13 +129,16 @@ public class NarrativeEventManager : MonoBehaviour
     }
 
     public void StoryVipRoom()
+    { 
+        VIP();
+    }
+
+    public void ShootTheMessenger()
     {
-        //fmod play VIPROOM
         //anim narco shoot henchman
         //anim henchman dies
-        //wavecontroller.postenforcer 
-        //officeArrivalTrigger.SetActive
     }
+
     public void StoryPhoneCall()
     {
         phonering.SetActive(true);
@@ -156,57 +147,68 @@ public class NarrativeEventManager : MonoBehaviour
     {
         phonering.SetActive(false);
         speakerParent.GetComponent<DialogueSpeaker>().PhoneDialogue();
-       // phonedialogue1.SetActive(true);
     }
     public void StoryDestroyTheDrugs()
     {
-        phonedialogue2.SetActive(true);
-        timer = 6.4f;
-        bluster = true;
-        print("destroyed");
+        BossStart();
+        print("destroyeddrugs");
     }
 
-    public void NarcoArrival()
-    {
-        print("lowercage");
-        cageAnim.SetTrigger("LowerCage");
-        boss = 1;
-        timer = 20f;
-        timerenabled = (true);
-        bossarrival = true;
-        //narcodialogue arrival
-     
-    }
-    public void OfficeEscape()
-    {
-        officeEscapeTrigger.SetActive(true);
-        //narcomanceranim.setrigger.shoot
-        //Officeglass.shootingouttheglass
-        officeGas.SetActive(true);
-    }
     public void StoryBossFight()
     {
-       // speakerParent.GetComponent<DialogueSpeaker>().BossFightstart();
+        speakerParent.GetComponent<DialogueSpeaker>().BossFightStart();
         //wavcontroller.bossWave1
         boss = 2;
     }
 
-    public void NarcomancerDeated()
+    public void NarcomancerDefeated()
     {
 
         //narcomanceranim.settrigger dying
         //cageani.whatever
-        monologueTrigger.SetActive(true);
-        boss = 2;
+        triggerDelay();
+        boss = 0;
 
 
     }
     public void StoryMonologue()
     {
-        //fmod monologue
+        speakerParent.GetComponent<DialogueSpeaker>().Monologue();
         //narcomanim.settrigger monolgoue
     }
     
+    IEnumerator VIP()
+    {
+        speakerParent.GetComponent<DialogueSpeaker>().VipAudio();
+        yield return new WaitForSeconds(37f);
+        speakerParent.GetComponent<DialogueSpeaker>().HenchAudio();
+        yield return new WaitForSeconds(10f);
+        ShootTheMessenger();
+        yield return new WaitForSeconds(10f);
+        speakerParent.GetComponent<DialogueSpeaker>().VipAudio2();
+        WaveMaster.GetComponent<WaveManager>().PostEnforcer();
+        officeArrivalTrigger.SetActive(true);
+        combat = 1;
+    }
 
-   
+    IEnumerator BossStart()
+    {
+        speakerParent.GetComponent<DialogueSpeaker>().DestroyedDrugs();
+        yield return new WaitForSeconds(6.4f);
+        cageAnim.SetTrigger("LowerCage");
+        speakerParent.GetComponent<DialogueSpeaker>().Descent();
+        boss = 1;
+        yield return new WaitForSeconds(20f);
+        officeEscapeTrigger.SetActive(true);
+        //narcomanceranim.setrigger.shoot
+        //Officeglass.shootingouttheglass
+        officeGas.SetActive(true);
+    }
+
+    IEnumerator triggerDelay()
+    {
+        yield return new WaitForSeconds(3f);
+        monologueTrigger.SetActive(true);
+    }
+
 }
