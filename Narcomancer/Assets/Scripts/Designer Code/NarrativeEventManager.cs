@@ -29,7 +29,7 @@ public class NarrativeEventManager : MonoBehaviour
     public GameObject officeGas;
 
     public float timer;
-    private bool bluster;
+    public bool bluster;
     private bool timerenabled;
 
     public bool wave2;

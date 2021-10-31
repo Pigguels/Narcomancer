@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.1798097, g: 0.1798097, b: 0.1798097, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12614,7 +12614,7 @@ GameObject:
   - component: {fileID: 355675019}
   - component: {fileID: 355675020}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Front_Door
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50985,6 +50985,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4453483407249763997, guid: fc91a6bbefcd63744a63dd6e0b8cdcde, type: 3}
   m_PrefabInstance: {fileID: 1469234382}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1472939891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1472939892}
+  m_Layer: 0
+  m_Name: Office_Narco
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1472939892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472939891}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 27.614079, y: 29.505888, z: -214.48051}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1475203939 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3745354214342269179, guid: 77951a8d8819e584bb73c088c39d634e, type: 3}
@@ -68486,6 +68516,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 641176071, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: m_Name
+      value: PhoneScreaming
+      objectReference: {fileID: 0}
+    - target: {fileID: 641176072, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 641176072, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 641176072, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 641176072, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: Event
+      value: event:/3D Dialogue/Destroy the Drugs/Destroy the drugs
+      objectReference: {fileID: 0}
+    - target: {fileID: 641176072, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: PlayEvent
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4051455440952143296, guid: e724175dc035a7641b379781371118c9, type: 3}
       propertyPath: glassCage
       value: 
@@ -68494,6 +68548,66 @@ PrefabInstance:
       propertyPath: cageAnim
       value: 
       objectReference: {fileID: 1285583026}
+    - target: {fileID: 4051455441010880603, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051455441010880603, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051455441010880603, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051455441150251982, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051455441150251982, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051455441150251982, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051455441150251982, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: Event
+      value: event:/3D Dialogue/One Shots/VIP (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051455441424447853, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051455441424447853, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051455441424447853, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051455441429036467, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051455441429036467, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051455441429036467, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051455442864580192, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: m_Name
+      value: VIP 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4051455442864580220, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: Event
+      value: event:/3D Dialogue/One Shots/VIP (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 5520257743585604128, guid: e724175dc035a7641b379781371118c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
