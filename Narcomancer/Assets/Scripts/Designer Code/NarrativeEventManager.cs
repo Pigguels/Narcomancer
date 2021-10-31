@@ -29,7 +29,7 @@ public class NarrativeEventManager : MonoBehaviour
     public GameObject officeGas;
 
     public float timer;
-    private bool bluster;
+    public bool bluster;
     private bool timerenabled;
 
     public bool wave2;
@@ -46,7 +46,7 @@ public class NarrativeEventManager : MonoBehaviour
     private Animator narcomancerAnim;
     private Animator windowAnim;
     private Animator henchmanAnim;
-    private Animator cageAnim;
+    public Animator cageAnim;
 
 
     // Start is called before the first frame update
@@ -163,13 +163,15 @@ public class NarrativeEventManager : MonoBehaviour
         phonedialogue2.SetActive(true);
         timer = 6.4f;
         bluster = true;
+        print("destroyed");
     }
 
     public void NarcoArrival()
     {
-        // cageanim.animationsettrigger
+        print("lowercage");
+        cageAnim.SetTrigger("LowerCage");
         boss = 1;
-        //timer = animation time
+        timer = 20f;
         timerenabled = (true);
         bossarrival = true;
         //narcodialogue arrival
