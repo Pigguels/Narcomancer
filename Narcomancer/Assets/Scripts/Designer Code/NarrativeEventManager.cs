@@ -9,7 +9,8 @@ public class NarrativeEventManager : MonoBehaviour
     public GameObject doorController;
         
     [Header("Animation Objects")]
-    public GameObject narcomancer;
+    public GameObject OfficeNarcomancer;
+    public GameObject CageNarcomancer;
     public GameObject henchman;
     public GameObject officeWindow;
     public GameObject glassCage;
@@ -44,6 +45,7 @@ public class NarrativeEventManager : MonoBehaviour
     public float combat;
     
     private Animator narcomancerAnim;
+    private Animator NarcoCageAnim;
     private Animator windowAnim;
     private Animator henchmanAnim;
     public Animator cageAnim;
@@ -55,9 +57,10 @@ public class NarrativeEventManager : MonoBehaviour
         music = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
         music.start();
 
-        narcomancerAnim = narcomancer.GetComponent<Animator>();
+        narcomancerAnim = OfficeNarcomancer.GetComponent<Animator>();
         windowAnim = officeWindow.GetComponent<Animator>();
         henchmanAnim = henchman.GetComponent<Animator>();
+        NarcoCageAnim = CageNarcomancer.GetComponent<Animator>();
         cageAnim = glassCage.GetComponent <Animator>();
     }
 
@@ -148,6 +151,7 @@ public class NarrativeEventManager : MonoBehaviour
     public void OfficeDoors()
     {
         WaveMaster.GetComponent<WaveManager>().AlarmRatsStart();
+        OfficeNarcomancer.SetActive(false);
     }
 
     public void StoryPhoneCall()
@@ -175,7 +179,7 @@ public class NarrativeEventManager : MonoBehaviour
 
     public void NarcomancerDefeated()
     {
-        narcomancerAnim.SetBool("GlassBroken", true);
+        NarcoCageAnim.SetBool("GlassBroken", true);
         StartCoroutine(triggerDelay());
         boss = 0;
 
@@ -210,7 +214,7 @@ public class NarrativeEventManager : MonoBehaviour
         boss = 1;
         yield return new WaitForSeconds(20f);
         officeEscapeTrigger.SetActive(true);
-        narcomancerAnim.SetTrigger("Shoot");
+        NarcoCageAnim.SetTrigger("Shoot");
         //Officeglass.shootingouttheglass
         officeGas.SetActive(true);
     }

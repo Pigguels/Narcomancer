@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.1798097, g: 0.1798097, b: 0.1798097, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2669,11 +2669,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ae5d5d033d47cf41bb49eca65244d47, type: 3}
---- !u!4 &81218895 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2266633507983609339, guid: c67fa9019456d8e4c8d518880b9142b9, type: 3}
-  m_PrefabInstance: {fileID: 1874752630}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &82219277
 GameObject:
   m_ObjectHideFlags: 0
@@ -29741,8 +29736,8 @@ Transform:
   m_LocalPosition: {x: -2.7430198, y: -14.084001, z: -14.707996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 81218895}
-  m_RootOrder: 4
+  m_Father: {fileID: 1874752631}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &839985637
 MonoBehaviour:
@@ -46140,8 +46135,8 @@ Transform:
   m_LocalPosition: {x: -2.7430198, y: -14.084001, z: -14.707996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 81218895}
-  m_RootOrder: 5
+  m_Father: {fileID: 1874752631}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1325763756
 PrefabInstance:
@@ -61367,8 +61362,8 @@ Transform:
   m_LocalPosition: {x: -2.7430198, y: -14.084001, z: -14.707996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 81218895}
-  m_RootOrder: 3
+  m_Father: {fileID: 1874752631}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1815656473
 MonoBehaviour:
@@ -63594,6 +63589,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 770352554}
     m_Modifications:
+    - target: {fileID: 97260859860376777, guid: c67fa9019456d8e4c8d518880b9142b9, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 366675747571003377, guid: c67fa9019456d8e4c8d518880b9142b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.89
@@ -63642,6 +63641,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -7.93
       objectReference: {fileID: 0}
+    - target: {fileID: 2266633507983609339, guid: c67fa9019456d8e4c8d518880b9142b9, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3696866500195294690, guid: c67fa9019456d8e4c8d518880b9142b9, type: 3}
       propertyPath: m_Name
       value: Structure_NarcoGlassCage
@@ -63655,6 +63658,11 @@ PrefabInstance:
 --- !u!4 &1874752631 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 366675747571003377, guid: c67fa9019456d8e4c8d518880b9142b9, type: 3}
+  m_PrefabInstance: {fileID: 1874752630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1874752632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 725742064485434995, guid: c67fa9019456d8e4c8d518880b9142b9, type: 3}
   m_PrefabInstance: {fileID: 1874752630}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1876351618
@@ -68802,6 +68810,14 @@ PrefabInstance:
       propertyPath: narcomancer
       value: 
       objectReference: {fileID: 832454400}
+    - target: {fileID: 4051455440952143296, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OfficeNarcomancer
+      value: 
+      objectReference: {fileID: 832454400}
+    - target: {fileID: 4051455440952143296, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: CageNarcomancer
+      value: 
+      objectReference: {fileID: 1874752632}
     - target: {fileID: 4051455441010880603, guid: e724175dc035a7641b379781371118c9, type: 3}
       propertyPath: OverrideMinDistance
       value: 25
