@@ -20,11 +20,13 @@ public class Rat_AI : MonoBehaviour
     public float moveSpeed = 15;
     private bool hasAttacked;
     Animator anim;
+    LootSpawner lootPickup;
 
     private void Awake()
     {
         m_Health = GetComponent<Health>();
         anim = GetComponentInChildren<Animator>();
+        lootPickup = GetComponent<LootSpawner>();
     }
 
 
@@ -35,7 +37,7 @@ public class Rat_AI : MonoBehaviour
         m_navAgent.stoppingDistance = m_attackRange;
         m_target = GameObject.FindGameObjectWithTag("Player");
         m_navAgent.updatePosition = true;
-        m_navAgent.stoppingDistance = m_attackRange; 
+        m_navAgent.stoppingDistance = m_attackRange;
         m_navAgent.destination = m_target.transform.position;
 
     }
@@ -57,19 +59,19 @@ public class Rat_AI : MonoBehaviour
         transform.LookAt(m_target.transform, Vector3.up);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
-       if (m_distance > m_attackRange)
-       {
-           m_navAgent.updatePosition = true;
-           m_navAgent.SetDestination(m_target.transform.position);
+        if (m_distance > m_attackRange)
+        {
+            m_navAgent.updatePosition = true;
+            m_navAgent.SetDestination(m_target.transform.position);
 
-       }
-       if (m_distance <= m_attackRange)
-       {
-           m_navAgent.updatePosition = false;
-           if (!hasAttacked)
-               StartCoroutine(Attack());
+        }
+        if (m_distance <= m_attackRange)
+        {
+            m_navAgent.updatePosition = false;
+            if (!hasAttacked)
+                StartCoroutine(Attack());
 
-       }
+        }
 
         if (m_Health.m_IsDead)
         {
@@ -77,6 +79,14 @@ public class Rat_AI : MonoBehaviour
             Destroy(gameObject, 2f);
         }
 
+
+
+    }
+    private void OnDestroy()
+    {
+
+
+        lootPickup.SpawnPickup();
     }
     private IEnumerator Attack()
     {

@@ -14,6 +14,7 @@ public class Grunt_Pistol : MonoBehaviour
     public Transform spawnpoint;
     public GameObject bulletPrefab;
     Animator anim;
+    LootSpawner lootPickup;
 
     //get the health scripts
     Health m_Health;
@@ -31,6 +32,8 @@ public class Grunt_Pistol : MonoBehaviour
     {
         m_Health = GetComponent<Health>();
         anim = GetComponentInChildren<Animator>();
+        lootPickup = GetComponent<LootSpawner>();
+
     }
 
     void Start()
@@ -80,11 +83,17 @@ public class Grunt_Pistol : MonoBehaviour
         //test against if the character is dead
         if(m_Health.m_IsDead)
         {
+
             //play animation for death
             //destroy after animation
             anim.SetTrigger("Dead");
+            
             Destroy(gameObject, 2f);    
         }
+    }
+    private void OnDestroy()
+    {
+        lootPickup.SpawnPickup();
     }
 
     public void AttackPlayer()
@@ -127,8 +136,5 @@ public class Grunt_Pistol : MonoBehaviour
     }
 
 
-    private void OnDestroy()
-    {
-        //lootPickup.SpawnPickup();
-    }
+    
 }

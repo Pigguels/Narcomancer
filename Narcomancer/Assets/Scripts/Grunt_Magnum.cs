@@ -15,7 +15,7 @@ public class Grunt_Magnum : MonoBehaviour
 
     //get the health scripts
     Health m_Health;
-
+ LootSpawner lootPickup;
     //States
 
     public float m_sightRange, m_attackRange;
@@ -24,11 +24,12 @@ public class Grunt_Magnum : MonoBehaviour
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
-
+    
 
 
     void Start()
     {
+        lootPickup = GetComponent<LootSpawner>();
         m_navAgent = GetComponent<NavMeshAgent>();
         m_navAgent.stoppingDistance = m_attackRange;
         playerTarget = GameObject.FindGameObjectWithTag("Player");
@@ -64,6 +65,12 @@ public class Grunt_Magnum : MonoBehaviour
             Destroy(this, .3f);
         }
 
+    }
+    private void OnDestroy()
+    {
+        
+       
+        lootPickup.SpawnPickup();
     }
 
     public void AttackPlayer()

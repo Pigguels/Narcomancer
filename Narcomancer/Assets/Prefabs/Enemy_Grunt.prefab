@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8992034126034790435}
   m_Layer: 0
   m_Name: Hitbox_Body
-  m_TagString: Enemy
+  m_TagString: EnemyDamagePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +186,6 @@ MonoBehaviour:
     m_Bits: 1024
   spawnpoint: {fileID: 1346708638050013126}
   bulletPrefab: {fileID: 8146587012614722288, guid: 85052d0455c836949b2e8d4849b97c53, type: 3}
-  pickUpPrefab: {fileID: 2231247797329278210, guid: 1d053f8df8c4f6d4489000cc6a3e3ffc, type: 3}
   m_sightRange: 100
   m_attackRange: 10
   playerInSightRange: 0

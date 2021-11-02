@@ -72,7 +72,7 @@ public class PlayerShotgun : MonoBehaviour
     void Shoot()
     {
         fpRig.SetTrigger("ShotgunFire");
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Shotgun Blasts",transform.position);
+//        FMODUnity.RuntimeManager.PlayOneShot("event:/Shotgun Blasts",transform.position);
         ammoImage.SetTrigger("UIAmmoShot");
         hasLoaded = false;
         // a list of hit objects to apply damage to at the end
@@ -124,7 +124,7 @@ public class PlayerShotgun : MonoBehaviour
         // apply the pellets damage to the hit objects
         for (int i = 0; i < hits.Count; i++)
         {
-            if (hits[i].transform.CompareTag("Enemy"))
+            if (hits[i].transform.CompareTag("EnemyDamagePoint"))
             {
                 if (hits[i].transform.GetComponent<EnemyDamagePoint>())
                     hits[i].transform.GetComponent<EnemyDamagePoint>().Damage(pelletDamage);

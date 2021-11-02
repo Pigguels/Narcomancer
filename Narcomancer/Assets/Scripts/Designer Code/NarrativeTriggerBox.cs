@@ -31,6 +31,7 @@ public class NarrativeTriggerBox : MonoBehaviour
                 case TriggerBoxName.Intro:
                     NarrativeEventController.GetComponent<NarrativeEventManager>().StoryIntroduction();
                     gameObject.SetActive(false);
+                    print("entryway trigger");
                     break;
                 case TriggerBoxName.Office:
                     NarrativeEventController.GetComponent<NarrativeEventManager>().StoryPhoneCall();
@@ -43,14 +44,14 @@ public class NarrativeTriggerBox : MonoBehaviour
                     break;
 
             }
-            print("triggered");
+            //print("triggered");
             gameObject.SetActive(false);
         }
         istriggered = true;
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        gameObject.SetActive(false);
-    }
+ //   private void OnTriggerExit(Collider other)
+   // {
+     //  if (other.tag == "Player" && istriggered){ gameObject.SetActive(false); }
+    //}
 }
