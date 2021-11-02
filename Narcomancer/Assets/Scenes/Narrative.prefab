@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 641176073}
   - component: {fileID: 641176072}
   m_Layer: 0
-  m_Name: PhoneConversation 2
+  m_Name: PhoneScreaming
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/3D Dialogue/One Shots/Phone Call 2
-  PlayEvent: 0
+  Event: event:/3D Dialogue/Destroy the Drugs/Destroy the drugs
+  PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -271,6 +271,8 @@ MonoBehaviour:
   Wave2Controller: {fileID: 4051455440853355859}
   Wave3Controller: {fileID: 4051455441468241316}
   Wave4Controller: {fileID: 4051455441905412463}
+  PostEnforcerController: {fileID: 0}
+  AlarmRatsController: {fileID: 0}
 --- !u!1 &4051455440853355859
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,18 +528,18 @@ MonoBehaviour:
   glassCage: {fileID: 0}
   speakerParent: {fileID: 4051455442669419604}
   phonering: {fileID: 7740799775356045723}
-  phonedialogue1: {fileID: 1663601254123478778}
-  phonedialogue2: {fileID: 641176071}
   officeArrivalTrigger: {fileID: 2603470069159438654}
   officeEscapeTrigger: {fileID: 6694872361823937339}
   monologueTrigger: {fileID: 2864021006797305450}
   officeGas: {fileID: 0}
   timer: 0
+  bluster: 0
   wave2: 0
   wave3: 0
   wave4: 0
   fmodEvent: event:/Music/MusicMixLoop
   combat: 0
+  cageAnim: {fileID: 0}
 --- !u!1 &4051455441010880600
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,9 +593,9 @@ MonoBehaviour:
   TriggerOnce: 1
   Preload: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 20
+  OverrideMaxDistance: 100
 --- !u!33 &4051455441010880602
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -689,7 +691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/3D Dialogue/One Shots/Wave Starts 4
+  Event: event:/3D Dialogue/One Shots/VIP (1)
   PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
@@ -893,12 +895,12 @@ MonoBehaviour:
       enemy: {fileID: 6804975145638974064, guid: db5fd8a5510cabc4b9ea2e6cb3bb272b, type: 3}
       spawnPoints: {fileID: 4051455440887013259}
       count: 8
-      rate: 0
+      rate: 1
     - waveName: Grunts
       enemy: {fileID: 6804975145638974064, guid: d99be11680370334196057f88e6595c5, type: 3}
       spawnPoints: {fileID: 774918165}
       count: 7
-      rate: 0
+      rate: 1
   m_timeBetweenWaves: 5
   searchCountdown: 1
 --- !u!1 &4051455441424447826
@@ -954,9 +956,9 @@ MonoBehaviour:
   TriggerOnce: 1
   Preload: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 20
+  OverrideMaxDistance: 100
 --- !u!33 &4051455441424447852
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1059,8 +1061,8 @@ MonoBehaviour:
   TriggerOnce: 1
   Preload: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
+  OverrideAttenuation: 1
+  OverrideMinDistance: 20
   OverrideMaxDistance: 100
 --- !u!33 &4051455441429036466
 MeshFilter:
@@ -1744,7 +1746,7 @@ GameObject:
   - component: {fileID: 4051455442490096393}
   - component: {fileID: 4051455442490096392}
   m_Layer: 0
-  m_Name: Wave4 (3)
+  m_Name: VIP Henchman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1762,7 +1764,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4051455442669419606}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4051455442490096394
 MonoBehaviour:
@@ -1869,8 +1871,8 @@ Transform:
   - {fileID: 4051455441424447854}
   - {fileID: 4051455441010880596}
   - {fileID: 4051455441150251955}
-  - {fileID: 4051455442864580193}
   - {fileID: 4051455442490096399}
+  - {fileID: 4051455442864580193}
   - {fileID: 8892459779473660516}
   - {fileID: 687110243885576709}
   - {fileID: 641176073}
@@ -1894,12 +1896,14 @@ MonoBehaviour:
   Wave3: {fileID: 4051455441424447826}
   Wave4: {fileID: 4051455441010880600}
   WaveBark: {fileID: 0}
-  VipRoom1: {fileID: 0}
-  VipHenchman: {fileID: 0}
-  VipRoom2: {fileID: 0}
-  phonedialogue1: {fileID: 1663601254123478778}
-  phonedialogue2: {fileID: 0}
-  drugsdestroyed: {fileID: 0}
+  VipRoom1: {fileID: 4051455441150251954}
+  VipHenchman: {fileID: 4051455442490096398}
+  VipRoom2: {fileID: 4051455442864580192}
+  Phonedialogue: {fileID: 0}
+  drugsdestroyed: {fileID: 641176071}
+  descentAudio: {fileID: 0}
+  startbossAudio: {fileID: 0}
+  monologueAudio: {fileID: 0}
 --- !u!1 &4051455442749505923
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,7 +2032,7 @@ GameObject:
   - component: {fileID: 4051455442864580195}
   - component: {fileID: 4051455442864580194}
   m_Layer: 0
-  m_Name: Wave4 (2)
+  m_Name: VIP 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2046,7 +2050,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4051455442669419606}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4051455442864580220
 MonoBehaviour:
@@ -2061,7 +2065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/3D Dialogue/One Shots/Wave Starts 4
+  Event: event:/3D Dialogue/One Shots/VIP (2)
   PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
