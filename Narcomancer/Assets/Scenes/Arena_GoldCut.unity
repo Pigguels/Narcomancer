@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1798097, g: 0.1798097, b: 0.1798097, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -29621,6 +29621,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3857341119356199757, guid: cbc7d22aeae5e274382f51ff23606fc5, type: 3}
   m_PrefabInstance: {fileID: 821380895}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &832454400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e7bf119ee2f22b5449f3a792971b07aa, type: 3}
+  m_PrefabInstance: {fileID: 1753892837}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &835892395
 PrefabInstance:
@@ -59742,7 +59747,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e7bf119ee2f22b5449f3a792971b07aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.34
+      value: -4.871
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e7bf119ee2f22b5449f3a792971b07aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -59750,7 +59755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e7bf119ee2f22b5449f3a792971b07aa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.47
+      value: -26.205
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e7bf119ee2f22b5449f3a792971b07aa, type: 3}
       propertyPath: m_LocalRotation.x
@@ -59758,7 +59763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e7bf119ee2f22b5449f3a792971b07aa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000003546476
+      value: -0.23485295
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e7bf119ee2f22b5449f3a792971b07aa, type: 3}
       propertyPath: m_LocalRotation.z
@@ -59766,7 +59771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e7bf119ee2f22b5449f3a792971b07aa, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -1
+      value: -0.972031
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e7bf119ee2f22b5449f3a792971b07aa, type: 3}
       propertyPath: m_RootOrder
@@ -59778,7 +59783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e7bf119ee2f22b5449f3a792971b07aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 27.166
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e7bf119ee2f22b5449f3a792971b07aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -68793,6 +68798,10 @@ PrefabInstance:
       propertyPath: cageAnim
       value: 
       objectReference: {fileID: 1285583026}
+    - target: {fileID: 4051455440952143296, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: narcomancer
+      value: 
+      objectReference: {fileID: 832454400}
     - target: {fileID: 4051455441010880603, guid: e724175dc035a7641b379781371118c9, type: 3}
       propertyPath: OverrideMinDistance
       value: 25

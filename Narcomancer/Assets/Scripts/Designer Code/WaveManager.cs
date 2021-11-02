@@ -45,9 +45,14 @@ public class WaveManager : MonoBehaviour
         PostEnforcerController.SetActive(true);
     }
 
-    public void AlarmRats()
+    public void AlarmRatsStart()
     {
         AlarmRatsController.SetActive(true);
+    }
+
+    public void AlarmRatsStop()
+    {
+        AlarmRatsController.SetActive(false);
     }
 
 }

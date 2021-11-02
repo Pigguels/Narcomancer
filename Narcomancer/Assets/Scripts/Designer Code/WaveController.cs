@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
-    public enum WaveControllerNumber { Wave1, Wave2, Wave3, Wave4,}
+    public enum WaveControllerNumber { Wave1, Wave2, Wave3, Wave4, PostEnforcer,}
     public WaveControllerNumber waveno;
     public GameObject NarrativeController;
     // Start is called before the first frame update
@@ -34,10 +34,9 @@ public class WaveController : MonoBehaviour
                 NarrativeController.GetComponent<NarrativeEventManager>().StoryWave4();
                 break;
             case WaveControllerNumber.Wave4:
-                //NarrativeController.GetComponent<NarrativeEventManager>().StoryVipRoom();
+                NarrativeController.GetComponent<NarrativeEventManager>().StoryVipRoom();
                 break;
-
-
+            
         }
 
     }

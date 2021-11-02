@@ -145,8 +145,14 @@ public class NarrativeEventManager : MonoBehaviour
         henchmanAnim.SetTrigger("Dead");
     }
 
+    public void OfficeDoors()
+    {
+        WaveMaster.GetComponent<WaveManager>().AlarmRatsStart();
+    }
+
     public void StoryPhoneCall()
     {
+        WaveMaster.GetComponent<WaveManager>().AlarmRatsStop();
         phonering.SetActive(true);
     }
     public void StoryOnThePhone()
