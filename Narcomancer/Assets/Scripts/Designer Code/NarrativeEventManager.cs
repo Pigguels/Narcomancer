@@ -77,18 +77,21 @@ public class NarrativeEventManager : MonoBehaviour
         {
             WaveMaster.GetComponent<WaveManager>().Wave2();
             doorController.GetComponent<DoorController>().OpenStairs();
+            narcomancerAnim.SetBool("Talking", false);
             combat = 1;
             wave2 = false;
         }
         if (!timerenabled && wave3 == true)
         {
             WaveMaster.GetComponent<WaveManager>().Wave3();
+            narcomancerAnim.SetBool("Talking", false);
             combat = 1;
             wave3 = false;
         }
         if (!timerenabled && wave4 == true)
         {
             WaveMaster.GetComponent<WaveManager>().Wave4();
+            narcomancerAnim.SetBool("Talking", false);
             combat = 1;
             wave4 = false;
         }
@@ -110,6 +113,7 @@ public class NarrativeEventManager : MonoBehaviour
         speakerParent.GetComponent<DialogueSpeaker>().Wave2Audio();
         timer = 12.7f;
         timerenabled = true;
+        narcomancerAnim.SetBool("Talking",true);
         wave2 = true;       
     }
 
@@ -118,6 +122,7 @@ public class NarrativeEventManager : MonoBehaviour
         speakerParent.GetComponent<DialogueSpeaker>().Wave3Audio();
         timer = 14f;
         timerenabled = true;
+        narcomancerAnim.SetBool("Talking", true);
         wave3 = true;
     }
     public void StoryWave4()
@@ -125,18 +130,19 @@ public class NarrativeEventManager : MonoBehaviour
         speakerParent.GetComponent<DialogueSpeaker>().Wave4Audio();
         timer = 15f;
         timerenabled = true;
+        narcomancerAnim.SetBool("Talking", true);
         wave4 = true;
     }
 
     public void StoryVipRoom()
     { 
-        VIP();
+        StartCoroutine(VIP());
     }
 
     public void ShootTheMessenger()
     {
-        //anim narco shoot henchman
-        //anim henchman dies
+        narcomancerAnim.SetTrigger("Shoot");
+        henchmanAnim.SetTrigger("Dead");
     }
 
     public void StoryPhoneCall()
@@ -150,7 +156,7 @@ public class NarrativeEventManager : MonoBehaviour
     }
     public void StoryDestroyTheDrugs()
     {
-        BossStart();
+        StartCoroutine(BossStart());
         print("destroyeddrugs");
     }
 
@@ -163,10 +169,8 @@ public class NarrativeEventManager : MonoBehaviour
 
     public void NarcomancerDefeated()
     {
-
-        //narcomanceranim.settrigger dying
-        //cageani.whatever
-        triggerDelay();
+        narcomancerAnim.SetBool("GlassBroken", true);
+        StartCoroutine(triggerDelay());
         boss = 0;
 
 
@@ -200,7 +204,7 @@ public class NarrativeEventManager : MonoBehaviour
         boss = 1;
         yield return new WaitForSeconds(20f);
         officeEscapeTrigger.SetActive(true);
-        //narcomanceranim.setrigger.shoot
+        narcomancerAnim.SetTrigger("Shoot");
         //Officeglass.shootingouttheglass
         officeGas.SetActive(true);
     }
