@@ -44996,6 +44996,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6074528026551270979, guid: aeccdd9b30b674441a15a6a85262c6a1, type: 3}
   m_PrefabInstance: {fileID: 1294615463}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1296364817 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4051455442669419606, guid: e724175dc035a7641b379781371118c9, type: 3}
+  m_PrefabInstance: {fileID: 2054154800}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1300097794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66304,6 +66309,111 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8ff6cc82b8f62f48ac2e437944c6c7c, type: 3}
+--- !u!1 &1963112751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1963112755}
+  - component: {fileID: 1963112754}
+  - component: {fileID: 1963112753}
+  - component: {fileID: 1963112752}
+  m_Layer: 0
+  m_Name: Wave Barks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!23 &1963112752
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963112751}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1963112753
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963112751}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1963112754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963112751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/3D Dialogue/Wave Barks Multi/Wave Barks Multi
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 1
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 25
+  OverrideMaxDistance: 100
+--- !u!4 &1963112755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963112751}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.77, y: 3.21, z: -57.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1296364817}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1963494772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68768,15 +68878,43 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 641176072, guid: e724175dc035a7641b379781371118c9, type: 3}
       propertyPath: OverrideAttenuation
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 641176072, guid: e724175dc035a7641b379781371118c9, type: 3}
       propertyPath: OverrideMinDistance
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 641176072, guid: e724175dc035a7641b379781371118c9, type: 3}
       propertyPath: OverrideMaxDistance
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 641176072, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: Event
+      value: event:/3D Dialogue/Destroy the Drugs/Destroy the drugs w hangup
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394917490608301168, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: Event
+      value: event:/3D Dialogue/Destroy the Drugs/PhoneRinging
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394917490608301168, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394917490608301168, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394917490608301168, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394917490608301168, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: PlayEvent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394917490608301168, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: StopEvent
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1663601254123478778, guid: e724175dc035a7641b379781371118c9, type: 3}
       propertyPath: m_IsActive
@@ -68818,6 +68956,10 @@ PrefabInstance:
       propertyPath: CageNarcomancer
       value: 
       objectReference: {fileID: 1874752632}
+    - target: {fileID: 4051455440952143296, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: OfficeBark
+      value: 
+      objectReference: {fileID: 1963112751}
     - target: {fileID: 4051455441010880603, guid: e724175dc035a7641b379781371118c9, type: 3}
       propertyPath: OverrideMinDistance
       value: 25
@@ -68989,6 +69131,10 @@ PrefabInstance:
     - target: {fileID: 9044345109910109681, guid: e724175dc035a7641b379781371118c9, type: 3}
       propertyPath: OverrideMaxDistance
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044345109910109681, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: Event
+      value: event:/3D Dialogue/One Shots/PhoneCallMasterCut
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e724175dc035a7641b379781371118c9, type: 3}

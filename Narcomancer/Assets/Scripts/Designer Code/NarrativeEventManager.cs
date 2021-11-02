@@ -18,6 +18,8 @@ public class NarrativeEventManager : MonoBehaviour
     [Header("Audio Objects")]
     public GameObject speakerParent;
     public GameObject phonering;
+    public GameObject OfficeBark;
+    public GameObject BossBark;
     //public GameObject Phonedialogue;
     //public GameObject PhoneScreaming;
 
@@ -30,6 +32,7 @@ public class NarrativeEventManager : MonoBehaviour
     public GameObject officeGas;
 
     public float timer;
+    public float barktimer;
     public bool bluster;
     private bool timerenabled;
 
@@ -49,6 +52,7 @@ public class NarrativeEventManager : MonoBehaviour
     private Animator windowAnim;
     private Animator henchmanAnim;
     public Animator cageAnim;
+    
 
 
     // Start is called before the first frame update
@@ -67,6 +71,37 @@ public class NarrativeEventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // timer for "Barks"
+        if (combat == 1 || boss == 2)
+        {
+            barktimer -= Time.deltaTime;
+        }
+        //Activate Wave Barls
+        if (barktimer <= 0f && combat == 1)
+        {
+            OfficeBark.SetActive(false);
+            barktimer = 30f;
+            OfficeBark.SetActive(true);
+        }
+        if (combat == 0)
+        {
+            OfficeBark.SetActive(false);
+        }
+        //Stop Bark midway
+
+        //Activate Boss Barks
+        if (barktimer <= 0f && boss == 2)
+        {
+            BossBark.SetActive(false);
+            barktimer = 30f;
+            BossBark.SetActive(true);
+        }
+        if (boss == 0)
+        {
+            BossBark.SetActive(false);
+        }
+        //Stop Bark midway
+
         if (timerenabled)
         {
             timer -= Time.deltaTime;
@@ -150,13 +185,14 @@ public class NarrativeEventManager : MonoBehaviour
 
     public void OfficeDoors()
     {
-        WaveMaster.GetComponent<WaveManager>().AlarmRatsStart();
+       // WaveMaster.GetComponent<WaveManager>().AlarmRatsStart();
         OfficeNarcomancer.SetActive(false);
     }
 
     public void StoryPhoneCall()
     {
-        WaveMaster.GetComponent<WaveManager>().AlarmRatsStop();
+        print("phonerings");
+        //WaveMaster.GetComponent<WaveManager>().AlarmRatsStop();
         phonering.SetActive(true);
     }
     public void StoryOnThePhone()
@@ -173,8 +209,22 @@ public class NarrativeEventManager : MonoBehaviour
     public void StoryBossFight()
     {
         speakerParent.GetComponent<DialogueSpeaker>().BossFightStart();
-        //wavcontroller.bossWave1
+        WaveMaster.GetComponent<WaveManager>().Boss1();
         boss = 2;
+    }
+
+    public void Boss2()
+    {
+        WaveMaster.GetComponent<WaveManager>().Boss2();
+        BossBark.SetActive(false);
+        BossBark.SetActive(true);
+    }
+
+    public void Boss3()
+    {
+        WaveMaster.GetComponent<WaveManager>().Boss3();
+        BossBark.SetActive(false);
+        BossBark.SetActive(true);
     }
 
     public void NarcomancerDefeated()
