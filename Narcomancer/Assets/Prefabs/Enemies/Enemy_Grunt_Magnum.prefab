@@ -1213,7 +1213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3265249075853997319}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4983064948982619357}
@@ -1988,7 +1988,7 @@ GameObject:
   - component: {fileID: 8686461815633733018}
   - component: {fileID: 2333504791370988080}
   m_Layer: 0
-  m_Name: Enemy_Grunt_02
+  m_Name: Enemy_Grunt_Magnum
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2018,11 +2018,11 @@ NavMeshAgent:
   m_GameObject: {fileID: 5014648143254091523}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 16
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 99999
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -2030,7 +2030,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!114 &1143436136306931621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2074,6 +2074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1247bc3f50f7e23438b9a5630484e420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_EnemyType: 1
   m_DistanceToStopFollowing: 6.5
   m_DistanceToFlee: 3
   m_MinDistanceToAttack: 3
@@ -2087,6 +2088,7 @@ MonoBehaviour:
   m_Projectile: {fileID: 5462508110646005215, guid: 7f8a07af573d32148921fe96f5b0b8ee, type: 3}
   m_PlayerPos: {fileID: 0}
   m_Health: {fileID: 1143436136306931621}
+  m_Animator: {fileID: 2838433266944718129}
 --- !u!1 &5056068025964702314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3821,6 +3823,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8630101449006312974}
+  - component: {fileID: 2838433266944718129}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -3845,6 +3848,25 @@ Transform:
   m_Father: {fileID: 7865699258430858586}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2838433266944718129
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975558779104572596}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 459d323df8df3d448bf1a96c51a9acdc, type: 3}
+  m_Controller: {fileID: 9100000, guid: e35cd064a0dd03b4ca2bc2adcbade129, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9082609628812096554
 GameObject:
   m_ObjectHideFlags: 0
