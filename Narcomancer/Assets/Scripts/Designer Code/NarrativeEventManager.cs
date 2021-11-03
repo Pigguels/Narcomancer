@@ -139,12 +139,17 @@ public class NarrativeEventManager : MonoBehaviour
 
     }
 
+    public void DoorKick()
+    {
+        combat = 1;
+        barktimer = 30f;
+    }
     public void StoryIntroduction()
     {
-        print("wave 1 dialogue");
         WaveMaster.GetComponent<WaveManager>().Wave1();
         speakerParent.GetComponent<DialogueSpeaker>().ArrivalAudio();
-        combat = 1;   
+        barktimer = 30f;
+        StartCoroutine(closefrontdoors());
     }
     public void StoryWave2()
     {
@@ -273,6 +278,12 @@ public class NarrativeEventManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         monologueTrigger.SetActive(true);
+    }
+    IEnumerator closefrontdoors()
+    {
+        yield return new WaitForSeconds(10f);
+       // print("frontdoorsclose");
+        doorController.GetComponent<DoorController>().CloseFront();
     }
 
 }

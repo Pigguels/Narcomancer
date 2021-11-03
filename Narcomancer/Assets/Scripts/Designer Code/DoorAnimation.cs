@@ -31,6 +31,8 @@ public class DoorAnimation : MonoBehaviour
 
     public void CloseDoors()
     {
+        print("frontdoorsclose");
+        anim.SetBool("dooropen", false);
         anim.SetTrigger("doorclose");
     }
 }
