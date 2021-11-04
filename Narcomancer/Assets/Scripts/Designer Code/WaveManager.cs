@@ -5,10 +5,12 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     public GameObject Wave1Controller;
+    public GameObject Wave1AI;
     public GameObject Wave2Controller;
     public GameObject Wave3Controller;
     public GameObject Wave4Controller;
-    public GameObject PostEnforcerController;
+    public GameObject Wave4AI;
+    public GameObject PostEnforcerAi;
     public GameObject PostEnforcerSMGs;
     public GameObject AlarmRatsController;
     public GameObject Boss1Controller;
@@ -18,9 +20,9 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         Wave1Controller.SetActive(true);
-        Wave4Controller.SetActive(true);
-        Wave4Controller
-        PostEnforcerController.SetActive(true);
+        //Wave4Controller.SetActive(true);
+        //Wave4Controller
+        //PostEnforcerController.SetActive(true);
         
     }
 
@@ -32,7 +34,9 @@ public class WaveManager : MonoBehaviour
 
     public void Wave1()
     {
-        Wave1Controller.BroadcastMessage("SpawnActive");
+         Wave1AI.BroadcastMessage("SpawnActive");
+        Wave1Controller.SetActive(true);
+       
     }
     public void Wave2()
     {
@@ -44,7 +48,8 @@ public class WaveManager : MonoBehaviour
     }
     public void Wave4()
     {
-        Wave4Controller.BroadcastMessage("SpawnActive");
+        Wave4AI.BroadcastMessage("SpawnActive");
+        Wave4Controller.SetActive(true);
     }
     public void PostEnforcer()
     {
@@ -52,7 +57,7 @@ public class WaveManager : MonoBehaviour
     }
     public void GentlemensClub()
     {
-        PostEnforcerController.BroadcastMessage("SpawnActive");
+        PostEnforcerAi.BroadcastMessage("SpawnActive");
     }
     public void AlarmRatsStart()
     {

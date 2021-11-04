@@ -264,7 +264,7 @@ public class NarrativeEventManager : MonoBehaviour
         speakerParent.GetComponent<DialogueSpeaker>().HenchAudio();
         yield return new WaitForSeconds(10f);
         ShootTheMessenger();
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         speakerParent.GetComponent<DialogueSpeaker>().VipAudio2();
         WaveMaster.GetComponent<WaveManager>().PostEnforcer();
         officeArrivalTrigger.SetActive(true);

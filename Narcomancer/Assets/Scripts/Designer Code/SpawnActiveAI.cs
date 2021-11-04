@@ -8,34 +8,17 @@ public class SpawnActiveAI : MonoBehaviour
     public EnemyPrefabName AiName;
     public enum WhichWaveisThis { wave1, Wave4, postenforcer, }
     public WhichWaveisThis wavename;
-    public GameObject Wave1Controller;
-    public GameObject Wave4Controller;
-    public GameObject Postencontroller;
     public GameObject RatAi;
     public GameObject GruntAi;
     public GameObject SmgAi;
     public GameObject MagnumAi;
     public GameObject EnforcerAi;
+    private GameObject playerposition;
     public Health m_Health;
     // Start is called before the first frame update
     void Start()
     {
-        Wave1Controller = GameObject.Find("Wave1Controller");
-        Wave4Controller = GameObject.Find("Wave4Controller");
-        Postencontroller = GameObject.Find("PostEnforcerController");
-        switch (wavename)
-        {
-            case WhichWaveisThis.wave1:  
-                gameObject.transform.parent = Wave1Controller.transform;
-                break;
-            case WhichWaveisThis.postenforcer:
-                gameObject.transform.parent = Postencontroller.transform;
-                break;
-            case WhichWaveisThis.Wave4:
-                gameObject.transform.parent = Wave4Controller.transform;
-                break;
-        }
-        
+        playerposition = GameObject.Find("Player");       
     }
 
     // Update is called once per frame
@@ -53,22 +36,27 @@ public class SpawnActiveAI : MonoBehaviour
         {
             case EnemyPrefabName.Rat:
                 print("i summon rat");
-                Instantiate(RatAi,transform.position,transform.rotation);
+                RatAi.GetComponent<EnemyAI>().m_PlayerPos = playerposition.transform;
+                Instantiate(RatAi, transform.position, transform.rotation);
                 gameObject.SetActive(false);
                 break;
             case EnemyPrefabName.Grunt:
                 Instantiate(GruntAi, transform.position, transform.rotation);
+                GruntAi.GetComponent<EnemyAI>().m_PlayerPos = playerposition.transform;
                 gameObject.SetActive(false);
                 break;
             case EnemyPrefabName.Smg:
+                GruntAi.GetComponent<EnemyAI>().m_PlayerPos = playerposition.transform;
                 SmgAi.SetActive(true);
                 gameObject.SetActive(false);
                 break;
             case EnemyPrefabName.Magnum:
+                GruntAi.GetComponent<EnemyAI>().m_PlayerPos = playerposition.transform;
                 MagnumAi.SetActive(true);
                 gameObject.SetActive(false);
                 break;
             case EnemyPrefabName.Enforcer:
+                GruntAi.GetComponent<EnemyAI>().m_PlayerPos = playerposition.transform;
                 EnforcerAi.SetActive(true);
                 gameObject.SetActive(false);
                 break;
