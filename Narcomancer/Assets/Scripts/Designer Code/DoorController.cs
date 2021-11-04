@@ -49,6 +49,7 @@ public class DoorController : MonoBehaviour
     {
         NarcomancerDoor1.SendMessage("OpenDoors");
         NarcomancerDoor2.SendMessage("OpenDoors");
+        narrativecontroller.GetComponent<NarrativeEventManager>().OfficeDoors();
         print("the office door opens");
     }
 
