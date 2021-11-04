@@ -1099,13 +1099,18 @@ public class PlayerController : MonoBehaviour
         {
             if (!paused)
             {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 pauseMenu.SetBool("Paused", true);
                 Debug.Log("You did it buddy!");
                 Time.timeScale = 0f;
                 paused = true;
             }
             else
+
             {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 pauseMenu.SetBool("Paused", false);
                 Debug.Log("You did it buddy!");
                 Time.timeScale = 1f;
@@ -1114,6 +1119,28 @@ public class PlayerController : MonoBehaviour
 
         }
 
+    }
+
+    public void OnPauseUI()
+    {
+        if (!paused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            pauseMenu.SetBool("Paused", true);
+            Debug.Log("You did it buddy!");
+            Time.timeScale = 0f;
+            paused = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            pauseMenu.SetBool("Paused", false);
+            Debug.Log("You did it buddy!");
+            Time.timeScale = 1f;
+            paused = false;
+        }
     }
 
     #endregion
