@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2231247797329278221}
   - component: {fileID: 2231247797329278222}
   - component: {fileID: 2231247797329278223}
-  - component: {fileID: 6574274983054727339}
   - component: {fileID: 5085051643024242676}
   m_Layer: 0
   m_Name: ItemPickup
@@ -83,19 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6574274983054727339
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2231247797329278210}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5.475675
-  m_Center: {x: 1.4269862e-14, y: 2.4825624e-14, z: -0.0000010670841}
 --- !u!114 &5085051643024242676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,3 +98,8 @@ MonoBehaviour:
   bounceAmplitude: 0.1
   rotationSpeed: 90
   pickUpPrefab: {fileID: 0}
+  pickupType: 0
+  pickupDistance: 5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0

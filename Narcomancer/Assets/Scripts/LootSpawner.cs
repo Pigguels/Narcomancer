@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LootSpawner : MonoBehaviour
 {
-
+    public PlayerController playerController;
    public GameObject[] pickUpPrefabs;
    
 
@@ -13,7 +13,7 @@ public class LootSpawner : MonoBehaviour
         for (int i = 0; i < pickUpPrefabs.Length; i++)
         {
 
-        GameObject tempSpawn = Instantiate(pickUpPrefabs[i], new Vector3 (transform.position.x + Random.Range(-1,1), transform.position.y +1f, transform.position.z + Random.Range(-1, 1)) , pickUpPrefabs[i].transform.rotation);
+         GameObject tempSpawn = Instantiate(pickUpPrefabs[i], new Vector3 (transform.position.x + Random.Range(-1,1), transform.position.y +1f, transform.position.z + Random.Range(-1, 1)) , pickUpPrefabs[i].transform.rotation);
         }
 
        

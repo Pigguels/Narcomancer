@@ -4973,6 +4973,9 @@ MonoBehaviour:
   pickUpPrefab: {fileID: 0}
   pickupType: 1
   pickupDistance: 5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!96 &1793810369
 TrailRenderer:
   serializedVersion: 2
@@ -5089,7 +5092,7 @@ SphereCollider:
   m_GameObject: {fileID: 3804729199842986477}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 4
   m_Center: {x: 0, y: 0, z: 0}

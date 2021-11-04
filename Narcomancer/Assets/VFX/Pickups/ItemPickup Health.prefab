@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4296969039110090094}
   - component: {fileID: 8221859202609105995}
   - component: {fileID: 1795566533279221009}
-  - component: {fileID: 1720300140223108600}
   - component: {fileID: 3185919311927883942}
   - component: {fileID: 1853982653}
   - component: {fileID: -9073143005202427621}
@@ -86,20 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1720300140223108600
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736483341638555228}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3185919311927883942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +103,9 @@ MonoBehaviour:
   pickUpPrefab: {fileID: 0}
   pickupType: 0
   pickupDistance: 5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!96 &1853982653
 TrailRenderer:
   serializedVersion: 2
@@ -234,7 +222,7 @@ SphereCollider:
   m_GameObject: {fileID: 1736483341638555228}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 4
   m_Center: {x: 0, y: 0, z: 0}

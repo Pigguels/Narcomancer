@@ -9,10 +9,10 @@ public class NarcoGrenade : MonoBehaviour
 
     public float h = 10;
 
-    public float localGravity = -10;
+    float localGravity = -10;
     public float timer = 0;
     public float launchtime = 3;
-
+    public bool firing = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +58,10 @@ public class NarcoGrenade : MonoBehaviour
     }
 
 
-
+    private void OnCollisionEnter(Collision collision)
+    {
+       //play vfx 
+    }
 
 
 }
