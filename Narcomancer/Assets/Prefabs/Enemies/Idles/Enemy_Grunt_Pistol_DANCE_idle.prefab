@@ -230,8 +230,8 @@ GameObject:
   - component: {fileID: 1144665847256844554}
   - component: {fileID: 8455285079044667714}
   m_Layer: 0
-  m_Name: Enemy_Grunt_Pistol_idle
-  m_TagString: Enemy
+  m_Name: Enemy_Grunt_Pistol_DANCE_idle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -317,6 +317,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AiName: 1
+  wavename: 0
+  Wave1Controller: {fileID: 0}
+  Wave4Controller: {fileID: 0}
+  Postencontroller: {fileID: 0}
   RatAi: {fileID: 3995171504814966979, guid: 487b564f4d15e6f459c29becafcc8182, type: 3}
   GruntAi: {fileID: 3673163304851250067, guid: 8bd84cb666fbc424cb51b8038a58b823, type: 3}
   SmgAi: {fileID: 5329102554014918540, guid: fabb7cca250a0414e93cd41ece8fb925, type: 3}

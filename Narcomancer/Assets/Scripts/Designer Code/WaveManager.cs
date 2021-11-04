@@ -19,6 +19,7 @@ public class WaveManager : MonoBehaviour
     {
         Wave1Controller.SetActive(true);
         Wave4Controller.SetActive(true);
+        Wave4Controller
         PostEnforcerController.SetActive(true);
         
     }

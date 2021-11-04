@@ -293,7 +293,6 @@ public class NarrativeEventManager : MonoBehaviour
     IEnumerator closefrontdoors()
     {
         yield return new WaitForSeconds(10f);
-       // print("frontdoorsclose");
         doorController.GetComponent<DoorController>().CloseFront();
     }
 
