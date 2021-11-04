@@ -25,6 +25,7 @@ public class NarrativeEventManager : MonoBehaviour
 
 
     [Header("Trigger Objects")]
+    public GameObject IntroTrigger;
     public GameObject officeArrivalTrigger;
     public GameObject officeEscapeTrigger;
     public GameObject monologueTrigger;
@@ -143,6 +144,7 @@ public class NarrativeEventManager : MonoBehaviour
     {
         combat = 1;
         barktimer = 30f;
+        IntroTrigger.SetActive(true);
     }
     public void StoryIntroduction()
     {
@@ -235,7 +237,7 @@ public class NarrativeEventManager : MonoBehaviour
     public void NarcomancerDefeated()
     {
        
-       // cageAnim.SetTrigger("CageFall");
+       //cageAnim.SetTrigger("CageFall");
         StartCoroutine(triggerDelay());
         boss = 0;
 
@@ -244,7 +246,7 @@ public class NarrativeEventManager : MonoBehaviour
     public void StoryMonologue()
     {
         speakerParent.GetComponent<DialogueSpeaker>().Monologue();
-        //narcomanim.settrigger monolgoue
+        //na.settrigger monolgoue - ANIMATION DOESN NOT EXIST PRESENTLY
     }
     
     IEnumerator VIP()

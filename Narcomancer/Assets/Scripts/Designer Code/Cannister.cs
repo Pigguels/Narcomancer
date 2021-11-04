@@ -79,10 +79,10 @@ public class Cannister : MonoBehaviour
     }
     public void Cannistor3Destroyed()
     {
-        //Explosion3.SetActive(true);
+        Explosion3.SetActive(true);
         Glass.GetComponent<Renderer>().material = CrackedCage3;
         Active3.SetActive(false);
-       // Gas.SetActive(false);
+        Gas.SetActive(false);
         NarcoAnim.SetBool("GlassBroken", true);
         NarcoAnim.SetTrigger("Surprised");
         CageAnim.SetTrigger("CageFall");
