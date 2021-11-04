@@ -49,15 +49,29 @@ public class DoorController : MonoBehaviour
     {
         NarcomancerDoor1.SendMessage("OpenDoors");
         NarcomancerDoor2.SendMessage("OpenDoors");
+        narrativecontroller.GetComponent<NarrativeEventManager>().OfficeDoors();
         print("the office door opens");
+    }
+
+    public void CloseOffice()
+    {
+        NarcomancerDoor1.SendMessage("CloseDoors");
+        NarcomancerDoor2.SendMessage("CloseDoors");
     }
 
     public void OpenFront()
     {
         frontdoor1.SendMessage("OpenDoors");
         frontdoor2.SendMessage("OpenDoors");
-        narrativecontroller.GetComponent<NarrativeEventManager>().StoryIntroduction();
+        narrativecontroller.GetComponent<NarrativeEventManager>().DoorKick();
     }
+
+    public void CloseFront()
+    {
+        frontdoor1.SendMessage("CloseDoors");
+        frontdoor2.SendMessage("CloseDoors");
+    }
+
 
 
 
