@@ -5,11 +5,11 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     public GameObject Wave1Controller;
-    public GameObject Wave1Standins;
     public GameObject Wave2Controller;
     public GameObject Wave3Controller;
     public GameObject Wave4Controller;
     public GameObject PostEnforcerController;
+    public GameObject PostEnforcerSMGs;
     public GameObject AlarmRatsController;
     public GameObject Boss1Controller;
     public GameObject Boss2Controller;
@@ -17,6 +17,9 @@ public class WaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Wave1Controller.SetActive(true);
+        Wave4Controller.SetActive(true);
+        PostEnforcerController.SetActive(true);
         
     }
 
@@ -28,8 +31,7 @@ public class WaveManager : MonoBehaviour
 
     public void Wave1()
     {
-        Wave1Controller.SetActive(true);
-        Wave1Standins.SetActive(false);
+        Wave1Controller.BroadcastMessage("SpawnActive");
     }
     public void Wave2()
     {
@@ -41,11 +43,15 @@ public class WaveManager : MonoBehaviour
     }
     public void Wave4()
     {
-        Wave4Controller.SetActive(true);
+        Wave4Controller.BroadcastMessage("SpawnActive");
     }
     public void PostEnforcer()
     {
-        PostEnforcerController.SetActive(true);
+        PostEnforcerSMGs.SetActive(true);
+    }
+    public void GentlemensClub()
+    {
+        PostEnforcerController.BroadcastMessage("SpawnActive");
     }
     public void AlarmRatsStart()
     {

@@ -6,6 +6,11 @@ public class SpawnActiveAI : MonoBehaviour
 {
     public enum EnemyPrefabName { Rat, Grunt, Smg, Magnum, Enforcer, }
     public EnemyPrefabName AiName;
+    public enum WhichWaveisThis { wave1, Wave4, postenforcer, }
+    public WhichWaveisThis wavename;
+    public GameObject Wave1Controller;
+    public GameObject Wave4Controller;
+    public GameObject Postencontroller;
     public GameObject RatAi;
     public GameObject GruntAi;
     public GameObject SmgAi;
@@ -15,7 +20,22 @@ public class SpawnActiveAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
+        Wave1Controller = GameObject.Find("Wave1Controller");
+        Wave4Controller = GameObject.Find("Wave4Controller");
+        Postencontroller = GameObject.Find("PostEnforcerController");
+        switch (wavename)
+        {
+            case WhichWaveisThis.wave1:  
+                gameObject.transform.parent = Wave1Controller.transform;
+                break;
+            case WhichWaveisThis.postenforcer:
+                gameObject.transform.parent = Postencontroller.transform;
+                break;
+            case WhichWaveisThis.Wave4:
+                gameObject.transform.parent = Wave4Controller.transform;
+                break;
+        }
+        
     }
 
     // Update is called once per frame

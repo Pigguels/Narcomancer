@@ -26,6 +26,7 @@ public class NarrativeEventManager : MonoBehaviour
 
     [Header("Trigger Objects")]
     public GameObject IntroTrigger;
+    public GameObject VipTrigger;
     public GameObject officeArrivalTrigger;
     public GameObject officeEscapeTrigger;
     public GameObject monologueTrigger;
@@ -129,6 +130,7 @@ public class NarrativeEventManager : MonoBehaviour
         }
         if (!timerenabled && wave4 == true)
         {
+            doorController.GetComponent<DoorController>().OpenVIP();
             WaveMaster.GetComponent<WaveManager>().Wave4();
             narcomancerAnim.SetBool("Talking", false);
             combat = 1;
@@ -188,8 +190,13 @@ public class NarrativeEventManager : MonoBehaviour
     {
         narcomancerAnim.SetTrigger("Shoot");
         henchmanAnim.SetTrigger("Dead");
+       
     }
 
+    public void Gentlemen()
+    {
+        WaveMaster.GetComponent<WaveManager>().GentlemensClub();
+    }
     public void OfficeDoors()
     {
        // WaveMaster.GetComponent<WaveManager>().AlarmRatsStart();
@@ -251,6 +258,7 @@ public class NarrativeEventManager : MonoBehaviour
     
     IEnumerator VIP()
     {
+        VipTrigger.SetActive(true);
         speakerParent.GetComponent<DialogueSpeaker>().VipAudio();
         yield return new WaitForSeconds(37f);
         speakerParent.GetComponent<DialogueSpeaker>().HenchAudio();

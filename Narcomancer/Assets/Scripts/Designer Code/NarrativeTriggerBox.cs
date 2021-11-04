@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NarrativeTriggerBox : MonoBehaviour
 {
-    public enum TriggerBoxName {Intro, Office, Bossfight, Monologue }
+    public enum TriggerBoxName {Intro, Office, Bossfight, Monologue, Vip }
     public TriggerBoxName triggerName;
     public GameObject NarrativeEventController;
     public bool istriggered;
@@ -42,7 +42,9 @@ public class NarrativeTriggerBox : MonoBehaviour
                 case TriggerBoxName.Monologue:
                     NarrativeEventController.GetComponent<NarrativeEventManager>().StoryMonologue();
                     break;
-
+                case TriggerBoxName.Vip:
+                    NarrativeEventController.GetComponent<NarrativeEventManager>().Gentlemen();
+                    break;
             }
             //print("triggered");
             gameObject.SetActive(false);
