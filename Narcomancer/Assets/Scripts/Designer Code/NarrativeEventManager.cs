@@ -234,7 +234,8 @@ public class NarrativeEventManager : MonoBehaviour
 
     public void NarcomancerDefeated()
     {
-        NarcoCageAnim.SetBool("GlassBroken", true);
+       
+       // cageAnim.SetTrigger("CageFall");
         StartCoroutine(triggerDelay());
         boss = 0;
 

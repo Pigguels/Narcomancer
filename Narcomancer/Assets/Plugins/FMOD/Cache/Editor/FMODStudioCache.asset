@@ -23,6 +23,46 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-9130031076643861133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Boss
+  m_EditorClassIdentifier: 
+  Name: Boss
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &-8922142061259568271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Combat
+  m_EditorClassIdentifier: 
+  Name: Combat
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-8806302087670567251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,6 +575,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-3472446829456425864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enviromental SFX/CageCrash
+  m_EditorClassIdentifier: 
+  Path: event:/Enviromental SFX/CageCrash
+  guid: 0751c6f3a5457c47aa49afbbfcae73b9
+  Banks:
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-3449969646480232684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,11 +745,11 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637714711497977063
+  lastModified: 637716239137920375
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 3426
+    Value: 3494
   Exists: 1
 --- !u!114 &-2756784589028434105
 MonoBehaviour:
@@ -814,7 +877,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637714711497956835
+  lastModified: 637716239137890458
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -855,7 +918,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637714711498425571
+  lastModified: 637716239141424615
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -951,12 +1014,13 @@ MonoBehaviour:
   - {fileID: 3776305790462961252}
   - {fileID: -5919458713866573047}
   - {fileID: -8806302087670567251}
+  - {fileID: -3472446829456425864}
   EditorParameters: []
   MasterBanks:
   - {fileID: -755379686889876173}
   StringsBanks:
   - {fileID: -2901742062300175861}
-  stringsBankWriteTime: 637714711497977063
+  stringsBankWriteTime: 637716239137920375
   cacheVersion: 6
 --- !u!114 &334939270413281306
 MonoBehaviour:
@@ -996,7 +1060,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 637714711497318528
+  lastModified: 637716239135362864
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1224,7 +1288,7 @@ MonoBehaviour:
   ID:
     data1: 0
     data2: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &2380053764194929174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1717,7 +1781,7 @@ MonoBehaviour:
   ID:
     data1: 0
     data2: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &6145123141538373320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1738,8 +1802,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 6085387776220585995}
-  - {fileID: 2257685490121456757}
+  - {fileID: -8922142061259568271}
+  - {fileID: -9130031076643861133}
   MinDistance: 0
   MaxDistance: 0
   Length: 424000

@@ -12,25 +12,34 @@ public class Cannister : MonoBehaviour
     public GameObject Inert1;
     public GameObject Inert2;
     public GameObject Inert3;
-
+    [Header("Cage Condition Objects")]
+    public GameObject BrokenObjects; 
+    public GameObject Glass;
+    public Material CrackedCage1;
+    public Material CrackedCage2;
+    public Material CrackedCage3;
+    [Header("Gases")]
     public GameObject Gas;
     public GameObject Explosion1;
     public GameObject Explosion2;
     public GameObject Explosion3;
 
-    public Material CrackedCage1;
-    public Material CrackedCage2;
+  
+
 
     public GameObject Narocmancer;
     public GameObject Cage;
+   
     public GameObject NarrativeEventManager;
 
     private Animator NarcoAnim;
+    private Animator CageAnim;
 
     // Start is called before the first frame update
     void Start()
     {
         NarcoAnim = Narocmancer.GetComponent<Animator>();
+        CageAnim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,6 +56,7 @@ public class Cannister : MonoBehaviour
     }
     public void Cannistor1Destroyed()
     {
+        print("youhitthecan");
         StartCoroutine(Can1());
     }
 
@@ -69,20 +79,30 @@ public class Cannister : MonoBehaviour
     }
     public void Cannistor3Destroyed()
     {
-        Explosion3.SetActive(true);
+        //Explosion3.SetActive(true);
+        Glass.GetComponent<Renderer>().material = CrackedCage3;
         Active3.SetActive(false);
-        Gas.SetActive(false);
+       // Gas.SetActive(false);
         NarcoAnim.SetBool("GlassBroken", true);
-        NarcoAnim.SetTrigger("Surpirsed");
+        NarcoAnim.SetTrigger("Surprised");
+        CageAnim.SetTrigger("CageFall");
         NarrativeEventManager.GetComponent<NarrativeEventManager>().NarcomancerDefeated();
+    }
+
+    public void BreakObjects()
+    {
+        BrokenObjects.SetActive(true);
+        Cage.SetActive(false);
+        
     }
     IEnumerator Can1()
     {
+        print("so wheres the boom");
         Explosion1.SetActive(true);
         Active1.SetActive(false);
         Gas.SetActive(false);
         NarcoAnim.SetTrigger("Surpirsed");
-        Cage.GetComponent<Renderer>().material = CrackedCage1;
+        Glass.GetComponent<Renderer>().material = CrackedCage1;
         yield return new WaitForSeconds(3f);
         NarrativeEventManager.GetComponent<NarrativeEventManager>().Boss2();
     }
@@ -92,7 +112,7 @@ public class Cannister : MonoBehaviour
         Active2.SetActive(false);
         Gas.SetActive(false);
         NarcoAnim.SetTrigger("Surpirsed");
-        Cage.GetComponent<Renderer>().material = CrackedCage2;
+        Glass.GetComponent<Renderer>().material = CrackedCage2;
         yield return new WaitForSeconds(3f);
         NarrativeEventManager.GetComponent<NarrativeEventManager>().Boss3();
     }
