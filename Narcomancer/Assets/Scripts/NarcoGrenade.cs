@@ -6,7 +6,7 @@ public class NarcoGrenade : MonoBehaviour
 {
     public Rigidbody Grenade;
     public Transform Target;
-
+    public GameObject explosion;
     public float h = 10;
 
     float localGravity = -10;
@@ -58,10 +58,7 @@ public class NarcoGrenade : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-       //play vfx 
-    }
+   
 
 
 }

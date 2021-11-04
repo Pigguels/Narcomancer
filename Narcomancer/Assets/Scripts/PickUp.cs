@@ -50,7 +50,7 @@ public class PickUp : MonoBehaviour
                 if (pickupType == PickupType.health)
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().m_Health.Heal(15);
 
-                transform.position = Vector3.Lerp(transform.position, player.position, .1f);
+                transform.position = Vector3.Lerp(transform.position, player.position, .06f);
                 Destroy(gameObject, .7f);
             }
 
