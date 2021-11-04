@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 {
     Vector2 m_MoveInput;
     Vector2 m_LookInput;
-    bool paused = false;
+    public bool paused = false;
 
     public PlayerInput m_PlayerInput;
     
