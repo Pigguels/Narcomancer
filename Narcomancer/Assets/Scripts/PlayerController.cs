@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
 {
     Vector2 m_MoveInput;
     Vector2 m_LookInput;
-    
+    public bool paused = false;
+
     public PlayerInput m_PlayerInput;
     
     enum KeyInputs { crouch, jump, dash, primaryFire, secondaryFire, };
@@ -234,8 +235,11 @@ public class PlayerController : MonoBehaviour
 
     private LayerMask m_LayerMask;
 
+    public Animator pauseMenu;
+
     private void Awake()
     {
+        //pauseMenu = GameObject.Find("PauseMenu");
         m_CharController = GetComponent<CharacterController>();
         m_Health = GetComponent<Health>();
 
@@ -969,122 +973,194 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        m_MoveInput = context.ReadValue<Vector2>();
+        if (!paused)
+        {
+            m_MoveInput = context.ReadValue<Vector2>();
+        }
     }
     public void OnLook(InputAction.CallbackContext context)
     {
-        m_LookInput = context.ReadValue<Vector2>();
+        if (!paused)
+        {
+            m_LookInput = context.ReadValue<Vector2>();
+        }
     }
     
     public void OnPrimaryFire(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (!paused)
         {
-            m_InputDown[(int)KeyInputs.primaryFire] = true;
-        }
-        else if (context.canceled)
-        {
-            m_InputDown[(int)KeyInputs.primaryFire] = false;
+            if (context.started && !paused)
+            {
+                m_InputDown[(int)KeyInputs.primaryFire] = true;
+            }
+            else if (context.canceled && !paused)
+            {
+                m_InputDown[(int)KeyInputs.primaryFire] = false;
+            }
         }
     }
 
     public void OnSecondaryFire(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (!paused)
         {
-            m_InputDown[(int)KeyInputs.secondaryFire] = true;
-        }
-        else if (context.canceled)
-        {
-            m_InputDown[(int)KeyInputs.secondaryFire] = false;
+            if (context.started && !paused)
+            {
+                m_InputDown[(int)KeyInputs.secondaryFire] = true;
+            }
+            else if (context.canceled && !paused)
+            {
+                m_InputDown[(int)KeyInputs.secondaryFire] = false;
+            }
         }
     }
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (!paused)
         {
-            /* Check if can transition to slide */
-            if (m_IsGrounded && Mathf.Acos(Vector3.Dot(m_MoveDir, transform.forward)) * Mathf.Rad2Deg < m_MaxAngleToStartSlide)
+            if (context.started && !paused)
             {
-                InitialiseSlide();
-                m_MoveState = MovementStates.slide;
-            }
+                /* Check if can transition to slide */
+                if (m_IsGrounded && Mathf.Acos(Vector3.Dot(m_MoveDir, transform.forward)) * Mathf.Rad2Deg < m_MaxAngleToStartSlide)
+                {
+                    InitialiseSlide();
+                    m_MoveState = MovementStates.slide;
+                }
 
-            /* Go to the crouched state */
-            if (m_MoveState == MovementStates.walk)
+                /* Go to the crouched state */
+                if (m_MoveState == MovementStates.walk)
+                {
+                    m_TargetHeight = m_CrouchHeight;
+                    m_MoveState = MovementStates.crouch;
+                }
+
+                m_InputDown[(int)KeyInputs.crouch] = true;
+            }
+            else if (context.canceled && !paused)
             {
-                m_TargetHeight = m_CrouchHeight;
-                m_MoveState = MovementStates.crouch;
+                m_InputDown[(int)KeyInputs.crouch] = false;
             }
-
-            m_InputDown[(int)KeyInputs.crouch] = true;
-        }
-        else if (context.canceled)
-        {
-            m_InputDown[(int)KeyInputs.crouch] = false;
         }
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        /* On the frame it was pressed */
-        if (context.started)
+        if (!paused)
         {
-            /* Move to the jumping state */
-            if (m_IsGrounded && (m_MoveState == MovementStates.walk || m_MoveState == MovementStates.crouch || m_MoveState == MovementStates.slide))
+            /* On the frame it was pressed */
+            if (context.started && !paused)
             {
-                InitialiseJump();
-                m_MoveState = MovementStates.jump;
-            }
+                /* Move to the jumping state */
+                if (m_IsGrounded && (m_MoveState == MovementStates.walk || m_MoveState == MovementStates.crouch || m_MoveState == MovementStates.slide))
+                {
+                    InitialiseJump();
+                    m_MoveState = MovementStates.jump;
+                }
 
-            /* Check if the player wants to air jump, if so apply the jump velocity */
-            if (!m_IsGrounded && m_MoveState == MovementStates.jump && m_AirJumpCount < m_MaxAirJumps)
+                /* Check if the player wants to air jump, if so apply the jump velocity */
+                if (!m_IsGrounded && m_MoveState == MovementStates.jump && m_AirJumpCount < m_MaxAirJumps)
+                {
+                    ++m_AirJumpCount;
+                    m_Velocity.y += Mathf.Sqrt(-m_JumpHeight / 1.5f * -m_Gravity) * m_AirJumpMultiplier;
+                }
+
+                m_InputDown[(int)KeyInputs.jump] = true;
+            }
+            else if (context.canceled)
             {
-                ++m_AirJumpCount;
-                m_Velocity.y += Mathf.Sqrt(-m_JumpHeight / 1.5f * -m_Gravity) * m_AirJumpMultiplier;
+                m_InputDown[(int)KeyInputs.jump] = false;
             }
-
-            m_InputDown[(int)KeyInputs.jump] = true;
-        }
-        else if (context.canceled)
-        {
-            m_InputDown[(int)KeyInputs.jump] = false;
         }
     }
 
     public void OnDash(InputAction.CallbackContext context)
     {
+        if (!paused)
+        {
+            if (context.started && !paused)
+            {
+                /* Try go into dash */
+                if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump || m_MoveState == MovementStates.dash) && dashLimit != 0)
+                {
+                    /* Make sure the move directions angle isn't too high */
+                    if (m_MoveDir != Vector3.zero && Mathf.Acos(Vector3.Dot(m_MoveDir, transform.forward)) * Mathf.Rad2Deg < m_DashMaxAngle)
+                    {
+                        /* Initialise the dash */
+                        m_DashStartPos = transform.position;
+                        m_DashEndPos = transform.position + (m_MoveDir * m_DashDistance);
+                        m_InitDashDir = m_MoveDir;
+                        m_TimeSinceDashStart = 0f;
+                        m_DashTimeMultiplier = 1f / m_DashTime;
+
+                        m_Velocity = Vector3.zero;
+
+                        m_MoveState = MovementStates.dash;
+
+                        dashLimit -= 1;
+                        m_DashCooldownDetla = 0f;
+                        DashUI();
+                    }
+                }
+
+                m_InputDown[(int)KeyInputs.dash] = true;
+            }
+            else if (context.canceled && !paused)
+            {
+                m_InputDown[(int)KeyInputs.dash] = false;
+            }
+        }
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        
         if (context.started)
         {
-            /* Try go into dash */
-            if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump || m_MoveState == MovementStates.dash) && dashLimit != 0)
+            if (!paused)
             {
-                /* Make sure the move directions angle isn't too high */
-                if (m_MoveDir != Vector3.zero && Mathf.Acos(Vector3.Dot(m_MoveDir, transform.forward)) * Mathf.Rad2Deg < m_DashMaxAngle)
-                {
-                    /* Initialise the dash */
-                    m_DashStartPos = transform.position;
-                    m_DashEndPos = transform.position + (m_MoveDir * m_DashDistance);
-                    m_InitDashDir = m_MoveDir;
-                    m_TimeSinceDashStart = 0f;
-                    m_DashTimeMultiplier = 1f / m_DashTime;
-                    
-                    m_Velocity = Vector3.zero;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                pauseMenu.SetBool("Paused", true);
+                Debug.Log("You did it buddy!");
+                Time.timeScale = 0f;
+                paused = true;
+            }
+            else
 
-                    m_MoveState = MovementStates.dash;
-
-                    dashLimit -= 1;
-                    m_DashCooldownDetla = 0f;
-                    DashUI();
-                }
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                pauseMenu.SetBool("Paused", false);
+                Debug.Log("You did it buddy!");
+                Time.timeScale = 1f;
+                paused = false;
             }
 
-            m_InputDown[(int)KeyInputs.dash] = true;
         }
-        else if (context.canceled)
+
+    }
+
+    public void OnPauseUI()
+    {
+        if (!paused)
         {
-            m_InputDown[(int)KeyInputs.dash] = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            pauseMenu.SetBool("Paused", true);
+            Debug.Log("You did it buddy!");
+            Time.timeScale = 0f;
+            paused = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            pauseMenu.SetBool("Paused", false);
+            Debug.Log("You did it buddy!");
+            Time.timeScale = 1f;
+            paused = false;
         }
     }
 

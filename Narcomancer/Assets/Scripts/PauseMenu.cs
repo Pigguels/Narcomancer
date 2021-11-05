@@ -5,23 +5,34 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
 
-    public Animator pauseMenuAnim;
+    public PlayerController player;
+    public GameObject settingMenu;
+    bool optionsOpen = false;
 
     public void OnClickResume()
     {
-        //Resume code here
+        player.OnPauseUI();
         Debug.Log("Game Resumed");
     }
 
     public void OnClickOptions()
     {
-        //Options code here
-        Debug.Log("Options");
+        if (!optionsOpen)
+        {
+            settingMenu.SetActive(true);
+            Debug.Log("Options");
+            optionsOpen = true;
+        } else
+        {
+            settingMenu.SetActive(false);
+            Debug.Log("Options");
+            optionsOpen = false;
+        }
+
     }
 
     public void OnClickQuit()
     {
-        //Close Game
         Application.Quit();
     }
 
