@@ -23,7 +23,7 @@ public class NarrativeTriggerBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player") ; //!istriggered 
+        if (other.tag == "Player") //!istriggered 
         {
             
             switch (triggerName)
