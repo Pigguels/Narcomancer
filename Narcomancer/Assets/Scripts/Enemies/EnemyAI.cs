@@ -34,6 +34,7 @@ public class EnemyAI : MonoBehaviour
     public Transform m_PlayerPos;
     public Health m_Health;
     public Animator m_Animator;
+    LootSpawner lootSpawner;
 
     private NavMeshAgent m_NavAgent;
 
@@ -41,6 +42,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         m_NavAgent = GetComponent<NavMeshAgent>();
+        lootSpawner = GetComponent<LootSpawner>();
     }
 
     // Update is called once per frame
@@ -165,13 +167,18 @@ public class EnemyAI : MonoBehaviour
             if (m_TimeUntilNextAttack > 0f)
                 m_TimeUntilNextAttack -= Time.deltaTime;
         }
+        else if (m_Health.m_IsDead)
+        {
+            return;
+        }
         else
         {
             m_CurrentState = States.dead;
 
             m_NavAgent.enabled = false;
+            lootSpawner.SpawnPickup();
 
-            Destroy(gameObject, 5f); // NEED TO NUKE THIS FOR WHEN POOLING COMES
+            Destroy(gameObject); // NEED TO NUKE THIS FOR WHEN POOLING COMES
         }
     }
 }
