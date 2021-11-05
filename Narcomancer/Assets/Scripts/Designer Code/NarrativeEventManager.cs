@@ -221,6 +221,7 @@ public class NarrativeEventManager : MonoBehaviour
 
     public void StoryBossFight()
     {
+        print("ci esta boss fight");
         speakerParent.GetComponent<DialogueSpeaker>().BossFightStart();
         WaveMaster.GetComponent<WaveManager>().Boss1();
         boss = 2;

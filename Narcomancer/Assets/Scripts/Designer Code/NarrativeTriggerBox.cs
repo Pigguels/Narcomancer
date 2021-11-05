@@ -38,6 +38,7 @@ public class NarrativeTriggerBox : MonoBehaviour
                     break;
                 case TriggerBoxName.Bossfight:
                     NarrativeEventController.GetComponent<NarrativeEventManager>().StoryBossFight();
+                    print("donde esta boss fight?");
                     break;
                 case TriggerBoxName.Monologue:
                     NarrativeEventController.GetComponent<NarrativeEventManager>().StoryMonologue();

@@ -135,55 +135,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3181971428430787717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546853541186632223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb973d16763e0a9419645dd40f3fd9a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_CurrentHealth: 10
-  m_MaxHealth: 10
-  m_IsDead: 0
---- !u!114 &3914225602825399652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546853541186632223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aca14957edd1a840963e06e440fa385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InteractionKey: 0
-  m_MaxDistanceForInteraction: 100
-  m_MaxLookAngleForInteraction: 45
-  m_ActivateOnce: 1
-  m_InteractionType: 0
-  m_ActivationType: 0
-  m_Active: 0
-  m_Events:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7315932328936968960}
-        m_TargetAssemblyTypeName: Cannister, Assembly-CSharp
-        m_MethodName: Cannistor3Destroyed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1675217448473617915
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aca14957edd1a840963e06e440fa385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionKey: 0
+  m_InteractionKey: 19
   m_MaxDistanceForInteraction: 100
   m_MaxLookAngleForInteraction: 45
   m_ActivateOnce: 1
@@ -1102,25 +1053,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 366675747571003377}
     m_Modifications:
-    - target: {fileID: 1698471547051320165, guid: 6cfbeacdacb7bc4448db2764275842e7, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 3914225602825399652, guid: 6cfbeacdacb7bc4448db2764275842e7, type: 3}
+      propertyPath: m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7315932328936968960}
     - target: {fileID: 5223726160941625380, guid: 6cfbeacdacb7bc4448db2764275842e7, type: 3}
       propertyPath: m_Name
       value: Props_GasCannister_Active3
       objectReference: {fileID: 0}
-    - target: {fileID: 5223726160941625380, guid: 6cfbeacdacb7bc4448db2764275842e7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5743793562033896823, guid: 6cfbeacdacb7bc4448db2764275842e7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5743793562033896823, guid: 6cfbeacdacb7bc4448db2764275842e7, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9089740265828237879, guid: 6cfbeacdacb7bc4448db2764275842e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1166,17 +1109,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 72585169464074949, guid: 6cfbeacdacb7bc4448db2764275842e7, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cfbeacdacb7bc4448db2764275842e7, type: 3}
---- !u!1 &1546853541186632223 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5223726160941625380, guid: 6cfbeacdacb7bc4448db2764275842e7, type: 3}
-  m_PrefabInstance: {fileID: 6704136214434073147}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2534645612128569356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9089740265828237879, guid: 6cfbeacdacb7bc4448db2764275842e7, type: 3}
+  m_PrefabInstance: {fileID: 6704136214434073147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1546853541186632223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5223726160941625380, guid: 6cfbeacdacb7bc4448db2764275842e7, type: 3}
   m_PrefabInstance: {fileID: 6704136214434073147}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7317249747376506473
@@ -1336,6 +1278,10 @@ PrefabInstance:
       propertyPath: m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7315932328936968960}
+    - target: {fileID: 72585169464074949, guid: 6cfbeacdacb7bc4448db2764275842e7, type: 3}
+      propertyPath: m_InteractionKey
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 1698471547051320165, guid: 6cfbeacdacb7bc4448db2764275842e7, type: 3}
       propertyPath: m_UseGravity
       value: 0

@@ -19,7 +19,7 @@ public class WaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Wave1Controller.SetActive(true);
+       
         //Wave4Controller.SetActive(true);
         //Wave4Controller
         //PostEnforcerController.SetActive(true);
@@ -34,7 +34,8 @@ public class WaveManager : MonoBehaviour
 
     public void Wave1()
     {
-         Wave1AI.BroadcastMessage("SpawnActive");
+        Wave1Controller.SetActive(true);
+        Wave1AI.BroadcastMessage("SpawnActive");
         Wave1Controller.SetActive(true);
        
     }
@@ -48,7 +49,7 @@ public class WaveManager : MonoBehaviour
     }
     public void Wave4()
     {
-        Wave4AI.BroadcastMessage("SpawnActive");
+        Wave4AI.SetActive(false);
         Wave4Controller.SetActive(true);
     }
     public void PostEnforcer()
