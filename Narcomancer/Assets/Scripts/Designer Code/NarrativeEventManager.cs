@@ -13,6 +13,7 @@ public class NarrativeEventManager : MonoBehaviour
     public GameObject CageNarcomancer;
     public GameObject henchman;
     public GameObject officeWindow;
+    public GameObject officeWindowBroken;
     public GameObject glassCage;
 
     [Header("Audio Objects")]
@@ -51,7 +52,6 @@ public class NarrativeEventManager : MonoBehaviour
     
     private Animator narcomancerAnim;
     private Animator NarcoCageAnim;
-    private Animator windowAnim;
     private Animator henchmanAnim;
     public Animator cageAnim;
     
@@ -64,8 +64,7 @@ public class NarrativeEventManager : MonoBehaviour
         music.start();
 
         narcomancerAnim = OfficeNarcomancer.GetComponent<Animator>();
-        windowAnim = officeWindow.GetComponent<Animator>();
-        henchmanAnim = henchman.GetComponent<Animator>();
+       // henchmanAnim = henchman.GetComponent<Animator>();
         NarcoCageAnim = CageNarcomancer.GetComponent<Animator>();
         cageAnim = glassCage.GetComponent <Animator>();
     }
@@ -189,7 +188,7 @@ public class NarrativeEventManager : MonoBehaviour
     public void ShootTheMessenger()
     {
         narcomancerAnim.SetTrigger("Shoot");
-        henchmanAnim.SetTrigger("Dead");
+       // henchmanAnim.SetTrigger("Dead");
        
     }
 
@@ -281,7 +280,8 @@ public class NarrativeEventManager : MonoBehaviour
         yield return new WaitForSeconds(20f);
         officeEscapeTrigger.SetActive(true);
         NarcoCageAnim.SetTrigger("Shoot");
-        //Officeglass.shootingouttheglass
+        officeWindow.SetActive(false);
+        officeWindowBroken.SetActive(true);
         officeGas.SetActive(true);
     }
 

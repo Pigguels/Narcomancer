@@ -13,7 +13,7 @@ public class WindowBreak : MonoBehaviour
         foreach (Rigidbody rb in shards)
             
             rb.AddForce(Vector3.back*7.5f, ForceMode.Impulse);
-        }
+        
     }
 
 
