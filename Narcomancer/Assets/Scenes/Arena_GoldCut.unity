@@ -8508,6 +8508,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8ff6cc82b8f62f48ac2e437944c6c7c, type: 3}
+--- !u!1001 &231193049
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5472120596722206450, guid: f06da4aae69858444b2d8e26ea2cc9be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.127649
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472120596722206450, guid: f06da4aae69858444b2d8e26ea2cc9be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.1573844
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472120596722206450, guid: f06da4aae69858444b2d8e26ea2cc9be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -36.823284
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472120596722206450, guid: f06da4aae69858444b2d8e26ea2cc9be, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472120596722206450, guid: f06da4aae69858444b2d8e26ea2cc9be, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472120596722206450, guid: f06da4aae69858444b2d8e26ea2cc9be, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472120596722206450, guid: f06da4aae69858444b2d8e26ea2cc9be, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472120596722206450, guid: f06da4aae69858444b2d8e26ea2cc9be, type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472120596722206450, guid: f06da4aae69858444b2d8e26ea2cc9be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472120596722206450, guid: f06da4aae69858444b2d8e26ea2cc9be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472120596722206450, guid: f06da4aae69858444b2d8e26ea2cc9be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472120596722206451, guid: f06da4aae69858444b2d8e26ea2cc9be, type: 3}
+      propertyPath: m_Name
+      value: NarcoOffice_Glass_Broken
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472120596722206451, guid: f06da4aae69858444b2d8e26ea2cc9be, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f06da4aae69858444b2d8e26ea2cc9be, type: 3}
 --- !u!1001 &236199148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24817,6 +24878,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67cbd707dc1e43445b44e69c30b9564b, type: 3}
+--- !u!1 &736098064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5472120596722206451, guid: f06da4aae69858444b2d8e26ea2cc9be, type: 3}
+  m_PrefabInstance: {fileID: 231193049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &736749234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45447,6 +45513,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1779677155153498952, guid: 36ae6bf8ea4715c47a09a9646f080903, type: 3}
   m_PrefabInstance: {fileID: 1388207419}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1390635851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1e1de4dae530155429c3068f04ac182c, type: 3}
+  m_PrefabInstance: {fileID: 76620775}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1390956189 stripped
 Transform:
@@ -71329,6 +71400,14 @@ PrefabInstance:
       propertyPath: VipTrigger
       value: 
       objectReference: {fileID: 396272465}
+    - target: {fileID: 4051455440952143296, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: officeWindowBroken
+      value: 
+      objectReference: {fileID: 736098064}
+    - target: {fileID: 4051455440952143296, guid: e724175dc035a7641b379781371118c9, type: 3}
+      propertyPath: officeWindow
+      value: 
+      objectReference: {fileID: 1390635851}
     - target: {fileID: 4051455441010880603, guid: e724175dc035a7641b379781371118c9, type: 3}
       propertyPath: OverrideMinDistance
       value: 25

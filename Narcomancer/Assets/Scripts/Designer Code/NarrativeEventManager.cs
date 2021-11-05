@@ -11,7 +11,7 @@ public class NarrativeEventManager : MonoBehaviour
     [Header("Animation Objects")]
     public GameObject OfficeNarcomancer;
     public GameObject CageNarcomancer;
-    public GameObject henchman;
+    //public GameObject henchman;
     public GameObject officeWindow;
     public GameObject officeWindowBroken;
     public GameObject glassCage;
@@ -42,7 +42,7 @@ public class NarrativeEventManager : MonoBehaviour
     public bool wave2;
     public bool wave3;
     public bool wave4;
-    private bool bossarrival;
+    //private bool bossarrival;
 
     private FMOD.Studio.EventInstance music;
     [FMODUnity.EventRef]
