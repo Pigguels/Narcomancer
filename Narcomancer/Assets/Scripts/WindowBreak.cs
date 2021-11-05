@@ -5,14 +5,14 @@ using UnityEngine;
 public class WindowBreak : MonoBehaviour
 {
     public Rigidbody[] shards;
-    
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void Awake()
     {
-        
+  
         foreach (Rigidbody rb in shards)
-        {
-            rb.AddForce(collision.impulse, ForceMode.Impulse);
+            
+            rb.AddForce(Vector3.back*7.5f, ForceMode.Impulse);
         }
     }
 
