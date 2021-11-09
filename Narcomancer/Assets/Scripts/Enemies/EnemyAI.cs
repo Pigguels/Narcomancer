@@ -114,7 +114,7 @@ public class EnemyAI : MonoBehaviour
             {
                 if (m_TimeUntilNextAttack <= 0f && Physics.Raycast(m_ProjectileSpawnPos.position, (m_PlayerPos.position - m_ProjectileSpawnPos.position).normalized, m_MaxDistanceToAttack, LayerMask.GetMask("Player")))
                 {
-                    Debug.Log(gameObject.name + " is attacking");
+                    //Debug.Log(gameObject.name + " is attacking");
 
                     /* End attack */
                     if (m_CurrentSubAttack >= m_SubAttackAmount)

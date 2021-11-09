@@ -266,7 +266,7 @@ public class NarrativeEventManager : MonoBehaviour
         speakerParent.GetComponent<DialogueSpeaker>().VipAudio();
         yield return new WaitForSeconds(37f);
         speakerParent.GetComponent<DialogueSpeaker>().HenchAudio();
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(6f);
         ShootTheMessenger();
         yield return new WaitForSeconds(5f);
         speakerParent.GetComponent<DialogueSpeaker>().VipAudio2();

@@ -199,6 +199,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6771444874230084735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Rats/Ryan Rats
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Rats/Ryan Rats
+  guid: fb02d901e2fc2547ac800bb81ff9d6a6
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6553835580292579173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +241,49 @@ MonoBehaviour:
   ID:
     data1: 0
     data2: 0
+  Exists: 1
+--- !u!114 &-6478592061925408035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Enforcer/Ryan Enforcer
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Enforcer/Ryan Enforcer
+  guid: d14de298d931a249bdc79907ec5229d4
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6427352692898811888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Combat
+  m_EditorClassIdentifier: 
+  Name: Combat
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 380339292
+    data2: 3670976590
   Exists: 1
 --- !u!114 &-6201362243780979987
 MonoBehaviour:
@@ -285,8 +351,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -3557285023412126531}
-  - {fileID: 288140140455878917}
+  - {fileID: -6427352692898811888}
+  - {fileID: -4467495356681806247}
   MinDistance: 0
   MaxDistance: 0
   Length: 424000
@@ -367,6 +433,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (6)
   guid: d7e2917b8f25db469c2481cf3267f5fa
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5695858889185814434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Grunts/Baz Grunts 2
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Grunts/Baz Grunts 2
+  guid: 08b3434e41b5a44589ee48fa81c05c91
   Banks:
   - {fileID: 457790904543693910}
   IsStream: 0
@@ -461,6 +550,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &-4833746515964147892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Death SFXs Voiceover/Ryan's Death sounds
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Death SFXs Voiceover/Ryan's Death sounds
+  guid: 99cea15a6f41b6439c9a10a9cc254132
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4751715176946691170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,6 +639,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-4467495356681806247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Boss
+  m_EditorClassIdentifier: 
+  Name: Boss
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 611461797
+    data2: 2327247759
+  Exists: 1
 --- !u!114 &-4171764659892689233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,6 +765,29 @@ MonoBehaviour:
   Path: event:/3D Dialogue/End Monologue/End Mono 3
   guid: 422807889701c744a7e7870670ee76a5
   Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3608562392540703912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Grunts/Ryan Grunts
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Grunts/Ryan Grunts
+  guid: 4d64f2e6761b9344980d7556ea331577
+  Banks:
+  - {fileID: 457790904543693910}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -830,11 +985,11 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637720761971066711
+  lastModified: 637720965261099042
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 3494
+    Value: 3958
   Exists: 1
 --- !u!114 &-2756784589028434105
 MonoBehaviour:
@@ -1002,7 +1157,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637720761971086667
+  lastModified: 637720965261068881
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1063,7 +1218,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637716239141424615
+  lastModified: 637720965267881160
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1132,7 +1287,6 @@ MonoBehaviour:
   - {fileID: -133728631393823419}
   - {fileID: 2718342174298260783}
   - {fileID: 334939270413281306}
-  - {fileID: 7680475207391860738}
   - {fileID: 950844246887075100}
   - {fileID: 7842272073283812381}
   - {fileID: 4951458560154306297}
@@ -1155,18 +1309,50 @@ MonoBehaviour:
   - {fileID: -5054859928062876545}
   - {fileID: -4106108479322410378}
   - {fileID: 6720537155241211167}
-  - {fileID: 3776305790462961252}
   - {fileID: -5919458713866573047}
-  - {fileID: -8806302087670567251}
   - {fileID: -3472446829456425864}
   - {fileID: -6171403869820266566}
+  - {fileID: -5695858889185814434}
+  - {fileID: -3608562392540703912}
+  - {fileID: 1107657504139268792}
+  - {fileID: -4833746515964147892}
+  - {fileID: 2533481775731521553}
+  - {fileID: -6478592061925408035}
+  - {fileID: 7718452592669267541}
+  - {fileID: 3406915990391350005}
+  - {fileID: -6771444874230084735}
+  - {fileID: 8465402790815496572}
+  - {fileID: 244721809641406784}
   EditorParameters: []
   MasterBanks:
   - {fileID: -755379686889876173}
   StringsBanks:
   - {fileID: -2901742062300175861}
-  stringsBankWriteTime: 637720761971066711
+  stringsBankWriteTime: 637720965261099042
   cacheVersion: 6
+--- !u!114 &244721809641406784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/End Monologue/Mono Full
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/End Monologue/Mono Full
+  guid: 2bead266779944488698d49c768d02f3
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &288140140455878917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1225,7 +1411,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 637720761971326028
+  lastModified: 637720965254126633
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1334,6 +1520,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 5 (take3)
   guid: 34a3c52930504848826de14251e83019
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1107657504139268792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Rats/Baz Rats
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Rats/Baz Rats
+  guid: 64c03654fbffd14d9e4e505d3bbbe08d
   Banks:
   - {fileID: 457790904543693910}
   IsStream: 0
@@ -1468,6 +1677,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (5)
   guid: e821fdfb56132945a0a4aecf6ce47121
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2533481775731521553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Death SFXs Voiceover/Baz's Death sounds
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Death SFXs Voiceover/Baz's Death sounds
+  guid: d13c6258ae149c4f842c2759706a8055
   Banks:
   - {fileID: 457790904543693910}
   IsStream: 0
@@ -1612,6 +1844,29 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+  Length: 0
+--- !u!114 &3406915990391350005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Grunts/Baz Grunts
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Grunts/Baz Grunts
+  guid: f7e05b7cd152014bbcd4f0769bf849f7
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
   Length: 0
 --- !u!114 &3481212696249596690
 MonoBehaviour:
@@ -2286,6 +2541,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &7718452592669267541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Velvet Room/Baz Narrative
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Velvet Room/Baz Narrative
+  guid: e83014adcd1f254cae386c7f31349eb7
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &7773630226124677586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2396,6 +2674,29 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+  Length: 0
+--- !u!114 &8465402790815496572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/PhoneCallMasterCut
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/PhoneCallMasterCut
+  guid: 10d1b6c2030a77449d49ad10c649e89e
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
   Length: 0
 --- !u!114 &8612517809897178645
 MonoBehaviour:
