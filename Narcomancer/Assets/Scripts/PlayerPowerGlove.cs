@@ -76,9 +76,9 @@ public class PlayerPowerGlove : MonoBehaviour
                     hit.transform.GetComponent<Health>().Damage(m_DamagePerSecond * Time.deltaTime);
                 // NEED TO ADD GENERIC INTERACTABLE OBJECT EVENT CALLING HERE
             }
-            else if (hit.transform.CompareTag("Enemy"))
+            else if (hit.transform.CompareTag("EnemyDamagePoint"))
             {
-                m_HitObjects.Add(hit.transform.gameObject);
+                m_HitObjects.Add(hit.transform.GetComponent<EnemyDamagePoint>().m_EnemyHealth.gameObject);
 
                 // chain to nearby enemies
                 for (int i = 0; i < m_MaxChainAmount + 1; ++i)
@@ -105,8 +105,8 @@ public class PlayerPowerGlove : MonoBehaviour
                 // damage the hit enemies
                 foreach (GameObject enemyToDamage in m_HitObjects)
                 {
-                    if (enemyToDamage.GetComponent<EnemyDamagePoint>())
-                        enemyToDamage.GetComponent<EnemyDamagePoint>().Damage(m_DamagePerSecond * Time.deltaTime);
+                    if (enemyToDamage.GetComponent<Health>())
+                        enemyToDamage.GetComponent<Health>().Damage(m_DamagePerSecond * Time.deltaTime);
                 }
             }
             else
