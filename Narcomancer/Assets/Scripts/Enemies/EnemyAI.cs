@@ -51,6 +51,10 @@ public class EnemyAI : MonoBehaviour
 
         switch (m_CurrentState)
         {
+            case States.dead:
+                m_Animator.SetBool("isWalking", false);
+                m_Animator.SetBool("Dead", true);
+                break;
             case States.chase:
                 m_Animator.SetBool("isWalking", true);
                 m_Animator.SetBool("Dead", false);
@@ -75,10 +79,7 @@ public class EnemyAI : MonoBehaviour
                 m_Animator.SetBool("isWalking", false);
                 m_Animator.SetBool("Dead", false);
                 break;
-            case States.dead:
-                m_Animator.SetBool("isWalking", false);
-                m_Animator.SetBool("Dead", true);
-                break;
+            
         }
 
         if (!m_Health.m_IsDead)
@@ -175,7 +176,7 @@ public class EnemyAI : MonoBehaviour
             m_NavAgent.enabled = false;
             lootSpawner.SpawnPickup();
 
-            Destroy(gameObject); // NEED TO NUKE THIS FOR WHEN POOLING COMES
+            Destroy(gameObject,.7f); // NEED TO NUKE THIS FOR WHEN POOLING COMES
         }
     }
 }

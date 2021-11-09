@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8384657363507100967}
   - component: {fileID: 2396420958913580908}
+  - component: {fileID: 3616828303853566696}
   m_Layer: 0
   m_Name: 40mm Grenade
   m_TagString: Untagged
@@ -48,6 +49,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3616828303853566696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910712652004794092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9252940383389847bef62b3df49813d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 5940019207879775682, guid: ea97159d61bd0db4fbfb2f11625b82d4, type: 3}
+  grenadeLifetime: 3
 --- !u!1001 &8717189233459363195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99,6 +114,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 265a9474ea909c34698e853a502f69ce, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0208f7d7ee6531040864bb98cd108426, type: 2}
     - target: {fileID: 919132149155446097, guid: 265a9474ea909c34698e853a502f69ce, type: 3}
       propertyPath: m_Name
       value: 40mm_Grenade
