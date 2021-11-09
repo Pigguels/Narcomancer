@@ -137,7 +137,8 @@ public class PlayerShotgun : MonoBehaviour
             {
                 if (hits[i].transform.GetComponent<Health>())
                     hits[i].transform.GetComponent<Health>().Damage(pelletDamage);
-                // NEED TO ADD GENERIC INTERACTABLE OBJECT EVENT CALLING HERE
+                if (hits[i].transform.GetComponent<InteractableObject>())
+                    hits[i].transform.GetComponent<InteractableObject>().Interact();
             }
             else if (hits[i].transform.CompareTag("Untagged"))
             {

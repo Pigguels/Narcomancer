@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
 {
     Vector2 m_MoveInput;
     Vector2 m_LookInput;
-    
+    bool paused = false;
+
     public PlayerInput m_PlayerInput;
     
     enum KeyInputs { crouch, jump, dash, primaryFire, secondaryFire, };
@@ -225,7 +226,7 @@ public class PlayerController : MonoBehaviour
 
     public Image m_NeonAmmoRing;
     public GameObject[] m_DashIcon;
-
+    public GameObject deathScreen;
 
 
     #endregion
@@ -234,8 +235,11 @@ public class PlayerController : MonoBehaviour
 
     private LayerMask m_LayerMask;
 
+    public Animator pauseMenu;
+
     private void Awake()
     {
+        //pauseMenu = GameObject.Find("PauseMenu");
         m_CharController = GetComponent<CharacterController>();
         m_Health = GetComponent<Health>();
 
@@ -250,6 +254,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        if (m_Health.m_IsDead == true)
+        {
+            PlayerDeath();
+        }
 
         if (dashLimit != 3)
         {
@@ -1088,6 +1097,30 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        
+        if (context.started)
+        {
+            if (!paused)
+            {
+                pauseMenu.SetBool("Paused", true);
+                Debug.Log("You did it buddy!");
+                Time.timeScale = 0f;
+                paused = true;
+            }
+            else
+            {
+                pauseMenu.SetBool("Paused", false);
+                Debug.Log("You did it buddy!");
+                Time.timeScale = 1f;
+                paused = false;
+            }
+
+        }
+
+    }
+
     #endregion
 
     #region Device connections
@@ -1118,5 +1151,13 @@ public class PlayerController : MonoBehaviour
         Mathf.Pow(1 - t, 2) * startPos.z +
             (1 - t) * 2 * t * controlPos.z +
             t * t * endPos.z);
+    }
+
+    public void PlayerDeath()
+    {
+        Debug.Log("The player has died");
+        paused = true;
+        deathScreen.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

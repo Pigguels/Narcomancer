@@ -539,7 +539,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-3339057518604453627
+--- !u!114 &-3400790492693842903
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -549,9 +549,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter://Boss
+  m_Name: parameter:/MusicMixLoop/Combat
   m_EditorClassIdentifier: 
-  Name: Boss
+  Name: Combat
   Min: 0
   Max: 2
   Default: 0
@@ -596,7 +596,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637713786917133702
+  lastModified: 637720554053994357
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -669,6 +669,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2055056792369313437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Combat
+  m_EditorClassIdentifier: 
+  Name: Combat
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-1858473184917145050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,7 +748,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637713786917133702
+  lastModified: 637720553989757500
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -754,6 +774,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-667504342819192471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Boss
+  m_EditorClassIdentifier: 
+  Name: Boss
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-608445172167704303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,7 +809,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637713786917881945
+  lastModified: 637720554054284636
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -830,22 +870,43 @@ MonoBehaviour:
   - {fileID: 3390125560433216171}
   - {fileID: 8301496829945210863}
   - {fileID: 8089713456643942896}
-  - {fileID: -3408107081186452091}
-  - {fileID: 752392023204428656}
-  - {fileID: 8991793057665131847}
-  - {fileID: -8684960748350637124}
-  - {fileID: -1858473184917145050}
-  - {fileID: -3449969646480232684}
-  - {fileID: 7114503961274336255}
-  - {fileID: -2716577840977524212}
-  - {fileID: -4546946928242885569}
-  - {fileID: 8561120761494973615}
+  - {fileID: 7030753086769645960}
+  - {fileID: -7113006336859802808}
+  - {fileID: 3299339444481894448}
+  - {fileID: -3746272700408477110}
+  - {fileID: 609117622810230433}
+  - {fileID: -133728631393823419}
+  - {fileID: 2718342174298260783}
+  - {fileID: 334939270413281306}
+  - {fileID: 7680475207391860738}
+  - {fileID: 950844246887075100}
+  - {fileID: 7842272073283812381}
+  - {fileID: 4951458560154306297}
+  - {fileID: 6531517032177492951}
+  - {fileID: -6172152386240159797}
+  - {fileID: 4594744855290754922}
+  - {fileID: -4171764659892689233}
+  - {fileID: 3481212696249596690}
+  - {fileID: -3408257012059668952}
+  - {fileID: 6480581501983899010}
+  - {fileID: 4031366820931417275}
+  - {fileID: 7600447717837199606}
+  - {fileID: 1224543225334880878}
+  - {fileID: -7638730742664511972}
+  - {fileID: -3435101460784519283}
+  - {fileID: 3670652621918302098}
+  - {fileID: -5853247390074151927}
+  - {fileID: -2485862933180000610}
+  - {fileID: 2380053764194929174}
+  - {fileID: -5054859928062876545}
+  - {fileID: -4106108479322410378}
+  - {fileID: 6720537155241211167}
   EditorParameters: []
   MasterBanks:
   - {fileID: -755379686889876173}
   StringsBanks:
   - {fileID: -2901742062300175861}
-  stringsBankWriteTime: 637713786917133702
+  stringsBankWriteTime: 637720554053994357
   cacheVersion: 6
 --- !u!114 &334939270413281306
 MonoBehaviour:
@@ -885,7 +946,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 637713786917353123
+  lastModified: 637720554054044415
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1094,7 +1155,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
---- !u!114 &2658089631605326597
+--- !u!114 &2380053764194929174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1103,17 +1164,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter://Combat
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Wave Barks (5)
   m_EditorClassIdentifier: 
-  Name: Combat
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 0
-    data2: 0
-  Exists: 1
+  Path: event:/3D Dialogue/One Shots/Wave Barks (5)
+  guid: e821fdfb56132945a0a4aecf6ce47121
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2718342174298260783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Destroy the Drugs/Destroy the drugs
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Destroy the Drugs/Destroy the drugs
+  guid: 26d6a324d5ae514790fff741615372c8
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2789769506891464122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1518,6 +1605,31 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &5613768506658984981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/MusicMixLoop
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MusicMixLoop
+  guid: a4f0d3c68e93d24192b731ecf03bb3f4
+  Banks:
+  - {fileID: -608445172167704303}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -2055056792369313437}
+  - {fileID: -667504342819192471}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 424000
 --- !u!114 &6145123141538373320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1928,8 +2040,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 2658089631605326597}
-  - {fileID: -3339057518604453627}
+  - {fileID: 0}
+  - {fileID: 0}
   MinDistance: 0
   MaxDistance: 0
   Length: 424000
