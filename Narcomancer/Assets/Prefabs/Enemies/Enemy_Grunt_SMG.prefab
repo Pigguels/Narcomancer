@@ -2147,6 +2147,7 @@ GameObject:
   - component: {fileID: 269389663725135658}
   - component: {fileID: 8426199292167009557}
   - component: {fileID: 3170845702393834175}
+  - component: {fileID: -1751488562573654327}
   m_Layer: 0
   m_Name: Enemy_Grunt_SMG
   m_TagString: Enemy
@@ -2249,6 +2250,21 @@ MonoBehaviour:
   m_PlayerPos: {fileID: 0}
   m_Health: {fileID: 269389663725135658}
   m_Animator: {fileID: 5504490248210736085}
+--- !u!114 &-1751488562573654327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5329102554014918540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c4edf3376dfda47aeefd0e00971106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barkEmitter: {fileID: 0}
+  min: 10
+  max: 30
 --- !u!1 &5332675029530514242
 GameObject:
   m_ObjectHideFlags: 0

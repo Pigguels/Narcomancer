@@ -1987,6 +1987,7 @@ GameObject:
   - component: {fileID: 1143436136306931621}
   - component: {fileID: 8686461815633733018}
   - component: {fileID: 2333504791370988080}
+  - component: {fileID: 5315617773089283067}
   m_Layer: 0
   m_Name: Enemy_Grunt_Magnum
   m_TagString: Enemy
@@ -2089,6 +2090,21 @@ MonoBehaviour:
   m_PlayerPos: {fileID: 0}
   m_Health: {fileID: 1143436136306931621}
   m_Animator: {fileID: 2838433266944718129}
+--- !u!114 &5315617773089283067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5014648143254091523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c4edf3376dfda47aeefd0e00971106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barkEmitter: {fileID: 0}
+  min: 10
+  max: 30
 --- !u!1 &5056068025964702314
 GameObject:
   m_ObjectHideFlags: 0

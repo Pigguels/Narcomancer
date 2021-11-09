@@ -2020,6 +2020,7 @@ GameObject:
   - component: {fileID: 258938471443832191}
   - component: {fileID: 8414167552060231488}
   - component: {fileID: 3182888318596157674}
+  - component: {fileID: -6190658543348067816}
   m_Layer: 0
   m_Name: Enemy_Enforcer_02
   m_TagString: Enemy
@@ -2122,6 +2123,21 @@ MonoBehaviour:
   m_PlayerPos: {fileID: 0}
   m_Health: {fileID: 258938471443832191}
   m_Animator: {fileID: 1486542790736956397}
+--- !u!114 &-6190658543348067816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322755424687463897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c4edf3376dfda47aeefd0e00971106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barkEmitter: {fileID: 0}
+  min: 10
+  max: 30
 --- !u!1 &5345200354379603181
 GameObject:
   m_ObjectHideFlags: 0
