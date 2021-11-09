@@ -28,6 +28,8 @@ public class EnemyAI : MonoBehaviour
     public float m_ProjectileXBloom = 0f;
     public float m_ProjectileYBloom = 0f;
     public Transform m_ProjectileSpawnPos;
+    [Space]
+    public Vector3 m_LightningChainOffset = Vector3.zero;
 
     [Header("Referances:")]
     public GameObject m_Projectile;

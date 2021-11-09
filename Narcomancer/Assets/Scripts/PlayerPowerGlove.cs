@@ -97,7 +97,7 @@ public class PlayerPowerGlove : MonoBehaviour
                 for (int i = 1; i < m_MaxChainAmount + 1; ++i)
                 {
                     if (i < m_HitObjects.Count)
-                        m_LineRenderer.SetPosition(i, m_HitObjects[i - 1].transform.position);
+                        m_LineRenderer.SetPosition(i, m_HitObjects[i - 1].transform.position + m_HitObjects[i - 1].GetComponent<EnemyAI>().m_LightningChainOffset);
                     else
                         m_LineRenderer.SetPosition(i, m_LineRenderer.GetPosition(i - 1));
                 }
