@@ -88,7 +88,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""bf9e3460-fabd-49b1-8ab4-aa322908a04e"",
                     ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PlayerControls"",
                     ""action"": ""Pause"",
