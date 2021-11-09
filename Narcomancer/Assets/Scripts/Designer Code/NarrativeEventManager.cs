@@ -33,6 +33,8 @@ public class NarrativeEventManager : MonoBehaviour
     public GameObject monologueTrigger;
 
     public GameObject officeGas;
+    public GameObject drugs;
+    public GameObject destroyeddrugs;
 
     public float timer;
     public float barktimer;
@@ -215,6 +217,8 @@ public class NarrativeEventManager : MonoBehaviour
     }
     public void StoryDestroyTheDrugs()
     {
+        drugs.SetActive(false);
+        destroyeddrugs.SetActive(true);
         StartCoroutine(BossStart());
         print("destroyeddrugs");
     }
