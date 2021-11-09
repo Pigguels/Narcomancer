@@ -10,9 +10,10 @@ public class PickUp : MonoBehaviour
     private float timeOffset;
     public GameObject pickUpPrefab;
     public PickupType pickupType;
-    public float pickupDistance = 3f;
+    public float pickupDistance;
     public LayerMask playerLayer;
-
+    public float lerpPercent;
+    public float pickupdestorytime;
     Transform player;
 
     float startingHeight;
@@ -38,6 +39,7 @@ public class PickUp : MonoBehaviour
         transform.localRotation = Quaternion.Euler(rot.x, rot.y, rot.z);
 
         Collider[] hit = (Physics.OverlapSphere(transform.position, pickupDistance));
+        
         // Cast a sphere around the pickup to see if it is about to hit anything.
         foreach (var collider in hit)
         {
@@ -50,28 +52,15 @@ public class PickUp : MonoBehaviour
                 if (pickupType == PickupType.health)
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().m_Health.Heal(15);
 
-                transform.position = Vector3.Lerp(transform.position, player.position, .06f);
-                Destroy(gameObject, .7f);
+                transform.position = Vector3.Lerp(transform.position, player.position, lerpPercent);
+                Destroy(gameObject, pickupdestorytime);
             }
 
         }
 
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.tag == "Player")
-    //    {
-    //        if (pickupType == PickupType.ammo)
-    //            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddShotgunAmmo(5);
-    //        if (pickupType == PickupType.neon)
-    //            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().AddNeonAmmo(5);
-    //        if (pickupType == PickupType.health)
-    //            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().m_Health.Heal(15);
-    //
-    //        Destroy(gameObject, .2f);
-    //    }
-    //}
+   
 
 }
 public enum PickupType

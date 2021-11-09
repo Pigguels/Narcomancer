@@ -167,10 +167,7 @@ public class EnemyAI : MonoBehaviour
             if (m_TimeUntilNextAttack > 0f)
                 m_TimeUntilNextAttack -= Time.deltaTime;
         }
-        else if (m_Health.m_IsDead)
-        {
-            return;
-        }
+        
         else
         {
             m_CurrentState = States.dead;
