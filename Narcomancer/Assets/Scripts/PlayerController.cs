@@ -232,7 +232,8 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController m_CharController;
 
-    private LayerMask m_LayerMask;
+    private LayerMask m_PlayerMask;
+    private LayerMask m_IgnoreMask;
 
 
     private void Awake()
@@ -242,7 +243,8 @@ public class PlayerController : MonoBehaviour
         m_CharController = GetComponent<CharacterController>();
         m_Health = GetComponent<Health>();
 
-        m_LayerMask = LayerMask.GetMask("Player");
+        m_PlayerMask = LayerMask.GetMask("Player");
+        m_IgnoreMask = LayerMask.GetMask("IgnorePlayerChecks");
 
         m_StandingHeight = m_CharController.height;
         m_TargetHeight = m_StandingHeight;
@@ -463,7 +465,7 @@ public class PlayerController : MonoBehaviour
 
         /* Raycast to the ground */
         RaycastHit slopeHit;
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, m_CharController.height * 0.5f + 0.5f, ~m_LayerMask))
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, m_CharController.height * 0.5f + 0.5f, ~m_PlayerMask & ~m_IgnoreMask))
         {
             /* Check if the ground is a slope */
             if (Vector3.Dot(slopeHit.normal, Vector3.up) < 0.99f)
@@ -501,7 +503,7 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded()
     {
         RaycastHit sphereHit;
-        return Physics.SphereCast(transform.position, m_CharController.radius, Vector3.down, out sphereHit, (m_CharController.height * 0.5f) - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~m_LayerMask);
+        return Physics.SphereCast(transform.position, m_CharController.radius, Vector3.down, out sphereHit, (m_CharController.height * 0.5f) - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~m_PlayerMask & ~m_IgnoreMask);
     }
 
     /// <summary>
@@ -510,7 +512,7 @@ public class PlayerController : MonoBehaviour
     private bool IsObjectAbove()
     {
         RaycastHit sphereHit;
-        return Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~m_LayerMask);
+        return Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~m_PlayerMask & ~m_IgnoreMask);
     }
 
     /// <summary>
@@ -522,7 +524,7 @@ public class PlayerController : MonoBehaviour
             return true;
 
         RaycastHit sphereHit;
-        return !Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) + (m_StandingHeight - m_CrouchHeight) - m_CharController.radius + m_CharController.skinWidth, ~m_LayerMask);
+        return !Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) + (m_StandingHeight - m_CrouchHeight) - m_CharController.radius + m_CharController.skinWidth, ~m_PlayerMask & ~m_IgnoreMask);
     }
 
     /// <summary>
@@ -543,7 +545,7 @@ public class PlayerController : MonoBehaviour
         /* Check if there is a wall in the check direction */
         RaycastHit wallHit;
         if (Physics.CapsuleCast(transform.position + new Vector3(0f,m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
-            m_CharController.radius, checkDirection, out wallHit, horizontalDistanceToMantle, ~m_LayerMask))
+            m_CharController.radius, checkDirection, out wallHit, horizontalDistanceToMantle, ~m_PlayerMask & ~m_IgnoreMask))
         {
             /* Make sure the walls mantable */
             if (wallHit.transform.CompareTag("Mantlable"))
@@ -571,7 +573,7 @@ public class PlayerController : MonoBehaviour
         /* Check if there is a wall in the check direction */
         RaycastHit wallHit;
         if (Physics.CapsuleCast(transform.position + new Vector3(0f, m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
-            m_CharController.radius, checkDirection, out wallHit, horizontalDistanceToVault, ~m_LayerMask))
+            m_CharController.radius, checkDirection, out wallHit, horizontalDistanceToVault, ~m_PlayerMask & ~m_IgnoreMask))
         {
             /* Make sure the walls vaultable */
             if (wallHit.transform.CompareTag("Vaultable"))
@@ -755,12 +757,12 @@ public class PlayerController : MonoBehaviour
         /* Get the distance of the wall */
         RaycastHit wallHit;
         if (Physics.CapsuleCast(transform.position + new Vector3(0f, m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
-            m_CharController.radius, m_MoveDir, out wallHit, horizontalDistanceToMantle, ~m_LayerMask))
+            m_CharController.radius, m_MoveDir, out wallHit, horizontalDistanceToMantle, ~m_PlayerMask))
         {
             /* Try get end position of the mantle */
             RaycastHit ledgeHit;
             if (Physics.Raycast(transform.position + (m_MoveDir * (wallHit.distance + (m_CharController.radius * 2f))) + (Vector3.up * verticalDistanceToMantle),
-                Vector3.down, out ledgeHit, verticalDistanceToMantle + (m_CharController.height * 0.5f), ~m_LayerMask))
+                Vector3.down, out ledgeHit, verticalDistanceToMantle + (m_CharController.height * 0.5f), ~m_PlayerMask))
             {
                 /* Get the start and end positions of the mantle */
                 mantleStartPosition = transform.position;
@@ -835,12 +837,12 @@ public class PlayerController : MonoBehaviour
         /* Get the distance of the wall */
         RaycastHit wallHit;
         if (Physics.CapsuleCast(transform.position + new Vector3(0f, m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
-            m_CharController.radius, m_MoveDir, out wallHit, horizontalDistanceToVault, ~m_LayerMask))
+            m_CharController.radius, m_MoveDir, out wallHit, horizontalDistanceToVault, ~m_PlayerMask))
         {
             /* Get end position of the vault */
             RaycastHit ledgeHit;
             if (Physics.Raycast(transform.position + (m_MoveDir * (wallHit.distance + (m_CharController.radius * 2f))) + (Vector3.up * verticalDistanceToVault),
-                Vector3.down, out ledgeHit, verticalDistanceToVault + (m_CharController.height * 0.5f), ~m_LayerMask))
+                Vector3.down, out ledgeHit, verticalDistanceToVault + (m_CharController.height * 0.5f), ~m_PlayerMask))
             {
                 /* Get the start and end positions of the mantle */
                 vaultStartPosition = transform.position;
@@ -923,7 +925,7 @@ public class PlayerController : MonoBehaviour
             /* Check if the dash is blocked */
             RaycastHit wallHit;
             if (Physics.CapsuleCast(transform.position + new Vector3(0f, m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
-                m_CharController.radius, m_MoveDir, out wallHit, m_DashDistance * (Time.deltaTime * m_DashTimeMultiplier) + m_CharController.radius, ~m_LayerMask))
+                m_CharController.radius, m_MoveDir, out wallHit, m_DashDistance * (Time.deltaTime * m_DashTimeMultiplier) + m_CharController.radius, ~m_PlayerMask))
             {
                 /* End the dash */
                 m_MoveState = MovementStates.walk;
