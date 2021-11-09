@@ -152,11 +152,14 @@ public class PlayerShotgun : MonoBehaviour
     {
         if (context.started)
         {
-            if (timeSinceLastShot >= timeBetweenShots && m_PlayerController.m_CurrentShotgunAmmo > 0)
+            if (!PlayerController.paused)
             {
-                Shoot();
-                --m_PlayerController.m_CurrentShotgunAmmo;
-                timeSinceLastShot = 0f;
+                if (timeSinceLastShot >= timeBetweenShots && m_PlayerController.m_CurrentShotgunAmmo > 0)
+                {
+                    Shoot();
+                    --m_PlayerController.m_CurrentShotgunAmmo;
+                    timeSinceLastShot = 0f;
+                }
             }
         }
     }

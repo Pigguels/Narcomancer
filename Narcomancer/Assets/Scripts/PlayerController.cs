@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
@@ -12,7 +13,8 @@ public class PlayerController : MonoBehaviour
 {
     Vector2 m_MoveInput;
     Vector2 m_LookInput;
-    bool paused = false;
+
+    public static bool paused = false; // jeez i hate this, but i dont have time
 
     public PlayerInput m_PlayerInput;
     
@@ -216,18 +218,15 @@ public class PlayerController : MonoBehaviour
     [Header("UI Referances:")]
     [Space]
 
-    public TMP_Text m_HealthText;
     public Slider m_HealthSlider;
-    public Image m_HealthBar;
 
     public TMP_Text m_ShotgunAmmoText;
-    public TMP_Text m_NeonAmmoText;
-    public Slider m_NeonAmmoSlider;
 
     public Image m_NeonAmmoRing;
     public GameObject[] m_DashIcon;
     public GameObject deathScreen;
 
+    public Animator pauseMenu;
 
     #endregion
 
@@ -235,10 +234,10 @@ public class PlayerController : MonoBehaviour
 
     private LayerMask m_LayerMask;
 
-    public Animator pauseMenu;
 
     private void Awake()
     {
+        paused = false;
         //pauseMenu = GameObject.Find("PauseMenu");
         m_CharController = GetComponent<CharacterController>();
         m_Health = GetComponent<Health>();
@@ -254,95 +253,99 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
-        if (m_Health.m_IsDead == true)
+        if (!paused)
         {
-            PlayerDeath();
-        }
-
-        if (dashLimit != 3)
-        {
-            m_DashCooldownDetla += Time.deltaTime;
-            if (m_DashCooldownDetla > m_DashCooldown)
+            if (m_Health.m_IsDead == true)
             {
-                m_DashCooldownDetla = 0f;
-                dashLimit += 1;
-                DashUI();
+                PlayerDeath();
             }
+
+            if (dashLimit != 3)
+            {
+                m_DashCooldownDetla += Time.deltaTime;
+                if (m_DashCooldownDetla > m_DashCooldown)
+                {
+                    m_DashCooldownDetla = 0f;
+                    dashLimit += 1;
+                    DashUI();
+                }
+            }
+
+
+            m_IsGrounded = IsGrounded();
+            m_ObjectAbove = IsObjectAbove();
+
+            /* Get The last move direction the is not zero */
+            if (m_MoveDir != Vector3.zero)
+                m_LastMoveDir = m_MoveDir;
+
+            m_MoveDir = (transform.forward * m_MoveInput.y + transform.right * m_MoveInput.x).normalized;
+
+            if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump) && m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanVault())
+            {
+                m_MoveState = MovementStates.vault;
+                InitialiseVault();
+            }
+            else if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump) && m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanMantle())
+            {
+                m_MoveState = MovementStates.mantle;
+                InitialiseMantle();
+            }
+
+            /* Update the current movement states */
+            switch (m_MoveState)
+            {
+                case MovementStates.walk:
+                    m_CamRollTargetAngle = m_CamWalkAngle;
+                    Walk();
+                    break;
+
+                case MovementStates.crouch:
+                    m_CamRollTargetAngle = m_CamCrouchAngle;
+                    Crouch();
+                    break;
+
+                case MovementStates.jump:
+                    Jump();
+                    break;
+
+                case MovementStates.slide:
+                    Slide();
+                    break;
+
+                case MovementStates.mantle:
+                    Mantle();
+                    break;
+
+                case MovementStates.vault:
+                    Vault();
+                    break;
+
+                case MovementStates.dash:
+                    Dash();
+                    break;
+            }
+
+
+            ApplyPhysics();
+
+            if (m_MoveState == MovementStates.slide)
+                AdjustYScale(m_TargetHeight, m_VerticalSlideSpeed);
+            else
+                AdjustYScale(m_TargetHeight, m_VerticalCrouchSpeed);
+
+            AdjustCameraRoll(m_CamRollTargetAngle);
+
+            SlopeAdjustment();
+
+            UpdateUIElements();
         }
-
-
-        m_IsGrounded = IsGrounded();
-        m_ObjectAbove = IsObjectAbove();
-
-        /* Get The last move direction the is not zero */
-        if (m_MoveDir != Vector3.zero)
-            m_LastMoveDir = m_MoveDir;
-
-        m_MoveDir = (transform.forward * m_MoveInput.y + transform.right * m_MoveInput.x).normalized;
-
-        if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump) && m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanVault())
-        {
-            m_MoveState = MovementStates.vault;
-            InitialiseVault();
-        }
-        else if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump) && m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanMantle())
-        {
-            m_MoveState = MovementStates.mantle;
-            InitialiseMantle();
-        }
-
-        /* Update the current movement states */
-        switch (m_MoveState)
-        {
-            case MovementStates.walk:
-                m_CamRollTargetAngle = m_CamWalkAngle;
-                Walk();
-                break;
-
-            case MovementStates.crouch:
-                m_CamRollTargetAngle = m_CamCrouchAngle;
-                Crouch();
-                break;
-
-            case MovementStates.jump:
-                Jump();
-                break;
-
-            case MovementStates.slide:
-                Slide();
-                break;
-
-            case MovementStates.mantle:
-                Mantle();
-                break;
-
-            case MovementStates.vault:
-                Vault();
-                break;
-
-            case MovementStates.dash:
-                Dash();
-                break;
-        }
-
-        ApplyPhysics();
-
-        if (m_MoveState == MovementStates.slide)
-            AdjustYScale(m_TargetHeight, m_VerticalSlideSpeed);
-        else
-            AdjustYScale(m_TargetHeight, m_VerticalCrouchSpeed);
-
-        AdjustCameraRoll(m_CamRollTargetAngle);
-
-        SlopeAdjustment();
-
-        UpdateUIElements();
     }
 
     private void LateUpdate()
     {
-        Look();
+        if (!paused)
+            Look();
     }
 
     /// <summary> 
@@ -476,16 +479,15 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void UpdateUIElements()
     {
-        m_HealthText.text = (Mathf.Round(m_Health.m_CurrentHealth * 10) / 10).ToString();
+        //m_HealthText.text = (Mathf.Round(m_Health.m_CurrentHealth * 10) / 10).ToString();
         m_HealthSlider.value = m_Health.m_CurrentHealth;
         m_HealthSlider.maxValue = m_Health.m_MaxHealth;
-        m_HealthBar.fillAmount = (m_Health.m_CurrentHealth / 10);
 
         m_ShotgunAmmoText.text = m_CurrentShotgunAmmo.ToString();
 
-        m_NeonAmmoText.text = (Mathf.Round(m_CurrentNeonAmmo * 10) / 10).ToString();
-        m_NeonAmmoSlider.value = m_CurrentNeonAmmo;
-        m_NeonAmmoSlider.maxValue = m_MaxNeonAmmo;
+        //m_NeonAmmoText.text = (Mathf.Round(m_CurrentNeonAmmo * 10) / 10).ToString();
+        //m_NeonAmmoSlider.value = m_CurrentNeonAmmo;
+        //m_NeonAmmoSlider.maxValue = m_MaxNeonAmmo;
         m_NeonAmmoRing.fillAmount = (m_CurrentNeonAmmo / 10) * 0.25f;
     }
 
@@ -1102,23 +1104,36 @@ public class PlayerController : MonoBehaviour
         
         if (context.started)
         {
-            if (!paused)
+            if (!m_Health.m_IsDead)
             {
-                pauseMenu.SetBool("Paused", true);
-                Debug.Log("You did it buddy!");
-                Time.timeScale = 0f;
-                paused = true;
+                if (!paused)
+                {
+                    pauseMenu.SetBool("Paused", true);
+                    Time.timeScale = 0f;
+
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+
+                    paused = true;
+                }
+                else
+                {
+                    pauseMenu.SetBool("Paused", false);
+                    Time.timeScale = 1f;
+
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+
+                    paused = false;
+                }
             }
             else
             {
-                pauseMenu.SetBool("Paused", false);
-                Debug.Log("You did it buddy!");
-                Time.timeScale = 1f;
-                paused = false;
+                /* Return to menu if pause is pressed during death screen */
+                Debug.Log("Loading Main Menu...");
+                SceneManager.LoadScene("MainMenu");
             }
-
         }
-
     }
 
     #endregion
@@ -1155,9 +1170,10 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerDeath()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Debug.Log("The player has died");
-        paused = true;
         deathScreen.SetActive(true);
-        Time.timeScale = 0f;
+        Time.timeScale = Mathf.Lerp(Time.timeScale, 0f, 0.25f);
     }
 }

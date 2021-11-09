@@ -40,20 +40,20 @@ public class PlayerPowerGlove : MonoBehaviour
 
     private void Update()
     {
-        if (m_SecondaryFireDown && m_PlayerController.m_CurrentNeonAmmo > 0f)
+        if (!PlayerController.paused)
         {
-            ShootLightning();
-            m_PlayerController.m_CurrentNeonAmmo -= Time.deltaTime;
-            fpRig.SetBool("PlayerLightning", true);
-            Debug.Log("Lightning!");
+            if (m_SecondaryFireDown && m_PlayerController.m_CurrentNeonAmmo > 0f)
+            {
+                ShootLightning();
+                m_PlayerController.m_CurrentNeonAmmo -= Time.deltaTime;
+                fpRig.SetBool("PlayerLightning", true);
+            }
+            else
+            {
+                m_LineRenderer.positionCount = 0;
+                fpRig.SetBool("PlayerLightning", false);
+            }
         }
-        else
-        {
-            m_LineRenderer.positionCount = 0;
-            fpRig.SetBool("PlayerLightning", false);
-        }
-
-
     }
 
     void ShootLightning()
