@@ -40,20 +40,20 @@ public class PlayerPowerGlove : MonoBehaviour
 
     private void Update()
     {
-        if (m_SecondaryFireDown && m_PlayerController.m_CurrentNeonAmmo > 0f)
+        if (!PlayerController.paused)
         {
-            ShootLightning();
-            m_PlayerController.m_CurrentNeonAmmo -= Time.deltaTime;
-            fpRig.SetBool("PlayerLightning", true);
-            Debug.Log("Lightning!");
+            if (m_SecondaryFireDown && m_PlayerController.m_CurrentNeonAmmo > 0f)
+            {
+                ShootLightning();
+                m_PlayerController.m_CurrentNeonAmmo -= Time.deltaTime;
+                fpRig.SetBool("PlayerLightning", true);
+            }
+            else
+            {
+                m_LineRenderer.positionCount = 0;
+                fpRig.SetBool("PlayerLightning", false);
+            }
         }
-        else
-        {
-            m_LineRenderer.positionCount = 0;
-            fpRig.SetBool("PlayerLightning", false);
-        }
-
-
     }
 
     void ShootLightning()
@@ -97,7 +97,7 @@ public class PlayerPowerGlove : MonoBehaviour
                 for (int i = 1; i < m_MaxChainAmount + 1; ++i)
                 {
                     if (i < m_HitObjects.Count)
-                        m_LineRenderer.SetPosition(i, m_HitObjects[i - 1].transform.position);
+                        m_LineRenderer.SetPosition(i, m_HitObjects[i - 1].transform.position + m_HitObjects[i - 1].GetComponent<EnemyAI>().m_LightningChainOffset);
                     else
                         m_LineRenderer.SetPosition(i, m_LineRenderer.GetPosition(i - 1));
                 }
@@ -168,12 +168,9 @@ public class PlayerPowerGlove : MonoBehaviour
 
     public void OnSecondaryFire(InputAction.CallbackContext context)
     {
-        if (m_PlayerController.paused == false)
-        {
-            if (context.started)
-                m_SecondaryFireDown = true;
-            else if (context.canceled)
-                m_SecondaryFireDown = false;
-        }
+        if (context.started)
+            m_SecondaryFireDown = true;
+        else if (context.canceled)
+            m_SecondaryFireDown = false;
     }
 }

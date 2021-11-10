@@ -5,31 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-
-    public PlayerController player;
-    public GameObject settingMenu;
-    bool optionsOpen = false;
+    public Animator pauseMenuAnim;
 
     public void OnClickResume()
     {
-        player.OnPauseUI();
+        pauseMenuAnim.SetBool("Paused", false);
+        Time.timeScale = 1f;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        
+        PlayerController.paused = false;
         Debug.Log("Game Resumed");
     }
 
     public void OnClickOptions()
     {
-        if (!optionsOpen)
-        {
-            settingMenu.SetActive(true);
-            Debug.Log("Options");
-            optionsOpen = true;
-        } else
-        {
-            settingMenu.SetActive(false);
-            Debug.Log("Options");
-            optionsOpen = false;
-        }
-
+        Debug.Log("Options");
+        
+        //if (!optionsOpen)
+        //{
+        //    settingMenu.SetActive(true);
+        //    Debug.Log("Opened Options");
+        //    optionsOpen = true;
+        //}
+        //else
+        //{
+        //    settingMenu.SetActive(false);
+        //    Debug.Log("Closed Options");
+        //    optionsOpen = false;
+        //}
     }
 
     public void OnClickQuit()
@@ -42,5 +47,8 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-
+    public void OnClickMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

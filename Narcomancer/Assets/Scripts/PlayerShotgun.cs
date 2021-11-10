@@ -150,16 +150,13 @@ public class PlayerShotgun : MonoBehaviour
 
     public void OnPrimaryFire(InputAction.CallbackContext context)
     {
-        if (m_PlayerController.paused == false)
+        if (!PlayerController.paused)
         {
-            if (context.started)
+            if (timeSinceLastShot >= timeBetweenShots && m_PlayerController.m_CurrentShotgunAmmo > 0)
             {
-                if (timeSinceLastShot >= timeBetweenShots && m_PlayerController.m_CurrentShotgunAmmo > 0)
-                {
-                    Shoot();
-                    --m_PlayerController.m_CurrentShotgunAmmo;
-                    timeSinceLastShot = 0f;
-                }
+                Shoot();
+                --m_PlayerController.m_CurrentShotgunAmmo;
+                timeSinceLastShot = 0f;
             }
         }
     }
