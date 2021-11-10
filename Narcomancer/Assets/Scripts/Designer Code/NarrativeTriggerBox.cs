@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class NarrativeTriggerBox : MonoBehaviour
 {
-    public enum TriggerBoxName {Intro, Office, Bossfight, Monologue }
+    public enum TriggerBoxName {Intro, Office, Bossfight, Monologue, Vip }
     public TriggerBoxName triggerName;
     public GameObject NarrativeEventController;
-    public bool istriggered;
+    //public bool istriggered;
  
     // Start is called before the first frame update
     void Start()
     {
-        istriggered = false;
+       // istriggered = false;
     }
 
     // Update is called once per frame
@@ -23,9 +23,9 @@ public class NarrativeTriggerBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && !istriggered)
+        if (other.tag == "Player") //!istriggered 
         {
-            istriggered = true;
+            
             switch (triggerName)
             {
                 case TriggerBoxName.Intro:
@@ -38,16 +38,19 @@ public class NarrativeTriggerBox : MonoBehaviour
                     break;
                 case TriggerBoxName.Bossfight:
                     NarrativeEventController.GetComponent<NarrativeEventManager>().StoryBossFight();
+                    print("donde esta boss fight?");
                     break;
                 case TriggerBoxName.Monologue:
                     NarrativeEventController.GetComponent<NarrativeEventManager>().StoryMonologue();
                     break;
-
+                case TriggerBoxName.Vip:
+                    NarrativeEventController.GetComponent<NarrativeEventManager>().Gentlemen();
+                    break;
             }
             //print("triggered");
             gameObject.SetActive(false);
         }
-        istriggered = true;
+       
     }
 
  //   private void OnTriggerExit(Collider other)

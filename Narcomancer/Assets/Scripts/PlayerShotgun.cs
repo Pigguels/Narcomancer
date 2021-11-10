@@ -137,7 +137,8 @@ public class PlayerShotgun : MonoBehaviour
             {
                 if (hits[i].transform.GetComponent<Health>())
                     hits[i].transform.GetComponent<Health>().Damage(pelletDamage);
-                // NEED TO ADD GENERIC INTERACTABLE OBJECT EVENT CALLING HERE
+                if (hits[i].transform.GetComponent<InteractableObject>())
+                    hits[i].transform.GetComponent<InteractableObject>().Interact();
             }
             else if (hits[i].transform.CompareTag("Untagged"))
             {
@@ -149,13 +150,16 @@ public class PlayerShotgun : MonoBehaviour
 
     public void OnPrimaryFire(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (m_PlayerController.paused == false)
         {
-            if (timeSinceLastShot >= timeBetweenShots && m_PlayerController.m_CurrentShotgunAmmo > 0)
+            if (context.started)
             {
-                Shoot();
-                --m_PlayerController.m_CurrentShotgunAmmo;
-                timeSinceLastShot = 0f;
+                if (timeSinceLastShot >= timeBetweenShots && m_PlayerController.m_CurrentShotgunAmmo > 0)
+                {
+                    Shoot();
+                    --m_PlayerController.m_CurrentShotgunAmmo;
+                    timeSinceLastShot = 0f;
+                }
             }
         }
     }

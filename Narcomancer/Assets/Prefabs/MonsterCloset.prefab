@@ -90,7 +90,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6044205674821412417}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.03, y: 0.021, z: 1.846}
+  m_LocalPosition: {x: -2.03, y: 0.445, z: 1.846}
   m_LocalScale: {x: 0.75871, y: 0.75871, z: 0.75871}
   m_Children: []
   m_Father: {fileID: 377437480327795861}
@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 1578306382852379254}
   - component: {fileID: 3203382455137703539}
   - component: {fileID: 492151343291977352}
+  - component: {fileID: 4502259882219585705}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -265,6 +266,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerColour: {r: 1, g: 0, b: 0, a: 0}
   triggerWireColour: {r: 1, g: 0, b: 0, a: 0.8862745}
+--- !u!33 &4502259882219585705
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859713447349267712}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!64 &1500823828658793442
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -305,7 +314,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8603484997328678785}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.206, y: 0.021, z: 1.846}
+  m_LocalPosition: {x: 0.206, y: 0.519, z: 1.846}
   m_LocalScale: {x: 0.75871, y: 0.75871, z: 0.75871}
   m_Children: []
   m_Father: {fileID: 377437480327795861}
