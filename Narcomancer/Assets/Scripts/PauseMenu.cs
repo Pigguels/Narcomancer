@@ -5,14 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-
-    public PlayerController player;
-    public GameObject settingMenu;
-    bool optionsOpen = false;
+    public Animator pauseMenuAnim;
 
     public void OnClickResume()
     {
-        player.OnPauseUI();
+        pauseMenuAnim.SetBool("Paused", false);
+        Time.timeScale = 1f;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        
+        PlayerController.paused = false;
         Debug.Log("Game Resumed");
     }
 
@@ -40,6 +43,11 @@ public class PauseMenu : MonoBehaviour
     public void OnClickRestart()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void OnClickMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
 
