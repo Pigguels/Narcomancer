@@ -719,6 +719,29 @@ MonoBehaviour:
     data1: 611461797
     data2: 2327247759
   Exists: 1
+--- !u!114 &-4410067383663087778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Velvet Room/Ryan Narrative
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Velvet Room/Ryan Narrative
+  guid: 64931faa5d9dce48bb0384a93661561c
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4171764659892689233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,7 +1068,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637721474795427576
+  lastModified: 637721610287799162
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -1217,7 +1240,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637721474795397669
+  lastModified: 637721610287819121
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1383,12 +1406,13 @@ MonoBehaviour:
   - {fileID: -6771444874230084735}
   - {fileID: 8465402790815496572}
   - {fileID: 244721809641406784}
+  - {fileID: -4410067383663087778}
   EditorParameters: []
   MasterBanks:
   - {fileID: -755379686889876173}
   StringsBanks:
   - {fileID: -2901742062300175861}
-  stringsBankWriteTime: 637721474795427576
+  stringsBankWriteTime: 637721610287799162
   cacheVersion: 6
 --- !u!114 &26881563047121991
 MonoBehaviour:
@@ -1494,7 +1518,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 637721474792006743
+  lastModified: 637721610288407554
   LoadResult: 0
   FileSizes: []
   Exists: 1
