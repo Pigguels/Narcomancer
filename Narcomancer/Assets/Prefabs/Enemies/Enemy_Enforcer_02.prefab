@@ -1964,6 +1964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4774218156396155287}
   - component: {fileID: 1486542790736956397}
+  - component: {fileID: 4322345796671169711}
   m_Layer: 0
   m_Name: Enemy_Skinned_Enforcer
   m_TagString: Untagged
@@ -2007,6 +2008,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4322345796671169711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5263228789848460077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1034f5cdee8c74ea3a2b243bccf74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: 4
 --- !u!1 &5322755424687463897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,20 +2124,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EnemyType: 3
+  m_StartAlerted: 0
+  m_AlertOnSight: 1
+  m_AlertDistance: 15
   m_DistanceToStopFollowing: 6.5
   m_DistanceToFlee: 3
   m_MinDistanceToAttack: 3
   m_MaxDistanceToAttack: 6.5
+  m_MinTimeBetweenStrafes: 1
+  m_MaxTimeBetweenStrafes: 5
+  m_MaxStrafeTime: 4
+  m_MinStrafeTime: 0.5
+  m_StrafeSpeed: 2.5
   m_TimeBetweenAttacks: 3.25
   m_SubAttackAmount: 3
   m_TimeBetweenSubAttacks: 0.25
   m_ProjectileXBloom: 0
   m_ProjectileYBloom: 0
   m_ProjectileSpawnPos: {fileID: 8433809580954287883}
+  m_LightningChainOffset: {x: 0, y: 0, z: 0}
+  m_ModelAllignmentSpeed: 0.5
+  m_ModelParent: {fileID: 0}
   m_Projectile: {fileID: 1074264109906350973, guid: 90f8674a10c4f364b9fde0889bb6e970, type: 3}
-  m_PlayerPos: {fileID: 0}
   m_Health: {fileID: 258938471443832191}
   m_Animator: {fileID: 1486542790736956397}
+  m_PlayerPos: {fileID: 0}
 --- !u!114 &-6190658543348067816
 MonoBehaviour:
   m_ObjectHideFlags: 0
