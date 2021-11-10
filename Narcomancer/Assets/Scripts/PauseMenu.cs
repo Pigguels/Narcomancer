@@ -19,21 +19,23 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Game Resumed");
     }
 
- //   public void OnClickOptions()
-   // {
- //       if (!optionsOpen)
-   //     {
-     //       settingMenu.SetActive(true);
-       //     Debug.Log("Options");
-  //          optionsOpen = true;
-   //     } else
-    //    {
-      //      settingMenu.SetActive(false);
-        //    Debug.Log("Options");
-          //  optionsOpen = false;
-     //   }
-
-    //}
+    public void OnClickOptions()
+    {
+        Debug.Log("Options");
+        
+        //if (!optionsOpen)
+        //{
+        //    settingMenu.SetActive(true);
+        //    Debug.Log("Opened Options");
+        //    optionsOpen = true;
+        //}
+        //else
+        //{
+        //    settingMenu.SetActive(false);
+        //    Debug.Log("Closed Options");
+        //    optionsOpen = false;
+        //}
+    }
 
     public void OnClickQuit()
     {
@@ -49,6 +51,4 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
-
-
 }

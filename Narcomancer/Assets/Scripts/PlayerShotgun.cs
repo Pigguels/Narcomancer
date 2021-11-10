@@ -148,21 +148,18 @@ public class PlayerShotgun : MonoBehaviour
         }
     }
 
-    //public void OnPrimaryFire(InputAction.CallbackContext context)
-    //{
-    //    if (m_PlayerController.paused == false)
-    //    {
-    //        if (!PlayerController.paused)
-    //        {
-    //            if (timeSinceLastShot >= timeBetweenShots && m_PlayerController.m_CurrentShotgunAmmo > 0)
-    //            {
-    //                Shoot();
-    //                --m_PlayerController.m_CurrentShotgunAmmo;
-    //                timeSinceLastShot = 0f;
-    //            }
-    //        }
-    //    }
-    //}
+    public void OnPrimaryFire(InputAction.CallbackContext context)
+    {
+        if (!PlayerController.paused)
+        {
+            if (timeSinceLastShot >= timeBetweenShots && m_PlayerController.m_CurrentShotgunAmmo > 0)
+            {
+                Shoot();
+                --m_PlayerController.m_CurrentShotgunAmmo;
+                timeSinceLastShot = 0f;
+            }
+        }
+    }
 
     private void OnDrawGizmos()
     {
