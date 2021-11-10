@@ -153,7 +153,7 @@ public class EnemyAI : MonoBehaviour
                     {
                         /* Strafe that nav meshy */
                         Vector3 strafeDir = Vector3.Cross(towardPlayer2D, Vector3.up);
-                        m_NavAgent.Move(m_StrafeRight ? strafeDir : -strafeDir * m_StrafeSpeed * Time.deltaTime);
+                        m_NavAgent.Move((m_StrafeRight ? strafeDir : -strafeDir) * m_StrafeSpeed * Time.deltaTime);
 
                         m_TimeUntilStrafeEnd -= Time.deltaTime;
                     }
