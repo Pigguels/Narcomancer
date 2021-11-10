@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8696561252261468981}
   - component: {fileID: 1144665847256844554}
   - component: {fileID: 6272510722841056928}
+  - component: {fileID: 131950999369532703}
   m_Layer: 12
   m_Name: Enemy_Grunt_Pistol
   m_TagString: Enemy
@@ -32,7 +33,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8612271115639390983}
-  - {fileID: 8728106691201468317}
+  - {fileID: -6365325130500658863}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -127,20 +128,6 @@ MonoBehaviour:
   m_Health: {fileID: 8696561252261468981}
   m_Animator: {fileID: 2406261576508561789}
   m_PlayerPos: {fileID: 0}
-  m_EnemyManager: {fileID: 0}
---- !u!65 &7570982553384007805
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4227786187245708964}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.1, z: 0.1}
-  m_Center: {x: -0.15, y: 0, z: 0}
 --- !u!114 &131950999369532703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,23 +151,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3031857265491664538}
+  - component: {fileID: -6365325130500658863}
+  - component: {fileID: 1668738395241776432}
   m_Layer: 12
-  m_Name: Projectile Spawn Position
+  m_Name: Barks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &8728106691201468317
+--- !u!4 &-6365325130500658863
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4016456458634332685}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.046329424, y: 1.1017631, z: -1.6362695}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1893405989693082058}
@@ -288,14 +276,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model
       objectReference: {fileID: 0}
-    - target: {fileID: -8977988485229493121, guid: 459d323df8df3d448bf1a96c51a9acdc, type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 459d323df8df3d448bf1a96c51a9acdc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8987971381682785217, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -334,6 +314,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8987971381682785217, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8977988485229493121, guid: 459d323df8df3d448bf1a96c51a9acdc, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 459d323df8df3d448bf1a96c51a9acdc, type: 3}
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8364857860454301915, guid: 459d323df8df3d448bf1a96c51a9acdc, type: 3}
