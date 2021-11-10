@@ -8,7 +8,7 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
 
-    int sceneToLoad;
+    public int sceneToLoad;
     public Animator optionsAnim;
     bool settingsOpen = false;
 
@@ -60,6 +60,7 @@ public class MainMenu : MonoBehaviour
     public void OnClickCredits()
     {
         Debug.Log("Opening Credits");
+        SceneManager.LoadScene(2);
     }
 
     public void OnClickQuit()
@@ -73,11 +74,13 @@ public class MainMenu : MonoBehaviour
     {
         if (fullscreenDropdown.value == 0)
         {
+            Debug.Log("FullScreen");
             Screen.fullScreen = true;
         }
 
         if (fullscreenDropdown.value == 1)
         {
+            Debug.Log("Windowed");
             Screen.fullScreen = false;
         }
     }
@@ -87,26 +90,32 @@ public class MainMenu : MonoBehaviour
     {
         if (resolutionDropdown.value == 0)
         {
+            Debug.Log("Reso 0");
             Screen.SetResolution(2560, 1440, Screen.fullScreenMode);
         }
         if (resolutionDropdown.value == 1)
         {
+            Debug.Log("Reso 1");
             Screen.SetResolution(1920, 1080, Screen.fullScreenMode);
         }
         if (resolutionDropdown.value == 2)
         {
+            Debug.Log("Reso 2");
             Screen.SetResolution(1280, 720, Screen.fullScreenMode);
         }
         if (resolutionDropdown.value == 3)
         {
+            Debug.Log("Reso 3");
             Screen.SetResolution(2560, 1600, Screen.fullScreenMode);
         }
         if (resolutionDropdown.value == 4)
         {
+            Debug.Log("Reso 4");
             Screen.SetResolution(1920, 1200, Screen.fullScreenMode);
         }
         if (resolutionDropdown.value == 1)
         {
+            Debug.Log("Reso 5");
             Screen.SetResolution(1280, 800, Screen.fullScreenMode);
         }
     }

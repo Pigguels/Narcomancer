@@ -9,32 +9,42 @@ public class NarrativeEventManager : MonoBehaviour
     public GameObject doorController;
         
     [Header("Animation Objects")]
-    public GameObject narcomancer;
-    public GameObject henchman;
+    public GameObject OfficeNarcomancer;
+    public GameObject CageNarcomancer;
+    //public GameObject henchman;
     public GameObject officeWindow;
+    public GameObject officeWindowBroken;
     public GameObject glassCage;
 
     [Header("Audio Objects")]
     public GameObject speakerParent;
     public GameObject phonering;
-    public GameObject phonedialogue1;
-    public GameObject phonedialogue2;
+    public GameObject OfficeBark;
+    public GameObject BossBark;
+    //public GameObject Phonedialogue;
+    //public GameObject PhoneScreaming;
+
 
     [Header("Trigger Objects")]
+    public GameObject IntroTrigger;
+    public GameObject VipTrigger;
     public GameObject officeArrivalTrigger;
     public GameObject officeEscapeTrigger;
     public GameObject monologueTrigger;
 
     public GameObject officeGas;
+    public GameObject drugs;
+    public GameObject destroyeddrugs;
 
     public float timer;
-    private bool bluster;
+    public float barktimer;
+    public bool bluster;
     private bool timerenabled;
 
     public bool wave2;
     public bool wave3;
     public bool wave4;
-    private bool bossarrival;
+    //private bool bossarrival;
 
     private FMOD.Studio.EventInstance music;
     [FMODUnity.EventRef]
@@ -43,9 +53,10 @@ public class NarrativeEventManager : MonoBehaviour
     public float combat;
     
     private Animator narcomancerAnim;
-    private Animator windowAnim;
+    private Animator NarcoCageAnim;
     private Animator henchmanAnim;
-    private Animator cageAnim;
+    public Animator cageAnim;
+    
 
 
     // Start is called before the first frame update
@@ -54,15 +65,46 @@ public class NarrativeEventManager : MonoBehaviour
         music = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
         music.start();
 
-        narcomancerAnim = narcomancer.GetComponent<Animator>();
-        windowAnim = officeWindow.GetComponent<Animator>();
-        henchmanAnim = henchman.GetComponent<Animator>();
+        narcomancerAnim = OfficeNarcomancer.GetComponent<Animator>();
+       // henchmanAnim = henchman.GetComponent<Animator>();
+        NarcoCageAnim = CageNarcomancer.GetComponent<Animator>();
         cageAnim = glassCage.GetComponent <Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // timer for "Barks"
+        if (combat == 1 || boss == 2)
+        {
+            barktimer -= Time.deltaTime;
+        }
+        //Activate Wave Barls
+        if (barktimer <= 0f && combat == 1)
+        {
+            OfficeBark.SetActive(false);
+            barktimer = 30f;
+            OfficeBark.SetActive(true);
+        }
+        if (combat == 0)
+        {
+            OfficeBark.SetActive(false);
+        }
+        //Stop Bark midway
+
+        //Activate Boss Barks
+        if (barktimer <= 0f && boss == 2)
+        {
+            BossBark.SetActive(false);
+            barktimer = 30f;
+            BossBark.SetActive(true);
+        }
+        if (boss == 0)
+        {
+            BossBark.SetActive(false);
+        }
+        //Stop Bark midway
+
         if (timerenabled)
         {
             timer -= Time.deltaTime;
@@ -75,32 +117,25 @@ public class NarrativeEventManager : MonoBehaviour
         if (!timerenabled && wave2 == true)
         {
             WaveMaster.GetComponent<WaveManager>().Wave2();
+            doorController.GetComponent<DoorController>().OpenStairs();
+            narcomancerAnim.SetBool("Talking", false);
             combat = 1;
             wave2 = false;
         }
         if (!timerenabled && wave3 == true)
         {
             WaveMaster.GetComponent<WaveManager>().Wave3();
+            narcomancerAnim.SetBool("Talking", false);
             combat = 1;
             wave3 = false;
         }
         if (!timerenabled && wave4 == true)
         {
+            doorController.GetComponent<DoorController>().OpenVIP();
             WaveMaster.GetComponent<WaveManager>().Wave4();
+            narcomancerAnim.SetBool("Talking", false);
             combat = 1;
             wave4 = false;
-        }
-
-        if (!timerenabled && bluster == true)
-        {
-            NarcoArrival();
-            bluster = false;
-        }
-
-        if (!timerenabled && bossarrival == true)
-        {
-            OfficeEscape();
-            bossarrival = false;
         }
 
         music.setParameterByName("combat", combat);
@@ -108,18 +143,25 @@ public class NarrativeEventManager : MonoBehaviour
 
     }
 
+    public void DoorKick()
+    {
+        combat = 1;
+        barktimer = 30f;
+        IntroTrigger.SetActive(true);
+    }
     public void StoryIntroduction()
     {
-        
-        //Wavecontroller.wave1
+        WaveMaster.GetComponent<WaveManager>().Wave1();
         speakerParent.GetComponent<DialogueSpeaker>().ArrivalAudio();
-        combat = 1;   
+        barktimer = 30f;
+        StartCoroutine(closefrontdoors());
     }
     public void StoryWave2()
     {
         speakerParent.GetComponent<DialogueSpeaker>().Wave2Audio();
         timer = 12.7f;
         timerenabled = true;
+        narcomancerAnim.SetBool("Talking",true);
         wave2 = true;       
     }
 
@@ -128,6 +170,7 @@ public class NarrativeEventManager : MonoBehaviour
         speakerParent.GetComponent<DialogueSpeaker>().Wave3Audio();
         timer = 14f;
         timerenabled = true;
+        narcomancerAnim.SetBool("Talking", true);
         wave3 = true;
     }
     public void StoryWave4()
@@ -135,73 +178,127 @@ public class NarrativeEventManager : MonoBehaviour
         speakerParent.GetComponent<DialogueSpeaker>().Wave4Audio();
         timer = 15f;
         timerenabled = true;
+        narcomancerAnim.SetBool("Talking", true);
         wave4 = true;
     }
 
     public void StoryVipRoom()
-    {
-        //fmod play VIPROOM
-        //anim narco shoot henchman
-        //anim henchman dies
-        //wavecontroller.postenforcer 
-        //officeArrivalTrigger.SetActive
+    { 
+        StartCoroutine(VIP());
     }
+
+    public void ShootTheMessenger()
+    {
+        narcomancerAnim.SetTrigger("Shoot");
+       // henchmanAnim.SetTrigger("Dead");
+       
+    }
+
+    public void Gentlemen()
+    {
+        WaveMaster.GetComponent<WaveManager>().GentlemensClub();
+    }
+    public void OfficeDoors()
+    {
+       // WaveMaster.GetComponent<WaveManager>().AlarmRatsStart();
+        OfficeNarcomancer.SetActive(false);
+    }
+
     public void StoryPhoneCall()
     {
+        print("phonerings");
+        //WaveMaster.GetComponent<WaveManager>().AlarmRatsStop();
         phonering.SetActive(true);
     }
     public void StoryOnThePhone()
     {
         phonering.SetActive(false);
-        phonedialogue1.SetActive(true);
+        speakerParent.GetComponent<DialogueSpeaker>().PhoneDialogue();
     }
     public void StoryDestroyTheDrugs()
     {
-        phonedialogue2.SetActive(true);
-        timer = 6.4f;
-        bluster = true;
+        drugs.SetActive(false);
+        destroyeddrugs.SetActive(true);
+        StartCoroutine(BossStart());
+        print("destroyeddrugs");
     }
 
-    public void NarcoArrival()
-    {
-        // cageanim.animationsettrigger
-        boss = 1;
-        //timer = animation time
-        timerenabled = (true);
-        bossarrival = true;
-        //narcodialogue arrival
-     
-    }
-    public void OfficeEscape()
-    {
-        officeEscapeTrigger.SetActive(true);
-        //narcomanceranim.setrigger.shoot
-        //Officeglass.shootingouttheglass
-        officeGas.SetActive(true);
-    }
     public void StoryBossFight()
     {
-       // speakerParent.GetComponent<DialogueSpeaker>().BossFightstart();
-        //wavcontroller.bossWave1
+        print("ci esta boss fight");
+        speakerParent.GetComponent<DialogueSpeaker>().BossFightStart();
+        WaveMaster.GetComponent<WaveManager>().Boss1();
         boss = 2;
     }
 
-    public void NarcomancerDeated()
+    public void Boss2()
     {
+        WaveMaster.GetComponent<WaveManager>().Boss2();
+        BossBark.SetActive(false);
+        BossBark.SetActive(true);
+    }
 
-        //narcomanceranim.settrigger dying
-        //cageani.whatever
-        monologueTrigger.SetActive(true);
-        boss = 2;
+    public void Boss3()
+    {
+        WaveMaster.GetComponent<WaveManager>().Boss3();
+        BossBark.SetActive(false);
+        BossBark.SetActive(true);
+    }
+
+    public void NarcomancerDefeated()
+    {
+       
+       //cageAnim.SetTrigger("CageFall");
+        StartCoroutine(triggerDelay());
+        boss = 0;
 
 
     }
     public void StoryMonologue()
     {
-        //fmod monologue
-        //narcomanim.settrigger monolgoue
+        speakerParent.GetComponent<DialogueSpeaker>().Monologue();
+        //na.settrigger monolgoue - ANIMATION DOESN NOT EXIST PRESENTLY
     }
     
+    IEnumerator VIP()
+    {
+        VipTrigger.SetActive(true);
+        speakerParent.GetComponent<DialogueSpeaker>().VipAudio();
+        yield return new WaitForSeconds(37f);
+        speakerParent.GetComponent<DialogueSpeaker>().HenchAudio();
+        yield return new WaitForSeconds(6f);
+        ShootTheMessenger();
+        yield return new WaitForSeconds(5f);
+        speakerParent.GetComponent<DialogueSpeaker>().VipAudio2();
+        WaveMaster.GetComponent<WaveManager>().PostEnforcer();
+        officeArrivalTrigger.SetActive(true);
+        combat = 1;
+    }
 
-   
+    IEnumerator BossStart()
+    {
+        speakerParent.GetComponent<DialogueSpeaker>().DestroyedDrugs();
+        yield return new WaitForSeconds(6.4f);
+        cageAnim.SetTrigger("LowerCage");
+        speakerParent.GetComponent<DialogueSpeaker>().Descent();
+        boss = 1;
+        yield return new WaitForSeconds(20f);
+        officeEscapeTrigger.SetActive(true);
+        NarcoCageAnim.SetTrigger("Shoot");
+        officeWindow.SetActive(false);
+        officeWindowBroken.SetActive(true);
+        officeGas.SetActive(true);
+    }
+
+    IEnumerator triggerDelay()
+    {
+        yield return new WaitForSeconds(3f);
+        monologueTrigger.SetActive(true);
+    }
+    IEnumerator closefrontdoors()
+    {
+        yield return new WaitForSeconds(10f);
+        doorController.GetComponent<DoorController>().CloseFront();
+    }
+
 }

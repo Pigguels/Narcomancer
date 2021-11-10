@@ -12,19 +12,26 @@ public class DialogueSpeaker : MonoBehaviour
     public GameObject VipRoom1;
     public GameObject VipHenchman;
     public GameObject VipRoom2;
-   // public GameObject ;
-    
+    public GameObject Phonedialogue;
+    public GameObject drugsdestroyed;
+    public GameObject descentAudio;
+    public GameObject startbossAudio;
+    public GameObject monologueAudio;
+
+
+    // public GameObject ;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ArrivalAudio()
@@ -48,4 +55,42 @@ public class DialogueSpeaker : MonoBehaviour
         Wave4.SetActive(true);
     }
 
+    public void VipAudio()
+    {
+        VipRoom1.SetActive(true);
+    }
+
+    public void HenchAudio()
+    {
+        VipHenchman.SetActive(true);
+    }
+
+    public void VipAudio2()
+    {
+        VipRoom2.SetActive(true);
+    }
+
+    public void PhoneDialogue()
+    {
+        Phonedialogue.SetActive(true);
+    }
+
+    public void DestroyedDrugs()
+    {
+        drugsdestroyed.SetActive(true);
+    }
+
+    public void Descent()
+    {
+        descentAudio.SetActive(true);
+    }
+
+    public void BossFightStart()
+    {
+        startbossAudio.SetActive(true);
+    }
+    public void Monologue()
+    {
+        monologueAudio.SetActive(true);
+    }
 }

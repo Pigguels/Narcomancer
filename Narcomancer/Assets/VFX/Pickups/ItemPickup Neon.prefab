@@ -11,10 +11,8 @@ GameObject:
   - component: {fileID: 4436938114513046252}
   - component: {fileID: 6330764301591323536}
   - component: {fileID: 1006954208669902525}
-  - component: {fileID: 299934596707264603}
   - component: {fileID: 8283738224560930731}
   - component: {fileID: 2065588369}
-  - component: {fileID: 5938927822212589738}
   m_Layer: 0
   m_Name: ItemPickup Neon
   m_TagString: Untagged
@@ -86,20 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &299934596707264603
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 615391549884912535}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8283738224560930731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +101,12 @@ MonoBehaviour:
   rotationSpeed: 90
   pickUpPrefab: {fileID: 0}
   pickupType: 2
-  pickupDistance: 5
+  pickupDistance: 2
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  lerpPercent: 0.35
+  pickupdestorytime: 0.4
 --- !u!96 &2065588369
 TrailRenderer:
   serializedVersion: 2
@@ -225,19 +214,6 @@ TrailRenderer:
   m_MinVertexDistance: 0
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!135 &5938927822212589738
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 615391549884912535}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 4
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7422240405146578969
 GameObject:
   m_ObjectHideFlags: 0
