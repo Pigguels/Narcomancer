@@ -2076,12 +2076,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EnemyType: 1
   m_StartAlerted: 0
-  m_AlertedOnSight: 1
+  m_AlertOnSight: 1
   m_AlertDistance: 15
   m_DistanceToStopFollowing: 6.5
   m_DistanceToFlee: 3
   m_MinDistanceToAttack: 3
   m_MaxDistanceToAttack: 6.5
+  m_MinTimeBetweenStrafes: 1
+  m_MaxTimeBetweenStrafes: 5
+  m_MaxStrafeTime: 4
+  m_MinStrafeTime: 0.5
+  m_StrafeSpeed: 2.5
   m_TimeBetweenAttacks: 3.25
   m_SubAttackAmount: 3
   m_TimeBetweenSubAttacks: 0.25
@@ -2089,10 +2094,13 @@ MonoBehaviour:
   m_ProjectileYBloom: 0
   m_ProjectileSpawnPos: {fileID: 7986697302427796492}
   m_LightningChainOffset: {x: 0, y: 1, z: 0}
+  m_ModelAllignmentSpeed: 0.5
+  m_ModelParent: {fileID: 8630101449006312974}
   m_Projectile: {fileID: 5462508110646005215, guid: 7f8a07af573d32148921fe96f5b0b8ee, type: 3}
-  m_PlayerPos: {fileID: 0}
   m_Health: {fileID: 1143436136306931621}
   m_Animator: {fileID: 2838433266944718129}
+  m_PlayerPos: {fileID: 0}
+  m_EnemyManager: {fileID: 0}
 --- !u!1 &5056068025964702314
 GameObject:
   m_ObjectHideFlags: 0

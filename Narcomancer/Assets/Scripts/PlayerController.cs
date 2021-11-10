@@ -677,6 +677,8 @@ public class PlayerController : MonoBehaviour
         /* Exiting the jump */
         if (m_IsGrounded && m_Velocity.y < 0f)
         {
+            if (CanStand())
+                m_TargetHeight = m_StandingHeight;
             m_MoveState = MovementStates.walk;
         }
         else if (m_ObjectAbove)
