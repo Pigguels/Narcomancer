@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1447171592240347463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2501875103471961490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1034f5cdee8c74ea3a2b243bccf74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: 3
 --- !u!1 &3611636228311508256
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,13 +169,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EnemyType: 4
-  m_StartAlerted: 0
+  m_StartAlerted: 1
   m_AlertOnSight: 1
   m_AlertDistance: 15
-  m_DistanceToStopFollowing: 6.5
-  m_DistanceToFlee: 3
-  m_MinDistanceToAttack: 3
-  m_MaxDistanceToAttack: 6.5
+  m_DistanceToStopFollowing: 2
+  m_DistanceToFlee: 1
+  m_MinDistanceToAttack: 0.5
+  m_MaxDistanceToAttack: 1
   m_MinTimeBetweenStrafes: 1
   m_MaxTimeBetweenStrafes: 5
   m_MaxStrafeTime: 4
@@ -177,7 +190,7 @@ MonoBehaviour:
   m_LightningChainOffset: {x: 0, y: 1, z: 0}
   m_ModelAllignmentSpeed: 0.5
   m_ModelParent: {fileID: 3022938489364111144}
-  m_Projectile: {fileID: 1074264109906350973, guid: 90f8674a10c4f364b9fde0889bb6e970, type: 3}
+  m_Projectile: {fileID: 5462508110646005215, guid: 7f8a07af573d32148921fe96f5b0b8ee, type: 3}
   m_Health: {fileID: 9023073597925771365}
   m_Animator: {fileID: 9156819004723725650}
   m_PlayerPos: {fileID: 0}
@@ -306,6 +319,11 @@ PrefabInstance:
       objectReference: {fileID: 9023073597925771365}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c692f5a851c38ae48981af2cc178adf8, type: 3}
+--- !u!1 &2501875103471961490 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2866220794960007016, guid: c692f5a851c38ae48981af2cc178adf8, type: 3}
+  m_PrefabInstance: {fileID: 395945708437031674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3022938489364111144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3210235355363907026, guid: c692f5a851c38ae48981af2cc178adf8, type: 3}

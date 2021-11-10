@@ -54,6 +54,19 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &7079014399622291683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5263228789848460077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1034f5cdee8c74ea3a2b243bccf74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: 4
 --- !u!1 &5322755424687463897
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,8 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb973d16763e0a9419645dd40f3fd9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CurrentHealth: 100
-  m_MaxHealth: 100
+  m_CurrentHealth: 500
+  m_MaxHealth: 500
   m_IsDead: 0
 --- !u!114 &8414167552060231488
 MonoBehaviour:
@@ -177,7 +190,7 @@ MonoBehaviour:
   m_LightningChainOffset: {x: 0, y: 1, z: 0}
   m_ModelAllignmentSpeed: 0.5
   m_ModelParent: {fileID: 4774218156396155287}
-  m_Projectile: {fileID: 1074264109906350973, guid: 90f8674a10c4f364b9fde0889bb6e970, type: 3}
+  m_Projectile: {fileID: 5462508110646005215, guid: 7f8a07af573d32148921fe96f5b0b8ee, type: 3}
   m_Health: {fileID: 258938471443832191}
   m_Animator: {fileID: 1486542790736956397}
   m_PlayerPos: {fileID: 0}
@@ -306,6 +319,11 @@ PrefabInstance:
       objectReference: {fileID: 258938471443832191}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9428247f79c652349b6ac4c8009083e5, type: 3}
+--- !u!1 &5263228789848460077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3696207027479300911, guid: 9428247f79c652349b6ac4c8009083e5, type: 3}
+  m_PrefabInstance: {fileID: 8809372956392292354}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4774218156396155287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4035295745791005077, guid: 9428247f79c652349b6ac4c8009083e5, type: 3}

@@ -33,6 +33,16 @@ public class AnimationEventSound : MonoBehaviour
                 print("gruntdeath");
                 break;
 
+            case SoundToBePlayed.RatDeath:
+                FMODUnity.RuntimeManager.PlayOneShot("event:/3D Dialogue/Death SFXs Voiceover/Ryan's Death sounds", transform.position);
+                print("gruntdeath");
+                break;
+
+            case SoundToBePlayed.EnfDeath:
+                FMODUnity.RuntimeManager.PlayOneShot("event:/3D Dialogue/Death SFXs Voiceover/Ryan's Death sounds", transform.position);
+                print("gruntdeath");
+                break;
+
         }
     }
 }

@@ -70,8 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb973d16763e0a9419645dd40f3fd9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CurrentHealth: 100
-  m_MaxHealth: 100
+  m_CurrentHealth: 200
+  m_MaxHealth: 200
   m_IsDead: 0
 --- !u!114 &8426199292167009557
 MonoBehaviour:
@@ -181,6 +181,19 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &6659081759871229131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924726001182556235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1034f5cdee8c74ea3a2b243bccf74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: 2
 --- !u!1001 &6583448425930974212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -306,6 +319,11 @@ PrefabInstance:
       objectReference: {fileID: 269389663725135658}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84d390c275bf46249bc626bc8689c15e, type: 3}
+--- !u!1 &7924726001182556235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3938207907101910095, guid: 84d390c275bf46249bc626bc8689c15e, type: 3}
+  m_PrefabInstance: {fileID: 6583448425930974212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7399863764418927345 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4462086007877140213, guid: 84d390c275bf46249bc626bc8689c15e, type: 3}
