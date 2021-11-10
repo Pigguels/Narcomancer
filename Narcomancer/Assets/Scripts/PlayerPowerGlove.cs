@@ -166,14 +166,14 @@ public class PlayerPowerGlove : MonoBehaviour
         return closestEnemy;
     }
 
-    public void OnSecondaryFire(InputAction.CallbackContext context)
-    {
-        if (m_PlayerController.paused == false)
-        {
-            if (context.started)
-                m_SecondaryFireDown = true;
-            else if (context.canceled)
-                m_SecondaryFireDown = false;
-        }
-    }
+    //public void OnSecondaryFire(InputAction.CallbackContext context)
+    //{
+    //    if (m_PlayerController.paused == false)
+    //    {
+    //        if (context.started)
+    //            m_SecondaryFireDown = true;
+    //        else if (context.canceled)
+    //            m_SecondaryFireDown = false;
+    //    }
+    //}
 }

@@ -19,21 +19,21 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Game Resumed");
     }
 
-    public void OnClickOptions()
-    {
-        if (!optionsOpen)
-        {
-            settingMenu.SetActive(true);
-            Debug.Log("Options");
-            optionsOpen = true;
-        } else
-        {
-            settingMenu.SetActive(false);
-            Debug.Log("Options");
-            optionsOpen = false;
-        }
+ //   public void OnClickOptions()
+   // {
+ //       if (!optionsOpen)
+   //     {
+     //       settingMenu.SetActive(true);
+       //     Debug.Log("Options");
+  //          optionsOpen = true;
+   //     } else
+    //    {
+      //      settingMenu.SetActive(false);
+        //    Debug.Log("Options");
+          //  optionsOpen = false;
+     //   }
 
-    }
+    //}
 
     public void OnClickQuit()
     {
