@@ -5,15 +5,24 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     public GameObject Wave1Controller;
+    public GameObject Wave1AI;
     public GameObject Wave2Controller;
     public GameObject Wave3Controller;
     public GameObject Wave4Controller;
-    public GameObject PostEnforcerController;
+    public GameObject Wave4AI;
+    public GameObject PostEnforcerAi;
+    public GameObject PostEnforcerSMGs;
     public GameObject AlarmRatsController;
-
+    public GameObject Boss1Controller;
+    public GameObject Boss2Controller;
+    public GameObject Boss3Controller;
     // Start is called before the first frame update
     void Start()
     {
+       
+        //Wave4Controller.SetActive(true);
+        //Wave4Controller
+        //PostEnforcerController.SetActive(true);
         
     }
 
@@ -26,6 +35,9 @@ public class WaveManager : MonoBehaviour
     public void Wave1()
     {
         Wave1Controller.SetActive(true);
+        Wave1AI.BroadcastMessage("SpawnActive");
+        Wave1Controller.SetActive(true);
+       
     }
     public void Wave2()
     {
@@ -37,22 +49,35 @@ public class WaveManager : MonoBehaviour
     }
     public void Wave4()
     {
+        Wave4AI.SetActive(false);
         Wave4Controller.SetActive(true);
     }
-
     public void PostEnforcer()
     {
-        PostEnforcerController.SetActive(true);
+        PostEnforcerSMGs.SetActive(true);
     }
-
+    public void GentlemensClub()
+    {
+        PostEnforcerAi.BroadcastMessage("SpawnActive");
+    }
     public void AlarmRatsStart()
     {
         AlarmRatsController.SetActive(true);
     }
-
     public void AlarmRatsStop()
     {
         AlarmRatsController.SetActive(false);
     }
-
+    public void Boss1()
+    {
+        Boss1Controller.SetActive(true);
+    }
+    public void Boss2()
+    {
+        Boss2Controller.SetActive(true);
+    }
+    public void Boss3()
+    {
+        Boss3Controller.SetActive(true);
+    }
 }

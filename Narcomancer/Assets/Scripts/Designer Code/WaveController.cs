@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
-    public enum WaveControllerNumber { Wave1, Wave2, Wave3, Wave4, PostEnforcer,}
+    public enum WaveControllerNumber { Wave1, Wave2, Wave3, Wave4, Boss1, Boss2, Boss3,}
     public WaveControllerNumber waveno;
     public GameObject NarrativeController;
+    public GameObject CannisterMaster;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +37,16 @@ public class WaveController : MonoBehaviour
             case WaveControllerNumber.Wave4:
                 NarrativeController.GetComponent<NarrativeEventManager>().StoryVipRoom();
                 break;
-            
+            case WaveControllerNumber.Boss1:
+                CannisterMaster.GetComponent<Cannister>().Cannistor1Active();
+                break;
+            case WaveControllerNumber.Boss2:
+                CannisterMaster.GetComponent<Cannister>().Cannistor2Active();
+                break;
+            case WaveControllerNumber.Boss3:
+                CannisterMaster.GetComponent<Cannister>().Cannistor3Active();
+                break;
+
         }
 
     }

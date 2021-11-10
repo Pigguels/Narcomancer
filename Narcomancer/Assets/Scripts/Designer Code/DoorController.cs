@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-
+    [Header("Stair Doors")]
     public GameObject StairwayDoorTR1;
     public GameObject StairwayDoorTR2;
     public GameObject StairwayDoorBR1;
@@ -19,6 +19,9 @@ public class DoorController : MonoBehaviour
     [Header("Front Doors")]
     public GameObject frontdoor1;
     public GameObject frontdoor2;
+    [Header("VIP Doors")]
+    public GameObject vipdoor1;
+    public GameObject vipdoor2;
 
     public GameObject narrativecontroller;
     // Start is called before the first frame update
@@ -53,11 +56,29 @@ public class DoorController : MonoBehaviour
         print("the office door opens");
     }
 
+    public void CloseOffice()
+    {
+        NarcomancerDoor1.SendMessage("CloseDoors");
+        NarcomancerDoor2.SendMessage("CloseDoors");
+    }
+
     public void OpenFront()
     {
         frontdoor1.SendMessage("OpenDoors");
         frontdoor2.SendMessage("OpenDoors");
-        narrativecontroller.GetComponent<NarrativeEventManager>().StoryIntroduction();
+        narrativecontroller.GetComponent<NarrativeEventManager>().DoorKick();
+    }
+
+    public void CloseFront()
+    {
+        frontdoor1.SendMessage("CloseDoors");
+        frontdoor2.SendMessage("CloseDoors");
+    }
+
+    public void OpenVIP()
+    {
+        vipdoor1.SendMessage("OpenDoors");
+        vipdoor2.SendMessage("OpenDoors");
     }
 
 

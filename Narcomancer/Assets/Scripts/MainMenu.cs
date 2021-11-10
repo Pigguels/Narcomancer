@@ -8,7 +8,7 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
 
-    int sceneToLoad;
+    public int sceneToLoad;
     public Animator optionsAnim;
     bool settingsOpen = false;
 

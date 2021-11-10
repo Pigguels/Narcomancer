@@ -21,13 +21,24 @@ public class PauseMenu : MonoBehaviour
 
     public void OnClickOptions()
     {
-        //Options code here
         Debug.Log("Options");
+        
+        //if (!optionsOpen)
+        //{
+        //    settingMenu.SetActive(true);
+        //    Debug.Log("Opened Options");
+        //    optionsOpen = true;
+        //}
+        //else
+        //{
+        //    settingMenu.SetActive(false);
+        //    Debug.Log("Closed Options");
+        //    optionsOpen = false;
+        //}
     }
 
     public void OnClickQuit()
     {
-        //Close Game
         Application.Quit();
     }
 
@@ -40,6 +51,4 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
-
-
 }
