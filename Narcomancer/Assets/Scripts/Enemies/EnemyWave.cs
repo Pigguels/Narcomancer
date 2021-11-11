@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyWave : MonoBehaviour
 {
     public Transform m_PlayerPos;
+
+    public bool m_ShouldCallEndOfWave = true;
+
+    public List<UnityEvent> m_Events;
 
     private int m_CurrentEnemyCount = 0;
 
@@ -34,7 +39,19 @@ public class EnemyWave : MonoBehaviour
         if (m_CurrentEnemyCount <= 0)
         {
             Debug.Log(name + " wave has ended");
-            SendMessage("EndOfWave");
+            
+            foreach (UnityEvent uEvent in m_Events)
+            {
+                uEvent.Invoke();
+            }
+
+            if (m_ShouldCallEndOfWave)
+                SendMessage("EndOfWave");
         }
+    }
+
+    public void EnableGameObject(GameObject theGameObject)
+    {
+        theGameObject.SetActive(true);
     }
 }
