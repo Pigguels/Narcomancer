@@ -216,6 +216,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-8563293001429634536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Boss
+  m_EditorClassIdentifier: 
+  Name: Boss
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-8537221988254044239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,7 +751,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
+  MinDistance: 9
   MaxDistance: 20
   Length: 0
 --- !u!114 &-6172152386240159797
@@ -776,9 +796,9 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 5893272912034413281}
-  - {fileID: 6612941124317198561}
-  - {fileID: -704148602929506672}
+  - {fileID: 4627807164994376730}
+  - {fileID: 9169770594687999578}
+  - {fileID: -8563293001429634536}
   MinDistance: 0
   MaxDistance: 0
   Length: 424000
@@ -1658,11 +1678,11 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637722464076251987
+  lastModified: 637722572704186405
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 4824
+    Value: 4858
   Exists: 1
 --- !u!114 &-2756784589028434105
 MonoBehaviour:
@@ -2116,7 +2136,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637722464076192144
+  lastModified: 637722572704156682
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -2244,7 +2264,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637722464076695730
+  lastModified: 637722572706921758
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -2446,12 +2466,13 @@ MonoBehaviour:
   - {fileID: 5263308880894576239}
   - {fileID: 6479277912930913735}
   - {fileID: 6000962594583097563}
+  - {fileID: 8516512077115133487}
   EditorParameters: []
   MasterBanks:
   - {fileID: -755379686889876173}
   StringsBanks:
   - {fileID: -2901742062300175861}
-  stringsBankWriteTime: 637722464076251987
+  stringsBankWriteTime: 637722572704186405
   cacheVersion: 6
 --- !u!114 &16476081769595900
 MonoBehaviour:
@@ -2602,7 +2623,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 637722464075018904
+  lastModified: 637722572693802222
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -3897,6 +3918,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4627807164994376730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Combat
+  m_EditorClassIdentifier: 
+  Name: Combat
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &4671733370395880549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4728,7 +4769,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
+  MinDistance: 9
   MaxDistance: 20
   Length: 0
 --- !u!114 &7680475207391860738
@@ -5002,6 +5043,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &8516512077115133487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy Weopons/Colt
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy Weopons/Colt
+  guid: 302d1c62690e0146a8ecb24d7c7725df
+  Banks:
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 9
+  MaxDistance: 50
+  Length: 0
 --- !u!114 &8537649903470021966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5179,3 +5243,23 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &9169770594687999578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Casual
+  m_EditorClassIdentifier: 
+  Name: Casual
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1

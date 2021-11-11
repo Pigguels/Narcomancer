@@ -28,7 +28,7 @@ public class Cannister : MonoBehaviour
   
 
 
-    public GameObject Narocmancer;
+    public GameObject Narcomancer;
     public GameObject Cage;
    
     public GameObject NarrativeEventManager;
@@ -39,7 +39,8 @@ public class Cannister : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        NarcoAnim = Narocmancer.GetComponent<Animator>();
+        Narcomancer.tag = "Untagged";
+        NarcoAnim = Narcomancer.GetComponent<Animator>();
         CageAnim = gameObject.GetComponent<Animator>();
     }
 
@@ -84,7 +85,10 @@ public class Cannister : MonoBehaviour
         Glass.GetComponent<Renderer>().material = CrackedCage3;
         Active3.SetActive(false);
         Gas.SetActive(false);
-        NarcoAnim.SetBool("GlassBroken", true);
+        Narcomancer.tag = "Interactable";
+
+
+    NarcoAnim.SetBool("GlassBroken", true);
         NarcoAnim.SetTrigger("Surprised");
         CageAnim.SetTrigger("CageFall");
         NarrativeEventManager.GetComponent<NarrativeEventManager>().NarcomancerDefeated();

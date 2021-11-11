@@ -15,7 +15,11 @@ public class NarrativeEventManager : MonoBehaviour
     public GameObject officeWindow;
     public GameObject officeWindowBroken;
     public GameObject glassCage;
-    
+    public Animator henchmanAnim;
+    public GameObject Briefcasereal;
+    public GameObject Briefcasefake;
+
+
     public GameObject GoodEndUI;
     public GameObject BadEndUI;
     public GameObject GameEndUI;
@@ -62,7 +66,7 @@ public class NarrativeEventManager : MonoBehaviour
 
     private Animator narcomancerAnim;
     private Animator NarcoCageAnim;
-    private Animator henchmanAnim;
+    
     public Animator cageAnim;
     
 
@@ -77,10 +81,10 @@ public class NarrativeEventManager : MonoBehaviour
         music.start();
 
         narcomancerAnim = OfficeNarcomancer.GetComponent<Animator>();
-        henchmanAnim = henchman.GetComponent<Animator>();
+        //henchmanAnim = henchman.GetComponent<Animator>();
         NarcoCageAnim = CageNarcomancer.GetComponent<Animator>();
         cageAnim = glassCage.GetComponent<Animator>();
-        
+        henchmanAnim.SetBool("isPistol", true);
         monologueing = false;
     }
 
@@ -207,9 +211,7 @@ public class NarrativeEventManager : MonoBehaviour
 
     public void ShootTheMessenger()
     {
-        narcomancerAnim.SetTrigger("Shoot");
-        VIPgunshot.SetActive(true);
-        henchmanAnim.SetTrigger("Dead");
+       
 
     }
 
@@ -229,6 +231,7 @@ public class NarrativeEventManager : MonoBehaviour
         print("phonerings");
         //WaveMaster.GetComponent<WaveManager>().AlarmRatsStop();
         phonering.SetActive(true);
+        doorController.GetComponent<DoorController>().CloseOffice();
     }
     public void StoryOnThePhone()
     {
@@ -243,9 +246,11 @@ public class NarrativeEventManager : MonoBehaviour
     public void StoryBossFight()
     {
         print("ci esta boss fight");
+        barktimer = 40f;
+        boss = 2;
         speakerParent.GetComponent<DialogueSpeaker>().BossFightStart();
         WaveMaster.GetComponent<WaveManager>().Boss1();
-        boss = 2;
+        
     }
 
     public void Boss2()
@@ -275,7 +280,7 @@ public class NarrativeEventManager : MonoBehaviour
     {
         speakerParent.GetComponent<DialogueSpeaker>().Monologue();
         monologueing = true;
-        timer = 280f;
+        timer = 272f;
         timerenabled = true;
         //na.settrigger monolgoue - ANIMATION DOESN NOT EXIST PRESENTLY
 
@@ -288,12 +293,16 @@ public class NarrativeEventManager : MonoBehaviour
         yield return new WaitForSeconds(37f);
         speakerParent.GetComponent<DialogueSpeaker>().HenchAudio();
         yield return new WaitForSeconds(6f);
-        ShootTheMessenger();
-        yield return new WaitForSeconds(5f);
+        narcomancerAnim.SetTrigger("Shoot");
+        yield return new WaitForSeconds(0.7f);
+        VIPgunshot.SetActive(true);
+        henchmanAnim.SetBool("Dead",true);
+        yield return new WaitForSeconds(1f);
         speakerParent.GetComponent<DialogueSpeaker>().VipAudio2();
         WaveMaster.GetComponent<WaveManager>().PostEnforcer();
         officeArrivalTrigger.SetActive(true);
         combat = 1;
+        barktimer = 40f;
     }
 
     IEnumerator BossStart()
@@ -338,7 +347,8 @@ public class NarrativeEventManager : MonoBehaviour
 
     public void BadEnd()
     {
-        BadEndUI.SetActive(true);
+        print("gottem");
+        Bribe();
     }
 
     public void GameEnd()
@@ -346,5 +356,15 @@ public class NarrativeEventManager : MonoBehaviour
         GameEndUI.SetActive(true);
         monologueing = false;
 
+    }
+
+    IEnumerator Bribe()
+    {
+        BadEndUI.SetActive(true);
+        Briefcasereal.SetActive(false);
+        Briefcasefake.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        BadEndUI.SetActive(false);
+        
     }
 }

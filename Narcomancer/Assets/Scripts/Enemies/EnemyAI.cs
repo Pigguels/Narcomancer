@@ -79,13 +79,13 @@ public class EnemyAI : MonoBehaviour
         switch (m_EnemyType)
         {
             case EnemyType.gruntPistol:
-                m_Animator.SetBool("IsPistol", true);
+                m_Animator.SetBool("isPistol", true);
                 break;
             case EnemyType.gruntMagnum:
-                m_Animator.SetBool("IsMagnum", true);
+                m_Animator.SetBool("isMagnum", true);
                 break;
             case EnemyType.gruntSMG:
-                m_Animator.SetBool("IsSMG", true);
+                m_Animator.SetBool("isSMG", true);
                 break;
             case EnemyType.enforcer:
                 break;
@@ -102,7 +102,6 @@ public class EnemyAI : MonoBehaviour
         m_Animator.SetBool("isWalking", m_NavAgent.velocity != Vector3.zero || m_CurrentState == States.strafe);
         if (m_EnemyType != EnemyType.enforcer)
             m_Animator.SetBool("Stunned", m_CurrentState == States.stunned);
-        m_Animator.SetBool("Dead", m_CurrentState == States.dead);
 
         /* Check if players in range and in view to leave idle state */
         if (m_CurrentState == States.idle && m_AlertOnSight)
@@ -239,10 +238,10 @@ public class EnemyAI : MonoBehaviour
                 m_TimeUntilNextSubAttack = 0;
             }
         }
-        
         else
         {
             m_CurrentState = States.dead;
+            m_Animator.SetBool("Dead", true);
 
             if (m_NavAgent.enabled)
             {
@@ -252,6 +251,7 @@ public class EnemyAI : MonoBehaviour
                     m_WaveManager.DecreaseEnemyCount();
 
                 m_NavAgent.velocity = Vector3.zero;
+                m_NavAgent.SetDestination(transform.position);
                 m_NavAgent.enabled = false;
             }
             lootSpawner.SpawnPickup();
