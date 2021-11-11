@@ -3,27 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NarrativeEventManager : MonoBehaviour
-{   
-    [Header ("Controller Objects")]
+{
+    [Header("Controller Objects")]
     public GameObject WaveMaster;
     public GameObject doorController;
-        
+
     [Header("Animation Objects")]
     public GameObject OfficeNarcomancer;
     public GameObject CageNarcomancer;
-    //public GameObject henchman;
+    public GameObject henchman;
     public GameObject officeWindow;
     public GameObject officeWindowBroken;
     public GameObject glassCage;
+    public Animator henchmanAnim;
+    public GameObject Briefcasereal;
+    public GameObject Briefcasefake;
+
+
+    public GameObject GoodEndUI;
+    public GameObject BadEndUI;
+    public GameObject GameEndUI;
 
     [Header("Audio Objects")]
     public GameObject speakerParent;
     public GameObject phonering;
     public GameObject OfficeBark;
     public GameObject BossBark;
+    public GameObject firealarm;
+    public GameObject firealarmoff;
+    public GameObject VIPgunshot;   
+    public GameObject burnsound;
     //public GameObject Phonedialogue;
     //public GameObject PhoneScreaming;
-
 
     [Header("Trigger Objects")]
     public GameObject IntroTrigger;
@@ -40,7 +51,7 @@ public class NarrativeEventManager : MonoBehaviour
     public float barktimer;
     public bool bluster;
     private bool timerenabled;
-
+    private bool monologueing;
     public bool wave2;
     public bool wave3;
     public bool wave4;
@@ -50,13 +61,17 @@ public class NarrativeEventManager : MonoBehaviour
     [FMODUnity.EventRef]
     public string fmodEvent;
     private float boss;
+    private float casual;
     public float combat;
-    
+
     private Animator narcomancerAnim;
     private Animator NarcoCageAnim;
-    private Animator henchmanAnim;
+    
     public Animator cageAnim;
     
+
+
+
 
 
     // Start is called before the first frame update
@@ -66,9 +81,11 @@ public class NarrativeEventManager : MonoBehaviour
         music.start();
 
         narcomancerAnim = OfficeNarcomancer.GetComponent<Animator>();
-       // henchmanAnim = henchman.GetComponent<Animator>();
+        //henchmanAnim = henchman.GetComponent<Animator>();
         NarcoCageAnim = CageNarcomancer.GetComponent<Animator>();
-        cageAnim = glassCage.GetComponent <Animator>();
+        cageAnim = glassCage.GetComponent<Animator>();
+        henchmanAnim.SetBool("isPistol", true);
+        monologueing = false;
     }
 
     // Update is called once per frame
@@ -137,32 +154,37 @@ public class NarrativeEventManager : MonoBehaviour
             combat = 1;
             wave4 = false;
         }
+        if (!timerenabled && monologueing == true)
+        {
+            GoodEnd();
+        }
 
         music.setParameterByName("combat", combat);
         music.setParameterByName("boss", boss);
+        music.setParameterByName("casual", casual);
 
     }
 
     public void DoorKick()
     {
+        barktimer = 40f;
         combat = 1;
-        barktimer = 30f;
         IntroTrigger.SetActive(true);
     }
     public void StoryIntroduction()
     {
-        WaveMaster.GetComponent<WaveManager>().Wave1();
+        WaveMaster.GetComponent<WaveManager>().Wave1(); 
         speakerParent.GetComponent<DialogueSpeaker>().ArrivalAudio();
-        barktimer = 30f;
-        StartCoroutine(closefrontdoors());
+        barktimer = 40f;
+        //StartCoroutine(closefrontdoors());
     }
     public void StoryWave2()
     {
         speakerParent.GetComponent<DialogueSpeaker>().Wave2Audio();
         timer = 12.7f;
         timerenabled = true;
-        narcomancerAnim.SetBool("Talking",true);
-        wave2 = true;       
+        narcomancerAnim.SetBool("Talking", true);
+        wave2 = true;
     }
 
     public void StoryWave3()
@@ -183,32 +205,33 @@ public class NarrativeEventManager : MonoBehaviour
     }
 
     public void StoryVipRoom()
-    { 
+    {
         StartCoroutine(VIP());
     }
 
     public void ShootTheMessenger()
     {
-        narcomancerAnim.SetTrigger("Shoot");
-       // henchmanAnim.SetTrigger("Dead");
        
+
     }
 
-    public void Gentlemen()
-    {
-        WaveMaster.GetComponent<WaveManager>().GentlemensClub();
-    }
     public void OfficeDoors()
     {
-       // WaveMaster.GetComponent<WaveManager>().AlarmRatsStart();
+        // WaveMaster.GetComponent<WaveManager>().AlarmRatsStart();
         OfficeNarcomancer.SetActive(false);
+        henchman.SetActive(false);
+        firealarmoff.SetActive(false);
+        firealarm.SetActive(true);
     }
 
     public void StoryPhoneCall()
     {
+        firealarmoff.SetActive(true);
+        firealarm.SetActive(false);
         print("phonerings");
         //WaveMaster.GetComponent<WaveManager>().AlarmRatsStop();
         phonering.SetActive(true);
+        doorController.GetComponent<DoorController>().CloseOffice();
     }
     public void StoryOnThePhone()
     {
@@ -217,18 +240,17 @@ public class NarrativeEventManager : MonoBehaviour
     }
     public void StoryDestroyTheDrugs()
     {
-        drugs.SetActive(false);
-        destroyeddrugs.SetActive(true);
-        StartCoroutine(BossStart());
-        print("destroyeddrugs");
+        StartCoroutine(BurnBaby());
     }
 
     public void StoryBossFight()
     {
         print("ci esta boss fight");
+        barktimer = 40f;
+        boss = 2;
         speakerParent.GetComponent<DialogueSpeaker>().BossFightStart();
         WaveMaster.GetComponent<WaveManager>().Boss1();
-        boss = 2;
+        
     }
 
     public void Boss2()
@@ -247,19 +269,23 @@ public class NarrativeEventManager : MonoBehaviour
 
     public void NarcomancerDefeated()
     {
-       
-       //cageAnim.SetTrigger("CageFall");
+
+        //cageAnim.SetTrigger("CageFall");
         StartCoroutine(triggerDelay());
         boss = 0;
-
+        casual = 1;
 
     }
     public void StoryMonologue()
     {
         speakerParent.GetComponent<DialogueSpeaker>().Monologue();
+        monologueing = true;
+        timer = 272f;
+        timerenabled = true;
         //na.settrigger monolgoue - ANIMATION DOESN NOT EXIST PRESENTLY
+
     }
-    
+
     IEnumerator VIP()
     {
         VipTrigger.SetActive(true);
@@ -267,12 +293,16 @@ public class NarrativeEventManager : MonoBehaviour
         yield return new WaitForSeconds(37f);
         speakerParent.GetComponent<DialogueSpeaker>().HenchAudio();
         yield return new WaitForSeconds(6f);
-        ShootTheMessenger();
-        yield return new WaitForSeconds(5f);
+        narcomancerAnim.SetTrigger("Shoot");
+        yield return new WaitForSeconds(0.7f);
+        VIPgunshot.SetActive(true);
+        henchmanAnim.SetBool("Dead",true);
+        yield return new WaitForSeconds(1f);
         speakerParent.GetComponent<DialogueSpeaker>().VipAudio2();
         WaveMaster.GetComponent<WaveManager>().PostEnforcer();
         officeArrivalTrigger.SetActive(true);
         combat = 1;
+        barktimer = 40f;
     }
 
     IEnumerator BossStart()
@@ -290,15 +320,50 @@ public class NarrativeEventManager : MonoBehaviour
         officeGas.SetActive(true);
     }
 
+    IEnumerator BurnBaby()
+    {
+        burnsound.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        drugs.SetActive(false);
+        destroyeddrugs.SetActive(true);
+        StartCoroutine(BossStart());
+        print("destroyeddrugs");
+    }
     IEnumerator triggerDelay()
     {
         yield return new WaitForSeconds(3f);
         monologueTrigger.SetActive(true);
     }
-    IEnumerator closefrontdoors()
+    //IEnumerator closefrontdoors()
+    //{
+    //    yield return new WaitForSeconds(10f);
+    //    doorController.GetComponent<DoorController>().CloseFront();
+    //}
+
+    public void GoodEnd()
     {
-        yield return new WaitForSeconds(10f);
-        doorController.GetComponent<DoorController>().CloseFront();
+        GoodEndUI.SetActive(true);
     }
 
+    public void BadEnd()
+    {
+        StartCoroutine(Bribe());
+    }
+
+    public void GameEnd()
+    {
+        GameEndUI.SetActive(true);
+        monologueing = false;
+
+    }
+
+    IEnumerator Bribe()
+    {
+        BadEndUI.SetActive(true);
+        Briefcasereal.SetActive(false);
+        Briefcasefake.SetActive(true);
+        yield return new WaitForSeconds(10f);
+        BadEndUI.SetActive(false);
+        
+    }
 }

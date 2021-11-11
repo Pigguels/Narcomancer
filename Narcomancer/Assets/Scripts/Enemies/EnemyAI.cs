@@ -72,6 +72,7 @@ public class EnemyAI : MonoBehaviour
             m_CurrentState = States.idle;
 
         m_NavAgent = GetComponent<NavMeshAgent>();
+        lootSpawner = GetComponent<LootSpawner>();
 
         m_EnemyMask = LayerMask.GetMask("Enemy");
 
@@ -253,7 +254,7 @@ public class EnemyAI : MonoBehaviour
                 m_NavAgent.SetDestination(transform.position);
                 m_NavAgent.enabled = false;
             }
-
+            lootSpawner.SpawnPickup();
             Destroy(gameObject, 5f); // NEED TO NUKE THIS FOR WHEN POOLING COMES- POOLING MAY NEVER COME :(
         }
     }

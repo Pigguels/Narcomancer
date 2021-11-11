@@ -318,9 +318,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AiName: 1
   wavename: 2
-  Wave1Controller: {fileID: 0}
-  Wave4Controller: {fileID: 0}
-  Postencontroller: {fileID: 0}
   RatAi: {fileID: 3995171504814966979, guid: 487b564f4d15e6f459c29becafcc8182, type: 3}
   GruntAi: {fileID: 3673163304851250067, guid: 8bd84cb666fbc424cb51b8038a58b823, type: 3}
   SmgAi: {fileID: 5329102554014918540, guid: fabb7cca250a0414e93cd41ece8fb925, type: 3}
@@ -607,6 +604,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1893405989693082058}
     m_Modifications:
+    - target: {fileID: -9046975660089728829, guid: 459d323df8df3d448bf1a96c51a9acdc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a281aca4ae3eeb844a7721e21cbe37ed, type: 2}
     - target: {fileID: -8977988485229493121, guid: 459d323df8df3d448bf1a96c51a9acdc, type: 3}
       propertyPath: m_TagString
       value: EnemyDamagePoint
@@ -655,6 +656,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5939127354532861832, guid: 459d323df8df3d448bf1a96c51a9acdc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a281aca4ae3eeb844a7721e21cbe37ed, type: 2}
     - target: {fileID: -5851251246107849329, guid: 459d323df8df3d448bf1a96c51a9acdc, type: 3}
       propertyPath: m_TagString
       value: EnemyDamagePoint

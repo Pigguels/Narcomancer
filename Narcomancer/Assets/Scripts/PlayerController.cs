@@ -238,8 +238,9 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1f;
         paused = false;
-        //pauseMenu = GameObject.Find("PauseMenu");
+        pauseMenu = GameObject.Find("PauseMenu").GetComponent<Animator>();
         m_CharController = GetComponent<CharacterController>();
         m_Health = GetComponent<Health>();
 

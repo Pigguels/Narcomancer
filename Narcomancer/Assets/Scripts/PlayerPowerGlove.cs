@@ -28,6 +28,8 @@ public class PlayerPowerGlove : MonoBehaviour
 
     public Animator fpRig;
 
+    public GameObject lightningsound;
+
     void Start()
     {
         m_PlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -37,6 +39,8 @@ public class PlayerPowerGlove : MonoBehaviour
         m_PlayerLayerMask = LayerMask.GetMask("Player");
 
         m_HitObjects = new List<GameObject>();
+
+        
     }
 
     private void Update()
@@ -48,11 +52,13 @@ public class PlayerPowerGlove : MonoBehaviour
                 ShootLightning();
                 m_PlayerController.m_CurrentNeonAmmo -= Time.deltaTime;
                 fpRig.SetBool("PlayerLightning", true);
+                lightningsound.SetActive(true);
             }
             else
             {
                 m_LineRenderer.positionCount = 0;
                 fpRig.SetBool("PlayerLightning", false);
+                lightningsound.SetActive(false);
             }
         }
     }

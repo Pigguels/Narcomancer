@@ -18,6 +18,7 @@ public class Cannister : MonoBehaviour
     public Material CrackedCage1;
     public Material CrackedCage2;
     public Material CrackedCage3;
+    public GameObject CrackSound;
     [Header("Gases")]
     public GameObject Gas;
     public GameObject Explosion1;
@@ -27,7 +28,7 @@ public class Cannister : MonoBehaviour
   
 
 
-    public GameObject Narocmancer;
+    public GameObject Narcomancer;
     public GameObject Cage;
    
     public GameObject NarrativeEventManager;
@@ -38,7 +39,8 @@ public class Cannister : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        NarcoAnim = Narocmancer.GetComponent<Animator>();
+        Narcomancer.tag = "Untagged";
+        NarcoAnim = Narcomancer.GetComponent<Animator>();
         CageAnim = gameObject.GetComponent<Animator>();
     }
 
@@ -83,7 +85,10 @@ public class Cannister : MonoBehaviour
         Glass.GetComponent<Renderer>().material = CrackedCage3;
         Active3.SetActive(false);
         Gas.SetActive(false);
-        NarcoAnim.SetBool("GlassBroken", true);
+        Narcomancer.tag = "Interactable";
+
+
+    NarcoAnim.SetBool("GlassBroken", true);
         NarcoAnim.SetTrigger("Surprised");
         CageAnim.SetTrigger("CageFall");
         NarrativeEventManager.GetComponent<NarrativeEventManager>().NarcomancerDefeated();
@@ -102,6 +107,8 @@ public class Cannister : MonoBehaviour
         Active1.SetActive(false);
         Gas.SetActive(false);
         NarcoAnim.SetTrigger("Surpirsed");
+        CrackSound.SetActive(true);
+        CrackSound.SetActive(false);
         Glass.GetComponent<Renderer>().material = CrackedCage1;
         yield return new WaitForSeconds(3f);
         NarrativeEventManager.GetComponent<NarrativeEventManager>().Boss2();
@@ -112,6 +119,8 @@ public class Cannister : MonoBehaviour
         Active2.SetActive(false);
         Gas.SetActive(false);
         NarcoAnim.SetTrigger("Surpirsed");
+        CrackSound.SetActive(true);
+        CrackSound.SetActive(false);
         Glass.GetComponent<Renderer>().material = CrackedCage2;
         yield return new WaitForSeconds(3f);
         NarrativeEventManager.GetComponent<NarrativeEventManager>().Boss3();

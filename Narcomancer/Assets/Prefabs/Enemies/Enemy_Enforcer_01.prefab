@@ -2527,7 +2527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb973d16763e0a9419645dd40f3fd9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CurrentHealth: 100
+  m_CurrentHealth: 500
   m_MaxHealth: 100
   m_IsDead: 0
   m_OnHit: []
@@ -2565,17 +2565,17 @@ MonoBehaviour:
   m_StartAlerted: 0
   m_AlertOnSight: 1
   m_AlertDistance: 15
-  m_DistanceToStopFollowing: 6.5
-  m_DistanceToFlee: 3
-  m_MinDistanceToAttack: 3
-  m_MaxDistanceToAttack: 6.5
-  m_MinTimeBetweenStrafes: 1
-  m_MaxTimeBetweenStrafes: 5
+  m_DistanceToStopFollowing: 3
+  m_DistanceToFlee: 0
+  m_MinDistanceToAttack: 0
+  m_MaxDistanceToAttack: 6
+  m_MinTimeBetweenStrafes: 10000
+  m_MaxTimeBetweenStrafes: 10000
   m_MaxStrafeTime: 4
   m_MinStrafeTime: 0.5
   m_StrafeSpeed: 2.5
   m_TimeBetweenAttacks: 3.25
-  m_SubAttackAmount: 3
+  m_SubAttackAmount: 1
   m_TimeBetweenSubAttacks: 0.25
   m_ProjectileXBloom: 0
   m_ProjectileYBloom: 0
@@ -2584,7 +2584,7 @@ MonoBehaviour:
   m_StunnedTime: 0
   m_ModelAllignmentSpeed: 0.5
   m_ModelParent: {fileID: 4774218156396155287}
-  m_Projectile: {fileID: 1074264109906350973, guid: 90f8674a10c4f364b9fde0889bb6e970, type: 3}
+  m_Projectile: {fileID: 5462508110646005215, guid: 7f8a07af573d32148921fe96f5b0b8ee, type: 3}
   m_Health: {fileID: 258938471443832191}
   m_Animator: {fileID: 1486542790736956397}
   m_PlayerPos: {fileID: 0}

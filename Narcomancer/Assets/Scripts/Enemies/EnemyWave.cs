@@ -46,7 +46,7 @@ public class EnemyWave : MonoBehaviour
             }
 
             if (m_ShouldCallEndOfWave)
-                SendMessage("EndOfWave");
+                gameObject.SendMessage("EndOfWave");
         }
     }
 
