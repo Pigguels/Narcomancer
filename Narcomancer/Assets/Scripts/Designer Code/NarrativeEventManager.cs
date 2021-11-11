@@ -27,7 +27,8 @@ public class NarrativeEventManager : MonoBehaviour
     public GameObject BossBark;
     public GameObject firealarm;
     public GameObject firealarmoff;
-    public GameObject VIPgunshot;
+    public GameObject VIPgunshot;   
+    public GameObject burnsound;
     //public GameObject Phonedialogue;
     //public GameObject PhoneScreaming;
 
@@ -56,6 +57,7 @@ public class NarrativeEventManager : MonoBehaviour
     [FMODUnity.EventRef]
     public string fmodEvent;
     private float boss;
+    private float casual;
     public float combat;
 
     private Animator narcomancerAnim;
@@ -63,7 +65,8 @@ public class NarrativeEventManager : MonoBehaviour
     private Animator henchmanAnim;
     public Animator cageAnim;
     
-    
+
+
 
 
 
@@ -154,11 +157,13 @@ public class NarrativeEventManager : MonoBehaviour
 
         music.setParameterByName("combat", combat);
         music.setParameterByName("boss", boss);
+        music.setParameterByName("casual", casual);
 
     }
 
     public void DoorKick()
     {
+        barktimer = 40f;
         combat = 1;
         IntroTrigger.SetActive(true);
     }
@@ -203,14 +208,11 @@ public class NarrativeEventManager : MonoBehaviour
     public void ShootTheMessenger()
     {
         narcomancerAnim.SetTrigger("Shoot");
-        // henchmanAnim.SetTrigger("Dead");
+        VIPgunshot.SetActive(true);
+        henchmanAnim.SetTrigger("Dead");
 
     }
 
-    public void Gentlemen()
-    {
-        WaveMaster.GetComponent<WaveManager>().GentlemensClub();
-    }
     public void OfficeDoors()
     {
         // WaveMaster.GetComponent<WaveManager>().AlarmRatsStart();
@@ -235,10 +237,7 @@ public class NarrativeEventManager : MonoBehaviour
     }
     public void StoryDestroyTheDrugs()
     {
-        drugs.SetActive(false);
-        destroyeddrugs.SetActive(true);
-        StartCoroutine(BossStart());
-        print("destroyeddrugs");
+        StartCoroutine(BurnBaby());
     }
 
     public void StoryBossFight()
@@ -269,7 +268,7 @@ public class NarrativeEventManager : MonoBehaviour
         //cageAnim.SetTrigger("CageFall");
         StartCoroutine(triggerDelay());
         boss = 0;
-
+        casual = 1;
 
     }
     public void StoryMonologue()
@@ -312,6 +311,15 @@ public class NarrativeEventManager : MonoBehaviour
         officeGas.SetActive(true);
     }
 
+    IEnumerator BurnBaby()
+    {
+        burnsound.SetActive(true);
+        yield return new WaitForSeconds(1.2f);
+        drugs.SetActive(false);
+        destroyeddrugs.SetActive(true);
+        StartCoroutine(BossStart());
+        print("destroyeddrugs");
+    }
     IEnumerator triggerDelay()
     {
         yield return new WaitForSeconds(3f);

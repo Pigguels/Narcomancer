@@ -43,9 +43,7 @@ public class NarrativeTriggerBox : MonoBehaviour
                 case TriggerBoxName.Monologue:
                     NarrativeEventController.GetComponent<NarrativeEventManager>().StoryMonologue();
                     break;
-                case TriggerBoxName.Vip:
-                    NarrativeEventController.GetComponent<NarrativeEventManager>().Gentlemen();
-                    break;
+               
             }
             //print("triggered");
             gameObject.SetActive(false);

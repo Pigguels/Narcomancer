@@ -35,8 +35,7 @@ public class WaveManager : MonoBehaviour
     public void Wave1()
     {
         Wave1Controller.SetActive(true);
-        Wave1AI.BroadcastMessage("SpawnActive");
-        Wave1Controller.SetActive(true);
+
        
     }
     public void Wave2()
@@ -49,17 +48,13 @@ public class WaveManager : MonoBehaviour
     }
     public void Wave4()
     {
-        Wave4AI.SetActive(false);
-        Wave4Controller.SetActive(true);
+             Wave4Controller.SetActive(true);
     }
     public void PostEnforcer()
     {
         PostEnforcerSMGs.SetActive(true);
     }
-    public void GentlemensClub()
-    {
-        PostEnforcerAi.BroadcastMessage("SpawnActive");
-    }
+  
     public void AlarmRatsStart()
     {
         AlarmRatsController.SetActive(true);

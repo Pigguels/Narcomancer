@@ -18,6 +18,7 @@ public class Cannister : MonoBehaviour
     public Material CrackedCage1;
     public Material CrackedCage2;
     public Material CrackedCage3;
+    public GameObject CrackSound;
     [Header("Gases")]
     public GameObject Gas;
     public GameObject Explosion1;
@@ -102,6 +103,8 @@ public class Cannister : MonoBehaviour
         Active1.SetActive(false);
         Gas.SetActive(false);
         NarcoAnim.SetTrigger("Surpirsed");
+        CrackSound.SetActive(true);
+        CrackSound.SetActive(false);
         Glass.GetComponent<Renderer>().material = CrackedCage1;
         yield return new WaitForSeconds(3f);
         NarrativeEventManager.GetComponent<NarrativeEventManager>().Boss2();
@@ -112,6 +115,8 @@ public class Cannister : MonoBehaviour
         Active2.SetActive(false);
         Gas.SetActive(false);
         NarcoAnim.SetTrigger("Surpirsed");
+        CrackSound.SetActive(true);
+        CrackSound.SetActive(false);
         Glass.GetComponent<Renderer>().material = CrackedCage2;
         yield return new WaitForSeconds(3f);
         NarrativeEventManager.GetComponent<NarrativeEventManager>().Boss3();

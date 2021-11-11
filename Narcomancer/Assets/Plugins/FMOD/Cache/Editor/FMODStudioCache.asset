@@ -43,6 +43,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-8925877132680808401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Casual
+  m_EditorClassIdentifier: 
+  Name: Casual
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &-8922142061259568271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +83,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-8860527658699455681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Boss
+  m_EditorClassIdentifier: 
+  Name: Boss
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &-8806302087670567251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +141,51 @@ MonoBehaviour:
   Path: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 2
   guid: 490ed3f55822074698c0401bcb6e8b94
   Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8672287293419336468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/End Monologue/Mono Full
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/End Monologue/Mono Full
+  guid: 2bead266779944488698d49c768d02f3
+  Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8656945219423440705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Magic Powers/Lightning Dash
+  m_EditorClassIdentifier: 
+  Path: event:/Magic Powers/Lightning Dash
+  guid: 9835dcee56a054418d2d4ff51d179a56
+  Banks:
+  - {fileID: -755379686889876173}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -151,6 +236,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-8280020553670286924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Wave Barks (3)
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Wave Barks (3)
+  guid: 8ce0a49ba915634888050f3e8227d301
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-8174424224450103508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +274,49 @@ MonoBehaviour:
   Path: event:/3D Dialogue/One Shots/Arrival
   guid: fcc135962e825442bfc8ee90bc939ced
   Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8129197660022705840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Casual
+  m_EditorClassIdentifier: 
+  Name: Casual
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &-8058726559652641148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/End Monologue/End Mono 2
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/End Monologue/End Mono 2
+  guid: 8c0aedb76251334ca0c67ef29d7a4999
+  Banks:
+  - {fileID: 457790904543693910}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -193,6 +344,72 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-7797211662728802680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Combat
+  m_EditorClassIdentifier: 
+  Name: Combat
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &-7704237491293744771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shotgun SFX/Shotgun Pump
+  m_EditorClassIdentifier: 
+  Path: event:/Shotgun SFX/Shotgun Pump
+  guid: 653c93781a285d40ae8d0cbf82f1d01b
+  Banks:
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7651122185269743895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Wave Barks Multi/Wave Barks Multi
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Wave Barks Multi/Wave Barks Multi
+  guid: 1ae7266e0f57f0409b57994756369c86
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-7638730742664511972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,8 +424,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Destroy the Drugs/Destroy the drugs 2
   guid: b56933b69384be4994617499ef1c07ee
+  Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7310985939238464428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Wave Barks (1)
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Wave Barks (1)
+  guid: 2853f4eecab7f548bcd0b1349e4f7fa9
   Banks:
   - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7287276049376575868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Enforcer/Ryan Enforcer
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Enforcer/Ryan Enforcer
+  guid: d14de298d931a249bdc79907ec5229d4
+  Banks:
+  - {fileID: 457790904543693910}
+  - {fileID: -755379686889876173}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -230,6 +493,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/VIP (1)
   guid: 06a72ef4c9bb8043856f0e3135faafaa
+  Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7022584286374134022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Grunts/Ryan Grunts
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Grunts/Ryan Grunts
+  guid: 4d64f2e6761b9344980d7556ea331577
   Banks:
   - {fileID: 457790904543693910}
   IsStream: 0
@@ -273,8 +558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Rats/Ryan Rats
   guid: fb02d901e2fc2547ac800bb81ff9d6a6
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -336,6 +620,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Enforcer/Ryan Enforcer
   guid: d14de298d931a249bdc79907ec5229d4
+  Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6470090464809996807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Wave Starts 4
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Wave Starts 4
+  guid: 44868a0c23e6db45afc98f427a9a7a23
   Banks:
   - {fileID: 457790904543693910}
   IsStream: 0
@@ -422,8 +728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Phone Call
   guid: 474703a05d361e47b1c8641ab622d287
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -451,8 +756,9 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 995759254913985100}
-  - {fileID: 1983083552887736118}
+  - {fileID: 783670263819451580}
+  - {fileID: -8129197660022705840}
+  - {fileID: -4357518370500930608}
   MinDistance: 0
   MaxDistance: 0
   Length: 424000
@@ -533,8 +839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (6)
   guid: d7e2917b8f25db469c2481cf3267f5fa
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -556,8 +861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Grunts/Baz Grunts 2
   guid: 08b3434e41b5a44589ee48fa81c05c91
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -607,6 +911,28 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-5382651974746492395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Velvet Room/Ryan Narrative
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Velvet Room/Ryan Narrative
+  guid: 64931faa5d9dce48bb0384a93661561c
+  Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-5148533388936937597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,6 +953,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-5146186731995592241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Casual
+  m_EditorClassIdentifier: 
+  Name: Casual
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &-5054859928062876545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,6 +987,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (2)
   guid: e8559372c6e8254bad9db800a7ab1ff2
+  Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5020332517131460477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Rats/Baz Rats
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Rats/Baz Rats
+  guid: 64c03654fbffd14d9e4e505d3bbbe08d
   Banks:
   - {fileID: 457790904543693910}
   IsStream: 0
@@ -684,8 +1052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Death SFXs Voiceover/Ryan's Death sounds
   guid: 99cea15a6f41b6439c9a10a9cc254132
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -693,6 +1060,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-4814178938504434132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Casual
+  m_EditorClassIdentifier: 
+  Name: Casual
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &-4751715176946691170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,6 +1095,29 @@ MonoBehaviour:
   Path: event:/3D Dialogue/One Shots/Wave Barks (3)
   guid: 8ce0a49ba915634888050f3e8227d301
   Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4636999806611902372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Character Movements/CLothing Sound
+  m_EditorClassIdentifier: 
+  Path: event:/Character Movements/CLothing Sound
+  guid: ede585697400ee40bbabe91079f4d114
+  Banks:
+  - {fileID: -755379686889876173}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -802,6 +1212,49 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-4357518370500930608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Boss
+  m_EditorClassIdentifier: 
+  Name: Boss
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &-4337230376601260028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Destroy the Drugs/Destroy the drugs 2
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Destroy the Drugs/Destroy the drugs 2
+  guid: b56933b69384be4994617499ef1c07ee
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4171764659892689233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,8 +1269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Wave Starts All together/Wave Starts All Together
   guid: 5e0296190cc41146955aa2f6fe41bda0
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -839,8 +1291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Starts 3
   guid: f62c3bcbe668e1418f5ecd4fec002558
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -904,8 +1355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 4
   guid: 0fc7e384e25ee14788283773200d1c4a
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -949,8 +1399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Grunts/Ryan Grunts
   guid: 4d64f2e6761b9344980d7556ea331577
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1037,8 +1486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Phone Call 2
   guid: bf655af0bd99314c8d694bb2e652e16f
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1060,8 +1508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Starts 2
   guid: 6b71abd444d8874b90805e085c0ce90b
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1111,6 +1558,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-3253872257792377750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Destroy the Drugs/Destroy the drugs
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Destroy the Drugs/Destroy the drugs
+  guid: 26d6a324d5ae514790fff741615372c8
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-3199993035089575872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1148,11 +1618,11 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637721610287799162
+  lastModified: 637722436267787076
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 4014
+    Value: 4824
   Exists: 1
 --- !u!114 &-2756784589028434105
 MonoBehaviour:
@@ -1198,6 +1668,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2542315540358782729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Grunts/Baz Grunts
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Grunts/Baz Grunts
+  guid: f7e05b7cd152014bbcd4f0769bf849f7
+  Banks:
+  - {fileID: 457790904543693910}
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2485862933180000610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,6 +1706,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 3
   guid: d9240a493bc55f4aa52006d4d34862b6
+  Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2419301145565744746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 5 (take3)
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 5 (take3)
+  guid: 34a3c52930504848826de14251e83019
   Banks:
   - {fileID: 457790904543693910}
   IsStream: 0
@@ -1241,6 +1757,95 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-2053062446164752706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Phone Call 2
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Phone Call 2
+  guid: bf655af0bd99314c8d694bb2e652e16f
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1977760466670975179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Combat
+  m_EditorClassIdentifier: 
+  Name: Combat
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &-1947244475021015773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 5 (take2)
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 5 (take2)
+  guid: c857dda57a6b564b9aaf7f7dd8d07e40
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1876934722858329659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Destroy the Drugs/Destroy the drugs 3
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Destroy the Drugs/Destroy the drugs 3
+  guid: 8e784b75de1f4342945ee936ef3d0449
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-1858473184917145050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1285,6 +1890,117 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-1694171628376860892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Combat
+  m_EditorClassIdentifier: 
+  Name: Combat
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &-1594864340524488560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Wave Starts All together/Wave Starts All Together
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Wave Starts All together/Wave Starts All Together
+  guid: 5e0296190cc41146955aa2f6fe41bda0
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1571275300369518123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Character Movements/Hands or Feet impact
+  m_EditorClassIdentifier: 
+  Path: event:/Character Movements/Hands or Feet impact
+  guid: 84315a5c3aa52a4cb044b61d796fe89a
+  Banks:
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1528878268136688652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Magic Powers/Loop
+  m_EditorClassIdentifier: 
+  Path: event:/Magic Powers/Loop
+  guid: feaf5a68e650a146bf97c455ab422752
+  Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1496801033602145401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/End Monologue/End Mono 1
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/End Monologue/End Mono 1
+  guid: 3a26cecde2545b4296120d389b5e5935
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-1189919841630955441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1305,6 +2021,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-1175585794177541947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Casual
+  m_EditorClassIdentifier: 
+  Name: Casual
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &-755379686889876173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1320,10 +2056,57 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637721610287819121
+  lastModified: 637722436267756878
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-736161718593415396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Death SFXs Voiceover/Ryan's Death sounds
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Death SFXs Voiceover/Ryan's Death sounds
+  guid: 99cea15a6f41b6439c9a10a9cc254132
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-736036627767224498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Rats/Ryan Rats
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Rats/Ryan Rats
+  guid: fb02d901e2fc2547ac800bb81ff9d6a6
+  Banks:
+  - {fileID: 457790904543693910}
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-716933324057457480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1381,10 +2164,53 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637721474798252020
+  lastModified: 637722436268235591
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-336875530216706958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shotgun SFX/Shotgun Impact
+  m_EditorClassIdentifier: 
+  Path: event:/Shotgun SFX/Shotgun Impact
+  guid: 45f2c6d3ed24a84a8da66398f744830e
+  Banks:
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-328580595596414570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Combat
+  m_EditorClassIdentifier: 
+  Name: Combat
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &-133728631393823419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1399,8 +2225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Wave Barks Multi/Wave Barks Multi
   guid: 1ae7266e0f57f0409b57994756369c86
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1408,6 +2233,46 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-95204972770060635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Boss
+  m_EditorClassIdentifier: 
+  Name: Boss
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &-56361645257034521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Boss
+  m_EditorClassIdentifier: 
+  Name: Boss
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1442,58 +2307,95 @@ MonoBehaviour:
   - {fileID: 3390125560433216171}
   - {fileID: 8301496829945210863}
   - {fileID: 8089713456643942896}
-  - {fileID: 7030753086769645960}
-  - {fileID: -7113006336859802808}
-  - {fileID: 3299339444481894448}
-  - {fileID: -3746272700408477110}
-  - {fileID: 609117622810230433}
-  - {fileID: -133728631393823419}
-  - {fileID: 2718342174298260783}
-  - {fileID: 334939270413281306}
-  - {fileID: 950844246887075100}
-  - {fileID: 7842272073283812381}
-  - {fileID: 4951458560154306297}
-  - {fileID: 6531517032177492951}
-  - {fileID: -6172152386240159797}
-  - {fileID: 4594744855290754922}
-  - {fileID: -4171764659892689233}
-  - {fileID: 3481212696249596690}
-  - {fileID: -3408257012059668952}
-  - {fileID: 6480581501983899010}
-  - {fileID: 4031366820931417275}
-  - {fileID: 7600447717837199606}
-  - {fileID: 1224543225334880878}
-  - {fileID: -7638730742664511972}
-  - {fileID: -3435101460784519283}
-  - {fileID: 3670652621918302098}
-  - {fileID: -5853247390074151927}
-  - {fileID: -2485862933180000610}
-  - {fileID: 2380053764194929174}
-  - {fileID: -5054859928062876545}
-  - {fileID: -4106108479322410378}
-  - {fileID: 6720537155241211167}
-  - {fileID: -5919458713866573047}
-  - {fileID: -3472446829456425864}
   - {fileID: -6171403869820266566}
-  - {fileID: -5695858889185814434}
-  - {fileID: -3608562392540703912}
-  - {fileID: 1107657504139268792}
-  - {fileID: -4833746515964147892}
-  - {fileID: 2533481775731521553}
-  - {fileID: -6478592061925408035}
-  - {fileID: 7718452592669267541}
-  - {fileID: 3406915990391350005}
-  - {fileID: -6771444874230084735}
-  - {fileID: 8465402790815496572}
-  - {fileID: 244721809641406784}
-  - {fileID: 1281389772259514140}
+  - {fileID: 8576846409514411609}
+  - {fileID: 8948645069568571687}
+  - {fileID: -336875530216706958}
+  - {fileID: 416673782156890502}
+  - {fileID: -7704237491293744771}
+  - {fileID: 1037788490171558350}
+  - {fileID: -1571275300369518123}
+  - {fileID: 7631948258593255074}
+  - {fileID: -8656945219423440705}
+  - {fileID: 16476081769595900}
+  - {fileID: -4636999806611902372}
+  - {fileID: 8160481484668260507}
+  - {fileID: 8965912450516788742}
+  - {fileID: 577797658772294634}
+  - {fileID: 3417219812682310993}
+  - {fileID: 3692543348801959422}
+  - {fileID: 6478478808844747068}
+  - {fileID: 3625948382913364026}
+  - {fileID: 668439141320962071}
+  - {fileID: 1685969193976199538}
+  - {fileID: 5679741571925801625}
+  - {fileID: -7651122185269743895}
+  - {fileID: -3253872257792377750}
+  - {fileID: -7310985939238464428}
+  - {fileID: 7051650673093284482}
+  - {fileID: -2419301145565744746}
+  - {fileID: -1496801033602145401}
+  - {fileID: 8230965480243679852}
+  - {fileID: -6470090464809996807}
+  - {fileID: 2769633766587251053}
+  - {fileID: 8265456894461613251}
+  - {fileID: -7022584286374134022}
+  - {fileID: -1594864340524488560}
+  - {fileID: 792523188518739123}
+  - {fileID: 6394893041954150355}
+  - {fileID: -5020332517131460477}
+  - {fileID: 7398181967010103524}
+  - {fileID: -8058726559652641148}
+  - {fileID: -8280020553670286924}
+  - {fileID: -1876934722858329659}
+  - {fileID: -736161718593415396}
+  - {fileID: 8537649903470021966}
+  - {fileID: -4337230376601260028}
+  - {fileID: -2053062446164752706}
+  - {fileID: -1947244475021015773}
+  - {fileID: 1373808140930779128}
+  - {fileID: -7287276049376575868}
+  - {fileID: 5339750106370428352}
+  - {fileID: 2315014415001165933}
+  - {fileID: 8084955064931696049}
+  - {fileID: 6800007402028084950}
+  - {fileID: 5910207504443259324}
+  - {fileID: 5568697907292471104}
+  - {fileID: -2542315540358782729}
+  - {fileID: -736036627767224498}
+  - {fileID: 5263308880894576239}
+  - {fileID: 6479277912930913735}
+  - {fileID: 6000962594583097563}
   EditorParameters: []
   MasterBanks:
   - {fileID: -755379686889876173}
   StringsBanks:
   - {fileID: -2901742062300175861}
-  stringsBankWriteTime: 637721610287799162
+  stringsBankWriteTime: 637722436267787076
   cacheVersion: 6
+--- !u!114 &16476081769595900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shotgun SFX/No Ammo Click
+  m_EditorClassIdentifier: 
+  Path: event:/Shotgun SFX/No Ammo Click
+  guid: bc891d1c1226de448e84d3f39d3d87c5
+  Banks:
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &26881563047121991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1574,8 +2476,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (1)
   guid: 2853f4eecab7f548bcd0b1349e4f7fa9
+  Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &416673782156890502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Grenade SFX/Grenade Explosion
+  m_EditorClassIdentifier: 
+  Path: event:/Grenade SFX/Grenade Explosion
+  guid: 4c810bf2989a8646a3862c0e26d5c555
   Banks:
-  - {fileID: 457790904543693910}
+  - {fileID: -755379686889876173}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1598,7 +2522,7 @@ MonoBehaviour:
   Path: ../Sound FMOD SFX/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 637721610288407554
+  lastModified: 637722436264894533
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1648,6 +2572,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &577797658772294634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/DesignerSounds/FireAlarm
+  m_EditorClassIdentifier: 
+  Path: event:/DesignerSounds/FireAlarm
+  guid: b356ff9561b02049a06733880259b013
+  Banks:
+  - {fileID: -755379686889876173}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 12213
 --- !u!114 &609117622810230433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1662,8 +2609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/2D Dialogue/2D Arrival Dialogue
   guid: 177c3e939c435a4a90cf43563c260e11
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1696,6 +2642,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 424000
+--- !u!114 &668439141320962071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Wave Barks (4)
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Wave Barks (4)
+  guid: 0e20e0f53a545a4a9e419f298a235cd9
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &752392023204428656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1718,6 +2687,49 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &783670263819451580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Combat
+  m_EditorClassIdentifier: 
+  Name: Combat
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &792523188518739123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/VIP (2)
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/VIP (2)
+  guid: 5e8434212805ad4886db994565ad7bb6
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &950844246887075100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1732,8 +2744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 5 (take3)
   guid: 34a3c52930504848826de14251e83019
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1741,6 +2752,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &964035350878178204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Boss
+  m_EditorClassIdentifier: 
+  Name: Boss
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &995759254913985100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1761,6 +2792,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &1037788490171558350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Grenade SFX/Grenade Pin Pull
+  m_EditorClassIdentifier: 
+  Path: event:/Grenade SFX/Grenade Pin Pull
+  guid: 8278397b148540478579cc0146536e4b
+  Banks:
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1107657504139268792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1775,8 +2829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Rats/Baz Rats
   guid: 64c03654fbffd14d9e4e505d3bbbe08d
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1798,8 +2851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 1
   guid: b2012472f1d5d44f8e30285195fb4198
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1821,6 +2873,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Velvet Room/Ryan Narrative
   guid: 64931faa5d9dce48bb0384a93661561c
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1373808140930779128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Death SFXs Voiceover/Baz's Death sounds
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Death SFXs Voiceover/Baz's Death sounds
+  guid: d13c6258ae149c4f842c2759706a8055
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1685969193976199538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 4
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 4
+  guid: 0fc7e384e25ee14788283773200d1c4a
   Banks:
   - {fileID: 457790904543693910}
   IsStream: 0
@@ -1978,6 +3076,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &2315014415001165933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 3
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 3
+  guid: d9240a493bc55f4aa52006d4d34862b6
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2380053764194929174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1992,8 +3113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (5)
   guid: e821fdfb56132945a0a4aecf6ce47121
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2015,8 +3135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Death SFXs Voiceover/Baz's Death sounds
   guid: d13c6258ae149c4f842c2759706a8055
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2038,8 +3157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Destroy the Drugs/Destroy the drugs
   guid: 26d6a324d5ae514790fff741615372c8
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2067,6 +3185,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &2769633766587251053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Phone Call
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Phone Call
+  guid: 474703a05d361e47b1c8641ab622d287
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2789769506891464122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2148,8 +3289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (4)
   guid: 0e20e0f53a545a4a9e419f298a235cd9
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2194,8 +3334,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Grunts/Baz Grunts
   guid: f7e05b7cd152014bbcd4f0769bf849f7
+  Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3417219812682310993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/DesignerSounds/FireStarter
+  m_EditorClassIdentifier: 
+  Path: event:/DesignerSounds/FireStarter
+  guid: f4e67b4c672442459145366543f1b81c
   Banks:
-  - {fileID: 457790904543693910}
+  - {fileID: -755379686889876173}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2217,8 +3379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/VIP (2)
   guid: 5e8434212805ad4886db994565ad7bb6
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2288,6 +3449,30 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &3625948382913364026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Grunts/Baz Grunts 2
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Grunts/Baz Grunts 2
+  guid: 08b3434e41b5a44589ee48fa81c05c91
+  Banks:
+  - {fileID: 457790904543693910}
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &3652835063877661837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2322,6 +3507,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 5 (take2)
   guid: c857dda57a6b564b9aaf7f7dd8d07e40
+  Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3692543348801959422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Wave Barks (7)
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Wave Barks (7)
+  guid: 01cf7b8f0600d74d9fba9501cc638b36
   Banks:
   - {fileID: 457790904543693910}
   IsStream: 0
@@ -2411,8 +3618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (3)
   guid: 8ce0a49ba915634888050f3e8227d301
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2543,8 +3749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 2
   guid: 490ed3f55822074698c0401bcb6e8b94
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2552,6 +3757,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4745166485406085763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Boss
+  m_EditorClassIdentifier: 
+  Name: Boss
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &4951458560154306297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2566,6 +3791,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/End Monologue/End Mono 3
   guid: 422807889701c744a7e7870670ee76a5
+  Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5263308880894576239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Arrival
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Arrival
+  guid: fcc135962e825442bfc8ee90bc939ced
   Banks:
   - {fileID: 457790904543693910}
   IsStream: 0
@@ -2595,6 +3842,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &5339750106370428352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Wave Barks (6)
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Wave Barks (6)
+  guid: d7e2917b8f25db469c2481cf3267f5fa
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &5353644477850747395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2617,6 +3887,118 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &5568697907292471104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Wave Starts 3
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Wave Starts 3
+  guid: f62c3bcbe668e1418f5ecd4fec002558
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5679741571925801625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/2D Dialogue/2D Arrival Dialogue
+  m_EditorClassIdentifier: 
+  Path: event:/2D Dialogue/2D Arrival Dialogue
+  guid: 177c3e939c435a4a90cf43563c260e11
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 900
+  Length: 0
+--- !u!114 &5910207504443259324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Wave Barks (2)
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Wave Barks (2)
+  guid: e8559372c6e8254bad9db800a7ab1ff2
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5963729959192234427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Combat
+  m_EditorClassIdentifier: 
+  Name: Combat
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &6000962594583097563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Magic Powers/Loop
+  m_EditorClassIdentifier: 
+  Path: event:/Magic Powers/Loop
+  guid: 5acb3f38aaa9574a8a1374cba6abc30d
+  Banks:
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 9000
 --- !u!114 &6085387776220585995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2685,6 +4067,75 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &6394893041954150355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Velvet Room/Ryan Narrative
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Velvet Room/Ryan Narrative
+  guid: 64931faa5d9dce48bb0384a93661561c
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6478478808844747068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/VIP (1)
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/VIP (1)
+  guid: 06a72ef4c9bb8043856f0e3135faafaa
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6479277912930913735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/DesignerSounds/glass crack
+  m_EditorClassIdentifier: 
+  Path: event:/DesignerSounds/glass crack
+  guid: 53200ecaa467dd48abbbde8f6039151c
+  Banks:
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &6480581501983899010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2699,8 +4150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/End Monologue/End Mono 2
   guid: 8c0aedb76251334ca0c67ef29d7a4999
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2731,6 +4181,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &6519774390967735234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicMixLoop/Casual
+  m_EditorClassIdentifier: 
+  Name: Casual
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &6531517032177492951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2745,8 +4215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Starts 4
   guid: 44868a0c23e6db45afc98f427a9a7a23
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2768,6 +4237,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Arrival
   guid: fcc135962e825442bfc8ee90bc939ced
+  Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6800007402028084950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Velvet Room/Baz Narrative
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Velvet Room/Baz Narrative
+  guid: e83014adcd1f254cae386c7f31349eb7
   Banks:
   - {fileID: 457790904543693910}
   IsStream: 0
@@ -2791,8 +4282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/One Shots/Wave Barks (7)
   guid: 01cf7b8f0600d74d9fba9501cc638b36
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2820,6 +4310,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &7051650673093284482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/End Monologue/Mono Full
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/End Monologue/Mono Full
+  guid: 2bead266779944488698d49c768d02f3
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &7114503961274336255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2864,6 +4377,29 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+  Length: 0
+--- !u!114 &7398181967010103524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Wave Starts 2
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Wave Starts 2
+  guid: 6b71abd444d8874b90805e085c0ce90b
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 100
   Length: 0
 --- !u!114 &7498997032934536427
 MonoBehaviour:
@@ -2924,8 +4460,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Destroy the Drugs/Destroy the drugs 3
   guid: 8e784b75de1f4342945ee936ef3d0449
+  Banks: []
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7631948258593255074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Enemy Weopons/Beretta
+  m_EditorClassIdentifier: 
+  Path: event:/Enemy Weopons/Beretta
+  guid: 95c7d6abddfea549894baf199833e8a4
   Banks:
-  - {fileID: 457790904543693910}
+  - {fileID: -755379686889876173}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2970,8 +4528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/Velvet Room/Baz Narrative
   guid: e83014adcd1f254cae386c7f31349eb7
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3015,8 +4572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/3D Dialogue/End Monologue/End Mono 1
   guid: 3a26cecde2545b4296120d389b5e5935
-  Banks:
-  - {fileID: 457790904543693910}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3044,6 +4600,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &8084955064931696049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/Wave Barks (5)
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/Wave Barks (5)
+  guid: e821fdfb56132945a0a4aecf6ce47121
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &8089713456643942896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3066,6 +4645,76 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+  Length: 0
+--- !u!114 &8160481484668260507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/One Shots/PhoneCallMasterCut
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/One Shots/PhoneCallMasterCut
+  guid: 10d1b6c2030a77449d49ad10c649e89e
+  Banks:
+  - {fileID: 457790904543693910}
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8230965480243679852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/End Monologue/End Mono 3
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/End Monologue/End Mono 3
+  guid: 422807889701c744a7e7870670ee76a5
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8265456894461613251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 2
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 2
+  guid: 490ed3f55822074698c0401bcb6e8b94
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
   Length: 0
 --- !u!114 &8301496829945210863
 MonoBehaviour:
@@ -3113,6 +4762,53 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &8537649903470021966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 1
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/BOSS FIGHT BARKS/Boss Fight Bark 1
+  guid: b2012472f1d5d44f8e30285195fb4198
+  Banks:
+  - {fileID: 457790904543693910}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8576846409514411609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Character Movements/Sliding
+  m_EditorClassIdentifier: 
+  Path: event:/Character Movements/Sliding
+  guid: aad100af515b2b488d5af6966c01fb0a
+  Banks:
+  - {fileID: 457790904543693910}
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &8612517809897178645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3133,6 +4829,52 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &8948645069568571687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Magic Powers/Initial Blast
+  m_EditorClassIdentifier: 
+  Path: event:/Magic Powers/Initial Blast
+  guid: 31f0bd6d473cd1449f9315a92886298f
+  Banks:
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8965912450516788742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/3D Dialogue/Destroy the Drugs/PhoneRinging
+  m_EditorClassIdentifier: 
+  Path: event:/3D Dialogue/Destroy the Drugs/PhoneRinging
+  guid: 2a59826f0b73284f9b29a3c7ac0c9af7
+  Banks:
+  - {fileID: -755379686889876173}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2750
 --- !u!114 &8974068922860050964
 MonoBehaviour:
   m_ObjectHideFlags: 0
