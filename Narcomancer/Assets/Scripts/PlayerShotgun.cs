@@ -127,7 +127,10 @@ public class PlayerShotgun : MonoBehaviour
             if (hits[i].transform.CompareTag("EnemyDamagePoint"))
             {
                 if (hits[i].transform.GetComponent<EnemyDamagePoint>())
+                {
                     hits[i].transform.GetComponent<EnemyDamagePoint>().Damage(pelletDamage);
+                    hits[i].transform.GetComponent<EnemyDamagePoint>().m_EnemyAI.Stagger();
+                }
 
                 GameObject blood = Instantiate(bloodOnHit, hits[i].point, transform.rotation);
                 Destroy(blood, 2.5f);

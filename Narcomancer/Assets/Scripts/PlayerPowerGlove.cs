@@ -8,6 +8,7 @@ public class PlayerPowerGlove : MonoBehaviour
     public int m_MaxChainAmount = 4;
     public float m_DistanceToChain = 4f;
     public float m_DamagePerSecond = 60f;
+    public float m_StunTime = 1.5f;
     public float m_Range = 20;
 
     [Space]
@@ -107,6 +108,8 @@ public class PlayerPowerGlove : MonoBehaviour
                 {
                     if (enemyToDamage.GetComponent<Health>())
                         enemyToDamage.GetComponent<Health>().Damage(m_DamagePerSecond * Time.deltaTime);
+                    if (enemyToDamage.GetComponent<EnemyAI>())
+                        enemyToDamage.GetComponent<EnemyAI>().m_StunnedTime = m_StunTime;
                 }
             }
             else

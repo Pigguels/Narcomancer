@@ -43,6 +43,7 @@ public class EnemyAI : MonoBehaviour
     public Transform m_ProjectileSpawnPos;
     [Space]
     public Vector3 m_LightningChainOffset = Vector3.zero;
+    public float m_StunnedTime = 0f;
     [Space]
     public float m_ModelAllignmentSpeed = 0.5f;
     private Vector3 m_TargetLookDir;
@@ -73,6 +74,23 @@ public class EnemyAI : MonoBehaviour
         m_NavAgent = GetComponent<NavMeshAgent>();
 
         m_EnemyMask = LayerMask.GetMask("Enemy");
+
+        switch (m_EnemyType)
+        {
+            case EnemyType.gruntPistol:
+                m_Animator.SetBool("IsPistol", true);
+                break;
+            case EnemyType.gruntMagnum:
+                m_Animator.SetBool("IsMagnum", true);
+                break;
+            case EnemyType.gruntSMG:
+                m_Animator.SetBool("IsSMG", true);
+                break;
+            case EnemyType.enforcer:
+                break;
+            case EnemyType.rat:
+                break;
+        }
     }
 
     void Update()
@@ -80,156 +98,145 @@ public class EnemyAI : MonoBehaviour
         if (PlayerController.paused)
             return;
 
-        switch (m_CurrentState)
-        {
-            case States.idle:
-                m_Animator.SetBool("isWalking", false);
-                m_Animator.SetBool("Dead", false);
+        m_Animator.SetBool("isWalking", m_NavAgent.velocity != Vector3.zero || m_CurrentState == States.strafe);
+        if (m_EnemyType != EnemyType.enforcer)
+            m_Animator.SetBool("Stunned", m_CurrentState == States.stunned);
+        m_Animator.SetBool("Dead", m_CurrentState == States.dead);
 
-                /* Check if players in range and in view */
-                if (m_AlertOnSight)
-                {
-                    RaycastHit hit;
-                    if (Physics.Raycast(m_ProjectileSpawnPos.position, m_PlayerPos.position - m_ProjectileSpawnPos.position, out hit, m_AlertDistance, ~m_EnemyMask))
-                        if (hit.transform.CompareTag("Player"))
-                            m_CurrentState = States.chase;
-                }
-                break;
-            case States.chase:
-                m_Animator.SetBool("Dead", false);
-                break;
-            case States.flee:
-                m_Animator.SetBool("Dead", false);
-                break;
-            case States.strafe:
-                m_Animator.SetBool("Dead", false);
-                break;
-            case States.attacking:
-                m_Animator.SetBool("Dead", false);
-                break;
-            case States.staggered:
-                m_Animator.SetBool("Dead", false);
-                break;
-            case States.stunned:
-                m_Animator.SetBool("Dead", false);
-                break;
-            case States.dead:
-                m_Animator.SetBool("Dead", true);
-                break;
+        /* Check if players in range and in view to leave idle state */
+        if (m_CurrentState == States.idle && m_AlertOnSight)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(m_ProjectileSpawnPos.position, m_PlayerPos.position - m_ProjectileSpawnPos.position, out hit, m_AlertDistance, ~m_EnemyMask))
+                if (hit.transform.CompareTag("Player"))
+                    m_CurrentState = States.chase;
         }
 
         if (!m_Health.m_IsDead)
         {
-            float sqrDistanceToPlayer = (m_PlayerPos.position - transform.position).sqrMagnitude;
-            towardPlayer2D = new Vector3(m_PlayerPos.position.x - transform.position.x, 0f, m_PlayerPos.position.z - transform.position.z).normalized;
-
-            if (m_CurrentState != States.idle)
+            if (m_StunnedTime <= 0f)
             {
-                /* Are we too far from the player? */
-                if (sqrDistanceToPlayer > m_DistanceToStopFollowing * m_DistanceToStopFollowing)
+                float sqrDistanceToPlayer = (m_PlayerPos.position - transform.position).sqrMagnitude;
+                towardPlayer2D = new Vector3(m_PlayerPos.position.x - transform.position.x, 0f, m_PlayerPos.position.z - transform.position.z).normalized;
+
+                if (m_CurrentState != States.idle)
                 {
-                    m_TargetLookDir = m_NavAgent.velocity;
-
-                    m_CurrentState = States.chase;
-                    //follow player
-                    m_NavAgent.SetDestination(m_PlayerPos.position);
-                }
-                /* Are we too close to the player? */
-                else if (sqrDistanceToPlayer < m_DistanceToFlee * m_DistanceToFlee)
-                {
-                    m_TargetLookDir = towardPlayer2D;
-
-                    m_CurrentState = States.flee;
-
-                    m_NavAgent.SetDestination((transform.position - m_PlayerPos.position).normalized * m_DistanceToStopFollowing);
-                }
-                /* We are in range of the player, not to close not too far */
-                else
-                {
-                    m_TargetLookDir = towardPlayer2D;
-
-                    m_CurrentState = States.strafe;
-
-                    if (m_TimeUntilStrafeEnd > 0)
+                    /* Are we too far from the player? */
+                    if (sqrDistanceToPlayer > m_DistanceToStopFollowing * m_DistanceToStopFollowing)
                     {
-                        /* Strafe that nav meshy */
-                        Vector3 strafeDir = Vector3.Cross(towardPlayer2D, Vector3.up);
-                        m_NavAgent.Move((m_StrafeRight ? strafeDir : -strafeDir) * m_StrafeSpeed * Time.deltaTime);
+                        m_TargetLookDir = m_NavAgent.velocity;
 
-                        m_TimeUntilStrafeEnd -= Time.deltaTime;
+                        m_CurrentState = States.chase;
+                        //follow player
+                        m_NavAgent.SetDestination(m_PlayerPos.position);
                     }
-                    else if (m_TimeUntilStrafeStart < 0)
+                    /* Are we too close to the player? */
+                    else if (sqrDistanceToPlayer < m_DistanceToFlee * m_DistanceToFlee)
                     {
-                        /* Initialise the strafe */
-                        m_StrafeRight = Random.Range(0, 2) == 1;
-                        m_TimeUntilStrafeEnd = Random.Range(m_MinStrafeTime, m_MaxStrafeTime);
-                        m_TimeUntilStrafeStart = Random.Range(m_MinTimeBetweenStrafes, m_MaxTimeBetweenStrafes);
+                        m_TargetLookDir = towardPlayer2D;
+
+                        m_CurrentState = States.flee;
+
+                        m_NavAgent.SetDestination((transform.position - m_PlayerPos.position).normalized * m_DistanceToStopFollowing);
                     }
+                    /* We are in range of the player, not to close not too far */
                     else
-                        m_TimeUntilStrafeStart -= Time.deltaTime;
-
-                    m_NavAgent.SetDestination(transform.position);
-                }
-
-                /* Attack */
-                if (sqrDistanceToPlayer > m_MinDistanceToAttack * m_MinDistanceToAttack && sqrDistanceToPlayer < m_MaxDistanceToAttack * m_MaxDistanceToAttack)
-                {
-                    if (m_TimeUntilNextAttack <= 0f && Physics.Raycast(m_ProjectileSpawnPos.position, (m_PlayerPos.position - m_ProjectileSpawnPos.position).normalized, m_MaxDistanceToAttack, LayerMask.GetMask("Player")))
                     {
-                        Debug.Log(gameObject.name + " is attacking");
+                        m_TargetLookDir = towardPlayer2D;
 
-                        /* End attack */
-                        if (m_CurrentSubAttack >= m_SubAttackAmount)
+                        m_CurrentState = States.strafe;
+
+                        if (m_TimeUntilStrafeEnd > 0)
                         {
-                            m_TimeUntilNextAttack = m_TimeBetweenAttacks + m_TimeBetweenSubAttacks * m_SubAttackAmount;
-                            m_CurrentSubAttack = 0;
+                            /* Strafe that nav meshy */
+                            Vector3 strafeDir = Vector3.Cross(towardPlayer2D, Vector3.up);
+                            m_NavAgent.Move((m_StrafeRight ? strafeDir : -strafeDir) * m_StrafeSpeed * Time.deltaTime);
+
+                            m_TimeUntilStrafeEnd -= Time.deltaTime;
                         }
-                        /* Do each sub attack */
-                        else
+                        else if (m_TimeUntilStrafeStart < 0)
                         {
-                            m_CurrentState = States.attacking;
-                            /* Actual attack */
-                            if (m_TimeUntilNextSubAttack <= 0f)
+                            /* Initialise the strafe */
+                            m_StrafeRight = Random.Range(0, 2) == 1;
+                            m_TimeUntilStrafeEnd = Random.Range(m_MinStrafeTime, m_MaxStrafeTime);
+                            m_TimeUntilStrafeStart = Random.Range(m_MinTimeBetweenStrafes, m_MaxTimeBetweenStrafes);
+                        }
+                        else
+                            m_TimeUntilStrafeStart -= Time.deltaTime;
+
+                        m_NavAgent.SetDestination(transform.position);
+                    }
+
+                    /* Attack */
+                    if (sqrDistanceToPlayer > m_MinDistanceToAttack * m_MinDistanceToAttack && sqrDistanceToPlayer < m_MaxDistanceToAttack * m_MaxDistanceToAttack)
+                    {
+                        if (m_TimeUntilNextAttack <= 0f && Physics.Raycast(m_ProjectileSpawnPos.position, (m_PlayerPos.position - m_ProjectileSpawnPos.position).normalized, m_MaxDistanceToAttack, LayerMask.GetMask("Player")))
+                        {
+                            Debug.Log(gameObject.name + " is attacking");
+
+                            /* End attack */
+                            if (m_CurrentSubAttack >= m_SubAttackAmount)
                             {
-                                Debug.Log(gameObject.name + " fired projectile");
-                                /* Spawn projectile aim it at the player */
-                                // NEED TO NUKE THIS WHEN POOLING IS ADDED
-                                GameObject spawnedProjectile = Instantiate(m_Projectile, m_ProjectileSpawnPos.position, Quaternion.LookRotation(m_PlayerPos.position - m_ProjectileSpawnPos.position));
-                                spawnedProjectile.transform.Rotate(new Vector3(Random.Range(-m_ProjectileXBloom, m_ProjectileXBloom), Random.Range(-m_ProjectileYBloom, m_ProjectileYBloom), 0f));
-
-                                switch (m_EnemyType)
-                                {
-                                    case EnemyType.gruntPistol:
-                                        m_Animator.SetTrigger("PistolFire");
-                                        break;
-                                    case EnemyType.gruntMagnum:
-                                        m_Animator.SetTrigger("MagnumFire");
-                                        break;
-                                    case EnemyType.gruntSMG:
-                                        m_Animator.SetTrigger("SMGFire");
-                                        break;
-                                    case EnemyType.enforcer:
-                                        break;
-                                    case EnemyType.rat:
-                                        m_Animator.SetTrigger("Attack");
-                                        break;
-                                }
-
-                                //  NEED TO ADD MUZZEL FLASH GARBEGEDE HERE
-
-                                /* Reset for next sub attack */
-                                ++m_CurrentSubAttack;
-                                m_TimeUntilNextSubAttack = m_TimeBetweenSubAttacks;
+                                m_TimeUntilNextAttack = m_TimeBetweenAttacks + m_TimeBetweenSubAttacks * m_SubAttackAmount;
+                                m_CurrentSubAttack = 0;
                             }
+                            /* Do each sub attack */
                             else
-                                m_TimeUntilNextSubAttack -= Time.deltaTime;
+                            {
+                                m_CurrentState = States.attacking;
+                                /* Actual attack */
+                                if (m_TimeUntilNextSubAttack <= 0f)
+                                {
+                                    Debug.Log(gameObject.name + " fired projectile");
+                                    /* Spawn projectile aim it at the player */
+                                    // NEED TO NUKE THIS WHEN POOLING IS ADDED
+                                    GameObject spawnedProjectile = Instantiate(m_Projectile, m_ProjectileSpawnPos.position, Quaternion.LookRotation(m_PlayerPos.position - m_ProjectileSpawnPos.position));
+                                    spawnedProjectile.transform.Rotate(new Vector3(Random.Range(-m_ProjectileXBloom, m_ProjectileXBloom), Random.Range(-m_ProjectileYBloom, m_ProjectileYBloom), 0f));
+
+                                    switch (m_EnemyType)
+                                    {
+                                        case EnemyType.gruntPistol:
+                                            m_Animator.SetTrigger("PistolFire");
+                                            break;
+                                        case EnemyType.gruntMagnum:
+                                            m_Animator.SetTrigger("MagnumFire");
+                                            break;
+                                        case EnemyType.gruntSMG:
+                                            m_Animator.SetTrigger("SMGFire");
+                                            break;
+                                        case EnemyType.enforcer:
+                                            m_Animator.SetTrigger("ShotgunFire");
+                                            break;
+                                        case EnemyType.rat:
+                                            m_Animator.SetTrigger("Attack");
+                                            break;
+                                    }
+
+                                    //  NEED TO ADD MUZZEL FLASH GARBEGEDE HERE
+
+                                    /* Reset for next sub attack */
+                                    ++m_CurrentSubAttack;
+                                    m_TimeUntilNextSubAttack = m_TimeBetweenSubAttacks;
+                                }
+                                else
+                                    m_TimeUntilNextSubAttack -= Time.deltaTime;
+                            }
                         }
                     }
                 }
-            }
 
-            if (m_TimeUntilNextAttack > 0f)
-                m_TimeUntilNextAttack -= Time.deltaTime;
+                if (m_TimeUntilNextAttack > 0f)
+                    m_TimeUntilNextAttack -= Time.deltaTime;
+            }
+            else
+            {
+                m_CurrentState = States.stunned;
+                m_StunnedTime -= Time.deltaTime;
+
+                m_TimeUntilNextAttack = m_TimeBetweenAttacks + m_TimeBetweenSubAttacks * m_SubAttackAmount;
+                m_CurrentSubAttack = 0;
+                m_TimeUntilNextSubAttack = 0;
+            }
         }
         
         else
@@ -263,6 +270,14 @@ public class EnemyAI : MonoBehaviour
     {
         m_ModelParent.localPosition = Vector3.zero;
         m_ModelParent.rotation = Quaternion.Lerp(m_ModelParent.rotation, Quaternion.LookRotation(m_TargetLookDir, Vector3.up), m_ModelAllignmentSpeed);
+    }
+
+    /// <summary>
+    /// Staggers the enemy
+    /// </summary>
+    public void Stagger()
+    {
+        m_Animator.SetTrigger("Staggered");
     }
 
     /// <summary>
