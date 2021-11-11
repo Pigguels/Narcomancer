@@ -15,7 +15,10 @@ public class NarrativeEventManager : MonoBehaviour
     public GameObject officeWindow;
     public GameObject officeWindowBroken;
     public GameObject glassCage;
-    public GameObject UIController;
+    
+    public GameObject GoodEndUI;
+    public GameObject BadEndUI;
+    public GameObject GameEndUI;
 
     [Header("Audio Objects")]
     public GameObject speakerParent;
@@ -56,7 +59,7 @@ public class NarrativeEventManager : MonoBehaviour
     private Animator NarcoCageAnim;
     private Animator henchmanAnim;
     public Animator cageAnim;
-    private Animator UiAnim;
+    
     
 
 
@@ -71,7 +74,7 @@ public class NarrativeEventManager : MonoBehaviour
         henchmanAnim = henchman.GetComponent<Animator>();
         NarcoCageAnim = CageNarcomancer.GetComponent<Animator>();
         cageAnim = glassCage.GetComponent<Animator>();
-        UiAnim = UIController.GetComponent<Animator>();
+        
         monologueing = false;
     }
 
@@ -315,16 +318,17 @@ public class NarrativeEventManager : MonoBehaviour
 
     public void GoodEnd()
     {
-        uianimator.settrigger("playthegoodending");
+        GoodEndUI.SetActive(true);
     }
 
     public void BadEnd()
     {
-
+        BadEndUI.SetActive(true);
     }
 
     public void GameEnd()
     {
+        GameEndUI.SetActive(true);
         monologueing = false;
 
     }
