@@ -7,6 +7,7 @@ public class EnemyDamagePoint : MonoBehaviour
     public float m_DamageMultiplier = 1f;
 
     public Health m_EnemyHealth;
+    public EnemyAI m_EnemyAI;
 
     public void Damage(float damage)
     {

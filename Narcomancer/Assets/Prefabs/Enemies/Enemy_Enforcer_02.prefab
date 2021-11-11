@@ -183,6 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &634489015345555611
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &1037767478879717785
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,6 +698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &1172813981829420369
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,6 +1000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &2410197145968734449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,6 +1123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &2960693113211397578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,6 +1342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &3381081117694632992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1398,6 +1404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &3736184039537038476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1463,6 +1470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &3893454457427208446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,6 +1655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &4470942877077238051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,6 +1778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &4548707141047531133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,6 +1841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &4665843946826282436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,6 +1965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &5263228789848460077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,7 +2011,7 @@ Animator:
   m_GameObject: {fileID: 5263228789848460077}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 878dced1a9119c84085f6b1752a7db72, type: 3}
-  m_Controller: {fileID: 9100000, guid: e35cd064a0dd03b4ca2bc2adcbade129, type: 2}
+  m_Controller: {fileID: 9100000, guid: c71e2a34295abf44eaaf0c63c4100877, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2095,6 +2107,9 @@ MonoBehaviour:
   m_CurrentHealth: 100
   m_MaxHealth: 100
   m_IsDead: 0
+  m_OnHit: []
+  m_OnHeal: []
+  m_OnDead: []
 --- !u!114 &8414167552060231488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2143,12 +2158,14 @@ MonoBehaviour:
   m_ProjectileYBloom: 0
   m_ProjectileSpawnPos: {fileID: 8433809580954287883}
   m_LightningChainOffset: {x: 0, y: 0, z: 0}
+  m_StunnedTime: 0
   m_ModelAllignmentSpeed: 0.5
   m_ModelParent: {fileID: 0}
   m_Projectile: {fileID: 1074264109906350973, guid: 90f8674a10c4f364b9fde0889bb6e970, type: 3}
   m_Health: {fileID: 258938471443832191}
   m_Animator: {fileID: 1486542790736956397}
   m_PlayerPos: {fileID: 0}
+  m_WaveManager: {fileID: 0}
 --- !u!114 &-6190658543348067816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2378,6 +2395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &5971323356635926857
 GameObject:
   m_ObjectHideFlags: 0
@@ -2926,6 +2944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &7712408439156505587
 GameObject:
   m_ObjectHideFlags: 0
@@ -2987,6 +3006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &7732058870067108334
 GameObject:
   m_ObjectHideFlags: 0
@@ -3233,6 +3253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &8316701073494256850
 GameObject:
   m_ObjectHideFlags: 0
@@ -3575,6 +3596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageMultiplier: 1
   m_EnemyHealth: {fileID: 258938471443832191}
+  m_EnemyAI: {fileID: 3182888318596157674}
 --- !u!1 &8945871371261270277
 GameObject:
   m_ObjectHideFlags: 0

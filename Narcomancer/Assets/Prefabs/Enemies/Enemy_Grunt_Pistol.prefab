@@ -74,6 +74,9 @@ MonoBehaviour:
   m_CurrentHealth: 200
   m_MaxHealth: 200
   m_IsDead: 0
+  m_OnHit: []
+  m_OnHeal: []
+  m_OnDead: []
 --- !u!114 &1144665847256844554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,12 +125,14 @@ MonoBehaviour:
   m_ProjectileYBloom: 0
   m_ProjectileSpawnPos: {fileID: 3031857265491664538}
   m_LightningChainOffset: {x: 0, y: 1, z: 0}
+  m_StunnedTime: 0
   m_ModelAllignmentSpeed: 0.5
   m_ModelParent: {fileID: 8612271115639390983}
   m_Projectile: {fileID: 1074264109906350973, guid: 90f8674a10c4f364b9fde0889bb6e970, type: 3}
   m_Health: {fileID: 8696561252261468981}
   m_Animator: {fileID: 2406261576508561789}
   m_PlayerPos: {fileID: 0}
+  m_WaveManager: {fileID: 0}
 --- !u!114 &131950999369532703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,70 +213,147 @@ PrefabInstance:
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 5787747302333741, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 345261631084073809, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 345261631084073809, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 786887584372657625, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 786887584372657625, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 851549839316702169, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 851549839316702169, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 1064064752964941863, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 1064064752964941863, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 1656797692025132020, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 1656797692025132020, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 1687179007867991863, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 1687179007867991863, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
+    - target: {fileID: 3052205303856206267, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'Spine04'\n\tTransform 'Spine01'\n\tTransform
+        'Pelvis'\n\tTransform 'Spine02'\n\tTransform 'Head'\n\tTransform 'Foot_L'\n\tTransform
+        'Toe_R'\n\tTransform 'Thigh_L'\n\tTransform 'Foot_R'\n\tTransform 'LowerArm_R'\n\tand
+        more ...\n\tFrom animation clip 'Stagger'"
+      objectReference: {fileID: 0}
     - target: {fileID: 3081967390409632726, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 3081967390409632726, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 3782676475306278400, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 3782676475306278400, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 5075239537798784586, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 5075239537798784586, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 5113937131815979079, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 5113937131815979079, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 6200511265966122681, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 6200511265966122681, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 6719988309367955479, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 6719988309367955479, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 6891617667295318424, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 6891617667295318424, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 7170007151155208566, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 7170007151155208566, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 8109669074060796982, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 8109669074060796982, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 8382693691578331867, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
       value: 
       objectReference: {fileID: 8696561252261468981}
+    - target: {fileID: 8382693691578331867, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+      propertyPath: m_EnemyAI
+      value: 
+      objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 8642514292087984507, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_Name
       value: Model
