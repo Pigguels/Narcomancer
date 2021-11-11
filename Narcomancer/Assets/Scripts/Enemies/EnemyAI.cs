@@ -57,6 +57,7 @@ public class EnemyAI : MonoBehaviour
     LootSpawner lootSpawner;
 
     public Transform m_PlayerPos;
+    public EnemyWave m_WaveManager;
 
     private NavMeshAgent m_NavAgent;
 
@@ -239,7 +240,10 @@ public class EnemyAI : MonoBehaviour
             if (m_NavAgent.enabled)
             {
                 m_ModelParent.rotation = Quaternion.LookRotation(towardPlayer2D, Vector3.up);
-                //m_EnemyManager.DecreaseEnemyCount();
+
+                if (m_WaveManager)
+                    m_WaveManager.DecreaseEnemyCount();
+
                 m_NavAgent.velocity = Vector3.zero;
                 m_NavAgent.enabled = false;
             }
