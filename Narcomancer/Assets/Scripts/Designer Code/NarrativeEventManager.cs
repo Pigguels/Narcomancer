@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NarrativeEventManager : MonoBehaviour
-{   
-    [Header ("Controller Objects")]
+{
+    [Header("Controller Objects")]
     public GameObject WaveMaster;
     public GameObject doorController;
-        
+
     [Header("Animation Objects")]
     public GameObject OfficeNarcomancer;
     public GameObject CageNarcomancer;
-    //public GameObject henchman;
+    public GameObject henchman;
     public GameObject officeWindow;
     public GameObject officeWindowBroken;
     public GameObject glassCage;
+    public GameObject UIController;
 
     [Header("Audio Objects")]
     public GameObject speakerParent;
@@ -23,7 +24,6 @@ public class NarrativeEventManager : MonoBehaviour
     public GameObject BossBark;
     //public GameObject Phonedialogue;
     //public GameObject PhoneScreaming;
-
 
     [Header("Trigger Objects")]
     public GameObject IntroTrigger;
@@ -40,7 +40,7 @@ public class NarrativeEventManager : MonoBehaviour
     public float barktimer;
     public bool bluster;
     private bool timerenabled;
-
+    private bool monologueing;
     public bool wave2;
     public bool wave3;
     public bool wave4;
@@ -51,12 +51,14 @@ public class NarrativeEventManager : MonoBehaviour
     public string fmodEvent;
     private float boss;
     public float combat;
-    
+
     private Animator narcomancerAnim;
     private Animator NarcoCageAnim;
     private Animator henchmanAnim;
     public Animator cageAnim;
+    private Animator UiAnim;
     
+
 
 
     // Start is called before the first frame update
@@ -66,9 +68,11 @@ public class NarrativeEventManager : MonoBehaviour
         music.start();
 
         narcomancerAnim = OfficeNarcomancer.GetComponent<Animator>();
-       // henchmanAnim = henchman.GetComponent<Animator>();
+        henchmanAnim = henchman.GetComponent<Animator>();
         NarcoCageAnim = CageNarcomancer.GetComponent<Animator>();
-        cageAnim = glassCage.GetComponent <Animator>();
+        cageAnim = glassCage.GetComponent<Animator>();
+        UiAnim = UIController.GetComponent<Animator>();
+        monologueing = false;
     }
 
     // Update is called once per frame
@@ -137,6 +141,10 @@ public class NarrativeEventManager : MonoBehaviour
             combat = 1;
             wave4 = false;
         }
+        if (!timerenabled && monologueing == true)
+        {
+            GoodEnd();
+        }
 
         music.setParameterByName("combat", combat);
         music.setParameterByName("boss", boss);
@@ -161,8 +169,8 @@ public class NarrativeEventManager : MonoBehaviour
         speakerParent.GetComponent<DialogueSpeaker>().Wave2Audio();
         timer = 12.7f;
         timerenabled = true;
-        narcomancerAnim.SetBool("Talking",true);
-        wave2 = true;       
+        narcomancerAnim.SetBool("Talking", true);
+        wave2 = true;
     }
 
     public void StoryWave3()
@@ -183,15 +191,15 @@ public class NarrativeEventManager : MonoBehaviour
     }
 
     public void StoryVipRoom()
-    { 
+    {
         StartCoroutine(VIP());
     }
 
     public void ShootTheMessenger()
     {
         narcomancerAnim.SetTrigger("Shoot");
-       // henchmanAnim.SetTrigger("Dead");
-       
+        // henchmanAnim.SetTrigger("Dead");
+
     }
 
     public void Gentlemen()
@@ -200,7 +208,7 @@ public class NarrativeEventManager : MonoBehaviour
     }
     public void OfficeDoors()
     {
-       // WaveMaster.GetComponent<WaveManager>().AlarmRatsStart();
+        // WaveMaster.GetComponent<WaveManager>().AlarmRatsStart();
         OfficeNarcomancer.SetActive(false);
     }
 
@@ -247,8 +255,8 @@ public class NarrativeEventManager : MonoBehaviour
 
     public void NarcomancerDefeated()
     {
-       
-       //cageAnim.SetTrigger("CageFall");
+
+        //cageAnim.SetTrigger("CageFall");
         StartCoroutine(triggerDelay());
         boss = 0;
 
@@ -257,9 +265,13 @@ public class NarrativeEventManager : MonoBehaviour
     public void StoryMonologue()
     {
         speakerParent.GetComponent<DialogueSpeaker>().Monologue();
+        monologueing = true;
+        timer = 280f;
+        timerenabled = true;
         //na.settrigger monolgoue - ANIMATION DOESN NOT EXIST PRESENTLY
+
     }
-    
+
     IEnumerator VIP()
     {
         VipTrigger.SetActive(true);
@@ -301,4 +313,19 @@ public class NarrativeEventManager : MonoBehaviour
         doorController.GetComponent<DoorController>().CloseFront();
     }
 
+    public void GoodEnd()
+    {
+        uianimator.settrigger("playthegoodending");
+    }
+
+    public void BadEnd()
+    {
+
+    }
+
+    public void GameEnd()
+    {
+        monologueing = false;
+
+    }
 }
