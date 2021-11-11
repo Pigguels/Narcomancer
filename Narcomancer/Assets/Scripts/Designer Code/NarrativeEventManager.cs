@@ -25,6 +25,9 @@ public class NarrativeEventManager : MonoBehaviour
     public GameObject phonering;
     public GameObject OfficeBark;
     public GameObject BossBark;
+    public GameObject firealarm;
+    public GameObject firealarmoff;
+    public GameObject VIPgunshot;
     //public GameObject Phonedialogue;
     //public GameObject PhoneScreaming;
 
@@ -213,10 +216,15 @@ public class NarrativeEventManager : MonoBehaviour
     {
         // WaveMaster.GetComponent<WaveManager>().AlarmRatsStart();
         OfficeNarcomancer.SetActive(false);
+        henchman.SetActive(false);
+        firealarmoff.SetActive(false);
+        firealarm.SetActive(true);
     }
 
     public void StoryPhoneCall()
     {
+        firealarmoff.SetActive(true);
+        firealarm.SetActive(false);
         print("phonerings");
         //WaveMaster.GetComponent<WaveManager>().AlarmRatsStop();
         phonering.SetActive(true);
