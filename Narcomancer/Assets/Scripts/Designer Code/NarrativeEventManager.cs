@@ -160,15 +160,14 @@ public class NarrativeEventManager : MonoBehaviour
     public void DoorKick()
     {
         combat = 1;
-        barktimer = 30f;
         IntroTrigger.SetActive(true);
     }
     public void StoryIntroduction()
     {
-        WaveMaster.GetComponent<WaveManager>().Wave1();
+        WaveMaster.GetComponent<WaveManager>().Wave1(); 
         speakerParent.GetComponent<DialogueSpeaker>().ArrivalAudio();
-        barktimer = 30f;
-        StartCoroutine(closefrontdoors());
+        barktimer = 40f;
+        //StartCoroutine(closefrontdoors());
     }
     public void StoryWave2()
     {
@@ -318,11 +317,11 @@ public class NarrativeEventManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         monologueTrigger.SetActive(true);
     }
-    IEnumerator closefrontdoors()
-    {
-        yield return new WaitForSeconds(10f);
-        doorController.GetComponent<DoorController>().CloseFront();
-    }
+    //IEnumerator closefrontdoors()
+    //{
+    //    yield return new WaitForSeconds(10f);
+    //    doorController.GetComponent<DoorController>().CloseFront();
+    //}
 
     public void GoodEnd()
     {
