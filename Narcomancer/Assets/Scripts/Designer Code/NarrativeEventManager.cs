@@ -347,8 +347,7 @@ public class NarrativeEventManager : MonoBehaviour
 
     public void BadEnd()
     {
-        print("gottem");
-        Bribe();
+        StartCoroutine(Bribe());
     }
 
     public void GameEnd()
@@ -363,7 +362,7 @@ public class NarrativeEventManager : MonoBehaviour
         BadEndUI.SetActive(true);
         Briefcasereal.SetActive(false);
         Briefcasefake.SetActive(true);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
         BadEndUI.SetActive(false);
         
     }

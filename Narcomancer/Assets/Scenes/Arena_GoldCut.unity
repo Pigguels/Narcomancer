@@ -34038,7 +34038,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionKey: 19
   m_MaxDistanceForInteraction: 5
-  m_MaxLookAngleForInteraction: 90
+  m_MaxLookAngleForInteraction: 359
   m_ActivateOnce: 1
   m_InteractionType: 1
   m_ActivationType: 0
@@ -54434,6 +54434,10 @@ PrefabInstance:
     - target: {fileID: 789832318731247005, guid: f7b9aa397a1c818489ed2c49a9aefa5f, type: 3}
       propertyPath: m_CurrentShotgunAmmo
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2668554911023214736, guid: f7b9aa397a1c818489ed2c49a9aefa5f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4605572875777286775, guid: f7b9aa397a1c818489ed2c49a9aefa5f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -83167,7 +83171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4051455441411004950, guid: e724175dc035a7641b379781371118c9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4051455441424447826, guid: e724175dc035a7641b379781371118c9, type: 3}
       propertyPath: m_IsActive
