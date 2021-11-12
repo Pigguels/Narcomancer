@@ -18,6 +18,12 @@ public class MainMenu : MonoBehaviour
     public TMP_Dropdown fullscreenDropdown;
     public TMP_Dropdown resolutionDropdown;
 
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
+
     private void Update()
     {
         if (deltaTimer1 <= deltaTimer)
