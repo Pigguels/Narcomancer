@@ -61,7 +61,7 @@ public class NarrativeEventManager : MonoBehaviour
     [FMODUnity.EventRef]
     public string fmodEvent;
     private float boss;
-    private float casual;
+    private float volume;
     public float combat;
 
     private Animator narcomancerAnim;
@@ -79,6 +79,7 @@ public class NarrativeEventManager : MonoBehaviour
     {
         music = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
         music.start();
+        volume = 1;
 
         narcomancerAnim = OfficeNarcomancer.GetComponent<Animator>();
         //henchmanAnim = henchman.GetComponent<Animator>();
@@ -160,7 +161,7 @@ public class NarrativeEventManager : MonoBehaviour
 
         music.setParameterByName("combat", combat);
         music.setParameterByName("boss", boss);
-        music.setParameterByName("casual", casual);
+        music.setParameterByName("volume", volume);
 
     }
 
@@ -247,6 +248,7 @@ public class NarrativeEventManager : MonoBehaviour
         print("ci esta boss fight");
         barktimer = 40f;
         boss = 2;
+        volume = 2;
         speakerParent.GetComponent<DialogueSpeaker>().BossFightStart();
         WaveMaster.GetComponent<WaveManager>().Boss1();
         CageNarcomancer.GetComponent<NarcoGrenade>().enabled = true;
@@ -273,7 +275,7 @@ public class NarrativeEventManager : MonoBehaviour
         //cageAnim.SetTrigger("CageFall");
         StartCoroutine(triggerDelay());
         boss = 0;
-        casual = 1;
+        volume = 0;
 
     }
     public void StoryMonologue()
@@ -313,6 +315,7 @@ public class NarrativeEventManager : MonoBehaviour
         cageAnim.SetTrigger("LowerCage");
         speakerParent.GetComponent<DialogueSpeaker>().Descent();
         boss = 1;
+        volume = 2;
         yield return new WaitForSeconds(20f);
         officeEscapeTrigger.SetActive(true);
         NarcoCageAnim.SetTrigger("Shoot");
@@ -367,4 +370,6 @@ public class NarrativeEventManager : MonoBehaviour
         BadEndUI.SetActive(false);
         
     }
+
+   
 }
