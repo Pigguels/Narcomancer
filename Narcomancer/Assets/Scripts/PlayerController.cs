@@ -255,6 +255,9 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        m_Yaw = transform.localEulerAngles.y;
+        m_Pitch = m_Head.localEulerAngles.x;
     }
 
     void Update()
