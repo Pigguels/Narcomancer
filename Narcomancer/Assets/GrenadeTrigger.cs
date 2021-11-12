@@ -9,8 +9,14 @@ public class GrenadeTrigger : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        GameObject test = Instantiate(explosion, transform.position, transform.rotation);
-
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "IgnoreGrenade" || collision.gameObject.name == "Narcomancer_v03")
+            return;
+        else
+        {
+            GameObject test = Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(test, grenadeLifetime);
+            Destroy(gameObject);
+        }
+        
     }
 }
