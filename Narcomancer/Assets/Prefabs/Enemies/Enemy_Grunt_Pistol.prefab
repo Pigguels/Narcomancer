@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barkEmitter: {fileID: 4016456458634332685}
-  min: 10
-  max: 30
+  min: 15
+  max: 60
 --- !u!1 &4016456458634332685
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +202,19 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &369393958193273808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8993475561707493821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e2ddb90dfce70468f4531dc9bcc0d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: 1
 --- !u!1001 &810470545905633478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -755,12 +768,7 @@ PrefabInstance:
       objectReference: {fileID: 6272510722841056928}
     - target: {fileID: 3052205303856206267, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Spine04'\n\tTransform 'Spine01'\n\tTransform
-        'Pelvis'\n\tTransform 'Spine02'\n\tTransform 'Head'\n\tTransform 'Foot_L'\n\tTransform
-        'Toe_R'\n\tTransform 'Thigh_L'\n\tTransform 'Foot_R'\n\tTransform 'LowerArm_R'\n\tand
-        more ...\n\tFrom animation clip 'Stagger'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3081967390409632726, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
       propertyPath: m_EnemyHealth
@@ -888,6 +896,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+--- !u!1 &8993475561707493821 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8642514292087984507, guid: 039873c64702c7f46b93b08a90765c64, type: 3}
+  m_PrefabInstance: {fileID: 810470545905633478}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8612271115639390983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8987971381682785217, guid: 039873c64702c7f46b93b08a90765c64, type: 3}

@@ -2158,6 +2158,7 @@ GameObject:
   - component: {fileID: 269389663725135658}
   - component: {fileID: 8426199292167009557}
   - component: {fileID: 3170845702393834175}
+  - component: {fileID: -3970961341131489740}
   m_Layer: 12
   m_Name: Enemy_Grunt_SMG
   m_TagString: Enemy
@@ -2277,6 +2278,21 @@ MonoBehaviour:
   m_Animator: {fileID: 5504490248210736085}
   m_PlayerPos: {fileID: 0}
   m_WaveManager: {fileID: 0}
+--- !u!114 &-3970961341131489740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5329102554014918540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c4edf3376dfda47aeefd0e00971106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barkEmitter: {fileID: 6425213908739425711}
+  min: 15
+  max: 60
 --- !u!1 &5332675029530514242
 GameObject:
   m_ObjectHideFlags: 0
@@ -3520,6 +3536,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7399863764418927345}
   - component: {fileID: 5504490248210736085}
+  - component: {fileID: 6096215329448290085}
+  - component: {fileID: 3647533117895589399}
   m_Layer: 12
   m_Name: Model
   m_TagString: Untagged
@@ -3559,15 +3577,36 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
-  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
-    are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'Spine04'\n\tTransform 'Spine01'\n\tTransform
-    'Pelvis'\n\tTransform 'Spine02'\n\tTransform 'Head'\n\tTransform 'Foot_L'\n\tTransform
-    'Toe_R'\n\tTransform 'Thigh_L'\n\tTransform 'Foot_R'\n\tTransform 'LowerArm_R'\n\tand
-    more ...\n\tFrom animation clip 'Stagger'"
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6096215329448290085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924726001182556235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1034f5cdee8c74ea3a2b243bccf74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: 2
+--- !u!114 &3647533117895589399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924726001182556235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e2ddb90dfce70468f4531dc9bcc0d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: 0
 --- !u!1 &7988543081611368331
 GameObject:
   m_ObjectHideFlags: 0

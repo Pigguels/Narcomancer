@@ -4649,6 +4649,7 @@ GameObject:
   - component: {fileID: 9023073597925771365}
   - component: {fileID: 750599503499680346}
   - component: {fileID: 5945998923770349040}
+  - component: {fileID: 2011757580947770474}
   m_Layer: 12
   m_Name: Enemy_Rat_01
   m_TagString: Enemy
@@ -4768,6 +4769,21 @@ MonoBehaviour:
   m_Animator: {fileID: 9156819004723725650}
   m_PlayerPos: {fileID: 0}
   m_WaveManager: {fileID: 0}
+--- !u!114 &2011757580947770474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3995171504814966979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c4edf3376dfda47aeefd0e00971106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barkEmitter: {fileID: 3611636228311508256}
+  min: 15
+  max: 60
 --- !u!1 &4009803297334699818
 GameObject:
   m_ObjectHideFlags: 0

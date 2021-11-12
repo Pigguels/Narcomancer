@@ -2414,6 +2414,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4774218156396155287}
   - component: {fileID: 1486542790736956397}
+  - component: {fileID: 1654395702299994175}
+  - component: {fileID: 3801769835144863830}
   m_Layer: 12
   m_Name: Enemy_Skinned_Enforcer
   m_TagString: Untagged
@@ -2457,6 +2459,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1654395702299994175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5263228789848460077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1034f5cdee8c74ea3a2b243bccf74e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: 4
+--- !u!114 &3801769835144863830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5263228789848460077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e2ddb90dfce70468f4531dc9bcc0d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: 2
 --- !u!1 &5322755424687463897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,6 +2498,7 @@ GameObject:
   - component: {fileID: 258938471443832191}
   - component: {fileID: 8414167552060231488}
   - component: {fileID: 3182888318596157674}
+  - component: {fileID: 7571151208898263940}
   m_Layer: 12
   m_Name: Enemy_Enforcer_01
   m_TagString: Enemy
@@ -2589,6 +2618,21 @@ MonoBehaviour:
   m_Animator: {fileID: 1486542790736956397}
   m_PlayerPos: {fileID: 0}
   m_WaveManager: {fileID: 0}
+--- !u!114 &7571151208898263940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322755424687463897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c4edf3376dfda47aeefd0e00971106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barkEmitter: {fileID: 1757855858968781801}
+  min: 10
+  max: 60
 --- !u!1 &5345200354379603181
 GameObject:
   m_ObjectHideFlags: 0
