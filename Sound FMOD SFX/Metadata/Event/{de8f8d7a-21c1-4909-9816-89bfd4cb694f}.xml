@@ -124,7 +124,7 @@
 	<object class="MixerBusPanner" id="{c20ec205-b9ab-4a15-82b7-32afc26df32a}" />
 	<object class="MultiSound" id="{6945beba-2ce7-4439-b948-0a63f57bad9f}">
 		<relationship name="sounds">
-			<destination>{89218b63-288c-4df3-b9ab-17a1ff2645bd}</destination>
+			<destination>{f288a7ba-2fea-4fde-87e1-eb02e6767c2c}</destination>
 			<destination>{86e9fefc-b855-4848-bacc-75011cbb07bb}</destination>
 			<destination>{fd49895d-5a4f-4252-93d7-ec97e6229ab5}</destination>
 		</relationship>
@@ -137,10 +137,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{19ecf30a-aeac-4574-9657-33414b04e3a3}" />
 	<object class="MixerBusFader" id="{d7677356-33b3-42a0-8453-94cde33a24d9}" />
-	<object class="SpatialiserEffect" id="{f38d43cf-1ac2-4198-804c-f880ef737d50}" />
-	<object class="SingleSound" id="{89218b63-288c-4df3-b9ab-17a1ff2645bd}">
+	<object class="SpatialiserEffect" id="{f38d43cf-1ac2-4198-804c-f880ef737d50}">
+		<property name="minimumDistance">
+			<value>9</value>
+		</property>
+	</object>
+	<object class="SingleSound" id="{f288a7ba-2fea-4fde-87e1-eb02e6767c2c}">
 		<relationship name="audioFile">
-			<destination>{9868c5fa-daff-4ce8-a49c-062fd27d10e9}</destination>
+			<destination>{3b40eb09-7436-4bc7-a503-166b03ad9db5}</destination>
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{86e9fefc-b855-4848-bacc-75011cbb07bb}">

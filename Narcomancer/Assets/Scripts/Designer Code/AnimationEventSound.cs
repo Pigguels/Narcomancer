@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimationEventSound : MonoBehaviour
 {
-    public enum SoundToBePlayed { Shotgun,Lightning}
+    public enum SoundToBePlayed { Shotgun,Lightning,GruntDeath,RatDeath,EnfDeath}
     public SoundToBePlayed sound;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,21 @@ public class AnimationEventSound : MonoBehaviour
                  FMODUnity.RuntimeManager.PlayOneShot("event:/Shotgun SFX/Shotgun Blasts", transform.position);
                  break;
 
-                
+            case SoundToBePlayed.GruntDeath:
+                FMODUnity.RuntimeManager.PlayOneShot("event:/3D Dialogue/Death SFXs Voiceover/Baz's Death sounds", transform.position);
+                print("gruntdeath");
+                break;
+
+            case SoundToBePlayed.RatDeath:
+                FMODUnity.RuntimeManager.PlayOneShot("event:/3D Dialogue/Death SFXs Voiceover/Ryan's Death sounds", transform.position);
+                print("gruntdeath");
+                break;
+
+            case SoundToBePlayed.EnfDeath:
+                FMODUnity.RuntimeManager.PlayOneShot("event:/3D Dialogue/Death SFXs Voiceover/Ryan's Death sounds", transform.position);
+                print("gruntdeath");
+                break;
+
         }
     }
 }

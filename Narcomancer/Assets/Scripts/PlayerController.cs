@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
@@ -12,7 +13,9 @@ public class PlayerController : MonoBehaviour
 {
     Vector2 m_MoveInput;
     Vector2 m_LookInput;
-    
+
+    public static bool paused = false; // jeez i hate this, but i dont have time
+
     public PlayerInput m_PlayerInput;
     
     enum KeyInputs { crouch, jump, dash, primaryFire, secondaryFire, };
@@ -215,31 +218,34 @@ public class PlayerController : MonoBehaviour
     [Header("UI Referances:")]
     [Space]
 
-    public TMP_Text m_HealthText;
     public Slider m_HealthSlider;
-    public Image m_HealthBar;
 
     public TMP_Text m_ShotgunAmmoText;
-    public TMP_Text m_NeonAmmoText;
-    public Slider m_NeonAmmoSlider;
 
     public Image m_NeonAmmoRing;
     public GameObject[] m_DashIcon;
+    public GameObject deathScreen;
 
-
+    public Animator pauseMenu;
 
     #endregion
 
     private CharacterController m_CharController;
 
-    private LayerMask m_LayerMask;
+    private LayerMask m_PlayerMask;
+    private LayerMask m_IgnoreMask;
+
 
     private void Awake()
     {
+        Time.timeScale = 1f;
+        paused = false;
+        pauseMenu = GameObject.Find("PauseMenu").GetComponent<Animator>();
         m_CharController = GetComponent<CharacterController>();
         m_Health = GetComponent<Health>();
 
-        m_LayerMask = LayerMask.GetMask("Player");
+        m_PlayerMask = LayerMask.GetMask("Player");
+        m_IgnoreMask = LayerMask.GetMask("IgnorePlayerChecks");
 
         m_StandingHeight = m_CharController.height;
         m_TargetHeight = m_StandingHeight;
@@ -250,90 +256,99 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
-        if (dashLimit != 3)
+        if (!paused)
         {
-            m_DashCooldownDetla += Time.deltaTime;
-            if (m_DashCooldownDetla > m_DashCooldown)
+            if (m_Health.m_IsDead == true)
             {
-                m_DashCooldownDetla = 0f;
-                dashLimit += 1;
-                DashUI();
+                PlayerDeath();
             }
+
+            if (dashLimit != 3)
+            {
+                m_DashCooldownDetla += Time.deltaTime;
+                if (m_DashCooldownDetla > m_DashCooldown)
+                {
+                    m_DashCooldownDetla = 0f;
+                    dashLimit += 1;
+                    DashUI();
+                }
+            }
+
+
+            m_IsGrounded = IsGrounded();
+            m_ObjectAbove = IsObjectAbove();
+
+            /* Get The last move direction the is not zero */
+            if (m_MoveDir != Vector3.zero)
+                m_LastMoveDir = m_MoveDir;
+
+            m_MoveDir = (transform.forward * m_MoveInput.y + transform.right * m_MoveInput.x).normalized;
+
+            if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump) && m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanVault())
+            {
+                m_MoveState = MovementStates.vault;
+                InitialiseVault();
+            }
+            else if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump) && m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanMantle())
+            {
+                m_MoveState = MovementStates.mantle;
+                InitialiseMantle();
+            }
+
+            /* Update the current movement states */
+            switch (m_MoveState)
+            {
+                case MovementStates.walk:
+                    m_CamRollTargetAngle = m_CamWalkAngle;
+                    Walk();
+                    break;
+
+                case MovementStates.crouch:
+                    m_CamRollTargetAngle = m_CamCrouchAngle;
+                    Crouch();
+                    break;
+
+                case MovementStates.jump:
+                    Jump();
+                    break;
+
+                case MovementStates.slide:
+                    Slide();
+                    break;
+
+                case MovementStates.mantle:
+                    Mantle();
+                    break;
+
+                case MovementStates.vault:
+                    Vault();
+                    break;
+
+                case MovementStates.dash:
+                    Dash();
+                    break;
+            }
+
+
+            ApplyPhysics();
+
+            if (m_MoveState == MovementStates.slide)
+                AdjustYScale(m_TargetHeight, m_VerticalSlideSpeed);
+            else
+                AdjustYScale(m_TargetHeight, m_VerticalCrouchSpeed);
+
+            AdjustCameraRoll(m_CamRollTargetAngle);
+
+            SlopeAdjustment();
+
+            UpdateUIElements();
         }
-
-
-        m_IsGrounded = IsGrounded();
-        m_ObjectAbove = IsObjectAbove();
-
-        /* Get The last move direction the is not zero */
-        if (m_MoveDir != Vector3.zero)
-            m_LastMoveDir = m_MoveDir;
-
-        m_MoveDir = (transform.forward * m_MoveInput.y + transform.right * m_MoveInput.x).normalized;
-
-        if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump) && m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanVault())
-        {
-            m_MoveState = MovementStates.vault;
-            InitialiseVault();
-        }
-        else if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump) && m_InputDown[(int)KeyInputs.jump] && m_Velocity.y >= 0f && CanMantle())
-        {
-            m_MoveState = MovementStates.mantle;
-            InitialiseMantle();
-        }
-
-        /* Update the current movement states */
-        switch (m_MoveState)
-        {
-            case MovementStates.walk:
-                m_CamRollTargetAngle = m_CamWalkAngle;
-                Walk();
-                break;
-
-            case MovementStates.crouch:
-                m_CamRollTargetAngle = m_CamCrouchAngle;
-                Crouch();
-                break;
-
-            case MovementStates.jump:
-                Jump();
-                break;
-
-            case MovementStates.slide:
-                Slide();
-                break;
-
-            case MovementStates.mantle:
-                Mantle();
-                break;
-
-            case MovementStates.vault:
-                Vault();
-                break;
-
-            case MovementStates.dash:
-                Dash();
-                break;
-        }
-
-        ApplyPhysics();
-
-        if (m_MoveState == MovementStates.slide)
-            AdjustYScale(m_TargetHeight, m_VerticalSlideSpeed);
-        else
-            AdjustYScale(m_TargetHeight, m_VerticalCrouchSpeed);
-
-        AdjustCameraRoll(m_CamRollTargetAngle);
-
-        SlopeAdjustment();
-
-        UpdateUIElements();
     }
 
     private void LateUpdate()
     {
-        Look();
+        if (!paused)
+            Look();
     }
 
     /// <summary> 
@@ -451,7 +466,7 @@ public class PlayerController : MonoBehaviour
 
         /* Raycast to the ground */
         RaycastHit slopeHit;
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, m_CharController.height * 0.5f + 0.5f, ~m_LayerMask))
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, m_CharController.height * 0.5f + 0.5f, ~m_PlayerMask & ~m_IgnoreMask))
         {
             /* Check if the ground is a slope */
             if (Vector3.Dot(slopeHit.normal, Vector3.up) < 0.99f)
@@ -467,16 +482,15 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void UpdateUIElements()
     {
-        m_HealthText.text = (Mathf.Round(m_Health.m_CurrentHealth * 10) / 10).ToString();
+        //m_HealthText.text = (Mathf.Round(m_Health.m_CurrentHealth * 10) / 10).ToString();
         m_HealthSlider.value = m_Health.m_CurrentHealth;
         m_HealthSlider.maxValue = m_Health.m_MaxHealth;
-        m_HealthBar.fillAmount = (m_Health.m_CurrentHealth / 10);
 
         m_ShotgunAmmoText.text = m_CurrentShotgunAmmo.ToString();
 
-        m_NeonAmmoText.text = (Mathf.Round(m_CurrentNeonAmmo * 10) / 10).ToString();
-        m_NeonAmmoSlider.value = m_CurrentNeonAmmo;
-        m_NeonAmmoSlider.maxValue = m_MaxNeonAmmo;
+        //m_NeonAmmoText.text = (Mathf.Round(m_CurrentNeonAmmo * 10) / 10).ToString();
+        //m_NeonAmmoSlider.value = m_CurrentNeonAmmo;
+        //m_NeonAmmoSlider.maxValue = m_MaxNeonAmmo;
         m_NeonAmmoRing.fillAmount = (m_CurrentNeonAmmo / 10) * 0.25f;
     }
 
@@ -490,7 +504,7 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded()
     {
         RaycastHit sphereHit;
-        return Physics.SphereCast(transform.position, m_CharController.radius, Vector3.down, out sphereHit, (m_CharController.height * 0.5f) - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~m_LayerMask);
+        return Physics.SphereCast(transform.position, m_CharController.radius, Vector3.down, out sphereHit, (m_CharController.height * 0.5f) - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~m_PlayerMask & ~m_IgnoreMask);
     }
 
     /// <summary>
@@ -499,7 +513,7 @@ public class PlayerController : MonoBehaviour
     private bool IsObjectAbove()
     {
         RaycastHit sphereHit;
-        return Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~m_LayerMask);
+        return Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) - m_CharController.radius + m_CharController.skinWidth + 0.01f, ~m_PlayerMask & ~m_IgnoreMask);
     }
 
     /// <summary>
@@ -511,7 +525,7 @@ public class PlayerController : MonoBehaviour
             return true;
 
         RaycastHit sphereHit;
-        return !Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) + (m_StandingHeight - m_CrouchHeight) - m_CharController.radius + m_CharController.skinWidth, ~m_LayerMask);
+        return !Physics.SphereCast(transform.position, m_CharController.radius, Vector3.up, out sphereHit, (m_CharController.height * 0.5f) + (m_StandingHeight - m_CrouchHeight) - m_CharController.radius + m_CharController.skinWidth, ~m_PlayerMask & ~m_IgnoreMask);
     }
 
     /// <summary>
@@ -532,7 +546,7 @@ public class PlayerController : MonoBehaviour
         /* Check if there is a wall in the check direction */
         RaycastHit wallHit;
         if (Physics.CapsuleCast(transform.position + new Vector3(0f,m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
-            m_CharController.radius, checkDirection, out wallHit, horizontalDistanceToMantle, ~m_LayerMask))
+            m_CharController.radius, checkDirection, out wallHit, horizontalDistanceToMantle, ~m_PlayerMask & ~m_IgnoreMask))
         {
             /* Make sure the walls mantable */
             if (wallHit.transform.CompareTag("Mantlable"))
@@ -560,7 +574,7 @@ public class PlayerController : MonoBehaviour
         /* Check if there is a wall in the check direction */
         RaycastHit wallHit;
         if (Physics.CapsuleCast(transform.position + new Vector3(0f, m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
-            m_CharController.radius, checkDirection, out wallHit, horizontalDistanceToVault, ~m_LayerMask))
+            m_CharController.radius, checkDirection, out wallHit, horizontalDistanceToVault, ~m_PlayerMask & ~m_IgnoreMask))
         {
             /* Make sure the walls vaultable */
             if (wallHit.transform.CompareTag("Vaultable"))
@@ -664,6 +678,8 @@ public class PlayerController : MonoBehaviour
         /* Exiting the jump */
         if (m_IsGrounded && m_Velocity.y < 0f)
         {
+            if (CanStand())
+                m_TargetHeight = m_StandingHeight;
             m_MoveState = MovementStates.walk;
         }
         else if (m_ObjectAbove)
@@ -744,12 +760,12 @@ public class PlayerController : MonoBehaviour
         /* Get the distance of the wall */
         RaycastHit wallHit;
         if (Physics.CapsuleCast(transform.position + new Vector3(0f, m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
-            m_CharController.radius, m_MoveDir, out wallHit, horizontalDistanceToMantle, ~m_LayerMask))
+            m_CharController.radius, m_MoveDir, out wallHit, horizontalDistanceToMantle, ~m_PlayerMask))
         {
             /* Try get end position of the mantle */
             RaycastHit ledgeHit;
             if (Physics.Raycast(transform.position + (m_MoveDir * (wallHit.distance + (m_CharController.radius * 2f))) + (Vector3.up * verticalDistanceToMantle),
-                Vector3.down, out ledgeHit, verticalDistanceToMantle + (m_CharController.height * 0.5f), ~m_LayerMask))
+                Vector3.down, out ledgeHit, verticalDistanceToMantle + (m_CharController.height * 0.5f), ~m_PlayerMask))
             {
                 /* Get the start and end positions of the mantle */
                 mantleStartPosition = transform.position;
@@ -824,12 +840,12 @@ public class PlayerController : MonoBehaviour
         /* Get the distance of the wall */
         RaycastHit wallHit;
         if (Physics.CapsuleCast(transform.position + new Vector3(0f, m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
-            m_CharController.radius, m_MoveDir, out wallHit, horizontalDistanceToVault, ~m_LayerMask))
+            m_CharController.radius, m_MoveDir, out wallHit, horizontalDistanceToVault, ~m_PlayerMask))
         {
             /* Get end position of the vault */
             RaycastHit ledgeHit;
             if (Physics.Raycast(transform.position + (m_MoveDir * (wallHit.distance + (m_CharController.radius * 2f))) + (Vector3.up * verticalDistanceToVault),
-                Vector3.down, out ledgeHit, verticalDistanceToVault + (m_CharController.height * 0.5f), ~m_LayerMask))
+                Vector3.down, out ledgeHit, verticalDistanceToVault + (m_CharController.height * 0.5f), ~m_PlayerMask))
             {
                 /* Get the start and end positions of the mantle */
                 vaultStartPosition = transform.position;
@@ -912,7 +928,7 @@ public class PlayerController : MonoBehaviour
             /* Check if the dash is blocked */
             RaycastHit wallHit;
             if (Physics.CapsuleCast(transform.position + new Vector3(0f, m_CharController.height * 0.5f, 0f), transform.position - new Vector3(0f, m_CharController.height * 0.5f, 0f),
-                m_CharController.radius, m_MoveDir, out wallHit, m_DashDistance * (Time.deltaTime * m_DashTimeMultiplier) + m_CharController.radius, ~m_LayerMask))
+                m_CharController.radius, m_MoveDir, out wallHit, m_DashDistance * (Time.deltaTime * m_DashTimeMultiplier) + m_CharController.radius, ~m_PlayerMask))
             {
                 /* End the dash */
                 m_MoveState = MovementStates.walk;
@@ -969,122 +985,203 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        m_MoveInput = context.ReadValue<Vector2>();
+        if (!paused)
+        {
+            m_MoveInput = context.ReadValue<Vector2>();
+        }
     }
     public void OnLook(InputAction.CallbackContext context)
     {
-        m_LookInput = context.ReadValue<Vector2>();
+        if (!paused)
+        {
+            m_LookInput = context.ReadValue<Vector2>();
+        }
     }
     
     public void OnPrimaryFire(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (!paused)
         {
-            m_InputDown[(int)KeyInputs.primaryFire] = true;
-        }
-        else if (context.canceled)
-        {
-            m_InputDown[(int)KeyInputs.primaryFire] = false;
+            if (context.started && !paused)
+            {
+                m_InputDown[(int)KeyInputs.primaryFire] = true;
+            }
+            else if (context.canceled && !paused)
+            {
+                m_InputDown[(int)KeyInputs.primaryFire] = false;
+            }
         }
     }
 
     public void OnSecondaryFire(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (!paused)
         {
-            m_InputDown[(int)KeyInputs.secondaryFire] = true;
-        }
-        else if (context.canceled)
-        {
-            m_InputDown[(int)KeyInputs.secondaryFire] = false;
+            if (context.started && !paused)
+            {
+                m_InputDown[(int)KeyInputs.secondaryFire] = true;
+            }
+            else if (context.canceled && !paused)
+            {
+                m_InputDown[(int)KeyInputs.secondaryFire] = false;
+            }
         }
     }
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (!paused)
         {
-            /* Check if can transition to slide */
-            if (m_IsGrounded && Mathf.Acos(Vector3.Dot(m_MoveDir, transform.forward)) * Mathf.Rad2Deg < m_MaxAngleToStartSlide)
+            if (context.started && !paused)
             {
-                InitialiseSlide();
-                m_MoveState = MovementStates.slide;
-            }
+                /* Check if can transition to slide */
+                if (m_IsGrounded && Mathf.Acos(Vector3.Dot(m_MoveDir, transform.forward)) * Mathf.Rad2Deg < m_MaxAngleToStartSlide)
+                {
+                    InitialiseSlide();
+                    m_MoveState = MovementStates.slide;
+                }
 
-            /* Go to the crouched state */
-            if (m_MoveState == MovementStates.walk)
+                /* Go to the crouched state */
+                if (m_MoveState == MovementStates.walk)
+                {
+                    m_TargetHeight = m_CrouchHeight;
+                    m_MoveState = MovementStates.crouch;
+                }
+
+                m_InputDown[(int)KeyInputs.crouch] = true;
+            }
+            else if (context.canceled && !paused)
             {
-                m_TargetHeight = m_CrouchHeight;
-                m_MoveState = MovementStates.crouch;
+                m_InputDown[(int)KeyInputs.crouch] = false;
             }
-
-            m_InputDown[(int)KeyInputs.crouch] = true;
-        }
-        else if (context.canceled)
-        {
-            m_InputDown[(int)KeyInputs.crouch] = false;
         }
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        /* On the frame it was pressed */
-        if (context.started)
+        if (!paused)
         {
-            /* Move to the jumping state */
-            if (m_IsGrounded && (m_MoveState == MovementStates.walk || m_MoveState == MovementStates.crouch || m_MoveState == MovementStates.slide))
+            /* On the frame it was pressed */
+            if (context.started && !paused)
             {
-                InitialiseJump();
-                m_MoveState = MovementStates.jump;
-            }
+                /* Move to the jumping state */
+                if (m_IsGrounded && (m_MoveState == MovementStates.walk || m_MoveState == MovementStates.crouch || m_MoveState == MovementStates.slide))
+                {
+                    InitialiseJump();
+                    m_MoveState = MovementStates.jump;
+                }
 
-            /* Check if the player wants to air jump, if so apply the jump velocity */
-            if (!m_IsGrounded && m_MoveState == MovementStates.jump && m_AirJumpCount < m_MaxAirJumps)
+                /* Check if the player wants to air jump, if so apply the jump velocity */
+                if (!m_IsGrounded && m_MoveState == MovementStates.jump && m_AirJumpCount < m_MaxAirJumps)
+                {
+                    ++m_AirJumpCount;
+                    m_Velocity.y += Mathf.Sqrt(-m_JumpHeight / 1.5f * -m_Gravity) * m_AirJumpMultiplier;
+                }
+
+                m_InputDown[(int)KeyInputs.jump] = true;
+            }
+            else if (context.canceled)
             {
-                ++m_AirJumpCount;
-                m_Velocity.y += Mathf.Sqrt(-m_JumpHeight / 1.5f * -m_Gravity) * m_AirJumpMultiplier;
+                m_InputDown[(int)KeyInputs.jump] = false;
             }
-
-            m_InputDown[(int)KeyInputs.jump] = true;
-        }
-        else if (context.canceled)
-        {
-            m_InputDown[(int)KeyInputs.jump] = false;
         }
     }
 
     public void OnDash(InputAction.CallbackContext context)
     {
+        if (!paused)
+        {
+            if (context.started && !paused)
+            {
+                /* Try go into dash */
+                if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump || m_MoveState == MovementStates.dash) && dashLimit != 0)
+                {
+                    /* Make sure the move directions angle isn't too high */
+                    if (m_MoveDir != Vector3.zero && Mathf.Acos(Vector3.Dot(m_MoveDir, transform.forward)) * Mathf.Rad2Deg < m_DashMaxAngle)
+                    {
+                        /* Initialise the dash */
+                        m_DashStartPos = transform.position;
+                        m_DashEndPos = transform.position + (m_MoveDir * m_DashDistance);
+                        m_InitDashDir = m_MoveDir;
+                        m_TimeSinceDashStart = 0f;
+                        m_DashTimeMultiplier = 1f / m_DashTime;
+
+                        m_Velocity = Vector3.zero;
+
+                        m_MoveState = MovementStates.dash;
+
+                        dashLimit -= 1;
+                        m_DashCooldownDetla = 0f;
+                        DashUI();
+                    }
+                }
+
+                m_InputDown[(int)KeyInputs.dash] = true;
+            }
+            else if (context.canceled && !paused)
+            {
+                m_InputDown[(int)KeyInputs.dash] = false;
+            }
+        }
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        
         if (context.started)
         {
-            /* Try go into dash */
-            if ((m_MoveState == MovementStates.walk || m_MoveState == MovementStates.jump || m_MoveState == MovementStates.dash) && dashLimit != 0)
+            if (!m_Health.m_IsDead)
             {
-                /* Make sure the move directions angle isn't too high */
-                if (m_MoveDir != Vector3.zero && Mathf.Acos(Vector3.Dot(m_MoveDir, transform.forward)) * Mathf.Rad2Deg < m_DashMaxAngle)
+                if (!paused)
                 {
-                    /* Initialise the dash */
-                    m_DashStartPos = transform.position;
-                    m_DashEndPos = transform.position + (m_MoveDir * m_DashDistance);
-                    m_InitDashDir = m_MoveDir;
-                    m_TimeSinceDashStart = 0f;
-                    m_DashTimeMultiplier = 1f / m_DashTime;
-                    
-                    m_Velocity = Vector3.zero;
+                    pauseMenu.SetBool("Paused", true);
+                    Time.timeScale = 0f;
 
-                    m_MoveState = MovementStates.dash;
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
 
-                    dashLimit -= 1;
-                    m_DashCooldownDetla = 0f;
-                    DashUI();
+                    paused = true;
+                }
+                else
+                {
+                    pauseMenu.SetBool("Paused", false);
+                    Time.timeScale = 1f;
+
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+
+                    paused = false;
                 }
             }
+            else
 
-            m_InputDown[(int)KeyInputs.dash] = true;
+            {
+                /* Return to menu if pause is pressed during death screen */
+                Debug.Log("Loading Main Menu...");
+                SceneManager.LoadScene("MainMenu");
+            }
         }
-        else if (context.canceled)
+    }
+
+    public void OnPauseUI()
+    {
+        if (!paused)
         {
-            m_InputDown[(int)KeyInputs.dash] = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            pauseMenu.SetBool("Paused", true);
+            Debug.Log("You did it buddy!");
+            Time.timeScale = 0f;
+            paused = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            pauseMenu.SetBool("Paused", false);
+            Debug.Log("You did it buddy!");
+            Time.timeScale = 1f;
+            paused = false;
         }
     }
 
@@ -1118,5 +1215,14 @@ public class PlayerController : MonoBehaviour
         Mathf.Pow(1 - t, 2) * startPos.z +
             (1 - t) * 2 * t * controlPos.z +
             t * t * endPos.z);
+    }
+
+    public void PlayerDeath()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Debug.Log("The player has died");
+        deathScreen.SetActive(true);
+        Time.timeScale = Mathf.Lerp(Time.timeScale, 0f, 0.25f);
     }
 }

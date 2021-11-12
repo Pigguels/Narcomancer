@@ -8,6 +8,7 @@ public class PlayerPowerGlove : MonoBehaviour
     public int m_MaxChainAmount = 4;
     public float m_DistanceToChain = 4f;
     public float m_DamagePerSecond = 60f;
+    public float m_StunTime = 1.5f;
     public float m_Range = 20;
 
     [Space]
@@ -27,6 +28,8 @@ public class PlayerPowerGlove : MonoBehaviour
 
     public Animator fpRig;
 
+    public GameObject lightningsound;
+
     void Start()
     {
         m_PlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -36,24 +39,28 @@ public class PlayerPowerGlove : MonoBehaviour
         m_PlayerLayerMask = LayerMask.GetMask("Player");
 
         m_HitObjects = new List<GameObject>();
+
+        
     }
 
     private void Update()
     {
-        if (m_SecondaryFireDown && m_PlayerController.m_CurrentNeonAmmo > 0f)
+        if (!PlayerController.paused)
         {
-            ShootLightning();
-            m_PlayerController.m_CurrentNeonAmmo -= Time.deltaTime;
-            fpRig.SetBool("PlayerLightning", true);
-            Debug.Log("Lightning!");
+            if (m_SecondaryFireDown && m_PlayerController.m_CurrentNeonAmmo > 0f)
+            {
+                ShootLightning();
+                m_PlayerController.m_CurrentNeonAmmo -= Time.deltaTime;
+                fpRig.SetBool("PlayerLightning", true);
+                lightningsound.SetActive(true);
+            }
+            else
+            {
+                m_LineRenderer.positionCount = 0;
+                fpRig.SetBool("PlayerLightning", false);
+                lightningsound.SetActive(false);
+            }
         }
-        else
-        {
-            m_LineRenderer.positionCount = 0;
-            fpRig.SetBool("PlayerLightning", false);
-        }
-
-
     }
 
     void ShootLightning()
@@ -76,9 +83,9 @@ public class PlayerPowerGlove : MonoBehaviour
                     hit.transform.GetComponent<Health>().Damage(m_DamagePerSecond * Time.deltaTime);
                 // NEED TO ADD GENERIC INTERACTABLE OBJECT EVENT CALLING HERE
             }
-            else if (hit.transform.CompareTag("Enemy"))
+            else if (hit.transform.CompareTag("EnemyDamagePoint"))
             {
-                m_HitObjects.Add(hit.transform.gameObject);
+                m_HitObjects.Add(hit.transform.GetComponent<EnemyDamagePoint>().m_EnemyHealth.gameObject);
 
                 // chain to nearby enemies
                 for (int i = 0; i < m_MaxChainAmount + 1; ++i)
@@ -97,7 +104,7 @@ public class PlayerPowerGlove : MonoBehaviour
                 for (int i = 1; i < m_MaxChainAmount + 1; ++i)
                 {
                     if (i < m_HitObjects.Count)
-                        m_LineRenderer.SetPosition(i, m_HitObjects[i - 1].transform.position);
+                        m_LineRenderer.SetPosition(i, m_HitObjects[i - 1].transform.position + m_HitObjects[i - 1].GetComponent<EnemyAI>().m_LightningChainOffset);
                     else
                         m_LineRenderer.SetPosition(i, m_LineRenderer.GetPosition(i - 1));
                 }
@@ -105,8 +112,10 @@ public class PlayerPowerGlove : MonoBehaviour
                 // damage the hit enemies
                 foreach (GameObject enemyToDamage in m_HitObjects)
                 {
-                    if (enemyToDamage.GetComponent<EnemyDamagePoint>())
-                        enemyToDamage.GetComponent<EnemyDamagePoint>().Damage(m_DamagePerSecond * Time.deltaTime);
+                    if (enemyToDamage.GetComponent<Health>())
+                        enemyToDamage.GetComponent<Health>().Damage(m_DamagePerSecond * Time.deltaTime);
+                    if (enemyToDamage.GetComponent<EnemyAI>())
+                        enemyToDamage.GetComponent<EnemyAI>().m_StunnedTime = m_StunTime;
                 }
             }
             else

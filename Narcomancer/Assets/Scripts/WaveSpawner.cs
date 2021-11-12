@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public Transform m_PlayerPos;
+
     [System.Serializable]
     public class Wave
     {
@@ -113,8 +115,11 @@ public class WaveSpawner : MonoBehaviour
 
             for (int i = 0; i < enemyToSpawn.count; i++)
         {
-            Instantiate(enemyToSpawn.enemy, enemyToSpawn.spawnPoints.position, transform.rotation);
-            yield return new WaitForSeconds(1f / enemyToSpawn.rate);
+            Transform spawnedObject = Instantiate(enemyToSpawn.enemy, enemyToSpawn.spawnPoints.position, transform.rotation);
+            if (spawnedObject.GetComponent<EnemyAI>())
+                spawnedObject.GetComponent<EnemyAI>().m_PlayerPos = m_PlayerPos;
+
+            yield return new WaitForSeconds(enemyToSpawn.rate);
         }
     }
 
