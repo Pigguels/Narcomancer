@@ -148,7 +148,6 @@ public class NarrativeEventManager : MonoBehaviour
         }
         if (!timerenabled && wave4 == true)
         {
-            doorController.GetComponent<DoorController>().OpenVIP();
             WaveMaster.GetComponent<WaveManager>().Wave4();
             narcomancerAnim.SetBool("Talking", false);
             combat = 1;
@@ -299,6 +298,7 @@ public class NarrativeEventManager : MonoBehaviour
         henchmanAnim.SetBool("Dead",true);
         yield return new WaitForSeconds(1f);
         speakerParent.GetComponent<DialogueSpeaker>().VipAudio2();
+        doorController.GetComponent<DoorController>().OpenVIP();
         WaveMaster.GetComponent<WaveManager>().PostEnforcer();
         officeArrivalTrigger.SetActive(true);
         combat = 1;
