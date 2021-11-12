@@ -249,6 +249,7 @@ public class NarrativeEventManager : MonoBehaviour
         boss = 2;
         speakerParent.GetComponent<DialogueSpeaker>().BossFightStart();
         WaveMaster.GetComponent<WaveManager>().Boss1();
+        CageNarcomancer.GetComponent<NarcoGrenade>().enabled = true;
         
     }
 
