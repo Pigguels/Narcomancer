@@ -230,6 +230,9 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    [Space]
+    public Animator m_Animator;
+
     private CharacterController m_CharController;
 
     private LayerMask m_PlayerMask;
@@ -258,9 +261,16 @@ public class PlayerController : MonoBehaviour
     {
         if (!paused)
         {
-            if (m_Health.m_IsDead == true)
+            if (m_Health.m_IsDead)
             {
+                m_Animator.SetBool("isCrouching", false);
+                m_Animator.SetBool("isVaulting", true);
                 PlayerDeath();
+            }
+            else
+            {
+                m_Animator.SetBool("isCrouching", m_MoveState == MovementStates.crouch || m_MoveState == MovementStates.slide);
+                m_Animator.SetBool("isVaulting", m_MoveState == MovementStates.vault || m_MoveState == MovementStates.mantle);
             }
 
             if (dashLimit != 3)
@@ -273,7 +283,6 @@ public class PlayerController : MonoBehaviour
                     DashUI();
                 }
             }
-
 
             m_IsGrounded = IsGrounded();
             m_ObjectAbove = IsObjectAbove();
