@@ -93,4 +93,9 @@ public class DialogueSpeaker : MonoBehaviour
     {
         monologueAudio.SetActive(true);
     }
+
+    public void MonolgueEnd()
+    {
+        monologueAudio.SetActive(false);
+    }
 }

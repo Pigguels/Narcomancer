@@ -358,6 +358,7 @@ public class NarrativeEventManager : MonoBehaviour
     {
         GameEndUI.SetActive(true);
         monologueing = false;
+        speakerParent.GetComponent<DialogueSpeaker>().MonolgueEnd();
 
     }
 
