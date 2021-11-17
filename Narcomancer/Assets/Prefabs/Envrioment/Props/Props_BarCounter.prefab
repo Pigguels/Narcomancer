@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &169409744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7197389035341361097}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6167289, y: 1.4459285, z: 8.446626}
+  m_Center: {x: 0.7987635, y: 0.7229642, z: -0.08287561}
 --- !u!1 &9012839200292555412
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +27,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5847098086099878356
 Transform:
@@ -120,6 +133,10 @@ PrefabInstance:
     - target: {fileID: 4928572099153579891, guid: b547b74d1dcdba54cb464eabe025c8e5, type: 3}
       propertyPath: m_Name
       value: Props_Glasses_ShotStack
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928572099153579891, guid: b547b74d1dcdba54cb464eabe025c8e5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6806847563523440197, guid: b547b74d1dcdba54cb464eabe025c8e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -285,9 +302,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5663423567949252394, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8641190685107190203, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
       propertyPath: m_Name
       value: Props_Glass_Martini (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8641190685107190203, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
@@ -347,9 +372,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5663423567949252394, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8641190685107190203, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
       propertyPath: m_Name
       value: Props_Glass_Martini (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8641190685107190203, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
@@ -471,9 +504,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5663423567949252394, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8641190685107190203, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
       propertyPath: m_Name
       value: Props_Glass_Martini
+      objectReference: {fileID: 0}
+    - target: {fileID: 8641190685107190203, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
@@ -533,9 +574,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5663423567949252394, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8641190685107190203, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
       propertyPath: m_Name
       value: Props_Glass_Martini (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8641190685107190203, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
@@ -554,6 +603,10 @@ PrefabInstance:
     - target: {fileID: 6071162925093648111, guid: b8e8946043814fa41b632427eb17223a, type: 3}
       propertyPath: m_Name
       value: Props_Bar_DryingRack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6071162925093648111, guid: b8e8946043814fa41b632427eb17223a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7074372424475336767, guid: b8e8946043814fa41b632427eb17223a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -661,6 +714,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Props_Bar_Martinis
       objectReference: {fileID: 0}
+    - target: {fileID: 8594015515399713060, guid: 77951a8d8819e584bb73c088c39d634e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77951a8d8819e584bb73c088c39d634e, type: 3}
 --- !u!4 &1055632384465800061 stripped
@@ -719,9 +776,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5663423567949252394, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8641190685107190203, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
       propertyPath: m_Name
       value: Props_Glass_Martini (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8641190685107190203, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
@@ -847,6 +912,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Props_Bar_BottlesAbsolut
       objectReference: {fileID: 0}
+    - target: {fileID: 4153228962913758439, guid: f8f3fe367e4349349b8e04fd0909f4d7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8f3fe367e4349349b8e04fd0909f4d7, type: 3}
 --- !u!4 &9212055563403685565 stripped
@@ -905,9 +974,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5663423567949252394, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8641190685107190203, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
       propertyPath: m_Name
       value: Props_Glass_Martini (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8641190685107190203, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88ad961859cb79a438f1f4a3254d736e, type: 3}
@@ -983,11 +1060,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Props_Bar_Counter_fbx_v01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e84092f9371f43c4a809ec68bdb94cd7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e84092f9371f43c4a809ec68bdb94cd7, type: 3}
 --- !u!4 &7541721354121278835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e84092f9371f43c4a809ec68bdb94cd7, type: 3}
+  m_PrefabInstance: {fileID: 8008291705530684056}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7197389035341361097 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e84092f9371f43c4a809ec68bdb94cd7, type: 3}
   m_PrefabInstance: {fileID: 8008291705530684056}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8437570635235475377
@@ -1044,6 +1130,10 @@ PrefabInstance:
     - target: {fileID: 6378859585522320101, guid: 6438095b09cb59e418e2406b9f14ca65, type: 3}
       propertyPath: m_Name
       value: Props_Glasses_TallGlass_Stacked
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378859585522320101, guid: 6438095b09cb59e418e2406b9f14ca65, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6438095b09cb59e418e2406b9f14ca65, type: 3}
@@ -1168,6 +1258,10 @@ PrefabInstance:
     - target: {fileID: 984298725341997229, guid: 9e04521e20e3ad3409cb93847cbe45eb, type: 3}
       propertyPath: m_Name
       value: Props_DryingRack_Less
+      objectReference: {fileID: 0}
+    - target: {fileID: 984298725341997229, guid: 9e04521e20e3ad3409cb93847cbe45eb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e04521e20e3ad3409cb93847cbe45eb, type: 3}
