@@ -193,6 +193,8 @@ MonoBehaviour:
   NarcomancerDoor2: {fileID: 0}
   frontdoor1: {fileID: 0}
   frontdoor2: {fileID: 0}
+  vipdoor1: {fileID: 0}
+  vipdoor2: {fileID: 0}
   narrativecontroller: {fileID: 4051455440952143303}
 --- !u!1 &4051455440754543616
 GameObject:
@@ -268,11 +270,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Wave1Controller: {fileID: 4051455441411004950}
+  Wave1AI: {fileID: 0}
   Wave2Controller: {fileID: 4051455440853355859}
   Wave3Controller: {fileID: 4051455441468241316}
   Wave4Controller: {fileID: 4051455441905412463}
-  PostEnforcerController: {fileID: 0}
+  Wave4AI: {fileID: 0}
+  PostEnforcerAi: {fileID: 0}
+  PostEnforcerSMGs: {fileID: 0}
   AlarmRatsController: {fileID: 0}
+  Boss1Controller: {fileID: 0}
+  Boss2Controller: {fileID: 0}
+  Boss3Controller: {fileID: 0}
 --- !u!1 &4051455440853355859
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,6 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768998c23bcf4004990d6ac648246695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerPos: {fileID: 0}
   newWaves:
   - subWaves:
     - waveName: Rats Right Stairs
@@ -366,6 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveno: 1
   NarrativeController: {fileID: 4051455440952143303}
+  CannisterMaster: {fileID: 0}
 --- !u!1 &4051455440887013258
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,17 +532,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WaveMaster: {fileID: 4051455440843728812}
   doorController: {fileID: 3381264432906434702}
-  narcomancer: {fileID: 0}
+  OfficeNarcomancer: {fileID: 0}
+  CageNarcomancer: {fileID: 0}
   henchman: {fileID: 0}
   officeWindow: {fileID: 0}
+  officeWindowBroken: {fileID: 0}
   glassCage: {fileID: 0}
+  henchmanAnim: {fileID: 0}
+  Briefcasereal: {fileID: 0}
+  Briefcasefake: {fileID: 0}
+  GoodEndUI: {fileID: 0}
+  BadEndUI: {fileID: 0}
+  GameEndUI: {fileID: 0}
   speakerParent: {fileID: 4051455442669419604}
   phonering: {fileID: 7740799775356045723}
+  OfficeBark: {fileID: 0}
+  BossBark: {fileID: 0}
+  firealarm: {fileID: 0}
+  firealarmoff: {fileID: 0}
+  VIPgunshot: {fileID: 0}
+  burnsound: {fileID: 0}
+  IntroTrigger: {fileID: 0}
+  VipTrigger: {fileID: 0}
   officeArrivalTrigger: {fileID: 2603470069159438654}
   officeEscapeTrigger: {fileID: 6694872361823937339}
   monologueTrigger: {fileID: 2864021006797305450}
   officeGas: {fileID: 0}
+  drugs: {fileID: 0}
+  drugsprompt: {fileID: 0}
+  destroyeddrugs: {fileID: 0}
   timer: 0
+  barktimer: 0
   bluster: 0
   wave2: 0
   wave3: 0
@@ -877,6 +907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveno: 0
   NarrativeController: {fileID: 4051455440952143303}
+  CannisterMaster: {fileID: 0}
 --- !u!114 &7696901728980454694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,6 +920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768998c23bcf4004990d6ac648246695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerPos: {fileID: 0}
   newWaves:
   - subWaves:
     - waveName: Rats
@@ -1204,7 +1236,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4051455441468241317}
   - component: {fileID: 4051455441468241319}
-  - component: {fileID: 4051455441468241318}
   m_Layer: 0
   m_Name: Wave3 Controller
   m_TagString: Untagged
@@ -1238,6 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768998c23bcf4004990d6ac648246695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerPos: {fileID: 0}
   newWaves:
   - subWaves:
     - waveName: Magnum Grunt TL
@@ -1293,20 +1325,6 @@ MonoBehaviour:
       rate: 0
   m_timeBetweenWaves: 2
   searchCountdown: 1
---- !u!114 &4051455441468241318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4051455441468241316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3a3bc55e2dea9e489eca17274b44f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveno: 2
-  NarrativeController: {fileID: 4051455440952143303}
 --- !u!1 &4051455441647698904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,6 +1531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768998c23bcf4004990d6ac648246695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerPos: {fileID: 0}
   newWaves:
   - subWaves:
     - waveName: Enforcer
@@ -1547,6 +1566,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveno: 3
   NarrativeController: {fileID: 4051455440952143303}
+  CannisterMaster: {fileID: 0}
 --- !u!1 &4051455442126800053
 GameObject:
   m_ObjectHideFlags: 0
@@ -2497,14 +2517,14 @@ PrefabInstance:
       objectReference: {fileID: 4051455440952143303}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
---- !u!1 &2603470069159438654 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1779677155153498948, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
-  m_PrefabInstance: {fileID: 4365057633557772922}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2603470069159438642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1779677155153498952, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
+  m_PrefabInstance: {fileID: 4365057633557772922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2603470069159438654 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1779677155153498948, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
   m_PrefabInstance: {fileID: 4365057633557772922}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4543469155753764142
@@ -2612,14 +2632,14 @@ PrefabInstance:
       objectReference: {fileID: 4051455440952143303}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
---- !u!4 &2864021006797305446 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1779677155153498952, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
-  m_PrefabInstance: {fileID: 4543469155753764142}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2864021006797305450 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1779677155153498948, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
+  m_PrefabInstance: {fileID: 4543469155753764142}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2864021006797305446 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1779677155153498952, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
   m_PrefabInstance: {fileID: 4543469155753764142}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4925345902338895999
@@ -2723,13 +2743,13 @@ PrefabInstance:
       objectReference: {fileID: 4051455440952143303}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
---- !u!4 &6694872361823937335 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1779677155153498952, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
-  m_PrefabInstance: {fileID: 4925345902338895999}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6694872361823937339 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1779677155153498948, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
+  m_PrefabInstance: {fileID: 4925345902338895999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6694872361823937335 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1779677155153498952, guid: 6f1d3de790b258f4e9ff45f20e85b04a, type: 3}
   m_PrefabInstance: {fileID: 4925345902338895999}
   m_PrefabAsset: {fileID: 0}
