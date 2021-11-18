@@ -45,6 +45,7 @@ public class NarrativeEventManager : MonoBehaviour
 
     public GameObject officeGas;
     public GameObject drugs;
+    public GameObject drugsprompt;
     public GameObject destroyeddrugs;
 
     public float timer;
@@ -237,6 +238,8 @@ public class NarrativeEventManager : MonoBehaviour
     {
         phonering.SetActive(false);
         speakerParent.GetComponent<DialogueSpeaker>().PhoneDialogue();
+        Briefcasefake.SetActive(true);
+        drugsprompt.SetActive(true);
     }
     public void StoryDestroyTheDrugs()
     {
@@ -366,7 +369,7 @@ public class NarrativeEventManager : MonoBehaviour
     {
         BadEndUI.SetActive(true);
         Briefcasereal.SetActive(false);
-        Briefcasefake.SetActive(true);
+        //Briefcasefake.SetActive(true);
         yield return new WaitForSeconds(10f);
         BadEndUI.SetActive(false);
         
