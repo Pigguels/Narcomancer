@@ -19,15 +19,16 @@ public class GasEffect : MonoBehaviour
     private void Awake()
     {
         volume = camera.GetComponent<Volume>();
+        playerHealth = player.gameObject.GetComponent<Health>();
     }
 
     private void Update()
     {
         if (player.transform.position.y >= 4.5f)
         {
-            volume.weight = Mathf.Lerp(volume.weight, 0, 1);
+            volume.weight = Mathf.Lerp(volume.weight, 0, .05f);
         }
-
+       
     }
 
 
@@ -36,8 +37,13 @@ public class GasEffect : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             
-            volume.weight = Mathf.Lerp(volume.weight, 1f, 2f);
-            playerHealth = other.gameObject.GetComponent<Health>();
+            volume.weight = Mathf.Lerp(volume.weight, 1f, 0.1f);
+            if(volume.weight >=.9f)
+            {
+                volume.weight = 1f;
+
+            }
+            
             inTimer += Time.deltaTime;
             if (inTimer >= 1f)
             {
@@ -47,5 +53,5 @@ public class GasEffect : MonoBehaviour
         }
     }
 
-    
+  
 }
