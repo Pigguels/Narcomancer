@@ -350,6 +350,7 @@ public class NarrativeEventManager : MonoBehaviour
     public void GoodEnd()
     {
         GoodEndUI.SetActive(true);
+        CageNarcomancer.tag = "Untagged";
     }
 
     public void BadEnd()
