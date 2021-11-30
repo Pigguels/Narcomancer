@@ -22,6 +22,9 @@ public class DoorController : MonoBehaviour
     [Header("VIP Doors")]
     public GameObject vipdoor1;
     public GameObject vipdoor2;
+    [Header("Hatch Doors")]
+    public GameObject hatchdoor1;
+    public GameObject hatchdoor2;
 
     public GameObject narrativecontroller;
     // Start is called before the first frame update
@@ -81,6 +84,10 @@ public class DoorController : MonoBehaviour
         vipdoor2.SendMessage("OpenDoors");
     }
 
-
+    public void OpenHatch()
+    {
+        hatchdoor1.SendMessage("OpenDoors");
+        hatchdoor2.SendMessage("OpenDoors");
+    }
 
 }

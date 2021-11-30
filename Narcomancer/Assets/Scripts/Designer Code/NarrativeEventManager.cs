@@ -277,6 +277,7 @@ public class NarrativeEventManager : MonoBehaviour
 
         //cageAnim.SetTrigger("CageFall");
         StartCoroutine(triggerDelay());
+        CageNarcomancer.GetComponent<NarcoGrenade>().enabled = false;
         boss = 0;
         volume = 0;
 
@@ -315,6 +316,8 @@ public class NarrativeEventManager : MonoBehaviour
     {
         speakerParent.GetComponent<DialogueSpeaker>().DestroyedDrugs();
         yield return new WaitForSeconds(6.4f);
+        doorController.GetComponent<DoorController>().OpenHatch();
+        yield return new WaitForSeconds(.5f);
         cageAnim.SetTrigger("LowerCage");
         speakerParent.GetComponent<DialogueSpeaker>().Descent();
         boss = 1;

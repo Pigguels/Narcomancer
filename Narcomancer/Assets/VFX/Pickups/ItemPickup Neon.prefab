@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1006954208669902525}
   - component: {fileID: 8283738224560930731}
   - component: {fileID: 2065588369}
+  - component: {fileID: -1426142262344678203}
   m_Layer: 0
   m_Name: ItemPickup Neon
   m_TagString: Untagged
@@ -214,6 +215,29 @@ TrailRenderer:
   m_MinVertexDistance: 0
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &-1426142262344678203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615391549884912535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  Event: event:/UI SFX/UI Confirmation SFX
+  PlayEvent: 12
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 1
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &7422240405146578969
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1795566533279221009}
   - component: {fileID: 3185919311927883942}
   - component: {fileID: 1853982653}
+  - component: {fileID: -3856362529808598624}
   m_Layer: 0
   m_Name: ItemPickup Health
   m_TagString: Untagged
@@ -214,6 +215,29 @@ TrailRenderer:
   m_MinVertexDistance: 0
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &-3856362529808598624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736483341638555228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  Event: event:/UI SFX/UI Confirmation SFX
+  PlayEvent: 12
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 1
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &7849742204234635457
 GameObject:
   m_ObjectHideFlags: 0
