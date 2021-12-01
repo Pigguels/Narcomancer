@@ -77,6 +77,7 @@ public class DialogueSpeaker : MonoBehaviour
 
     public void DestroyedDrugs()
     {
+        Phonedialogue.SetActive(false);
         drugsdestroyed.SetActive(true);
     }
 

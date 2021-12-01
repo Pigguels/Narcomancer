@@ -47,6 +47,7 @@ public class NarrativeEventManager : MonoBehaviour
     public GameObject drugs;
     public GameObject drugsprompt;
     public GameObject destroyeddrugs;
+    public GameObject fresneldrugs;
 
     public float timer;
     public float barktimer;
@@ -70,6 +71,7 @@ public class NarrativeEventManager : MonoBehaviour
     
     public Animator cageAnim;
     
+
 
 
 
@@ -239,6 +241,7 @@ public class NarrativeEventManager : MonoBehaviour
         phonering.SetActive(false);
         speakerParent.GetComponent<DialogueSpeaker>().PhoneDialogue();
         Briefcasefake.SetActive(true);
+        fresneldrugs.SetActive(true);
         drugsprompt.SetActive(true);
     }
     public void StoryDestroyTheDrugs()
