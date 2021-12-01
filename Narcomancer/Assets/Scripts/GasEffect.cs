@@ -10,15 +10,19 @@ public class GasEffect : MonoBehaviour
     public float damagePercent = .1f;
     public GameObject camera;
     Volume volume;
-    public float maxWeight = 1f;
-    public float lowWeight =.1f;
+    public float volumeWeight;
+    
     public GameObject player;
 
     // Start is called before the first frame update
-
+    private void OnEnable()
+    {
+        Debug.LogError("GAS ON");
+    }
     private void Awake()
     {
         volume = camera.GetComponent<Volume>();
+        volumeWeight = volume.weight;
         playerHealth = player.gameObject.GetComponent<Health>();
     }
 
@@ -53,5 +57,30 @@ public class GasEffect : MonoBehaviour
         }
     }
 
-  
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            volume.weight = Mathf.Lerp(volume.weight, 0, .05f);
+        }
+        
+    }
+
+
+    private void OnDisable()
+    {
+        Debug.LogError("GAS DISABLED");
+        //StartCoroutine(FadeVolume());
+    }
+
+    public IEnumerator FadeoutVol()
+    {
+        while (volume.weight > 0.0f)
+        {
+            volume.weight -= 3.0f * Time.deltaTime;
+            volume.weight = Mathf.Clamp01(volume.weight);
+
+            yield return null;
+        }
+    }
 }

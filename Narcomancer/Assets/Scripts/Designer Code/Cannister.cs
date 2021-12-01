@@ -84,6 +84,7 @@ public class Cannister : MonoBehaviour
         Explosion3.SetActive(true);
         Glass.GetComponent<Renderer>().material = CrackedCage3;
         Active3.SetActive(false);
+        StartCoroutine(Gas.GetComponentInChildren<GasEffect>().FadeoutVol());
         Gas.SetActive(false);
         Narcomancer.tag = "Interactable";
 
@@ -105,7 +106,10 @@ public class Cannister : MonoBehaviour
         print("so wheres the boom");
         Explosion1.SetActive(true);
         Active1.SetActive(false);
+
+        StartCoroutine(Gas.GetComponentInChildren<GasEffect>().FadeoutVol());
         Gas.SetActive(false);
+
         NarcoAnim.SetTrigger("Surpirsed");
         CrackSound.SetActive(true);
         CrackSound.SetActive(false);
@@ -117,7 +121,10 @@ public class Cannister : MonoBehaviour
     {
         Explosion2.SetActive(true);
         Active2.SetActive(false);
+
+        StartCoroutine(Gas.GetComponentInChildren<GasEffect>().FadeoutVol());
         Gas.SetActive(false);
+
         NarcoAnim.SetTrigger("Surpirsed");
         CrackSound.SetActive(true);
         CrackSound.SetActive(false);
