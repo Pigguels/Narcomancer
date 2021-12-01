@@ -232,8 +232,11 @@ public class EnemyAI : MonoBehaviour
             {
                 m_CurrentState = States.stunned;
                 m_StunnedTime -= Time.deltaTime;
-                m_NavAgent.velocity = Vector3.zero;
-                m_NavAgent.destination = transform.position;
+                if (m_EnemyType != EnemyType.enforcer)
+                {
+                    m_NavAgent.velocity = Vector3.zero;
+                    m_NavAgent.destination = transform.position;
+                }
                 
                 m_TimeUntilNextAttack = m_TimeBetweenAttacks + m_TimeBetweenSubAttacks * m_SubAttackAmount;
                 m_CurrentSubAttack = 0;
